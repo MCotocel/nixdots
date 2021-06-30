@@ -2,6 +2,10 @@
 
 {
 
+  imports = [
+    ./hardware-configuration.nix
+  ];
+
   # Bootloader for efi
   boot.loader = {
     systemd-boot.enable = true; # Bootloader

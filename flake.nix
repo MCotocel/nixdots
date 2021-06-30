@@ -11,7 +11,6 @@
     nixosConfigurations.snowstorm = nixpkgs.lib.nixosSystem {
       modules = [
         ./hosts/snowstorm/configuration.nix
-	./hosts/snowstorm/hardware-configuration.nix
       ];
       system = "x86_64-linux";
     };
