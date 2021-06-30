@@ -38,6 +38,7 @@
   users.users.matei = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # For sudo
+    shell = pkgs.zsh;
   };
 
   # System-wide packages
@@ -45,7 +46,14 @@
     vim
     wget
     git
+    trash-cli
   ];
+
+  fonts.fonts = with pkgs; [
+    iosevka
+  ];
+  
+  console.font = "Iosevka Regular";
 
   nix = {
     package = pkgs.nixUnstable;

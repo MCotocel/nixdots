@@ -1,11 +1,19 @@
 {
+  description = "A work-in-progress flake";
+
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    home.url    = "github:nix-community/home-manager";
+    nur.url     = "github:nix-community/nur";
   };
 
-  outputs = { self,nixpkgs }:
-    let pkgs = nixpkgs.legacyPackages.x86_64-linux;
-    in {
-      hello = pkgs.hello;
+  outputs = { self, nixpkgs, home, nur, ... }: {
+    nixosConfigurations.blizzard = nixpkgs.lib.nixosSystem {
+      modules = [
+        ./configuration.nix
+	./hardware-configuration.nix
+      ];
+      system = "x86_64-linux";
+    };
   };
 }
