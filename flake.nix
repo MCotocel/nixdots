@@ -8,10 +8,10 @@
   };
 
   outputs = { self, nixpkgs, home, nur, ... }: {
-    nixosConfigurations.blizzard = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.snowstorm = nixpkgs.lib.nixosSystem {
       modules = [
-        ./configuration.nix
-	./hardware-configuration.nix
+        ./hosts/snowstorm/configuration.nix
+	./hosts/snowstorm/hardware-configuration.nix
       ];
       system = "x86_64-linux";
     };

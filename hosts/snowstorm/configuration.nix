@@ -1,11 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  # Import additional files
-  imports =
-    [
-      ./hardware-configuration.nix # Hardware scan
-    ];
 
   # Bootloader for efi
   boot.loader = {
@@ -15,7 +10,7 @@
 
   # Network settings
   networking = {
-    hostName = "blizzard"; # Hostname
+    hostName = "snowstorm"; # Hostname
     # wireless.enable = true; # Wireless
     useDHCP = false; # Deprecated, so set to false
     interfaces.ens33.useDHCP = true;

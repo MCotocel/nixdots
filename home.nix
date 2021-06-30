@@ -24,5 +24,5 @@
     zsh
   ];
 
-  home.file.".zshrc".source        = ./zshrc;
+  home.file.".zshrc".source        = ./config/zshrc;
 }
