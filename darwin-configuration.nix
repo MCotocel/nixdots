@@ -4,8 +4,6 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  environment.darwinConfig = "\$HOME/.config/nixpkgs/darwin-configuration.nix";
-
   # List packages installed in system profile
   environment.systemPackages = [
     pkgs.ack

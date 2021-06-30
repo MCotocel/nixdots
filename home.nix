@@ -4,8 +4,8 @@
   programs.home-manager.enable = true;
   programs.ncmpcpp.enable      = true;
 
-  home.username = "Matei";
-  home.homeDirectory = "/Users/Matei";
+  home.username = "matei";
+  home.homeDirectory = "/Users/matei";
 
   home.stateVersion = "21.11";
 
@@ -15,12 +15,8 @@
     ncmpcpp
     neofetch
     neovim
-    skhd
-    yabai
     zsh
   ];
 
-  home.file.".config/emacs".source = ./emacs;
-  home.file.".config/nvim".source  = ./nvim;
   home.file.".zshrc".source        = ./zshrc;
 }
