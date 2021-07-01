@@ -11,7 +11,7 @@
   };
 
   home.username = "matei";
-  home.homeDirectory = "/Users/matei";
+  home.homeDirectory = "/home/matei";
 
   home.stateVersion = "21.11";
 
