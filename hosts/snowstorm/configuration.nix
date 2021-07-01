@@ -12,11 +12,10 @@
     efi.canTouchEfiVariables = true;
   };
 
-  # Network settings
+  # Network settings. No wifi because this is a VM
   networking = {
     hostName = "snowstorm"; # Hostname
-    # wireless.enable = true; # Wireless
-    useDHCP = false; # Deprecated, so set to false
+    useDHCP = false; # Deprecated, so set explicitly to false
     interfaces.ens33.useDHCP = true;
   };
 
@@ -42,10 +41,14 @@
 
   # System-wide packages
   environment.systemPackages = with pkgs; [
+    emacs
+    git
+    mpd
+    ncmpcpp
+    neovim
     vim
     wget
-    git
-    trash-cli
+    zsh
   ];
 
   fonts.fonts = with pkgs; [

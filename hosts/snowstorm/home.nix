@@ -15,14 +15,5 @@
 
   home.stateVersion = "21.11";
 
-  home.packages = with pkgs; [
-    emacs
-    mpd
-    ncmpcpp
-    neofetch
-    neovim
-    zsh
-  ];
-
   home.file.".zshrc".source        = ./config/zshrc;
 }
