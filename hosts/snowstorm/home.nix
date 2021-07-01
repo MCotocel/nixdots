@@ -15,5 +15,5 @@
 
   home.stateVersion = "21.11";
 
-  home.file.".zshrc".source        = ./config/zshrc;
+  home.file.".zshrc".source        = ../../config/zshrc;
 }

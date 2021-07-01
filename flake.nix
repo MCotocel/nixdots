@@ -12,16 +12,13 @@
     nixosConfigurations = {
 
       snowstorm = nixpkgs.lib.nixosSystem {
-        modules = [
-	  ./hosts/snowstorm/configuration.nix
-	  ({ ... }: {
-	  imports = [
-	    home-manager.nixosModules.home-manager
-	    { home-manager.users.matei = ./hosts/snowstorm/home.nix; }
-	  ];
-	  })
-        ];
         system = "x86_64-linux";
+        modules = [
+	  home-manager.nixosModules.home-manager {
+              home-manager.users.matei = import ./hosts/snowstorm/home.nix;
+	  }
+	  ./hosts/snowstorm/configuration.nix
+        ];
       };
 
     };
