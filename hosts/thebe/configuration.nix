@@ -9,10 +9,7 @@
   # Bootloader for efi
   boot.loader = {
     timeout = 1;
-    grub.enable = true;
-    grub.efiSupport = true;
-    grub.device = "/dev/disk/by-label/nixos";
-    grub.backgroundColor = "181e23";
+    systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
 
@@ -41,6 +38,24 @@
   # Bluetooth
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
+
+  # Security
+  security.sudo.enable = false;
+  security.doas = {
+    enable = true;
+    wheelNeedsPassword = true;
+    extraRules = [
+      { groups = [ "wheel" ]; noPass = false; keepEnv = true; persist = true; }
+    ];
+  };
+  services.clamav = {
+    daemon.enable = true;
+    updater = {
+      enable = true;
+      frequency = 24;
+      interval = "hourly";
+    }
+  }
 
   # User accounts
   users.users.matei = {
