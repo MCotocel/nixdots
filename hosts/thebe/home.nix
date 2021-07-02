@@ -35,10 +35,14 @@
     ".config/picom".source       = ../../config/picom;
     ".config/polybar".source     = ../../config/polybar;
     ".config/qutebrowser".source = ../../config/qutebrowser;
-    ".config/ranger".source      = ../../config/ranger;
     ".config/rofi".source        = ../../config/rofi;
     ".config/sxhkd".source       = ../../config/sxhkd;
     ".config/wtf".source         = ../../config/wtf;
+
+    # Ranger
+    ".config/ranger/rc.conf".source    = ../../config/ranger/rc.conf;
+    ".config/ranger/rifle.conf".source = ../../config/ranger/rifle.conf;
+    ".config/ranger/scope.sh".source   = ../../config/ranger/scope.sh;
 
     # Emacs
     ".config/emacs/doom-quiet-dark-theme.el".source  = ../../config/emacs/doom-quiet-dark-theme.el;
