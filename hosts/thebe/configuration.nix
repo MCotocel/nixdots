@@ -64,6 +64,14 @@
     shell = pkgs.zsh;
   };
 
+  windowManager.awesome = {
+    enable = true;
+    luaModules = with pkgs.luaPackages; [
+     luarocks
+     awestore
+    ];
+  };
+
   # System-wide packages
   environment.systemPackages = with pkgs; [
     ack
