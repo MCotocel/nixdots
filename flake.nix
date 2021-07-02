@@ -11,13 +11,13 @@
 
     nixosConfigurations = {
 
-      snowstorm = nixpkgs.lib.nixosSystem {
+      thebe = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
 	  home-manager.nixosModules.home-manager {
-              home-manager.users.matei = import ./hosts/snowstorm/home.nix;
+              home-manager.users.matei = import ./hosts/thebe/home.nix;
 	  }
-	  ./hosts/snowstorm/configuration.nix
+	  ./hosts/thebe/configuration.nix
         ];
       };
 

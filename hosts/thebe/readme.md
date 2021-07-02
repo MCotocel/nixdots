@@ -1,4 +1,4 @@
-# Snowstorm
+# Thebe
 
 Virtual machine to test NixOS in.
 

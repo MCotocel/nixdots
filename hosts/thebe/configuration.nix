@@ -14,7 +14,7 @@
 
   # Network settings. No wifi because this is a VM
   networking = {
-    hostName = "snowstorm"; # Hostname
+    hostName = "Thebe"; # Hostname
     useDHCP = false; # Deprecated, so set explicitly to false
     interfaces.ens33.useDHCP = true;
   };

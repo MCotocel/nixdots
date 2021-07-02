@@ -51,14 +51,19 @@ function clean() {
   sudo nix-env --delete-generations old
 }
 
+function search() {
+  nix search nixpkgs $2
+}
+
 case "$1" in
 
     pull)     pull ;;
     push)     push ;;
-    rebuild)  rebuild $2 ;;
+    rebuild)  rebuild $@ ;;
     rollback) rollback ;;
     update)   update ;;
     clean)    clean ;;
+    search)   search $@ ;;
 
     '')      help ;;
     help)    help ;;
