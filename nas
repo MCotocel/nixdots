@@ -30,10 +30,6 @@ function push() {
 }
 
 function rebuild() {
-  if [[ $# -ne 2 ]]; then
-    echo "Please specify the host"
-    exit 1
-  fi
   echo "Rebuilding config"
   doas nixos-rebuild --flake /etc/nixos#$2 switch
 }

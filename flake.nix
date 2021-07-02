@@ -19,6 +19,7 @@
 	      }
 	      { nixpkgs.overlays = [ nur.overlay ]; }
 	      ./hosts/thebe/configuration.nix
+          ./overlays/default.nix
         ];
       };
 

@@ -4,7 +4,6 @@
 
   imports = [
     ./hardware-configuration.nix
-    ../../overlays/awestore.nix
   ];
 
   # Bootloader for efi
