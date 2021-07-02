@@ -15,7 +15,7 @@
 
   # Network settings. No wifi because this is a VM
   networking = {
-    hostName = "Thebe"; # Hostname
+    hostName = "thebe"; # Hostname
     useDHCP = false; # Deprecated, so set explicitly to false
     interfaces.ens33.useDHCP = true;
   };
@@ -54,8 +54,8 @@
       enable = true;
       frequency = 24;
       interval = "hourly";
-    }
-  }
+    };
+  };
 
   # User accounts
   users.users.matei = {
@@ -66,9 +66,11 @@
 
   # System-wide packages
   environment.systemPackages = with pkgs; [
+    cmake
     emacs
     git
     mpd
+    mu
     ncmpcpp
     neovim
     vim

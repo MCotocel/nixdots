@@ -24,9 +24,9 @@ function pull() {
 
 function push() {
   echo "Pushing config to /etc/nixos..."
-  sudo rm -rf /etc/.nixos-bak
-  sudo mv /etc/nixos /etc/.nixos-bak
-  sudo cp -R $HOME/nixdots/ /etc/nixos
+  doas rm -rf /etc/.nixos-bak
+  doas mv /etc/nixos /etc/.nixos-bak
+  doas cp -R $HOME/nixdots/ /etc/nixos
 }
 
 function rebuild() {
@@ -35,24 +35,24 @@ function rebuild() {
     exit 1
   fi
   echo "Rebuilding config"
-  sudo nixos-rebuild --flake /etc/nixos#$2 switch
+  doas nixos-rebuild --flake /etc/nixos#$2 switch
 }
 
 function rollback() {
   echo "Rolling back"
-  sudo nixos-rebuild --rollback switch
+  doas nixos-rebuild --rollback switch
 }
 
 function update() {
   echo "Updating flake"
-  sudo nix flake update /etc/nixos
+  doas nix flake update /etc/nixos
 }
 
 function clean() {
   echo "Cleaning system"
-  sudo nix-collect-garbage -d
-  sudo nix-store --optimise
-  sudo nix-env --delete-generations old
+  doas nix-collect-garbage -d
+  doas nix-store --optimise
+  doas nix-env --delete-generations old
 }
 
 function search() {
