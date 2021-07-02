@@ -1,0 +1,78 @@
+.theme-dark {
+    --background-primary: #1F252A;
+    --background-secondary: #1F252A;
+    --background-tertiary: #1F252A;
+    --background-floating: #1F252A;
+    --background-accent: #1F252A;
+
+    --text-normal: #D5D5D5;
+    --text-spotify : #D5D5D5;
+    --text-muted : #D5D5D5;
+    --text-link : #D5D5D5;
+
+    --header-primary: #D5D5D5;
+    --header-secondary: #D5D5D5;
+    --header-tertiary: #D5D5D5;
+
+    --interactive-normal: #D5D5D5;
+    --interactive-hover: #D5D5D5;
+    --interactive-active: #D5D5D5;
+
+    --background-modifier-hover: #1F252A;
+    --background-modifier-selected: #1F252A;
+    --background-message-hover: #262B31;
+}
+
+::-webkit-scrollbar {
+    background: transparent;
+    width:5px !important;
+}
+
+div {
+  font-family: "Ubuntu";
+  letter-spacing: -0.5px;
+  font-size: 16px;
+}
+
+code {
+  font-family: "Iosevka";
+  font-size: 10px;
+  font-style: italic;
+}
+
+div[class^="scrollableContainer"] {
+    background-color: var(--background-secondary);
+}
+
+section[class^="panels"] > div[class^="container"] {
+    background-color: var(--background-secondary);
+}
+
+div[class^="tabBody"] {
+    background-color: var(--background-primary);
+}
+
+.wrapper-1BJsBx.selected-bZ3Lue .childWrapper-anI2G9 {
+    background-color: var(--background-primary);
+}
+.wrapper-1BJsBx .childWrapper-anI2G9 {
+    background-color: var(--background-primary);
+}
+
+div[class*="root"] > form > div[class*="content"] {
+    background-color: var(--background-secondary);
+}
+
+div[class*="root"] > form > div[class*="content"] > div[class*="input"] > h5[class*="colorStandard"] {
+    background-color: var(--background-secondary);
+    margin: 0;
+    color: var(--text-normal);
+}
+
+div[class*="root"] > form > div[class*="content"] > div[class*="input"] > div[class*="inputWrapper"] > input {
+    background-color: var(--background-tertiary);
+}
+
+div[class*="flex"][class*="horizontalReverse"][class*="directionRowReverse"] {
+    background-color: var(--background-floating);
+}

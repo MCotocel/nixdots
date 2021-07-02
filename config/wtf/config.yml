@@ -1,0 +1,197 @@
+wtf:
+  colors:
+    border:
+      focusable: grey
+      focused: lightblue
+      normal: gray
+  grid:
+    columns: [64, 64, 32]
+    rows: [10, 10, 10, 10, 10, 10]
+  refreshInterval: 1
+  mods:
+    clocks:
+      colors:
+        rows:
+          even: "lightblue"
+          odd: "lightblue"
+      enabled: true
+      border: true
+      focusable: true
+      locations:
+        Dubai: "Asia/Dubai"
+        Bucharest: "Europe/Bucharest"
+        New York: "America/New York"
+        London: "Europe/London"
+      position:
+        top: 0
+        left: 0
+        height: 1
+        width: 2
+      refreshInterval: 1
+      sort: "alphabetical"
+      title: "Clocks"
+      type: "clocks"
+      focusChar: 1
+    arch-news-rss:
+      colors:
+        rows:
+          even: "lightblue"
+          odd: "lightblue"
+      enabled: true
+      border: true
+      focusable: true
+      feeds:
+        - https://archlinux.org/feeds/news/
+      position:
+        top: 1
+        left: 0
+        height: 1
+        width: 2
+      refreshInterval: 1440
+      feedLimit: 20
+      sort: "alphabetical"
+      title: "Arch Linux News"
+      type: "feedreader"
+      focusChar: 2
+    ipinfo:
+      colors:
+        name: "lightblue"
+      enabled: true
+      border: true
+      focusable: true
+      position:
+        top: 2
+        left: 0
+        height: 1
+        width: 2
+      refreshInterval: 150
+      sort: "alphabetical"
+      title: "IP Info"
+      type: "ipinfo"
+      focusChar: 3
+    resourceusage:
+      colors:
+        name: "lightblue"
+      enabled: true
+      border: true
+      focusable: true
+      position:
+        top: 3
+        left: 0
+        height: 1
+        width: 2
+      refreshInterval: 1
+      cpuCombined: false
+      showCPU: true
+      showMem: true
+      sort: "alphabetical"
+      title: "Resoucre Usage"
+      type: "resourceusage"
+      focusChar: 4
+    weather:
+      colors:
+        name: "lightblue"
+      enabled: true
+      border: true
+      focusable: true
+      position:
+        top: 4
+        left: 0
+        height: 1
+        width: 2
+      refreshInterval: 100
+      city: "abu dhabi"
+      unit: "m"
+      language: "en"
+      sort: "alphabetical"
+      title: "Dubai weather"
+      type: "prettyweather"
+      focusChar: 5
+    fortune:
+      colors:
+        name: "lightblue"
+      enabled: true
+      border: true
+      focusable: true
+      position:
+        top: 5
+        left: 0
+        height: 1
+        width: 2
+      refreshInterval: 100
+      cmd: "fortune"
+      title: "Fortune"
+      type: "cmdrunner"
+      focusChar: 6
+    Updates:
+      colors:
+        name: "lightblue"
+      enabled: true
+      border: true
+      focusable: true
+      position:
+        top: 6
+        left: 0
+        height: 5
+        width: 2
+      refreshInterval: 100
+      cmd: "checkupdates"
+      title: "Updates"
+      type: "cmdrunner"
+      focusChar: 7
+    git-dots:
+      colors:
+        name: "lightblue"
+      enabled: true
+      border: true
+      focusable: true
+      position:
+        top: 0
+        left: 2
+        height: 4
+        width: 7
+      repositories:
+        - "/home/matei/linux-dotfiles"
+      commitCount: 1
+      commitFormat: "[lightgreen]%h [grey]%cd [white]%s [grey]%an[white]"
+      dateFormat: "%H:%M %d %b %y"
+      refreshInterval: 5
+      sort: "alphabetical"
+      title: "Linux Dotfiles"
+      type: "git"
+      focusChar: 8
+    security:
+      colors:
+        name: "lightblue"
+      enabled: true
+      border: true
+      focusable: true
+      position:
+        top: 4
+        left: 2
+        height: 2
+        width: 7
+      refreshInterval: 100
+      sort: "alphabetical"
+      title: "Security"
+      type: "security"
+      focusChar: 9
+    r/unixporn:
+      colors:
+        name: "lightblue"
+      enabled: true
+      border: true
+      focusable: true
+      position:
+        top: 6
+        left: 2
+        height: 5
+        width: 7
+      numberOfPosts: 50
+      sortOrder: "hot"
+      subreddit: "unixporn"
+      refreshInterval: 100
+      sort: "alphabetical"
+      title: "r/UnixPorn"
+      type: "subreddit"
+      focusChar: 0

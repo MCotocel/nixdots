@@ -1,0 +1,7 @@
+configuration {
+	theme: "~/.config/rofi/Quiet.rasi";
+    show-icons: true; 
+    icon-theme: "Papirus";
+    terminal: "/usr/bin/kitty";
+    modi: "window,drun,run,keys,file-browser";
+}

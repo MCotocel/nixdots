@@ -1,0 +1,31 @@
+[colors]
+
+background = ${xrdb:background:#202632}
+foreground = ${xrdb:background:#FFFFFF}
+
+[bar/bar]
+enable-ipc = true
+height = 30
+width = 150px
+offset-x = 0%
+offset-y = 1%
+radius = 0
+border-size = 1
+border-color = #4287f5
+module-margin = 0
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 1
+
+padding = 3
+font-0 = "Source Code Pro:style=Semibold:size=11;3"
+
+modules-center = time
+
+[module/time]
+type = custom/script
+interval = 0.5
+exec = echo "Time: `date +%H:%M:%S`"
+offset-x = 50%

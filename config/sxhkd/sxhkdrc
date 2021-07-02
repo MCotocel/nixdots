@@ -1,0 +1,143 @@
+# Create terminal
+super + Return
+	/sbin/kitty
+
+# Power menu
+super + Escape
+	~/.bin/rofi-power
+
+# Reload config
+super + control + Escape
+	pkill -USR1 -x sxhkd
+	sh ~/.config/bspwm/bspwmrc
+
+# Change focused window
+super + shift + {h,j,k,l}
+	bspc node --focus {west,south,north,east}
+
+# Resize window
+super + alt + {h,j,k,l}
+	bspc node -z {left -40 0 || bspc node -z right -40 0, \
+                bottom 0 40 || bspc node -z top 0 40,\
+                top 0 -40 || bspc node -z bottom 0 -40,\
+                right 40 0 || bspc node -z left 40 0}
+
+# Fullscreen window
+super + shift + f
+	bspc node --state \~fullscreen && xdo above -t "$(xdo id -N bspwm -n root | sort | head -n 1)" $(xdo id -n tint2)
+
+# Move window through workspaces
+super + control + {h,j,k,l}
+    bspc node -s {west,south,north,east}
+
+# Move to previous workspace
+super + Left
+	bspc desktop --focus prev
+
+# Move to next workspace
+super +  Right
+	bspc desktop --focus next
+
+# Move to workspace by number
+super + {0-9}
+    bspc desktop -f {0-9}
+
+# Move window to previous workspace
+super + shift + Left
+	id=$(bspc query --nodes --node); bspc node --to-desktop {prev}; bspc desktop --focus next; bspc node --focus ${id}
+
+# Move window to next workspace
+super + shift + Right
+	id=$(bspc query --nodes --node); bspc node --to-desktop {next}; bspc desktop --focus next; bspc node --focus ${id}
+
+# Move window to workspace by number
+super + shift + {0-9}
+    	id=$(bspc query --nodes --node); bspc node --to-desktop {0-9}; bspc desktop --focus next; bspc node --focus ${id}
+
+# Make window tiled
+super + shift + t
+	bspc node -t tiled
+
+# Make window sticky
+super + shift + s
+	bspc node -g sticky
+
+# Make window floating
+super + shift + space
+	bspc node -t floating
+
+# Close window
+super + q
+	bspc node -c
+
+# Run apps
+super + space
+	/usr/bin/rofi -show drun -display-drun 'App launcher'
+
+# Switch windows
+super + Tab
+	/usr/bin/rofi -show window -display-window 'Window switcher'
+
+# Calculator
+super + c
+	/usr/bin/rofi -show calc -modi calc -no-show-match -no-sort -display-calc 'Calculator'
+
+# File browser
+super + f
+	/usr/bin/rofi -show file-browser -display-calc 'File browser'
+
+# Screenshot
+super + s
+    ~/.bin/rofi-screenshot
+
+# Open random man page
+super + m
+    ~/.bin/randman
+
+# Image to text
+super + control + s
+    ~/.bin/rofi-imgtext
+
+# Set wallpaper
+super + b
+    ~/.bin/rofi-wallpaper
+
+# Volume down
+super + F11
+    ~/.bin/voldown
+
+# Volume up
+super + F12
+    ~/.bin/volup
+
+# Hide window
+super + h
+    bspc node --flag hidden=on
+
+# Show window
+alt + Tab
+    ~/.bin/hidden
+
+# Menu
+alt + space
+    cat ~/.config/jgmenu/jgmenu | jgmenu --simple
+
+# Create invisible window
+super + i
+    bspc node -i
+
+# Kill all invisible windows
+super + shift + i
+    for i in $(bspc query -N -n .leaf.\!window.local); do bspc node $i -k; done
+    
+# Rotate tree
+super + shift + {d,a}
+    bspc node @/ -C {forward,backward}
+
+# Rotate pane
+super + shift + r
+    bspc node @parent -R 90
+
+# Control widgets
+super + grave
+    ~/.bin/widgets

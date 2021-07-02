@@ -1,0 +1,101 @@
+env:
+  TERM: xterm-256color
+
+window:
+  padding:
+    x: 30
+    y: 30
+
+  startup_mode: Windowed
+
+  dynamic_title: true
+
+  class:
+    instance: Alacritty
+    general: Alacritty
+
+  gtk_theme_variant: None
+
+scrolling:
+  history: 10000
+
+  multiplier: 3
+
+font:
+  normal:
+      family: Iosevka Nerd Font
+      style: Regular
+
+  bold:
+      family: Iosevka Nerd Font
+      style: Bold
+
+  italic:
+      family: Iosevka Nerd Font
+      style: Italic
+
+  size: 11.0
+
+colors:
+  primary:
+    background: '#1F252A'
+    foreground: '#D5D5D5'
+
+    dim_foreground: '#384149'
+    bright_foreground: '#FFFFFF'
+
+  cursor:
+    text: CellBackground
+    cursor: CellForeground
+
+  search:
+    matches:
+      foreground: '#80D1FF'
+      background: '#1F252A'
+    focused_match:
+      foreground: CellBackground
+      background: CellForeground
+
+  selection:
+    text: "#1F252A"
+    background: "#D5D5D5"
+
+  normal:
+    black:   '#1F252A'
+    red:     '#FF8080'
+    green:   '#97D59B'
+    yellow:  '#FFFE80'
+    blue:    '#80D1FF'
+    magenta: '#C780FF'
+    cyan:    '#80FFE4'
+    white:   '#D5D5D5'
+
+  bright:
+    black:   '#384149'
+    red:     '#FFAEAE'
+    green:   '#BEF8C1'
+    yellow:  '#FCFBA6'
+    blue:    '#ACE1FF'
+    magenta: '#D8A8FF'
+    cyan:    '#A2FFEB'
+    white:   '#FFFFFF'
+
+bell:
+  animation: EaseOutExpo
+
+  duration: 0
+
+  color: '#ffffff'
+
+cursor:
+  style:
+    shape: Beam
+
+  blinking: true
+  blink_interval: 750
+
+  unfocused_hollow: false
+
+  thickness: 0.15
+
+live_config_reload: true

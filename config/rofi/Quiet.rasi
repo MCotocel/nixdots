@@ -1,0 +1,93 @@
+* {
+  black:      #1F252A;
+  red:        #FF8080;
+  green:      #97D59B;
+  yellow:     #f8c456;
+  blue:       #80D1FF;
+  mangenta:   #C780FF;
+  cyan:       #80FFE4;
+  emphasis:   #50536b;
+  text:       #D5D5D5;
+  text-alt:   #D5D5D5;
+
+  background-color: #1F252A;
+
+  font: "Iosevka Nerd Font 12";
+  text-color: @text;
+}
+
+window {
+  fullscreen: false;
+  width: 75%;
+  height: 65%;
+}
+
+mainbox {
+  padding: 1em;
+  border: 3px;
+  border-radius: 0px;
+  border-color: @blue;
+}
+
+inputbar {
+  margin: 5px 5px 25px 5px;
+  children: [prompt, textbox-prompt-colon, entry, case-indicator];
+}
+
+prompt {
+  text-color: @blue;
+}
+
+textbox-prompt-colon {
+  expand: false;
+  str: " / ";
+  text-color: @text-alt;
+}
+
+entry {
+  margin: 0px 10px;
+}
+
+listview {
+  spacing: 5px;
+  dynamic: true;
+  scrollbar: false;
+  columns: 2;
+}
+
+element {
+  padding: 0.1em;
+  text-color: @text-alt;
+  border-radius: 15px;
+}
+
+element-icon { 
+    size: 2ch; 
+}
+
+element selected {
+  background-color: @emphasis;
+  text-color: @text;
+}
+
+element urgent, element selected urgent {
+  text-color: @red;
+}
+
+element active, element selected active {
+  text-color: @purple;
+}
+
+message {
+  padding: 0.2em;
+  border-radius: 3px;
+  background-color: @background;
+  border: 3px;
+  border-color: @blue;
+}
+
+button selected {
+  padding: 5px;
+  border-radius: 3px;
+  background-color: @emphasis;
+}

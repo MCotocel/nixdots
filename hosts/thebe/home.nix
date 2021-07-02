@@ -15,12 +15,41 @@
 
   home.stateVersion = "21.11";
 
-  home.file.".zshrc".source = ../../config/zshrc;
-  # Emacs
-  home.file.".config/emacs/doom-quiet-dark-theme.el".source  = ../../config/emacs/doom-quiet-dark-theme.el;
-  home.file.".config/emacs/doom-quiet-light-theme.el".source = ../../config/emacs/doom-quiet-light-theme.el;
-  home.file.".config/emacs/emacs.org".source                 = ../../config/emacs/emacs.org;
-  home.file.".config/emacs/init.el".source                   = ../../config/emacs/init.el;
-  home.file.".config/emacs/style.css".source                 = ../../config/emacs/style.css;
-  home.file.".config/emacs/etc/private.el".source            = ../../config/emacs/private.el;
+  home.file = {
+    # General
+    ".Xresources".source       = ../../config/xresources;
+    ".zshrc".source            = ../../config/zshrc;
+
+    ".config/alacritty".source   = ../../config/alacritty;
+    ".config/awesome".source     = ../../config/awesome;
+    ".config/bspwm".source       = ../../config/bspwm;
+    ".config/cava".source        = ../../config/cava;
+    ".config/discocss".source    = ../../config/discocss;
+    ".config/dunst".source       = ../../config/dunst;
+    ".config/eww".source         = ../../config/eww;
+    ".config/jgmenu".source      = ../../config/jgmenu;
+    ".config/kitty".source       = ../../config/kitty;
+    ".config/mpd".source         = ../../config/mpd;
+    ".config/ncmpcpp".source     = ../../config/ncmpcpp;
+    ".config/openbox".source     = ../../config/openbox;
+    ".config/picom".source       = ../../config/picom;
+    ".config/polybar".source     = ../../config/polybar;
+    ".config/qutebrowser".source = ../../config/qutebrowser;
+    ".config/ranger".source      = ../../config/ranger;
+    ".config/rofi".source        = ../../config/rofi;
+    ".config/sxhkd".source       = ../../config/sxhkd;
+    ".config/wtf".source         = ../../config/wtf;
+
+    # Emacs
+    ".config/emacs/doom-quiet-dark-theme.el".source  = ../../config/emacs/doom-quiet-dark-theme.el;
+    ".config/emacs/doom-quiet-light-theme.el".source = ../../config/emacs/doom-quiet-light-theme.el;
+    ".config/emacs/emacs.org".source                 = ../../config/emacs/emacs.org;
+    ".config/emacs/init.el".source                   = ../../config/emacs/init.el;
+    ".config/emacs/style.css".source                 = ../../config/emacs/style.css;
+    ".config/emacs/etc/private.el".source            = ../../config/emacs/private.el;
+
+    # Vim
+    ".config/nvim/init.vim".source = ../../config/nvim/init.vim;
+    ".config/nvim/colors".source   = ../../config/nvim/colors;
+  };
 }

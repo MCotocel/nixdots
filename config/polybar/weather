@@ -1,0 +1,32 @@
+[colors]
+
+background = ${xrdb:background:#202632}
+foreground = ${xrdb:background:#FFFFFF}
+
+[bar/bar]
+enable-ipc = true
+height = 30
+width = 170px
+offset-x = 6.5%
+offset-y = 1%
+radius = 0
+border-size = 1
+border-color = #4287f5
+module-margin = 0
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 1
+
+padding = 3
+font-0 = "Source Code Pro:style=Semibold:size=11;3"
+
+modules-center = weather
+
+[module/weather]
+type = custom/script
+interval = 10
+exec = echo "Weather: `ansiweather -w false -h false -s false -d false -a false -l dubai -p false -i false | cut -c 20- | sed 's/.$//'`"
+click-left = xdg-open "https://www.bbc.com/weather/292223"
+offset-x = 50%
