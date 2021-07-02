@@ -1,0 +1,81 @@
+body {
+  padding: 20px;
+  background-color: #f0eeed;
+  color: #151a1f;
+  font-family: "Proxima Nova", sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+  margin: 0 auto;
+  max-width: 960px;
+}
+
+pre {
+  color: #1a1a1a;
+  background: #ebebeb;
+  border: 0px solid #777;
+  border-left: 3px solid #777;
+  font-family: "Iosevka Nerd Font", monospace;
+  padding-top: 10px;
+  padding-right: 50px;
+  padding-bottom: 10px;
+  padding-left: 50px;
+}
+
+blockquote {
+  color: #7a7a7a;
+  border: 0px solid #777;
+  border-left: 3px solid #7a7a7a;
+  font-family: "Serif";
+  font-size: 20px;
+  padding-top: 5px;
+  padding-right: 20px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+}
+
+a {
+  color: #151a1f;
+  text-decoration: underline;
+}
+
+a:hover {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 26px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 22px;
+  padding-left: 10px;
+}
+
+h4 {
+  font-size: 20px;
+  padding-left: 20px;
+}
+
+h5,
+h6 {
+  font-size: 18px;
+  padding-left: 30px;
+}
+
+#postamble {
+  display: none;
+}

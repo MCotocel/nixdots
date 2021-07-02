@@ -1,0 +1,1054 @@
+#+TITLE: Emacs config
+#+DESCRIPTION: A literate Emacs config written in Org
+#+AUTHOR: Matei Cotocel
+
+* Intro
+
+Emacs is not just a mere text editor. It's a Lisp machine with text editing capabilities. This means anything you can think of, Emacs can do it. Of course, you have text editing capabilities. But you can also use it as a Git frontend. as an IRC client, an RSS reader. Such is the extensible of Emacs.
+
+In this Org document, you'll find my literate Emacs configuration. I wouldn't advise you to use this as your config. Instead, you should add snippets of this document to your configuration.
+  
+* General settings
+  
+** Small changes
+
+We add the load path for pieces of lisp code, and change the warning level to emergency so we don't get distracted. We also load a =private.el= file, where I store passwords.
+  
+#+BEGIN_SRC emacs-lisp
+  (load-file "~/.config/emacs/etc/private.el")
+  (add-to-list 'load-path "~/.config/emacs/lisp/")
+  (setq warning-minimum-level :emergency)
+  (setq auto-window-vscroll nil)
+#+END_SRC
+
+** Package config
+
+We setup melpa, use-package, and straight.el for installing package later on. Melpa is better than elpa since it has a lot more packages than elpa. Use-package is pretty useful since packages can be automatically installed and lazy-loaded. Straight.el is for downloading packages from git. We also install a package to update installed packages
+
+#+BEGIN_SRC emacs-lisp
+  (require 'package)
+
+  (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                           ("melpa" . "http://melpa.org/packages/")))
+
+  (package-initialize)
+  (unless package-archive-contents
+    (package-refresh-contents))
+
+  (unless (package-installed-p 'use-package)
+    (package-refresh-contents)
+    (package-install 'use-package))
+  (require 'use-package)
+
+  (setq use-package-always-ensure t)
+  (setq straight-use-package-by-default t)
+
+  (defvar bootstrap-version)
+  (let ((bootstrap-file
+         (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+        (bootstrap-version 5))
+    (unless (file-exists-p bootstrap-file)
+      (with-current-buffer
+          (url-retrieve-synchronously
+           "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+           'silent 'inhibit-cookies)
+        (goto-char (point-max))
+        (eval-print-last-sexp)))
+    (load bootstrap-file nil 'nomessage))
+  (setq package-enable-at-startup nil)
+
+  (use-package auto-package-update
+     :ensure t
+     :config
+     (setq auto-package-update-delete-old-versions t
+           auto-package-update-interval 4)
+     (auto-package-update-maybe))
+#+END_SRC
+
+** Git info
+
+We set up our username and email for git.
+  
+#+BEGIN_SRC emacs-lisp
+  (when (equal ""
+               (shell-command-to-string "git config user.name"))
+    (shell-command "git config --global user.name \"Matei Cotocel\"")
+    (shell-command "git config --global user.email \"mcotocel@outlook.com\""))
+#+END_SRC
+
+** UI elements
+
+We remove unnecessary UI elements, like the menu bar, scroll bar, and tool bar. These are useless, I don't like them, I don't want them.
+
+#+BEGIN_SRC emacs-lisp
+  (menu-bar-mode -1)
+  (scroll-bar-mode -1)
+  (tool-bar-mode -1)
+  (setq inhibit-splash-screen t
+        inhibit-startup-echo-area-message t
+        inhibit-startup-message t)
+  (setq ring-bell-function 'ignore)
+#+END_SRC
+
+** Font
+
+*** Normal font
+
+Here we set a nice font, because if I'm going to be staring at code for hours, I want it to look good. Change the font size to whatever you want.
+
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'default-frame-alist '(font . "Iosevka Nerd Font-15"))
+#+END_SRC
+
+*** Symbol font
+
+We also need to set a symbol font. Here I use Twemoji, since it looks pretty good.
+
+#+BEGIN_SRC emacs-lisp
+  (set-fontset-font t 'symbol (font-spec :family "Twemoji") nil 'prepend)
+#+END_SRC
+
+** Prettify symbols
+
+This replaces some text with icons.
+
+#+begin_src emacs-lisp
+    (defun org/prettify-set ()
+      (interactive)
+      (setq prettify-symbols-alist
+          '(("#+begin_src" . "")
+            ("#+BEGIN_SRC" . "")
+            ("#+end_src" . "")
+            ("#+END_SRC" . "")
+            ("#+begin_example" . "")
+            ("#+BEGIN_EXAMPLE" . "")
+            ("#+end_example" . "")
+            ("#+END_EXAMPLE" . "")
+            ("#+results:" . "")
+            ("#+RESULTS:" . "")
+            ("#+begin_quote" . "❝")
+            ("#+BEGIN_QUOTE" . "❝")
+            ("#+end_quote" . "❞")
+            ("#+END_QUOTE" . "❞")
+            ("[ ]" . "☐")
+            ("[-]" . "◯")
+            ("[X]" . "☑"))))
+    (add-hook 'org-mode-hook 'org/prettify-set)
+
+    (defun prog/prettify-set ()
+      (interactive)
+      (setq prettify-symbols-alist
+          '(("lambda" . "λ")
+            ("->" . "→")
+            ("<-" . "←")
+            ("<=" . "≤")
+            (">=" . "≥")
+            ("!=" . "≠")
+            ("~=" . "≃"))))
+    (add-hook 'prog-mode-hook 'prog/prettify-set)
+
+  (global-prettify-symbols-mode)
+
+#+end_src
+
+** Line numbers
+
+ Line numbers are very useful. Relative line numbers are even more so, since you don't do much maths with them.
+
+ #+begin_src emacs-lisp
+   (global-display-line-numbers-mode)
+   (setq display-line-numbers-type 'relative)
+ #+end_src
+
+ Sometimes line numbers can be distracting, so we disable them for certain modes
+
+ #+BEGIN_SRC emacs-lisp
+   (dolist (mode '(org-mode-hook
+                   term-mode-hook
+                   vterm-mode-hook
+                   eshell-mode-hook
+                   neotree-mode-hook
+                   elfeed-show-mode
+                   circe-channel-mode
+                   circe-chat-mode
+                   woman-mode-hook))
+   (add-hook mode (lambda () (display-line-numbers-mode 0))))
+ #+END_SRC
+
+** File locations
+
+To keep thing organized, we set the locations of different files here.
+
+#+BEGIN_SRC emacs-lisp
+  (setq recentf-save-file "~/.config/emacs/etc/recentf" ;; File for recentf
+        recentf-max-saved-items 50)
+  (setq savehist-file "~/.config/emacs/etc/savehist" ;; File for save history
+        history-length 150)
+  (setq save-place-file "~/.config/emacs/etc/saveplace") ;; File for save place
+  (setq bookmark-default-file "~/.config/emacs/etc/bookmarks") ;; File for bookmarks
+  (setq backup-directory-alist '(("." . "~/.config/emacs/backups")) ;; Directory for backups
+        delete-old-versions t
+        kept-old-versions 20
+        vc-make-backup-files t
+        version-control t)
+  (setq custom-file "~/.config/emacs/etc/custom.el") ;; For saved customizations
+  (setq create-lockfiles nil) ;; Disable lockfiles
+#+END_SRC
+
+** Miscellaneous minor modes 
+
+These are some useful minor modes that I tend to use.
+
+#+BEGIN_SRC emacs-lisp
+  (save-place-mode) ;; Save location
+  (global-visual-line-mode) ;; Wrap lines
+  (add-hook 'org-mode-hook 'flyspell-mode) ;; Spell checker
+#+END_SRC
+
+** New line
+
+Style guides usually say there should be an empty line at the end of a file, so we enable this here.
+
+#+BEGIN_SRC emacs-lisp
+  (setq require-final-newline t)
+#+END_SRC
+
+** Y/N
+
+When Emacs prompts us, you need to fully type /yes/ or /no/. This replaces it with /y/ or /n./
+
+#+BEGIN_SRC emacs-lisp
+  (defalias 'yes-or-no-p 'y-or-n-p)
+#+END_SRC
+
+** Scroll
+
+Better and smoother scroll that /doesn't/ make your eyes hurt.
+
+#+BEGIN_SRC emacs-lisp
+  (setq redisplay-dont-pause t
+    scroll-margin 1
+    scroll-step 1
+    scroll-conservatively 10000
+    scroll-preserve-screen-position 1
+    scroll-up-aggressively 0.01
+    scroll-down-aggressively 0.01)
+#+END_SRC
+
+** Indentation
+
+Here we configure indentation. I prefer using tabs, but I convert them to spaces.
+
+#+BEGIN_SRC emacs-lisp
+  (setq-default indent-tabs-mode nil)
+  (setq-default tab-width 4)
+  (setq indent-line-function 'insert-tab)
+#+END_SRC
+
+** Disabled commands
+
+Yes Emacs, I'm /sure/ I want to use the command. Or even better, why don't we enable them all?
+
+#+BEGIN_SRC emacs-lisp
+  (setq disabled-command-function nil)
+#+END_SRC
+
+** Shell script mode
+
+I edit PKGBUILD files (for pacman) and PACKAGE files (for shade) quite a lot, and they're basically shell scripts.
+
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'auto-mode-alist '("PKGBUILD\\'" . shell-script-mode))
+  (add-to-list 'auto-mode-alist '("PACKAGE\\'" . shell-script-mode))
+#+END_SRC
+
+* Package settings
+
+** Path
+  
+First we install a package to set the path for macOS, since for some reason it doesn't work out of the box.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package exec-path-from-shell
+     :config
+     (exec-path-from-shell-initialize))
+#+END_SRC
+
+** Evil keybindings
+
+Here we install and configure evil, since I /cannot/ use the default Emacs keys. Evil is the only way I've managed to move to Emacs. The Vim key bindings are a /lot/ better than the Emacs keybindings. evil-collection is for miscellaneous minor modes, evil-org for org mode, and evil leader adds a leader key.
+
+*** Base
+
+This is the main evil package, that allows you to use vim keybindings.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package evil
+    :init
+    (setq evil-want-integration t)
+    (setq evil-want-keybinding nil)
+    :config
+    (evil-mode 1))
+#+END_SRC
+
+*** Collection
+
+This package adds vim keybindings for miscellaneous minor modes, such as dired and mu4e.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package evil-collection
+    :after evil
+    :config
+    (evil-collection-init))
+#+END_SRC
+
+*** Org
+
+For some reason evil-collection doesn't include org bindings, so we install another package.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package evil-org
+    :after org
+    :config
+    (require 'evil-org-agenda)
+    (evil-org-agenda-set-keys))
+#+END_SRC
+*** Leader
+
+This adds a leader key to Emacs, which is /incredibly/ useful.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package evil-leader
+    :config
+    (global-evil-leader-mode)
+    (evil-leader/set-leader "<SPC>")
+    (evil-leader/set-key
+      ;; General
+      "<SPC>" 'counsel-M-x
+      ".f" 'counsel-grep-or-swiper
+      ".q" 'delete-frame
+      ;; Undo
+      "uv" 'undo-tree-visualize
+      "uu" 'undo-tree-undo
+      "ur" 'undo-tree-redo
+      "uc" 'counsel-yank-pop
+      ;; Files
+      "fr" 'counsel-recentf
+      "fb" 'counsel-bookmark
+      "ff" 'counsel-find-file
+      "fd" 'counsel-dired
+      ;; Bufffers
+      "bv" 'split-window-right
+      "bh" 'split-window-below
+      "bd" 'kill-current-buffer
+      ;; Projectile
+      "pf" 'projectile-find-file
+      "pp" 'projectile-switch-project
+      "pg" 'projectile-grep
+      "pm" 'projectile-commander
+      "pc" 'projectile-compile-project
+      ;; Org mode
+      "oc" 'org-edit-special
+      "ol" 'org-latex-previw
+      "ot" 'org-ctrl-c-ctrl-c
+      "oi" 'org-toggle-inline-images
+      "oa" 'org-agenda
+      "os" 'org-schedule
+      ; Export
+      "oep" 'org-latex-export-to-pdf
+      "oeh" 'org-html-export-to-html
+      ; Roam
+      "orf" 'org-roam-find-file
+      "ori" 'org-roam-insert
+      "oru" 'org-roam-db-build-cache
+      "ors" 'org-roam-server-mode
+      ; Babel
+      "obs" 'org-babel-execute-src-block
+      "obb" 'org-babel-execute-buffer
+      "obl" 'org-babel-load-file
+      ;; Workgroups
+      "wa" 'ivy-push-view
+      "wd" 'ivy-pop-view
+      "ws" 'ivy-switch-view
+      ;; Help
+      "hh" 'help
+      "hk" 'describe-key
+      "hv" 'describe-variable
+      "hf" 'describe-function
+      "hs" 'describe-symbol
+      "hm" 'describe-mode
+      ;; Magit
+      "gs" 'magit-status))
+#+END_SRC
+
+*** Additional keybindings
+
+Here I bind some extra keybindings for evil mode.
+    
+#+BEGIN_SRC emacs-lisp
+
+  (define-key evil-normal-state-map (kbd "M-s") 'save-buffer)
+  (define-key evil-normal-state-map (kbd "M-q") 'delete-window)
+  (define-key evil-normal-state-map (kbd "M-w") 'kill-current-buffer)
+
+  (define-key evil-normal-state-map (kbd "M-x") 'counsel-M-x)
+  (define-key evil-normal-state-map (kbd "<C-tab>") 'ivy-switch-buffer)
+
+  (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
+  (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
+  (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
+  (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
+  (define-key evil-normal-state-map (kbd "M-j") 'evil-scroll-down)
+  (define-key evil-normal-state-map (kbd "M-k") 'evil-scroll-up)
+
+  (define-key evil-normal-state-map "u" 'undo-tree-undo)
+  (define-key evil-normal-state-map (kbd "C-r") 'undo-tree-redo)
+
+  (define-key evil-normal-state-map (kbd "M-t") 'neotree-toggle)
+  (define-key evil-normal-state-map (kbd "<C-return>") 'shr-browse-url)
+  (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
+
+  (define-key evil-normal-state-map (kbd "C-=") 'text-scale-increase)
+  (define-key evil-normal-state-map (kbd "C--") 'text-scale-decrease)
+  (define-key evil-normal-state-map (kbd "C-0") 'text-scale-adjust)
+
+  (define-key evil-normal-state-map (kbd "<remap> <evil-next-line>") 'evil-next-visual-line)
+  (define-key evil-normal-state-map (kbd "<remap> <evil-previous-line>") 'evil-previous-visual-line)
+  (define-key evil-motion-state-map (kbd "<remap> <evil-next-line>") 'evil-next-visual-line)
+  (define-key evil-motion-state-map (kbd "<remap> <evil-previous-line>") 'evil-previous-visual-line)
+
+#+END_SRC
+
+*** Miscellaneous settings
+
+**** Cursor shapes
+
+Set the cursor shape for different evil states.
+     
+#+BEGIN_SRC emacs-lisp
+  (set-default 'evil-normal-state-cursor 'hbar)
+  (set-default 'evil-insert-state-cursor 'bar)
+  (set-default 'evil-visual-state-cursor 'hbar)
+  (set-default 'evil-motion-state-cursor 'box)
+  (set-default 'evil-replace-state-cursor 'box)
+  (set-default 'evil-operator-state-cursor 'hbar)
+  (set-cursor-color "#80D1FF")
+  (setq-default cursor-type 'bar) 
+#+END_SRC
+
+**** Small additions
+
+We want /some/ Emacs in evil, so we change a few settings here.
+
+#+BEGIN_SRC emacs-lisp
+  (setq evil-cross-lines t
+        evil-move-beyond-eol t
+        evil-want-fine-undo t
+        evil-symbol-word-search t
+        evil-want-Y-yank-to-eol t
+        evil-cross-lines t)
+#+END_SRC
+
+** Which-key
+
+We install which-key in case we ever forget any keybinds.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package which-key
+    :config (which-key-mode)
+    (which-key-setup-side-window-bottom)
+    (setq which-key-idle-delay 0.1))
+#+END_SRC
+
+** Ivy
+
+Ivy helps with better completion and to replace the default M-x. Counsel adds a few things, ivy-rich makes it look better.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package ivy
+    :config (ivy-mode t)
+    (setq ivy-initial-inputs-alist nil)
+    (setq ivy-count-format "[%d/%d] ")
+    (setq ivy-use-virtual-buffers t)
+    (setq ivy-height 33)
+  (setq ivy-ignore-buffers '("\\` " "\\`\\*" "magit*")))
+
+  (use-package counsel
+    :after ivy
+    :config (counsel-mode t))
+
+  ;; (use-package ivy-posframe
+  ;;   :after ivy
+  ;;   :config
+  ;;   (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-top-center)))
+  ;;   (setq ivy-posframe-parameters
+  ;;     '((left-fringe . 30)
+  ;;       (right-fringe . 30)))
+  ;;   (ivy-posframe-mode t))
+
+  (use-package all-the-icons-ivy-rich
+    :init (all-the-icons-ivy-rich-mode 1))
+
+  (use-package ivy-rich
+    :init (ivy-rich-mode 1))
+#+END_SRC
+
+** Dashboard
+
+The default startup screen is bland, let's replace it with a nice dashboard. We also add some buttons, and make it more simplistic.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package dashboard
+    :config
+    (setq dashboard-center-content t
+      dashboard-show-shortcuts nil
+      dashboard-banner-logo-title "Welcome to Emacs"
+      dashboard-startup-banner "/Users/Matei/Code/linux-dotfiles/Pictures/pfp_rounded_small.png"
+      dashboard-set-heading-icons t
+      dashboard-set-file-icons t
+      dashboard-set-navigator t)
+    (setq dashboard-items '())
+    (dashboard-setup-startup-hook))
+  (setq dashboard-navigator-buttons
+        `(((,
+           (all-the-icons-octicon "file-text" :height 1.0 :v-adjust 0.05)
+           "Open recent files"
+           "Open recent files"
+           (lambda (&rest _) (counsel-recentf)))
+
+          (,(all-the-icons-octicon "bookmark" :height 1.0 :v-adjust 0.0)
+           "Open bookmarks"
+           "Open bookmarks"
+           (lambda (&rest _) (counsel-bookmark)))
+
+          (,(all-the-icons-octicon "rocket" :height 1.0 :v-adjust 0.05)
+           "Open projects"
+           "Open projects"
+           (lambda (&rest _) (projectile-switch-project))))
+
+          ((,(all-the-icons-octicon "calendar" :height 1.0 :v-adjust 0.05)
+           "View org agenda"
+           "View org agenda"
+           (lambda (&rest _) (org-agenda)))
+
+          (,(all-the-icons-octicon "keyboard" :height 1.0 :v-adjust 0.0)
+           "Restore session"
+           "Restore session"
+           (lambda (&rest _) (persp-state-load "~/.config/emacs/perspective/default.el"))))))
+  (setq dashboard-footer-messages '(
+  "While any text editor can save your files, only Emacs can save your soul"
+  "Welcome to the Church of Emacs"
+  "Emacs - The thermonuclear word processor"
+  "Escape Meta Alt Control Shift"
+  "Eight Megs And Constantly Swapping"
+  "Vi Vi Vi, the editor of the beast"))
+
+  (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
+#+END_SRC
+
+** File tree
+
+Neotree is a cool file tree, so we install it. Although I usually use dired, neotree can be useful if you need a tree layout.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package neotree)
+  (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+  (add-hook 'neotree-mode-hook
+           (lambda ()
+             (define-key evil-normal-state-local-map (kbd "SPC") 'neotree-quick-look)
+             (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)
+             (define-key evil-normal-state-local-map (kbd "g") 'neotree-refresh)
+             (define-key evil-normal-state-local-map (kbd "n") 'neotree-next-line)
+             (define-key evil-normal-state-local-map (kbd "p") 'neotree-previous-line)
+             (define-key evil-normal-state-local-map (kbd "A") 'neotree-stretch-toggle)
+             (define-key evil-normal-state-local-map (kbd "H") 'neotree-hidden-file-toggle)))
+#+END_SRC
+
+** Magit
+
+Magit is the best git client, and it is a /must/. Less typing, less time spent using git, and more coding.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package magit
+    :defer t)
+#+END_SRC
+
+** Parentheses
+
+*** Smart parentheses
+   
+Most code editors automatically match parentheses, but Emacs doesn't do this, so we install a package.
+
+#+BEGIN_SRC emacs-lisp
+    (use-package smartparens
+      :config (smartparens-global-mode)
+      (show-smartparens-mode))
+#+END_SRC
+
+*** Rainbow parentheses
+
+Most editors also automatically color matching parentheses, but again, we need to install a package for this.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package rainbow-delimiters
+    :config
+    (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+#+END_SRC
+
+** Terminal
+
+The default builtin terminal for Emacs is slow, so we install vterm instead
+
+#+BEGIN_SRC emacs-lisp
+  (use-package vterm)
+#+END_SRC
+
+** Icons
+
+We need all-the-icons for some packages, so let's install it.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package all-the-icons)
+#+END_SRC
+
+** Modeline
+
+The default modeline is ugly, this package replaces it with one that looks like the doom modeline.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package doom-modeline
+    :init (doom-modeline-mode 1)
+    :config (setq doom-modeline-height 25)
+    (setq doom-modeline-icon t))
+#+END_SRC
+
+** Undo-tree
+
+We want to visualize undo history better, so we install undo-tree.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package undo-tree
+    :config
+    (global-undo-tree-mode))
+    (setq undo-tree-auto-save-history t)
+    (setq undo-tree-history-directory-alist '(("." . "~/.config/emacs/undo")))
+#+END_SRC
+
+** Formatter
+
+Let's install a formatter to format our horrible code.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package format-all
+    :hook (prog-mode . format-all-mode))
+#+END_SRC
+
+** Colorscheme
+
+My colorscheme uses doom-themes as a base, so we have to install it.
+
+#+BEGIN_SRC emacs-lisp
+ (use-package doom-themes
+   :config
+   (load-theme 'doom-quiet-dark t)
+   (doom-themes-neotree-config))
+
+ (use-package solaire-mode
+   :config (solaire-global-mode 1))
+#+END_SRC
+
+** Mail
+
+Emacs can do everything, including manage mail.
+
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'load-path "/nix/store/iqwc7yp6pffda0zxxvlhrcww3bvn5lcq-mu-1.4.15/share/emacs/site-lisp/mu4e/")
+  (require 'mu4e)
+  (setq mu4e-maildir (expand-file-name "~/Mail/"))
+
+  (setq mu4e-drafts-folder "/Drafts")
+  (setq mu4e-sent-folder   "/Sent")
+  (setq mu4e-trash-folder  "/Deleted")
+
+  (setq mu4e-get-mail-command "mbsync -a"
+    mu4e-view-prefer-html t
+    mu4e-update-interval 180
+    mu4e-headers-auto-update t
+    mu4e-compose-signature-auto-include nil
+    mu4e-compose-format-flowed t)
+
+  (setq
+   user-mail-address "mcotocel@outlook.com"
+   user-full-name  "Matei Cotocel")
+
+  (setq mu4e-view-show-images t)
+
+  (require 'org-mu4e)
+
+  (setq org-mu4e-convert-to-html t)
+
+  (setq message-send-mail-function 'smtpmail-send-it)
+  (setq smtpmail-smtp-server "smtp-mail.outlook.com")
+  (setq smtpmail-smtp-service 587 )
+  (setq smtpmail-auth-credentials (expand-file-name "~/.authinfo"))
+#+END_SRC
+
+** Chat
+
+*** Irc
+   
+It also has an IRC client available, so let's install and configure it.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package circe)
+  (setq circe-network-options
+        `(("Libera Chat"
+           :nick "Specter"
+           :channels (:after-auth "#unixporn" "#emacs")
+           :nickserv-password ,libera-password)))
+  (setq enable-circe-display-images t)
+  (setq enable-circe-color-nicks t)
+  (add-hook 'circe-chat-mode-hook 'my-circe-prompt)
+  (defun my-circe-prompt ()
+    (lui-set-prompt
+     (concat (propertize (concat (buffer-name) ">")
+                         'face 'circe-prompt-face)
+             " ")))
+#+END_SRC
+
+*** Matrix
+
+I also install a matrix client.
+
+#+begin_src emacs-lisp
+  (straight-use-package 'matrix-client)
+  (setq matrix-client-show-images t)
+#+end_src
+
+*** Discord rice presence
+
+#+begin_src emacs-lisp
+  (use-package elcord
+    :config
+    (elcord-mode))
+#+end_src
+
+** RSS
+
+I read RSS feeds, so we're going to configure a reader.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package elfeed)
+  (setq elfeed-feeds
+         '(("http://www.reddit.com/r/emacs.rss" tech emacs)
+           ("http://www.reddit.com/r/terminal_porn.rss" tech)))
+  (add-to-list 'evil-emacs-state-modes 'elfeed-search-mode)
+  (add-to-list 'evil-emacs-state-modes 'elfeed-show-mode)
+
+  (use-package elfeed-dashboard
+    :config
+    (setq elfeed-dashboard-file "~/Org/elfeed-dashboard.org")
+    (advice-add 'elfeed-search-quit-window :after #'elfeed-dashboard-update-links))
+  (evil-set-initial-state 'elfeed-dashboard-mode 'emacs)
+  (setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "qutebrowser")
+#+END_SRC
+
+** EMMS
+
+Why not listen to music in Emacs?
+
+#+BEGIN_SRC emacs-lisp
+  (use-package emms)
+  (emms-all)
+  (emms-default-players)
+  (setq emms-source-file-default-directory "/Volumes/PiNAS/Media/Music/")
+#+END_SRC
+
+** LSP
+
+I use Emacs for coding as well, so we're going to configure lsp-mode.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package lsp-mode
+    :init
+    :hook ((python-mode . lsp)
+           (lua-mode . lsp)
+           (sh-mode . lsp)
+           (lisp-mode . lsp)
+           (emacs-lisp-mode . lsp)
+           (css-mode . lsp)
+           (html-mode . lsp)
+           (json-mode . lsp)
+           (markdown-mode . lsp)
+           (latex-mode . lsp)
+           (go-mode . lsp)
+           (lsp-mode . lsp-enable-which-key-integration))
+    :commands lsp
+    :config
+    (setq lsp-enable-symbol-highlighting nil)
+    lsp-ui-doc-enable t
+    lsp-lens-enable nil
+    lsp-headerline-breadcrumb-enable nil
+    lsp-ui-sideline-enable nil
+    lsp-ui-sideline-enable t
+    lsp-modeline-code-actions-enable t
+    lsp-diagnostics-provider :flycheck
+    lsp-ui-sideline-enable t
+    lsp-ui-doc-border nil
+    lsp-eldoc-enable-hover t)
+  (setq lsp-log-io nil)
+  (setq lsp-enable-file-watchers nil)
+
+  (use-package lsp-ui :commands lsp-ui-mode)
+
+  (setq lsp-enable-symbol-highlighting nil)
+  (custom-set-faces '(nobreak-space ((t nil))))
+
+  (use-package company
+    :hook
+    (after-init . global-company-mode)
+    :bind (:map company-active-map
+                ("<tab>" . company-select-next)))
+
+  (setq company-idle-delay 0.1
+        company-minimum-prefix-length 1
+        company-selection-wrap-around t
+        company-require-match 'never
+        company-dabbrev-downcase nil
+        company-dabbrev-ignore-case t
+        company-dabbrev-other-buffers nil
+        company-tooltip-limit 5
+        company-tooltip-minimum-width 50)
+
+  (use-package company-box
+    :hook (company-mode . company-box-mode)
+    :config
+    (setq company-box-scrollbar nil))
+
+  (use-package go-mode)
+  (use-package json-mode)
+  (use-package lua-mode)
+  (use-package lsp-jedi
+    :hook (python-mode . lsp-jedi))
+
+  (use-package yasnippet
+    :hook (prog-mode . yas-global-mode))
+
+  (use-package yasnippet-snippets
+    :defer t)
+#+END_SRC
+
+** Flycheck
+
+Syntax checking for code.
+
+#+BEGIN_SRC emacs-lisp
+(use-package flycheck
+  :ensure t
+  :init (global-flycheck-mode))
+#+END_SRC
+
+
+** Projectile
+
+Here, we install and configure projectile, which is a project interaction library.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package projectile
+    :config (projectile-mode 1))
+#+END_SRC
+
+* Org mode
+
+** Files locations
+  
+We want to save everything in /one/ location.
+
+#+BEGIN_SRC emacs-lisp
+  (setq org-directory "~/Org/"
+        org-default-notes-file "~/Org/notes.org")
+  (setq org-agenda-files '("~/Org/"))
+#+END_SRC
+
+** Exporting
+
+Let's set the export backends to things I commonly use, along with some extra settings for html exports.
+
+#+BEGIN_SRC emacs-lisp
+  (setq org-export-backends '(latex md html))
+
+  (require 'org)
+  (require 'ox-latex)
+  (add-to-list 'org-latex-packages-alist '("" "minted"))
+  (setq org-latex-listings 'minted) 
+
+  (setq org-latex-pdf-process
+        '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+          "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+          "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+
+  (setq org-src-fontify-natively t)
+
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((R . t)
+     (latex . t)))
+  (setq org-html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"./style.css\"/>"
+    org-html-doctype "html5")
+#+END_SRC
+
+** Bullets
+
+Package that makes the bullets look nicer
+
+#+BEGIN_SRC emacs-lisp
+  (use-package org-bullets
+    :after org
+    :hook
+    (org-mode . (lambda () (org-bullets-mode 1))))
+#+END_SRC
+
+** UI
+
+A few additions to make everything look neater
+
+#+BEGIN_SRC emacs-lisp
+  (setq org-hide-emphasis-markers t)
+  (setq org-image-actual-width '(300))
+  (set-face-attribute 'org-headline-done nil :strike-through t)
+  (setq org-agenda-start-on-weekday 0)
+  (setq org-src-tab-acts-natively t)
+#+END_SRC
+
+** Keywords
+
+Let's add our own custom keywords and highlight them
+
+#+BEGIN_SRC emacs-lisp
+  (setq org-todo-keywords
+       '((sequence "TODO" "WAITING" "PAUSED" "ALMOST" "OPTIONAL" "IMPORTANT" "DONE")))
+  (setq org-todo-keyword-faces
+    '(("TODO"      . (:foreground "#FF8080" :weight bold))
+      ("WAITING"   . (:foreground "#FFFE80" :weight bold))
+      ("PAUSED"    . (:foreground "#D5D5D5" :weight bold))
+      ("ALMOST"    . (:foreground "#80D1FF" :weight bold))
+      ("OPTIONAL"  . (:foreground "#C780FF" :weight bold))
+      ("IMPORTANT" . (:foreground "#80FFE4" :weight bold))
+      ("DONE"      . (:foreground "#97D59B" :weight bold))))
+#+END_SRC
+
+** Org roam
+
+Org roam makes Org even better
+
+#+BEGIN_SRC emacs-lisp
+  (use-package org-roam
+    :hook
+    (after-init . org-roam-mode)
+    :custom
+    (org-roam-directory "~/org/"))
+
+  (setq org-roam-graph-viewer "/usr/bin/eog")
+
+  (use-package org-roam-server
+    :config
+    (setq org-roam-server-host "127.0.0.1"
+          org-roam-server-port 8080
+          org-roam-server-authenticate nil
+          org-roam-server-export-inline-images t
+          org-roam-server-serve-files nil
+          org-roam-server-served-file-extensions '("pdf" "mp4" "ogv")
+          org-roam-server-network-poll t
+          org-roam-server-network-arrows nil
+          org-roam-server-network-label-truncate t
+          org-roam-server-network-label-truncate-length 60
+          org-roam-server-network-label-wrap-length 20))
+#+END_SRC
+
+** Org capture
+
+We also add some templates for Org capture
+
+#+BEGIN_SRC emacs-lisp
+  (setq org-capture-templates
+      '(("t" "Todo" entry (file "~/Org/Refile.org")
+         "* TODO %?\n%U" :empty-lines 1)
+        ("n" "Note" entry (file "~/Org/Refile.org")
+         "* NOTE %?\n%U" :empty-lines 1)))
+#+END_SRC
+
+** Babel
+
+*** Go support
+
+Go support for babel
+
+#+begin_src emacs-lisp
+  (use-package ob-go
+    :config (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((go . t))))
+#+end_src
+
+** Faces
+
+This changes the faces of Org mode to a nice sans serif font.
+
+#+begin_src emacs-lisp
+  (let* ((base-font-color     (face-foreground 'default nil 'default))
+         (headline           `(:inherit default :weight bold :foreground "grey" :height 1.6)))
+
+    (custom-theme-set-faces
+     'user
+     `(org-level-8 ((t (,@headline))))
+     `(org-level-7 ((t (,@headline))))
+     `(org-level-6 ((t (,@headline))))
+     `(org-level-5 ((t (,@headline))))
+     `(org-level-4 ((t (,@headline :height 1.2))))
+     `(org-level-3 ((t (,@headline :height 1.3))))
+     `(org-level-2 ((t (,@headline :height 1.4))))
+     `(org-level-1 ((t (,@headline :height 1.5))))
+     `(org-document-title ((t (,@headline :height 1.6 :underline nil))))))
+
+  (custom-theme-set-faces
+   'user
+   '(fixed-pitch ((t ( :family "Iosevka Nerd Font" :height 160)))))
+
+  (custom-theme-set-faces
+   'user
+   '(org-block                 ((t (:inherit fixed-pitch))))
+   '(org-code                  ((t (:inherit fixed-pitch :weight normal))))
+   '(org-document-info         ((t (,@headline :height 1.6))))
+   '(org-document-info-keyword ((t (:inherit (shadow fixed-pitch)))))
+   '(org-indent                ((t (:inherit (org-hide fixed-pitch)))))
+   '(org-link                  ((t (:foreground "royal blue" :underline t))))
+   '(org-meta-line             ((t (:inherit (font-lock-comment-face fixed-pitch)))))
+   '(org-property-value        ((t (:inherit fixed-pitch))) t)
+   '(org-special-keyword       ((t (:inherit (font-lock-comment-face fixed-pitch)))))
+   '(org-table                 ((t (:inherit fixed-pitch :foreground "#384149"))))
+   '(org-tag                   ((t (:inherit (shadow fixed-pitch) :weight bold :height 0.8))))
+   '(org-verbatim              ((t (:inherit (shadow fixed-pitch))))))
+#+end_src
+
+** Present
+
+Make presentations with org mode.
+
+#+BEGIN_SRC emacs-lisp
+(use-package org-present)
+#+END_SRC
+
+* Functions
+
+Edit the current file as root.
+
+#+BEGIN_SRC emacs-lisp
+  (defun edit-file-root ()
+    "Use tramp to edit the current buffer as root"
+    (interactive)
+    (when buffer-file-name
+      (find-alternate-file
+       (concat "/sudo:root@localhost:"
+               buffer-file-name))))
+#+END_SRC
