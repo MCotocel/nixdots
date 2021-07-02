@@ -133,7 +133,7 @@
     allowUnfree = true;
   };
 
-  nixpkgs.overlays = [ (import ../../overlay/awestore.nix]
+  nixpkgs.overlays = [ (import ../../overlay/awestore.nix) ]
 
   # System version, do not change
   system.stateVersion = "21.11";
