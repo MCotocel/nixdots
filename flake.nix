@@ -14,11 +14,11 @@
       thebe = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-	  home-manager.nixosModules.home-manager {
-              home-manager.users.matei = import ./hosts/thebe/home.nix;
-	  }
-	  { nixpkgs.overlays = [ nur.overlay ]; }
-	  ./hosts/thebe/configuration.nix
+	      home-manager.nixosModules.home-manager {
+            home-manager.users.matei = import ./hosts/thebe/home.nix;
+	      }
+	      { nixpkgs.overlays = [ nur.overlay ]; }
+	      ./hosts/thebe/configuration.nix
         ];
       };
 
