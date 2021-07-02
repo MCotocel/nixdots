@@ -17,6 +17,7 @@
 	  home-manager.nixosModules.home-manager {
               home-manager.users.matei = import ./hosts/thebe/home.nix;
 	  }
+	  { nixpkgs.overlays = [ nur.overlay ]; }
 	  ./hosts/thebe/configuration.nix
         ];
       };

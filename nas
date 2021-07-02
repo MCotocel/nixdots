@@ -30,6 +30,10 @@ function push() {
 }
 
 function rebuild() {
+  if [[ $# -ne 2 ]]; then
+    echo "Please specify the host"
+    exit 1
+  fi
   echo "Rebuilding config"
   sudo nixos-rebuild --flake /etc/nixos#$2 switch
 }
@@ -41,7 +45,7 @@ function rollback() {
 
 function update() {
   echo "Updating flake"
-  nix flake update /etc/nixos
+  sudo nix flake update /etc/nixos
 }
 
 function clean() {
