@@ -66,15 +66,51 @@
 
   # System-wide packages
   environment.systemPackages = with pkgs; [
+    ack
+    aria
+    bash
+    bat
     cmake
+    cmatrix
+    coreutils
+    cowsay
+    direnv
+    discocss
     emacs
+    exa
+    fd
+    ffmpeg
+    fzf
+    gh
     git
+    htop
+    imagemagick
+    ispell
+    isync
+    jq
+    manix
+    mpc_cli
     mpd
+    mpv
     mu
+    ncdu
     ncmpcpp
+    neofetch
     neovim
+    nethack
+    onefetch
+    python39
+    ranger
+    ripgrep
+    spicetify-cli
+    telegraf
+    telnet
+    texlive.combined.scheme-small
+    tmux
+    trash-cli
     vim
     wget
+    youtube-dl
     zsh
   ];
 
