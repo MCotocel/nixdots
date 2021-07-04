@@ -78,13 +78,14 @@
       enable = false;
     };
     gnome = {
-      enable = true;
+      enable = false;
     };
   };
 
   # System-wide packages
   environment.systemPackages = with pkgs; [
     ack
+    awesome
     aria
     bash
     bat
@@ -117,6 +118,7 @@
     neovim
     nethack
     onefetch
+    picom
     python39
     ranger
     ripgrep
@@ -128,6 +130,7 @@
     trash-cli
     vim
     wget
+    xorg.xf86videovmware
     youtube-dl
     zsh
   ];
@@ -150,10 +153,10 @@
   nixpkgs.overlays = [
     (final: prev: {
       awesome = (prev.awesome.overrideAttrs (old: rec {
-        src = prev.fetchFromGithub {
-          owner = "awesomeWM";
+        src = prev.fetchFromGitHub {
+          owner = "awesomewm";
           repo = "awesome";
-          rev = "149f18e0e796b3a439b1d79c5ee0c93febfcdf69";
+          rev = "149d18e0e796b3a439b1d79c5ee0c93febfcdf69";
           sha256 = "02ahbph10sd5a4gv9wizcl0pmqd08mdc47w9bd28p5bldpk4vrvm";
         };
         GI_TYPELIB_PATH = "${prev.playerctl}/lib/girepository-1.0:"
