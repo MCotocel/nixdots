@@ -1,8 +1,8 @@
 # Hosts
 
-All hosts are named after the Moons of Jupiter
+All hosts are named after the moons of Jupiter
 
-## Callisto
+## Ganymede
 
 Thinkpad E580 (NixOS)
 

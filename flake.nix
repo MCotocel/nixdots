@@ -19,7 +19,17 @@
 	      }
 	      { nixpkgs.overlays = [ nur.overlay ]; }
 	      ./hosts/thebe/configuration.nix
-          #./overlays/default.nix
+        ];
+      };
+
+      ganymede = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+	      home-manager.nixosModules.home-manager {
+            home-manager.users.matei = import ./hosts/ganymede/home.nix;
+	      }
+	      { nixpkgs.overlays = [ nur.overlay ]; }
+	      ./hosts/ganymede/configuration.nix
         ];
       };
 

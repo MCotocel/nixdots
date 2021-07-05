@@ -4,12 +4,12 @@
 
   imports = [
     ./hardware-configuration.nix
-    ,,/shared.nix
   ];
 
-  # Network settings. No wifi because this is a VM
+  # Network settings.
   networking = {
-    hostName = "thebe"; # Hostname
+    hostName = "ganymede"; # Hostname
+    interfaces.wlp5s0.useDHCP = true;
     useDHCP = false; # Deprecated, so set explicitly to false
     interfaces.ens33.useDHCP = true;
   };
@@ -49,7 +49,7 @@
 
   services.xserver.windowManager = {
     awesome = {
-      enable = true;
+      enable = false;
     };
     bspwm = {
       enable = false;
@@ -61,7 +61,7 @@
       enable = false;
     };
     gnome = {
-      enable = false;
+      enable = true;
     };
   };
 
