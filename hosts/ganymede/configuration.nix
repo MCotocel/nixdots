@@ -11,7 +11,12 @@
     hostName = "ganymede"; # Hostname
     interfaces.wlp5s0.useDHCP = true;
     useDHCP = false; # Deprecated, so set explicitly to false
-    interfaces.ens33.useDHCP = true;
+    wireless.userControlled.enable = true;
+    wireless.networks = {
+      "E_Net_2.4" = {
+        psk = "silviu-1"
+      };
+    };
   };
 
   # X11
@@ -113,7 +118,7 @@
     trash-cli
     vim
     wget
-    xorg.xf86videovmware
+    xorg.xf86videoamdgpu
     youtube-dl
     zsh
   ];

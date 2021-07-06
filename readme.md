@@ -1,6 +1,5 @@
 # Nix dotfiles
 
-I have no idea what the hell I'm doing. I wouldn't advise you to use all of these configs
 
 ## Setup
 
