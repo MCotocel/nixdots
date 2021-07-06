@@ -14,7 +14,7 @@
     wireless.userControlled.enable = true;
     wireless.networks = {
       "E_Net_2.4" = {
-        psk = "silviu-1"
+        psk = "silviu-1";
       };
     };
   };
