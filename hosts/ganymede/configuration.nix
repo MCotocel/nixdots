@@ -7,10 +7,11 @@
     ../shared.nix
   ];
 
+  boot.extraModulePackages = [ config.boot.kernelPackages.rtl8821ce ];
+
   # Network settings.
   networking = {
     hostName = "ganymede"; # Hostname
-    interfaces.wlp5s0.useDHCP = true;
     useDHCP = false; # Deprecated, so set explicitly to false
     wireless.userControlled.enable = true;
     wireless.networks = {
