@@ -1,0 +1,4 @@
+# Mod key
+mod="Mod4"
+
+riverctl map normal $mod Space spawn "alacritty"
