@@ -47,7 +47,7 @@
     pkgs.spicetify-cli
     pkgs.telegraf
     pkgs.telnet
-    pkgs.texlive.combined.scheme-small
+    pkgs.texlive.combined.scheme-full
     pkgs.tmux
     pkgs.trash-cli
     pkgs.xquartz
@@ -58,7 +58,7 @@
 
   # Use a custom configuration.nix location.
   # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
-  # environment.darwinConfig = "$HOME/.config/nixpkgs/darwin/configuration.nix";
+  # environment.darwinConfig = "$HOME/nixdots/hosts/europa/darwin-configuration.nix";
 
   # Disable daemon
   services.nix-daemon.enable = false;
@@ -68,8 +68,6 @@
 
   # Used for backwards compatibility
   system.stateVersion = 4;
-
-  nix.extraOptions = ''experimental-features = nix-command flakes'';
 
   services.yabai = {
     enable = true;
@@ -101,7 +99,9 @@
         yabai -m rule --add app="^Latest$" manage=off
         yabai -m rule --add app="^Stickies$" manage=off
         yabai -m rule --add app="^GIMP" manage=off
+        yabai -m rule --add app="^IINA" manage=off
+        yabai -m rule --add app="[eE]macs" manage=on
         skhd &
-      '';
-    };
+    '';
+  };
 }

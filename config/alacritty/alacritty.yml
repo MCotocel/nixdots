@@ -61,7 +61,7 @@ colors:
     background: "#D5D5D5"
 
   normal:
-    black:   '#1F252A'
+    black:   '#181E23'
     red:     '#FF8080'
     green:   '#97D59B'
     yellow:  '#FFFE80'
@@ -88,8 +88,7 @@ bell:
   color: '#ffffff'
 
 cursor:
-  style:
-    shape: Beam
+  style: Beam
 
   blinking: true
   blink_interval: 750

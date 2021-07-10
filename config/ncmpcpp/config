@@ -1,74 +1,46 @@
-# Visualizer
-visualizer_type = "spectrum"
-visualizer_color = "green, green, yellow, red"
+#mpd_host = "127.0.0.1";
+#mpd_port = 6600;
+#mpd_music_dir = "~/Music";
 
-# Playlist
-playlist_show_remaining_time = yes
-playlist_shorten_total_times = yes
-playlist_separate_albums = no
-song_list_format = "{{$2%a$0 $3-$0 $5%b$0 $3- $7%t$0}|{%f}}{$R$2%l$0}"
-current_item_prefix = "$3────────────────── $0"
-current_item_suffix = "$3 ──────────────────$0"
-playlist_display_mode = "classic"
-titles_visibility = "yes"
-header_visibility = "no"
-statusbar_visibility = "yes"
-fetch_lyrics_for_current_song_in_background = "yes"
+autocenter_mode = "yes";
+centered_cursor = "yes";
+ignore_leading_the = "yes";
+allow_for_physical_item_deletion = "no";
 
-# How the browser looks
-browser_display_mode = columns
-search_engine_display_mode = columns
-playlist_editor_display_mode = columns
+# Appearance;
+colors_enabled = "yes";
+playlist_display_mode = "columns";
+user_interface = "classic";
+volume_color = "white";
 
-# Centering
-autocenter_mode = yes
-centered_cursor = yes
+# Window;
+song_window_title_format = "Music";
+statusbar_visibility = "no";
+header_visibility = "no";
+titles_visibility = "no";
 
-# Don't delete items
-allow_for_physical_item_deletion = yes
+# Progress bar;
+progressbar_look = "▂▂▂";
+progressbar_color = "black";
+progressbar_elapsed_color = "cyan";
 
-# Startup screens
-startup_screen = "playlist"
-startup_slave_screen = "visualizer"
-locked_screen_width_part = 50
-ask_for_locked_screen_width_part = yes
+# Alternative UI;
+alternative_ui_separator_color = "black";
+alternative_header_first_line_format = "$b$5«$/b$5« $b$8{%t}|{%f}$/b $5»$b$5»$/b";
+alternative_header_second_line_format = "{$b{$2%a$9}{ - $7%b$9}{ ($2%y$9)}}|{%D}";
 
-# Title
-clock_display_seconds = yes
-display_volume_level = yes
-display_bitrate = no
-display_remaining_time = yes
-enable_window_title = yes
+# Song list;
+song_status_format= "$7%t";
+song_list_format = "  %t $R%a %l  ";
+song_columns_list_format = "(53)[white]{tr} (45)[blue]{a}";
+song_library_format = "{{%a- %t} (%b)}|{%f}";
 
-# Media library settings
-ignore_leading_the = no
-media_library_sort_by_mtime = no
-media_library_primary_tag = album_artist
-default_place_to_search_in = database
-cyclic_scrolling = yes
-mpd_crossfade_time = "3"
-playlist_disable_highlight_delay = 0
-now_playing_suffix = "$/b$/r"
+# Colors;
+main_window_color = "blue";
+current_item_prefix = "-"
+current_item_suffix = "-"
+current_item_inactive_column_prefix = "red";
+current_item_inactive_column_suffix = "red";
 
-# Editor
-external_editor = nvim
-use_console_editor = yes
-
-# Looks
-statusbar_color = "green"
-progressbar_color = "red"
-progressbar_elapsed_color = "green"
-alternative_ui_separator_color = "black"
-color1 = "blue"
-color2 = "green"
-main_window_color = "green"
-statusbar_time_color = "blue"
-player_state_color = "blue"
-window_border_color = "black"
-active_window_border = "black"
-progressbar_look =  "───"
-user_interface = alternative
-song_status_format = "$2%a$0 $3-$0 $5%b$0 $3- $7%t$0"
-message_delay_time = 1
-
-execute_on_song_change = notify-send "Now playing" "`mpc current`"
+color1 = "white";
+color2 = "red"; 

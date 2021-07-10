@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+if ! type "doas" 2> /dev/null; then
+  priv="sudo"
+else
+  priv="doas"
+fi
+
 function help() {
     cat <<EOF
 Usage: shade [OPTION]
@@ -24,31 +30,31 @@ function pull() {
 
 function push() {
   echo "Pushing config to /etc/nixos..."
-  doas rm -rf /etc/.nixos-bak
-  doas mv /etc/nixos /etc/.nixos-bak
-  doas cp -R $HOME/nixdots/ /etc/nixos
+  $priv rm -rf /etc/.nixos-bak
+  $priv mv /etc/nixos /etc/.nixos-bak
+  $priv cp -R $HOME/nixdots/ /etc/nixos
 }
 
 function rebuild() {
   echo "Rebuilding config"
-  doas nixos-rebuild --flake /etc/nixos#$2 switch
+  $priv nixos-rebuild --flake /etc/nixos#$2 switch
 }
 
 function rollback() {
   echo "Rolling back"
-  doas nixos-rebuild --rollback switch
+  $priv nixos-rebuild --rollback switch
 }
 
 function update() {
   echo "Updating flake"
-  doas nix flake update /etc/nixos
+  $priv nix flake update /etc/nixos
 }
 
 function clean() {
   echo "Cleaning system"
-  doas nix-collect-garbage -d
-  doas nix-store --optimise
-  doas nix-env --delete-generations old
+  $priv nix-collect-garbage -d
+  $priv nix-store --optimise
+  $priv nix-env --delete-generations old
 }
 
 function search() {

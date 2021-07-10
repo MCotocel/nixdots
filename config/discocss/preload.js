@@ -1,7 +1,7 @@
-(() => {
+module.exports = () => {
   const fs = require("fs");
-  const confDir = "/home/matei/.config/discocss";
-  const cssFile = "/home/matei/.config/discocss/custom.css";
+  const confDir = "/Users/Matei/.config/discocss";
+  const cssFile = "/Users/Matei/.config/discocss/custom.css";
 
   function reload(style) {
     style.innerHTML = fs.readFileSync(cssFile);
@@ -18,4 +18,15 @@
   }
 
   inject(require("electron").webFrame.context);
-})();
+};
+
+module.exports.mw = (mainWindow) => {
+  mainWindow.setBackgroundColor("#00000000");
+};
+
+module.exports.mo = (options) => {
+  options.transparent = true;
+  if (process.platform === "linux") {
+    options.frame = true;
+  }
+};
