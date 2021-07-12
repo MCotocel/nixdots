@@ -2,15 +2,12 @@
   description = "I have no idea what the hell I'm doing";
 
   inputs = {
-    nixpkgs.url                   = "github:nixos/nixpkgs/nixos-unstable";
-    darwin-nixpkgs.url            = "github:nixos/nixpkgs/nixpkgs-20.09-darwin";
-    home-manager.url              = "github:nix-community/home-manager";
-    nur.url                       = "github:nix-community/nur";
-    darwin.url                    = "github:lnl7/nix-darwin/master";
-    darwin.inputs.nixpkgs.follows = "darwin-nixpkgs";
+    nixpkgs.url      = "github:NixOS/nixpkgs/nixos-unstable";
+    home-manager.url = "github:nix-community/home-manager";
+    nur.url          = "github:nix-community/nur";
   };
 
-  outputs = { self, nixpkgs, home-manager, nur, darwin, darwin-nixpkgs }: {
+  outputs = { self, nixpkgs, home-manager, nur }: {
 
     nixosConfigurations = {
 
@@ -33,15 +30,6 @@
 	      }
 	      { nixpkgs.overlays = [ nur.overlay ]; }
 	      ./hosts/ganymede/configuration.nix
-        ];
-      };
-
-      darwinConfiurations."europa" = darwin.lib.darwinSystem {
-        modules = [
-	      home-manager.nixosModules.home-manager {
-            home-manager.users.matei = import ./hosts/europa/home.nix;
-	      }
-          ./hosts/europa/configuration.nix
         ];
       };
 

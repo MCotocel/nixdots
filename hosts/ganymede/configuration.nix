@@ -107,6 +107,7 @@
     neofetch
     neovim
     nethack
+    networkmanager
     onefetch
     picom
     python39

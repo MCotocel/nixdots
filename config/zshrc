@@ -4,7 +4,7 @@ alias ls='ls --color=always'     # GNU ls
 alias la='ls --color=always -a'  # GNU ls -a
 alias ll='ls --color=always -la' # GNU ls -la
 
-alias e='emacsclient -c'
+alias e='emacsclient -c' # Emacsclient
 
 alias pipes='pipes.sh'       # Pipes screensaver
 
@@ -13,11 +13,6 @@ alias rm='trash' # Send to trash instead of deleting
 alias ta='tmux attach -t'      # Tmux attach to session
 alias tn='tmux new-session -s' # Tmux create session
 alias tl='tmux list-sessions'  # Tmux list sessions
-
-alias vtop='vtop -t nord' # Vtop system monitor
-
-alias mutt='neomutt' # Terminal email client
-alias please='sudo'  # For a nicer terminal experience
 
 alias vim='nvim' # Open Neovim
 alias vi='nvim'  # Open Neovim
@@ -65,13 +60,6 @@ export XDG_CONFIG_HOME=~/.config
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000
-
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    export PATH="/usr/local/opt/llvm/bin/lldb:$PATH"                # Debugger
-    export PATH="/usr/local/sbin:$PATH"                             # Add sbin to path
-    export PATH="/Applications/calibre.app/Contents/MacOS/:$PATH"   # Add Calibre command line tools to path
-    export PATH="/Applications/qutebrowser.app/Contents/MacOS/:$PATH"   # Add Calibre command line tools to path
-fi
 
 export PATH="$HOME/.bin/:$PATH"   # Add user binaries and scripts to path
 

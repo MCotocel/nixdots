@@ -13,7 +13,3 @@ Virtual Machine (NixOS)
 ## Io
 
 Raspberry Pi 4 (NixOS)
-
-## Europa
-
-iMac 2017 (Nix-darwin)
