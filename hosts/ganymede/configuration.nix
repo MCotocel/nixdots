@@ -93,6 +93,7 @@
     exa
     fd
     ffmpeg
+    firmwareLinuxNonfree
     fzf
     gh
     git
