@@ -13,6 +13,7 @@
   networking = {
     hostName = "ganymede"; # Hostname
     useDHCP = false; # Deprecated, so set explicitly to false
+    wireless.interfaces = ["wlp5s0"];
     wireless.userControlled.enable = true;
     wireless.networks = {
       "E_Net_2.4" = {
@@ -68,6 +69,9 @@
       enable = false;
     };
     gnome = {
+      enable = false;
+    };
+    plasma5 = {
       enable = true;
     };
   };
