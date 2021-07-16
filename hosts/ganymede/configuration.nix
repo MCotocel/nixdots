@@ -8,19 +8,23 @@
   ];
 
   boot.extraModulePackages = [ config.boot.kernelPackages.rtl8821ce ];
+  boot.kernelPackages = pkgs.linuxPackages_xanmod;
 
   # Network settings.
   networking = {
     hostName = "ganymede"; # Hostname
     useDHCP = false; # Deprecated, so set explicitly to false
-    wireless.interfaces = ["wlp5s0"];
     wireless.userControlled.enable = true;
+    networkmanager.enable = true;
     wireless.networks = {
-      "E_Net_2.4" = {
+      "E_Net" = {
         psk = "silviu-1";
       };
     };
   };
+  services.openssh.enable = true;
+
+  hardware.enableRedistributableFirmware = true;
 
   # X11
   services.xserver = {
@@ -40,9 +44,9 @@
 
   # Antivirus
   services.clamav = {
-    daemon.enable = true;
+    daemon.enable = false;
     updater = {
-      enable = true;
+      enable = false;
       frequency = 24;
       interval = "hourly";
     };
@@ -51,7 +55,7 @@
   # User accounts
   users.users.matei = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # For sudo/doas
+    extraGroups = [ "wheel" "networkmanager" ]; # For sudo/doas and networking
     shell = pkgs.zsh;
   };
 
@@ -102,6 +106,8 @@
     ispell
     isync
     jq
+    linuxPackages_xanmod.r8168
+    linuxPackages.r8168
     manix
     mpc_cli
     mpd
@@ -125,6 +131,7 @@
     tmux
     trash-cli
     vim
+    wpa_supplicant
     wget
     xorg.xf86videoamdgpu
     youtube-dl

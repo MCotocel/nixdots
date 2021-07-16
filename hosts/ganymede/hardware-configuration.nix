@@ -20,5 +20,5 @@
     [ { device = "/dev/disk/by-label/swap"; }
     ];
 
-  powerManagement.cpuFreqGovernor = performance;
+  powerManagement.cpuFreqGovernor = "performance";
 }

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if ! type "doas" 2> /dev/null; then
+if ! type "doas" > /dev/null 2>&1 ; then
   priv="sudo"
 else
   priv="doas"
