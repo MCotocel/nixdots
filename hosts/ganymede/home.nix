@@ -36,7 +36,9 @@
     ".config/polybar".source     = ../../config/polybar;
     ".config/qutebrowser".source = ../../config/qutebrowser;
     ".config/rofi".source        = ../../config/rofi;
+    ".config/river".source       = ../../config/river;
     ".config/sxhkd".source       = ../../config/sxhkd;
+    ".config/wofi".source        = ../../config/wofi;
     ".config/wtf".source         = ../../config/wtf;
 
     # Ranger

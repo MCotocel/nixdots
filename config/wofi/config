@@ -1,0 +1,3 @@
+stylesheet=/home/matei/nixdots/config/wofi/style.css
+show=drun
+prompt=>

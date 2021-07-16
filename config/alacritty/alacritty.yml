@@ -38,7 +38,7 @@ font:
 
 colors:
   primary:
-    background: '#1F252A'
+    background: '#181E23'
     foreground: '#D5D5D5'
 
     dim_foreground: '#384149'
@@ -51,13 +51,13 @@ colors:
   search:
     matches:
       foreground: '#80D1FF'
-      background: '#1F252A'
+      background: '#181E23'
     focused_match:
       foreground: CellBackground
       background: CellForeground
 
   selection:
-    text: "#1F252A"
+    text: "#181E23"
     background: "#D5D5D5"
 
   normal:
