@@ -2,28 +2,28 @@
 mod="Mod4"
 
 # Tiling
-riverctl spawn rivertile
-riverctl output-layout rivertile
-
-# Terminal
+#riverctl spawn rivertile
+#riverctl output-layout rivertile
+#
+## Terminal
 riverctl map normal $mod Return spawn alacritty
-
-# Launcher
-riverctl map normal $mod Space spawn wofi
-
-# Close window
-riverctl map normal $mod+Shift Q close
-
-# Toggle floating
-riverctl map normal $mod+Mod1 Space toggle-float
-
-# Toggle fullscreen
-riverctl map normal $mod F toggle-fullscreen
-
-# Opacity
-riverctl opacity 1.0 1.0 0.0 0.1 30
-
-# Border
-riverctl border-color-focused '#384149'
-riverctl border-color-unfocused '#181E23'
-riverctl border-width 3
+#
+## Launcher
+#riverctl map normal $mod Space spawn wofi
+#
+## Close window
+#riverctl map normal $mod+Shift Q close
+#
+## Toggle floating
+#riverctl map normal $mod+Mod1 Space toggle-float
+#
+## Toggle fullscreen
+#riverctl map normal $mod F toggle-fullscreen
+#
+## Opacity
+#riverctl opacity 1.0 1.0 0.0 0.1 30
+#
+## Border
+#riverctl border-color-focused '#384149'
+#riverctl border-color-unfocused '#181E23'
+#riverctl border-width 3

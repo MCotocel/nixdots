@@ -5,6 +5,7 @@
   boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
+  boot.kernelParams= [ "iommu=soft" ];
 
   fileSystems."/" =
     { device = "/dev/disk/by-label/nixos";

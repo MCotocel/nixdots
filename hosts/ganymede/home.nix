@@ -40,6 +40,7 @@
     ".config/sxhkd".source       = ../../config/sxhkd;
     ".config/wofi".source        = ../../config/wofi;
     ".config/wtf".source         = ../../config/wtf;
+    ".config/xmonad".source      = ../../config/xmonad;
 
     # Ranger
     ".config/ranger/rc.conf".source    = ../../config/ranger/rc.conf;

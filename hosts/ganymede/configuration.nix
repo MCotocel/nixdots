@@ -7,40 +7,41 @@
     ../shared.nix
   ];
 
-  boot.extraModulePackages = [ config.boot.kernelPackages.rtl8821ce ];
-  boot.kernelPackages = pkgs.linuxPackages_xanmod;
+  boot.extraModulePackages = [ config.boot.kernelPackages.rtl8821ce ]; # Drivers
+  boot.kernelPackages = pkgs.linuxPackages_xanmod; # Kernel package
+  hardware.enableRedistributableFirmware = true; # Non-free firmware
 
   # Network settings.
   networking = {
     hostName = "ganymede"; # Hostname
     useDHCP = false; # Deprecated, so set explicitly to false
-    wireless.userControlled.enable = true;
-    networkmanager.enable = true;
+    wireless.userControlled.enable = true; # Allow user to control networking
+    networkmanager.enable = true; # Enable networkmanager
     wireless.networks = {
       "E_Net" = {
         psk = "silviu-1";
       };
     };
   };
-  services.openssh.enable = true;
-
-  hardware.enableRedistributableFirmware = true;
+  services.openssh.enable = true; # Enable openssh
 
   # X11
   services.xserver = {
     enable = true;
-    layout = "us";
-    autoRepeatDelay = 225;
+    layout = "us"; # Set keyboard layout
+    autoRepeatDelay = 225; # Keyboard repeat rate
     autoRepeatInterval = 33;
   };
 
   # Sound
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  hardware.pulseaudio.enable = true; # Pulseaudio
 
   # Bluetooth
-  hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
+  hardware.bluetooth.enable = true; # Enable bluetooth
+  services.blueman.enable = true; # Blueman service
+
+  services.xserver.libinput.enable = true; # Enable libinput for trackpad
 
   # Antivirus
   services.clamav = {
@@ -55,16 +56,27 @@
   # User accounts
   users.users.matei = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ]; # For sudo/doas and networking
+    extraGroups = [ "wheel" ]; # For sudo/doas
     shell = pkgs.zsh;
   };
 
+  services.xserver.displayManager.gdm.enable = true; # Gnome display manager
+  services.xserver.videoDrivers = [ "amdgpu" ]; # Use AMD driver
+  hardware.opengl.driSupport = true; # DRI support
+  hardware.opengl.driSupport32Bit = true;
+
+  services.xserver.xkbOptions = "caps:ctrl_modifier"; # Caps to control
+
   services.xserver.windowManager = {
     awesome = {
-      enable = false;
+      enable = true;
     };
     bspwm = {
-      enable = false;
+      enable = true;
+    };
+    xmonad = {
+      enable = true;
+      enableContribAndExtras = true;
     };
   };
 
@@ -76,15 +88,21 @@
       enable = false;
     };
     plasma5 = {
-      enable = true;
+      enable = false;
     };
   };
+
+  # Configure closed lid actions
+  services.logind.lidSwitch = "ignore";
+  services.logind.lidSwitchDocked = "ignore";
+  services.logind.lidSwitchExternalPower = "ignore";
 
   # System-wide packages
   environment.systemPackages = with pkgs; [
     ack
-    awesome
+    alacritty
     aria
+    awesome
     bash
     bat
     cmake
@@ -107,7 +125,6 @@
     isync
     jq
     linuxPackages_xanmod.r8168
-    linuxPackages.r8168
     manix
     mpc_cli
     mpd
@@ -124,25 +141,31 @@
     python39
     ranger
     ripgrep
+    river
     spicetify-cli
+    steam
+    swaybg
     telegraf
     telnet
     texlive.combined.scheme-small
     tmux
     trash-cli
     vim
-    wpa_supplicant
+    wayland
+    wayfire
     wget
+    wpa_supplicant
+    wofi
     xorg.xf86videoamdgpu
     youtube-dl
     zsh
   ];
 
   fonts.fonts = with pkgs; [
-    (nerdfonts.override { fonts = [ "Iosevka" ]; })
+    (nerdfonts.override { fonts = [ "Iosevka" ]; }) # Nerd Fonts
   ];
   
-  console.colors = [ "181e23" "ff8080" "97d59b" "fffe80" "80d1ff" "c780ff" "80ffe4" "d5d5d5" "ffaeae" "bef8c1" "fcfba6" "ace1ff" "d8a8ff" "a2ffeb" "ffffff" ];
+  console.colors = [ "181e23" "ff8080" "97d59b" "fffe80" "80d1ff" "c780ff" "80ffe4" "d5d5d5" "ffaeae" "bef8c1" "fcfba6" "ace1ff" "d8a8ff" "a2ffeb" "ffffff" ]; # Color for the console
 
   nixpkgs.overlays = [
     (final: prev: {
@@ -162,6 +185,10 @@
       };
     })
   ];
+
+  nixpkgs.config = {
+    allowUnfree = true; # Allow unfree packages (forgive me stallman)
+  };
 
   # System version, do not change
   system.stateVersion = "21.11";
