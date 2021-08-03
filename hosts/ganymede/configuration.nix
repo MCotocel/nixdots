@@ -61,7 +61,7 @@
   };
 
   services.xserver.displayManager.gdm.enable = true; # Gnome display manager
-  services.xserver.videoDrivers = [ "amdgpu" ]; # Use AMD driver
+  #services.xserver.videoDrivers = [ "amdgpu" ]; # Use AMD driver
   hardware.opengl.driSupport = true; # DRI support
   hardware.opengl.driSupport32Bit = true;
 
@@ -85,7 +85,7 @@
       enable = false;
     };
     gnome = {
-      enable = false;
+      enable = true;
     };
     plasma5 = {
       enable = false;
@@ -124,6 +124,8 @@
     ispell
     isync
     jq
+    libinput
+    libvirt
     linuxPackages_xanmod.r8168
     manix
     mpc_cli
@@ -136,9 +138,12 @@
     neovim
     nethack
     networkmanager
+    nyxt
     onefetch
+    papirus-icon-theme
     picom
     python39
+    qemu
     ranger
     ripgrep
     river
