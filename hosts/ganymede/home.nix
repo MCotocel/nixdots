@@ -48,6 +48,7 @@
     ".config/emacs/init.el".source                   = ../../config/emacs/init.el;
     ".config/emacs/style.css".source                 = ../../config/emacs/style.css;
     ".config/emacs/etc/private.el".source            = ../../config/emacs/private.el;
+    ".config/emacs/pfp_rounded_small.png".source     = ../../config/emacs/pfp_rounded_small.png;
 
     # Vim
     ".config/nvim/init.vim".source = ../../config/nvim/init.vim;

@@ -513,7 +513,7 @@ The default startup screen is bland, let's replace it with a nice dashboard. We 
     (setq dashboard-center-content t
       dashboard-show-shortcuts nil
       dashboard-banner-logo-title "Welcome to Emacs"
-      dashboard-startup-banner "/Users/Matei/Code/linux-dotfiles/Pictures/pfp_rounded_small.png"
+      dashboard-startup-banner "./pfp_rounded_small.png"
       dashboard-set-heading-icons t
       dashboard-set-file-icons t
       dashboard-set-navigator t)
