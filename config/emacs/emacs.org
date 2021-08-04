@@ -99,7 +99,7 @@ We remove unnecessary UI elements, like the menu bar, scroll bar, and tool bar. 
 Here we set a nice font, because if I'm going to be staring at code for hours, I want it to look good. Change the font size to whatever you want.
 
 #+BEGIN_SRC emacs-lisp
-  (add-to-list 'default-frame-alist '(font . "Iosevka Nerd Font-15"))
+  (add-to-list 'default-frame-alist '(font . "Iosevka Nerd Font"))
 #+END_SRC
 
 *** Symbol font
@@ -513,7 +513,7 @@ The default startup screen is bland, let's replace it with a nice dashboard. We 
     (setq dashboard-center-content t
       dashboard-show-shortcuts nil
       dashboard-banner-logo-title "Welcome to Emacs"
-      dashboard-startup-banner "./pfp_rounded_small.png"
+      dashboard-startup-banner "$HOME/.config/emacs/pfp_rounded_small.png"
       dashboard-set-heading-icons t
       dashboard-set-file-icons t
       dashboard-set-navigator t)
