@@ -4,12 +4,6 @@
   programs.home-manager.enable = true;
   programs.ncmpcpp.enable      = true;
 
-  programs.git = {
-    enable = true;
-    userName = "Matei Cotocel";
-    userEmail = "mcotocel@outlook.com";
-  };
-
   home.username = "matei";
   home.homeDirectory = "/home/matei";
 

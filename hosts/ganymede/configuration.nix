@@ -112,6 +112,7 @@
     direnv
     discocss
     emacs
+    emacs-all-the-icons-fonts
     exa
     fd
     ffmpeg
@@ -148,6 +149,7 @@
     ripgrep
     river
     spicetify-cli
+    sqlite
     steam
     swaybg
     telegraf
