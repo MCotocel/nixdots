@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-dots="~/nixdots/"
+dots="$HOME/nixdots/"
 
 if ! type "doas" > /dev/null 2>&1 ; then
   priv="sudo"
