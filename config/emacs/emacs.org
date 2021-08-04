@@ -513,7 +513,7 @@ The default startup screen is bland, let's replace it with a nice dashboard. We 
     (setq dashboard-center-content t
       dashboard-show-shortcuts nil
       dashboard-banner-logo-title "Welcome to Emacs"
-      dashboard-startup-banner "$HOME/.config/emacs/pfp_rounded_small.png"
+      dashboard-startup-banner "/home/matei/.config/emacs/pfp_rounded_small.png"
       dashboard-set-heading-icons t
       dashboard-set-file-icons t
       dashboard-set-navigator t)
@@ -786,7 +786,6 @@ I use Emacs for coding as well, so we're going to configure lsp-mode.
     lsp-ui-sideline-enable nil
     lsp-ui-sideline-enable t
     lsp-modeline-code-actions-enable t
-    lsp-diagnostics-provider :flycheck
     lsp-ui-sideline-enable t
     lsp-ui-doc-border nil
     lsp-eldoc-enable-hover t)
@@ -944,9 +943,9 @@ Org roam makes Org even better
     (org-roam-directory "~/org/")
     :config
     (org-roam-setup)
+    (require 'org-roam-protocol))
 
   (setq org-roam-v2-ack t)
-    (require 'org-roam-protocol))
 
   (use-package org-roam-ui
     :straight
@@ -1011,18 +1010,18 @@ This changes the faces of Org mode to a nice sans serif font.
 
   (custom-theme-set-faces
    'user
-   '(org-block                 ((t (:inherit fixed-pitch))))
-   '(org-code                  ((t (:inherit fixed-pitch :weight normal))))
-   '(org-document-info         ((t (,@headline :height 1.6))))
-   '(org-document-info-keyword ((t (:inherit (shadow fixed-pitch)))))
-   '(org-indent                ((t (:inherit (org-hide fixed-pitch)))))
-   '(org-link                  ((t (:foreground "royal blue" :underline t))))
-   '(org-meta-line             ((t (:inherit (font-lock-comment-face fixed-pitch)))))
-   '(org-property-value        ((t (:inherit fixed-pitch))) t)
-   '(org-special-keyword       ((t (:inherit (font-lock-comment-face fixed-pitch)))))
-   '(org-table                 ((t (:inherit fixed-pitch :foreground "#384149"))))
-   '(org-tag                   ((t (:inherit (shadow fixed-pitch) :weight bold :height 0.8))))
-   '(org-verbatim              ((t (:inherit (shadow fixed-pitch))))))
+   '(org-block                 ((t :inherit fixed-pitch)))
+   '(org-code                  ((t :inherit fixed-pitch :weight normal)))
+   '(org-document-info         ((t ,@headline :height 1.6)))
+   '(org-document-info-keyword ((t :inherit (shadow fixed-pitch))))
+   '(org-indent                ((t :inherit (org-hide fixed-pitch))))
+   '(org-link                  ((t :foreground "royal blue" :underline t)))
+   '(org-meta-line             ((t :inherit (font-lock-comment-face fixed-pitch))))
+   '(org-property-value        ((t :inherit fixed-pitch)) t)
+   '(org-special-keyword       ((t :inherit (font-lock-comment-face fixed-pitch))))
+   '(org-table                 ((t :inherit fixed-pitch :foreground "#384149")))
+   '(org-tag                   ((t :inherit (shadow fixed-pitch) :weight bold :height 0.8)))
+   '(org-verbatim              ((t :inherit (shadow fixed-pitch)))))
 #+end_src
 
 ** Present

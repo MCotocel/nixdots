@@ -121,6 +121,7 @@
     ffmpeg
     firmwareLinuxNonfree
     fzf
+    gcc
     gh
     git
     htop
