@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+<<<<<<< HEAD
+dots="~/nixdots/"
+
+=======
+>>>>>>> 3544d3b20ed36cc5a5d2c04b3b26b0530454e871
 if ! type "doas" > /dev/null 2>&1 ; then
   priv="sudo"
 else
@@ -8,71 +13,94 @@ fi
 
 function help() {
     cat <<EOF
-Usage: shade [OPTION]
+Usage: nas [OPTION] [OPTION]
 
 Options:
-    help	show this text
-    pull	copy configs to home directory
-    push	copy configs to /etc/nixos
-    rebuild	rebuilt configuration for host
-    rollback	rollback to previous generation
-    update      update flake
-    clean       clean and garabge collect store
+    help          show this text
+
+    nix           nix operations
+      pull        copy configs to home directory
+      push        copy configs to /etc/nixos
+      sync        pull config from git repo, then commit and push
+      rebuild     rebuilt configuration for host
+      rollback    rollback to previous generation
+      update      update flake
+      clean       clean and garabge collect store
+      search      search packages available
+
+    notes         note operations
+      sync        pull notes from git repo, then commit and push
+      random      open random note from notes directory
 EOF
 }
 
-function pull() {
+# Nix
+function nix-pull() {
   echo "Pulling config from /etc/nixos..."
-  rm -rf $HOME.nixdots-back
+  rm -rf $HOME/nixdots-back
   mv $HOME/nixdots $HOME/.nixdots-bak
   cp -R /etc/nixos/ $HOME/nixdots
 }
 
-function push() {
+function nix-push() {
   echo "Pushing config to /etc/nixos..."
   $priv rm -rf /etc/.nixos-bak
   $priv mv /etc/nixos /etc/.nixos-bak
   $priv cp -R $HOME/nixdots/ /etc/nixos
 }
 
-function rebuild() {
-  echo "Rebuilding config"
-  $priv nixos-rebuild --flake /etc/nixos#$2 switch
+function nix-sync() {
+  echo "Syncing nix config"
+  cd $dots
+  git pull
+  git add .
+  git commit -m "update"
+  git push
 }
 
-function rollback() {
+function nix-rebuild() {
+  echo "Rebuilding config"
+  $priv nixos-rebuild --flake /etc/nixos#$3 switch
+}
+
+function nix-rollback() {
   echo "Rolling back"
   $priv nixos-rebuild --rollback switch
 }
 
-function update() {
+function nix-update() {
   echo "Updating flake"
   $priv nix flake update /etc/nixos
 }
 
-function clean() {
+function nix-clean() {
   echo "Cleaning system"
+  $priv nix-store --gc
   $priv nix-collect-garbage -d
-  $priv nix-store --optimise
   $priv nix-env --delete-generations old
+  $priv nix-store --optimise
 }
 
-function search() {
-  nix search nixpkgs $2
+function nix-search() {
+  nix search nixpkgs $3
 }
 
 case "$1" in
-
-    pull)     pull ;;
-    push)     push ;;
-    rebuild)  rebuild $@ ;;
-    rollback) rollback ;;
-    update)   update ;;
-    clean)    clean ;;
-    search)   search $@ ;;
-
+    nix)
+      case "$2" in
+        pull)     nix-pull ;;
+        push)     nix-push ;;
+        sync)     nix-sync ;;
+        rebuild)  nix-rebuild $@ ;;
+        rollback) nix-rollback ;;
+        update)   nix-update ;;
+        clean)    nix-clean ;;
+        search)   nix-search $@ ;;
+        '')      help ;;
+        help)    help ;;
+        *)       help ;;
+      esac ;;
     '')      help ;;
     help)    help ;;
     *)       help ;;
-
 esac
