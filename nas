@@ -57,7 +57,7 @@ function nix-sync() {
 
 function nix-rebuild() {
   echo "Rebuilding config"
-  $priv nixos-rebuild --flake /etc/nixos#$3 switch
+  $priv nixos-rebuild --flake /etc/nixos#$3 --impure switch
 }
 
 function nix-rollback() {
@@ -75,7 +75,6 @@ function nix-clean() {
   $priv nix-store --gc
   $priv nix-collect-garbage -d
   $priv nix-env --delete-generations old
-  $priv nix-store --optimise
 }
 
 function nix-search() {

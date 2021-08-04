@@ -97,6 +97,10 @@
   services.logind.lidSwitchDocked = "ignore";
   services.logind.lidSwitchExternalPower = "ignore";
 
+  # Emacs
+  services.emacs.enable = true;
+  services.emacs.package = pkgs.emacsUnstable;
+
   # System-wide packages
   environment.systemPackages = with pkgs; [
     ack
@@ -111,7 +115,6 @@
     cowsay
     direnv
     discocss
-    emacs
     emacs-all-the-icons-fonts
     exa
     fd
