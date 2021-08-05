@@ -101,6 +101,83 @@
   services.emacs.enable = true;
   services.emacs.package = pkgs.emacsUnstable;
 
+  # Telegraf
+  services.telegraf = {
+    enable = true;
+    extraConfig = {
+      outputs = {
+        influxdb = {
+          database = "telegraf";
+          username = "telegraf";
+          password = "telegraf";
+          urls = ["http://localhost:8086"];
+        };
+      };
+      inputs = {
+        cpu = {
+          percpu = true;
+          totalcpu = true;
+        };
+        disk = {
+          mount_points = ["/"];
+          ignore_fs = [
+            "tmpfs"
+            "devtmpfs"
+            "devfs"
+            "iso9660"
+            "overlay"
+            "aufs"
+            "squashfs"
+          ];
+        };
+        github = {
+          repositories = [
+            "nixos/nixpkgs"
+            "influxdata/influxdb"
+          ];
+          access_token = "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";
+          http_timeout = "5s";
+        };
+        ping = {
+          urls = [
+            "cache.nixos"
+            "github.com"
+            "stackoverflow.com"
+            "google.com"
+          ];
+          count = 4;
+          ping_interval = 5.0;
+        };
+        mem = {};
+        net = {};
+        processes = {};
+        system = {};
+        temp = {};
+        wireless = {};
+      };
+    };
+  };
+
+  # Syncthing
+  services.syncthing = {
+    enable = true;
+    user = "matei";
+    dataDir = "/home/matei";
+  };
+
+  # Grafana
+  services.grafana = {
+    enable = true;
+    port = 3000;
+    domain = "localhost";
+    protocol = "http";
+  };
+
+  # Influxdb
+  services.influxdb = {
+    enable = true;
+  };
+
   # System-wide packages
   environment.systemPackages = with pkgs; [
     ack
@@ -119,6 +196,7 @@
     exa
     fd
     ffmpeg
+    firefox
     firmwareLinuxNonfree
     fzf
     gcc

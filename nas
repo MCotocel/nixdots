@@ -24,10 +24,6 @@ Options:
       update      update flake
       clean       clean and garabge collect store
       search      search packages available
-
-    notes         note operations
-      sync        pull notes from git repo, then commit and push
-      random      open random note from notes directory
 EOF
 }
 
