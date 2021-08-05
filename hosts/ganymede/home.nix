@@ -53,5 +53,8 @@
     # Vim
     ".config/nvim/init.vim".source = ../../config/nvim/init.vim;
     ".config/nvim/colors".source   = ../../config/nvim/colors;
+
+    # User binaries
+    ".bin/nas".source = ../../nas;
   };
 }
