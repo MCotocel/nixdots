@@ -69,7 +69,7 @@ function nix-update() {
 function nix-clean() {
   echo "Cleaning system"
   $priv nix-store --gc
-  $priv nix-collect-garbage -d
+  $priv nix-collect-garbage
   $priv nix-env --delete-generations old
 }
 
