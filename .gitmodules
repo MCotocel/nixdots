@@ -1,0 +1,12 @@
+[submodule "config/awesome/bling"]
+	path = config/awesome/bling
+	url = https://github.com/blingcorp/bling
+[submodule "config/awesome/layout-machi"]
+	path = config/awesome/layout-machi
+	url = https://github.com/xinhaoyuan/layout-machi
+[submodule "config/awesome/lain"]
+	path = config/awesome/lain
+	url = https://github.com/lcpz/lain
+[submodule "config/awesome/awesome-revelation"]
+	path = config/awesome/awesome-revelation
+	url = https://github.com/guotsuan/awesome-revelation
