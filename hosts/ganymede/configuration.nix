@@ -114,46 +114,46 @@
         };
       };
       inputs = {
-        cpu = {
-          percpu = true;
-          totalcpu = true;
-        };
-        disk = {
-          mount_points = ["/"];
-          ignore_fs = [
-            "tmpfs"
-            "devtmpfs"
-            "devfs"
-            "iso9660"
-            "overlay"
-            "aufs"
-            "squashfs"
-          ];
-        };
-        github = {
-          repositories = [
-            "nixos/nixpkgs"
-            "influxdata/influxdb"
-          ];
-          access_token = "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";
-          http_timeout = "5s";
-        };
-        ping = {
-          urls = [
-            "cache.nixos"
-            "github.com"
-            "stackoverflow.com"
-            "google.com"
-          ];
-          count = 4;
-          ping_interval = 5.0;
-        };
-        mem = {};
-        net = {};
-        processes = {};
-        system = {};
-        temp = {};
-        wireless = {};
+       cpu = {
+         percpu = true;
+         totalcpu = true;
+       };
+       disk = {
+         mount_points = ["/"];
+         ignore_fs = [
+           "tmpfs"
+           "devtmpfs"
+           "devfs"
+           "iso9660"
+           "overlay"
+           "aufs"
+           "squashfs"
+         ];
+       };
+       github = {
+         repositories = [
+           "nixos/nixpkgs"
+           "influxdata/influxdb"
+         ];
+         access_token = "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";
+         http_timeout = "5s";
+       };
+       #ping = {
+       #  urls = [
+       #    "cache.nixos"
+       #    "github.com"
+       #    "stackoverflow.com"
+       #    "google.com"
+       #  ];
+       #  count = 4;
+       #  ping_interval = "5.0";
+       #};
+       mem = {};
+       net = {};
+       processes = {};
+       system = {};
+       temp = {};
+       wireless = {};
       };
     };
   };
