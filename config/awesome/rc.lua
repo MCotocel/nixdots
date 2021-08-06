@@ -314,36 +314,47 @@ awful.screen.connect_for_each_screen(function(s)
         buttons = taglist_buttons,
     }
 
-    -- Tasklist widget
-    s.tasklist =
-        awful.widget.tasklist {
-            screen = s,
-            filter = awful.widget.tasklist.filter.currenttags,
-            buttons = tasklist_buttons,
-            layout = {
-                spacing = 0,
-                spacing_widget = {
-                    widget = wibox.container.background
+    s.tasklist = awful.widget.tasklist {
+        screen = s,
+        filter = awful.widget.tasklist.filter.currenttags,
+        buttons = tasklist_buttons,
+        layout = {
+            spacing_widget = {
+                {
+                    forced_width  = 5,
+                    forced_height = 24,
+                    thickness = 1,
+                    color = '#777777',
+                    widget = wibox.widget.separator
                 },
-                layout = wibox.layout.fixed.horizontal
+                valign = 'center',
+                halign = 'center',
+                widget = wibox.container.place,
+            },
+            spacing = 1,
+            layout = wibox.layout.fixed.horizontal
         },
         widget_template = {
             {
+                wibox.widget.base.make_widget(),
+                forced_height = 5,
+                id = 'background_role',
+                widget = wibox.container.background,
+            },
+            {
                 {
-                    nil,
-                    awful.widget.clienticon,
-                    nil,
-                    layout = wibox.layout.fixed.horizontal,
+                    id = 'clienticon',
+                    widget = awful.widget.clienticon,
                 },
-                top = 5,
-                bottom = 5,
-                left = 10,
-                right = 10,
+                margins = 5,
                 widget = wibox.container.margin
             },
-            id = "background_role",
-            widget = wibox.container.background
-        }
+            nil,
+            create_callback = function(self, c, index, objects)
+                self:get_children_by_id('clienticon')[1].client = c
+            end,
+            layout = wibox.layout.align.vertical,
+            },
     }
 
     -- Prompt
