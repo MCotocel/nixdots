@@ -214,21 +214,14 @@ awful.key({modkey, "Control"}, "m", function () local c = awful.client.restore()
 }),
 
 -- Open terminal
-awful.key({modkey}, "Return", function() awful.spawn(termi
-nal) end, {
+awful.key({modkey}, "Return", function() awful.spawn(terminal) end, {
     description = "Open terminal",
     group = "Applications and menus"
 }),
 
 -- Open launcher
-awful.key({modkey}, "space", function() awful.spawn.with_shell("rofi -show drun -display-drun 'App Launcher' -dpi 196") end, {
+awful.key({modkey}, "space", function() awful.spawn.with_shell("rofi -show drun -display-drun 'App Launcher'") end, {
     description = "Open launcher",
-    group = "Applications and menus"
-}),
-
--- Applications menu
-awful.key({"Mod1"}, "space", function() awful.spawn.with_shell("cat ~/.config/jgmenu/jgmenu | jgmenu --simple") end, {
-    description = "Applications menu",
     group = "Applications and menus"
 }),
 

@@ -282,21 +282,14 @@ Previewing tags with the bling module.
 
 #+begin_src lua 
   -- Open terminal
-  awful.key({modkey}, "Return", function() awful.spawn(termi
-  nal) end, {
+  awful.key({modkey}, "Return", function() awful.spawn(terminal) end, {
       description = "Open terminal",
       group = "Applications and menus"
   }),
 
   -- Open launcher
-  awful.key({modkey}, "space", function() awful.spawn.with_shell("rofi -show drun -display-drun 'App Launcher' -dpi 196") end, {
+  awful.key({modkey}, "space", function() awful.spawn.with_shell("rofi -show drun -display-drun 'App Launcher'") end, {
       description = "Open launcher",
-      group = "Applications and menus"
-  }),
-
-  -- Applications menu
-  awful.key({"Mod1"}, "space", function() awful.spawn.with_shell("cat ~/.config/jgmenu/jgmenu | jgmenu --simple") end, {
-      description = "Applications menu",
       group = "Applications and menus"
   }),
 
@@ -432,7 +425,7 @@ Previewing tags with the bling module.
       -- Menu
       awesomemenu = {
        {"Hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end},
-       {"Reload", awesome.restart},
+       {"Reload", awesome.restart()},
        {"Quit", function() awesome.quit() end},
       }
 

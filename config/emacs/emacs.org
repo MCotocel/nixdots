@@ -776,6 +776,7 @@ I use Emacs for coding as well, so we're going to configure lsp-mode.
            (markdown-mode . lsp)
            (latex-mode . lsp)
            (go-mode . lsp)
+           (nix-mode . lsp)
            (lsp-mode . lsp-enable-which-key-integration))
     :commands lsp
     :config
@@ -820,6 +821,7 @@ I use Emacs for coding as well, so we're going to configure lsp-mode.
   (use-package go-mode)
   (use-package json-mode)
   (use-package lua-mode)
+  (use-package nix-mode)
   (use-package lsp-jedi
     :hook (python-mode . lsp-jedi))
 
@@ -848,7 +850,6 @@ Here, we install and configure projectile, which is a project interaction librar
   (use-package projectile
     :config (projectile-mode 1))
 #+END_SRC
-
 
 * Org mode
 

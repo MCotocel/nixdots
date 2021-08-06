@@ -15,7 +15,7 @@
     ".zshrc".source            = ../../config/zshrc;
 
     ".config/alacritty".source   = ../../config/alacritty;
-    #".config/awesome".source     = ../../config/awesome;
+    ".config/awesome".source     = ../../config/awesome;
     ".config/bspwm".source       = ../../config/bspwm;
     ".config/cava".source        = ../../config/cava;
     ".config/discocss".source    = ../../config/discocss;
