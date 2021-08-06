@@ -34,8 +34,16 @@
   };
 
   # Sound
-  sound.enable = true;
-  hardware.pulseaudio.enable = true; # Pulseaudio
+  sound.enable = false;
+  hardware.pulseaudio.enable = false; # Pulseaudio
+
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
+  };
 
   # Bluetooth
   hardware.bluetooth.enable = true; # Enable bluetooth
@@ -70,6 +78,13 @@
   services.xserver.windowManager = {
     awesome = {
       enable = true;
+      luaModules = with pkgs.lua52Packages; [
+        lgi
+        ldbus
+        luarocks-nix
+        luadbi-mysql
+        luaposix
+      ];
     };
     bspwm = {
       enable = true;

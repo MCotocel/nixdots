@@ -23,7 +23,6 @@ Modules required for configuration to work nicely.
   local revelation = require("awesome-revelation")
   revelation.charorder = "1234567890qwertyuiopasdfghjklzxcvbnm"
   local wibox = require("wibox")
-  root.keys(globalkeys)
 #+end_src
 
 ** Default apps
