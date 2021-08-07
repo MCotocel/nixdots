@@ -17,8 +17,9 @@
     ".local/share/applications".source   = ../../config/applications;
     ".config/discocss/custom.css".source = ../../config/discocss/custom.css;
 
-    ".config/alacritty".source   = ../../config/alacritty;
     ".config/awesome".source     = ../../config/awesome;
+
+    ".config/alacritty".source   = ../../config/alacritty;
     ".config/bspwm".source       = ../../config/bspwm;
     ".config/cava".source        = ../../config/cava;
     ".config/dunst".source       = ../../config/dunst;

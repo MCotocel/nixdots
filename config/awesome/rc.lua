@@ -363,6 +363,21 @@ awful.screen.connect_for_each_screen(function(s)
     -- Clock
     clock = wibox.widget.textclock()
 
+    -- Battery
+    battery = awful.widget.watch('bash -c "echo Battery: `cat /sys/class/power_supply/BAT0/capacity`%"', 15) 
+
+    local battery_tooltip = awful.tooltip
+    {
+        objects        = { battery },
+        timer_function = function()
+            return io.popen("bash -c \"echo -n Status: `cat /sys/class/power_supply/BAT0/status`\""):read("*a")
+        end,
+        timeout=0,
+        bg="#1f252a",
+        align="top_left",
+        margins="5"
+    }
+
     -- Menu
     awesomemenu = {
      {"Hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end},
@@ -438,11 +453,11 @@ awful.screen.connect_for_each_screen(function(s)
         },
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            spacing = 10,
+            spacing = 5,
             clock,
-            --wibox.widget.systray(),
-            wibox.layout.margin(wibox.widget.systray(), 7, 7, 7, 7),
-            wibox.layout.margin(s.layoutbox, 7, 7, 7, 7),
+            wibox.layout.margin(battery, 0, 7, 0, 0),
+            wibox.layout.margin(wibox.widget.systray(), 0, 7, 7, 7),
+            wibox.layout.margin(s.layoutbox, 0, 0, 7, 7),
             wibox.widget {
                 widget = wibox.widget.separator,
                 forced_width = 1,

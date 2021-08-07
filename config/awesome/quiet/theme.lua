@@ -21,15 +21,15 @@ theme.taglist_squares_unsel_empty = nil
 
 theme.bg_normal = "#181e23"
 theme.bg_focus = "#181e23"
-theme.bg_urgent = "#FF8080"
+theme.bg_urgent = "#18e23"
 theme.bg_minimize = "#181e23"
 theme.bg_systray = "#181e23"
 
 -- Foregrounds
 
 theme.fg_normal = "#D5D5D5"
-theme.fg_focus = "#80D1FF"
-theme.fg_urgent = "#D5D5D5"
+theme.fg_focus = "#6f6f6f"
+theme.fg_urgent = "#ff8080"
 theme.fg_minimize = "#C780FF"
 
 -- Gap and borders
@@ -38,7 +38,7 @@ theme.useless_gap = 10
 theme.gap_single_client = true
 theme.border_width = 3
 theme.border_normal = "#181e23"
-theme.border_focus  = "#384149"
+theme.border_focus = "#384149"
 theme.border_marked = "#181e23"
 
 -- Taglist
@@ -143,14 +143,17 @@ theme.hotkeys_border_color = "#181e23"
 theme.notification_font = "Iosevka 11"
 theme.notification_bg = "#181e23"
 theme.notification_fg = "#D5D5D5"
-theme.notification_margin = 20
+theme.notification_margin = 10
+theme.notification_border_width = 5
+theme.notification_border_color = "#1F252A"
+theme.notification_width = 200
+theme.notification_height = 40
+theme.notification_max_width = 200
 naughty.config.defaults.margin = theme.notification_margin
+naughty.config.defaults.border_width = theme.notification_border_width
 naughty.config.defaults.padding = 20
 naughty.config.defaults.position = "top_right"
-theme.notification_border_width = 5
-theme.notification_border_color = "#80D1FF"
-theme.notification_width = 300
-theme.notification_height = 60
-theme.notification_max_width = 300
+naughty.config.presets.critical.bg = '#181e23'
+naughty.config.presets.critical.fg = '#ff8080'
 
 return theme
