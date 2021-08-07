@@ -23,7 +23,6 @@
     ".config/eww".source         = ../../config/eww;
     ".config/jgmenu".source      = ../../config/jgmenu;
     ".config/kitty".source       = ../../config/kitty;
-    ".config/mpd".source         = ../../config/mpd;
     ".config/ncmpcpp".source     = ../../config/ncmpcpp;
     ".config/openbox".source     = ../../config/openbox;
     ".config/picom".source       = ../../config/picom;
@@ -53,6 +52,9 @@
     # Vim
     ".config/nvim/init.vim".source = ../../config/nvim/init.vim;
     ".config/nvim/colors".source   = ../../config/nvim/colors;
+
+    # MPD
+    ".config/mpd/mpd.conf".source         = ../../config/mpd/mpd.conf;
 
     # User binaries
     ".bin/nas".source = ../../nas;

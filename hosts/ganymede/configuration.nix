@@ -233,6 +233,7 @@
       enabled = true
       media_dirs =
         /Volumes/PiNAS/Media/Music|External
+        ~/Mount|Homternal
         ~/|Home
       excluded_file_extensions =
       show_dotfiles = false
@@ -289,6 +290,7 @@
   environment.systemPackages = with pkgs; [
     ack
     alacritty
+    apfs-fuse
     aria
     bash
     bat
@@ -300,6 +302,7 @@
     discocss
     emacs-all-the-icons-fonts
     exa
+    exfat
     fd
     ffmpeg
     firefox
@@ -310,6 +313,7 @@
     git
     htop
     imagemagick
+    influxdb
     ispell
     isync
     jq
@@ -317,7 +321,9 @@
     libvirt
     linuxPackages_xanmod.r8168
     manix
+    mopidy
     mpc_cli
+    mpd
     mpv
     mu
     ncdu
@@ -329,11 +335,16 @@
     nyxt
     onefetch
     papirus-icon-theme
+    pavucontrol
+    pfetch
+    pulseeffects
     python39
     qemu
     ranger
     ripgrep
     river
+    rofi
+    scrot
     spicetify-cli
     sqlite
     steam
@@ -344,18 +355,21 @@
     tigervnc
     tmux
     trash-cli
+    usbutils
     vim
-    wayland
     wayfire
+    wayland
     wget
-    wpa_supplicant
     wofi
+    wpa_supplicant
+    xev
+    xinit
     xorg.xf86videoamdgpu
     youtube-dl
     zsh
 
-    nur.repos.reedrw.picom-next-ibhagwan
     nur.repos.fortuneteller2k.awesome-git
+    nur.repos.reedrw.picom-next-ibhagwan
   ];
 
   fonts.fonts = with pkgs; [
