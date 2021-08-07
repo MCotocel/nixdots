@@ -14,13 +14,13 @@
     ".Xresources".source       = ../../config/xresources;
     ".zshrc".source            = ../../config/zshrc;
 
-    ".local/share/applications".source = ../../config/applications;
+    ".local/share/applications".source   = ../../config/applications;
+    ".config/discocss/custom.css".source = ../../config/discocss/custom.css;
 
     ".config/alacritty".source   = ../../config/alacritty;
     ".config/awesome".source     = ../../config/awesome;
     ".config/bspwm".source       = ../../config/bspwm;
     ".config/cava".source        = ../../config/cava;
-    ".config/discocss".source    = ../../config/discocss;
     ".config/dunst".source       = ../../config/dunst;
     ".config/eww".source         = ../../config/eww;
     ".config/jgmenu".source      = ../../config/jgmenu;
