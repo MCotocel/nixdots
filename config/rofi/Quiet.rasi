@@ -1,93 +1,109 @@
+configuration {
+	font:				 "Iosevka 12";
+    show-icons:          true;
+	icon-theme: 		 "Papirus";
+    disable-history:     true;
+    fullscreen:          false;
+	hide-scrollbar: 	 true;
+	sidebar-mode: 		 false;
+}
+
 * {
-  black:      #1F252A;
-  red:        #FF8080;
-  green:      #97D59B;
-  yellow:     #f8c456;
-  blue:       #80D1FF;
-  mangenta:   #C780FF;
-  cyan:       #80FFE4;
-  emphasis:   #50536b;
-  text:       #D5D5D5;
-  text-alt:   #D5D5D5;
-
-  background-color: #1F252A;
-
-  font: "Iosevka Nerd Font 12";
-  text-color: @text;
+    background:     #181e23;
+    background-alt: #181e23;
+    background-bar: #181e23;
+    foreground:     #d5d5d5;
+    accent:			#80d1ff;
+    border:         #1f252a;
 }
 
 window {
-  fullscreen: false;
-  width: 75%;
-  height: 65%;
-}
-
-mainbox {
-  padding: 1em;
-  border: 3px;
-  border-radius: 0px;
-  border-color: @blue;
-}
-
-inputbar {
-  margin: 5px 5px 25px 5px;
-  children: [prompt, textbox-prompt-colon, entry, case-indicator];
+    transparency:     "real";
+    background-color: @background;
+    text-color:       @foreground;
+	border:			  7px;
+	border-color:	  @border;
+    border-radius:    0px;
+	width:			  40%;
+    location:         center;
+    x-offset:         0;
+    y-offset:         0;
 }
 
 prompt {
-  text-color: @blue;
-}
-
-textbox-prompt-colon {
-  expand: false;
-  str: " / ";
-  text-color: @text-alt;
+    enabled: 		  true;
+	padding: 		  0.30% 1% 0% -0.5%;
+	background-color: @background-alt;
+	text-color: 	  @foreground;
 }
 
 entry {
-  margin: 0px 10px;
+    background-color:               @background-alt;
+    text-color:                     @foreground;
+    placeholder-color:              @foreground;
+    expand:                         true;
+    horizontal-align:               0;
+    placeholder:                    "Search";
+    padding:                        0.10% 0% 0% 0%;
+    blink:                          true;
+}
+
+inputbar {
+	children: 						[ prompt, entry ];
+    background-color:               @background-bar;
+    text-color:                     @foreground;
+    expand:                         false;
+	border:							0% 0% 0% 0%;
+    border-radius:                  12px;
+	border-color:					@accent;
+    margin:                         0% 0% 0% 0%;
+    padding:                        1.5%;
 }
 
 listview {
-  spacing: 5px;
-  dynamic: true;
-  scrollbar: false;
-  columns: 2;
+    background-color:               @background-alt;
+    columns:                        5;
+    lines:                          3;
+    spacing:                        0%;
+    cycle:                          false;
+    dynamic:                        true;
+    layout:                         vertical;
+}
+
+mainbox {
+    background-color:               @background-alt;
+	border:							0% 0% 0% 0%;
+    border-radius:                  0% 0% 0% 0%;
+	border-color:					@accent;
+    children:                       [ inputbar, listview ];
+    spacing:                       	2%;
+    padding:                        2% 1% 2% 1%;
 }
 
 element {
-  padding: 0.1em;
-  text-color: @text-alt;
-  border-radius: 15px;
+    background-color:               @background-alt;
+    text-color:                     @foreground;
+    orientation:                    vertical;
+    border-radius:                  0%;
+    padding:                        2% 0% 2% 0%;
 }
 
-element-icon { 
-    size: 2ch; 
+element-icon {
+    size:                           64px;
+    border:                         0px;
+}
+
+element-text {
+    expand:                         true;
+    horizontal-align:               0.5;
+    vertical-align:                 0.5;
+    margin:                         0.5% 0.5% -0.5% 0.5%;
 }
 
 element selected {
-  background-color: @emphasis;
-  text-color: @text;
-}
-
-element urgent, element selected urgent {
-  text-color: @red;
-}
-
-element active, element selected active {
-  text-color: @purple;
-}
-
-message {
-  padding: 0.2em;
-  border-radius: 3px;
-  background-color: @background;
-  border: 3px;
-  border-color: @blue;
-}
-
-button selected {
-  padding: 5px;
-  border-radius: 3px;
-  background-color: @emphasis;
+    background-color:               #1f252a;
+    text-color:                     @foreground;
+	border:							0% 0% 0% 0%;
+    border-radius:                  12px;
+    border-color:                  	@accent;
 }
