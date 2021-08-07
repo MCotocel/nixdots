@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=XTerm
+Categories=Development
+Icon=xterm
+Exec=xterm
+Terminal=false
+Type=Application

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Pulse Effects
+Categories=Audio
+Exec=pulseeffects
+Icon=pulseeffects
+Terminal=false
+Type=Application

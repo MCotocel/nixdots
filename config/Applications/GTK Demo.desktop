@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=GTK Demo
+Categories=Development
+Icon=gtk3-demo
+Exec=gtk3-demo
+Terminal=false
+Type=Application

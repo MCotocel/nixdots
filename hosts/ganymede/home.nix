@@ -14,6 +14,8 @@
     ".Xresources".source       = ../../config/xresources;
     ".zshrc".source            = ../../config/zshrc;
 
+    ".local/share/applications".source = ../../applications;
+
     ".config/alacritty".source   = ../../config/alacritty;
     ".config/awesome".source     = ../../config/awesome;
     ".config/bspwm".source       = ../../config/bspwm;

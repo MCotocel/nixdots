@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Feh
+Categories=Image
+Exec=feh $f
+Icon=feh
+Terminal=false
+Type=Application

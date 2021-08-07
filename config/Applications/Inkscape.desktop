@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Inkscape
+Categories=Graphics
+Icon=inkscape
+Exec=inkscape
+Terminal=false
+Type=Application

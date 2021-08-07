@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Alacritty
+Categories=Development
+Icon=terminal
+Exec=alacritty
+Terminal=false
+Type=Application

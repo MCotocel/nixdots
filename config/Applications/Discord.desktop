@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Discord
+Categories=Game
+Exec=discocss
+Icon=discord
+Terminal=false
+Type=Application

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Bleachbit
+Categories=Utility
+Exec=bleachbit
+Icon=bleachbit
+Terminal=false
+Type=Application

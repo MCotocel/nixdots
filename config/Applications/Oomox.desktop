@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Oomox
+Categories=Graphics
+Icon=color-management
+Exec=oomox-gui
+Terminal=false
+Type=Application

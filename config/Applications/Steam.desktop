@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Steam
+Categories=Games
+Icon=steam
+Exec=steam
+Terminal=false
+Type=Application

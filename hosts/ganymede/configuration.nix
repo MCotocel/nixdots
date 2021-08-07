@@ -337,7 +337,7 @@
     papirus-icon-theme
     pavucontrol
     pfetch
-    pulseeffects
+    pulseeffects-pw
     python39
     qemu
     ranger
@@ -362,8 +362,8 @@
     wget
     wofi
     wpa_supplicant
-    xev
-    xinit
+    xorg.xev
+    xorg.xinit
     xorg.xf86videoamdgpu
     youtube-dl
     zsh

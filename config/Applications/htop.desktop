@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=htop
+Categories=Utility
+Icon=gnome-system-monitor
+Exec=kitty -e htop
+Terminal=false
+Type=Application

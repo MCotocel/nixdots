@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Network Configuration
+Categories=System
+Icon=preferences-system-network
+Exec=nm-connection-editor
+Terminal=false
+Type=Application

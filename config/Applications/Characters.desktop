@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Characters
+Categories=Utility
+Icon=gnome-characters
+Exec=gnome-characters
+Terminal=false
+Type=Application

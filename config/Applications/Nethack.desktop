@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Nethack
+Categories=Game
+Icon=nethack
+Exec=kitty -e nethack
+Terminal=false
+Type=Application
