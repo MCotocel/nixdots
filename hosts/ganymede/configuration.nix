@@ -100,7 +100,7 @@
       enable = false;
     };
     gnome = {
-      enable = true;
+      enable = false;
     };
     plasma5 = {
       enable = false;

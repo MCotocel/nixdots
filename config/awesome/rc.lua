@@ -506,7 +506,7 @@ client.connect_signal("request::titlebars", function(c)
         left = 10,
         right = 10,
         top = 3,
-        bottom = 0
+        bottom = 3
     }
 end)
 
