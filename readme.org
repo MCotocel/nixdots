@@ -1,5 +1,6 @@
 * Nix dotfiles
 
+[[https://github.com/nixos/nixpkgs][file:https://img.shields.io/badge/NixOS-21.11-informational.svg?logo=nixos]]
 
 ** Setup
 
@@ -11,4 +12,4 @@
 - Install NixOS with the flake: =nixos-install --root /mnt --flake /mnt/etc/nixos#host --impure=
   - Host is the host you want to install. A list of hosts is in =./hosts=
 - Reboot and change the user password
-- Log in as the normal user and run =nas pull= to pull the config to your home folder
+- Log in as the normal user and run =nas nix pull= to pull the config to your home folder
