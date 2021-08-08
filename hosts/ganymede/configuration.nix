@@ -274,16 +274,6 @@
       
       [mpd]
       enabled = true
-      hostname = ::
-      port = 6600
-      password =
-      max_connections = 20
-      connection_timeout = 60
-      zeroconf = Mopidy MPD server on $hostname
-      command_blacklist =
-        listall
-        listallinfo
-      default_playlist_scheme = m3u
     '';
   };
 
