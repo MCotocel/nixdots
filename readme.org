@@ -9,8 +9,8 @@ Welcome to my virtual home. I wouldn't advise you to blindly copy large parts fr
 * Table of contents
 #+begin_quote
 - [[#information][Information]]
-  - [[#setup][Setup]]
   - [[#programs][Programs]]
+  - [[#setup][Setup]]
 - [[#images][Images]]
   - [[#main][Main]]
   - [[#emacs][Emacs]]
