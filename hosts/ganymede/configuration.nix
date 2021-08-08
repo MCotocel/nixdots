@@ -202,7 +202,7 @@
   # Mpd
   services.mpd = {
     enable = true;
-    musicDirectory = "~/Mount/Media/Music";
+    musicDirectory = "/home/matei/Mount/Media/Music";
     extraConfig = ''
       audio_output {
         type "pulse"
