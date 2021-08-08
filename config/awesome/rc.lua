@@ -50,8 +50,8 @@ local terminal_scratch = bling.module.scratchpad:new {
 
 bling.widget.tag_preview.enable {
   show_client_content = false,
-  x = 341.5,
-  y = 192,
+  x = 1280,
+  y = 720,
   scale = 0.50,
   honor_padding = false,
   honor_workarea = false
@@ -262,38 +262,20 @@ for i = 1, 9 do
 end
 
 clientbuttons = gears.table.join(awful.button({}, 1, function(c)
-    c:emit_signal("request::activate", "mouse_click", {raise = true})
-end), awful.button({modkey}, 1, function(c)
-    c:emit_signal("request::activate", "mouse_click", {raise = true})
-    awful.mouse.client.move(c)
-end), awful.button({modkey}, 3, function(c)
-    c:emit_signal("request::activate", "mouse_click", {raise = true})
-    awful.mouse.client.resize(c)
-end))
+      c:emit_signal("request::activate", "mouse_click", {raise = true})
+  end), awful.button({modkey}, 1, function(c)
+      c:emit_signal("request::activate", "mouse_click", {raise = true})
+      awful.mouse.client.move(c)
+  end), awful.button({modkey}, 3, function(c)
+      c:emit_signal("request::activate", "mouse_click", {raise = true})
+      awful.mouse.client.resize(c)
+  end))
 
-root.buttons(gears.table.join(
-    awful.button({ }, 3, function () mainmenu:toggle() end)
-))
+  root.buttons(gears.table.join(
+      awful.button({ }, 3, function () mainmenu:toggle() end)
+  ))
 
 root.keys(globalkeys)
-
--- Click to change to workspace
-local taglist_buttons = gears.table.join(awful.button({}, 1, function(t) t:view_only() end))
-
-local tasklist_buttons = gears.table.join(
-    awful.button({}, 1,
-        function(c)
-            if c == client.focus then
-                c.minimized = true
-            else
-                c:emit_signal("request::activate", "tasklist", {raise = true})
-            end
-        end),
-    awful.button({}, 3,
-        function()
-            awful.menu.client_list({theme = {width = 250}})
-        end)
-)
 
 awful.screen.connect_for_each_screen(function(s)
 
@@ -466,6 +448,129 @@ awful.screen.connect_for_each_screen(function(s)
         },
     }
 end)
+
+-- Titlebar
+client.connect_signal("request::titlebars", function(c)
+
+    -- Buttons for the titlebar
+    local buttons = gears.table.join(awful.button({}, 1, function()
+        c:emit_signal("request::activate", "titlebar", {raise = true})
+        awful.mouse.client.move(c)
+    end), awful.button({}, 3, function()
+        c:emit_signal("request::activate", "titlebar", {raise = true})
+        awful.mouse.client.resize(c)
+    end))
+    awful.titlebar(c, {position = 'top', size = '20'}):setup{
+        {
+            {
+                awful.titlebar.widget.closebutton(c),
+                awful.titlebar.widget.minimizebutton(c),
+                awful.titlebar.widget.maximizedbutton(c),
+                layout = wibox.layout.fixed.horizontal,
+                widget
+            },
+            {
+                {
+                    align = "center",
+                    widget = awful.titlebar.widget.titlewidget(c),
+                },
+                buttons = buttons,
+                layout = wibox.layout.flex.horizontal
+            },
+            {
+                awful.widget.clienticon(c),
+                layout = wibox.layout.fixed.horizontal,
+                widget
+            },
+            layout = wibox.layout.align.horizontal
+        },
+        widget = wibox.container.margin,
+        left = 10,
+        right = 10,
+        top = 3,
+        bottom = 3
+    }
+end)
+
+-- Titlebar only if floating
+client.connect_signal("property::floating", function(c)
+    if c.floating then awful.titlebar.show(c) else awful.titlebar.hide(c) end
+end)
+
+-- Corners
+client.connect_signal("manage", function(c)
+    c.shape = function(cr, w, h, r) gears.shape.rounded_rect(cr, w, h, 15) end
+end)
+
+-- Rules
+awful.rules.rules = {
+    -- All clients will match this rule
+    {
+        rule = {},
+        properties = {
+            border_width = beautiful.border_width,
+            border_color = beautiful.border_normal,
+            focus = awful.client.focus.filter,
+            raise = true,
+            keys = clientkeys,
+            buttons = clientbuttons,
+            screen = awful.screen.preferred,
+            placement = awful.placement.no_overlap +
+            awful.placement.no_offscreen
+        }
+    }, -- Floating clients.
+    {
+        rule_any = {
+            class = {
+                "Gpick", "Tor Browser", "Gimp"
+            }
+
+        },
+        properties = {
+            floating = true
+        }
+    }, -- Add titlebars to normal clients and dialogs
+    {
+        rule_any = {
+            type = {
+                "normal", "dialog"
+            }
+        },
+        properties = {
+            titlebars_enabled = false
+        }
+    }
+}
+
+-- Layouts
+awful.layout.layouts = {
+    awful.layout.suit.fair,
+    awful.layout.suit.tile,
+    awful.layout.suit.tile.left,
+    awful.layout.suit.tile.top,
+    awful.layout.suit.tile.bottom,
+    bling.layout.centered,
+    machi.default_layout,
+    bling.layout.mstab,
+    awful.layout.suit.floating,
+}
+
+-- Generate wallpaper
+awful.screen.connect_for_each_screen(function(s)
+    bling.module.tiled_wallpaper("", s, {
+        fg = "#384149",
+        bg = "#1f252a",
+        offset_y = 15,
+        offset_x = 15,
+        font = "Iosevka Nerd Font",
+        font_size = 15,
+        padding = 100,
+        zickzack = true
+    })
+end)
+
+-- Flash focus
+bling.module.flash_focus.enable()
 
 -- Titlebar
 client.connect_signal("request::titlebars", function(c)

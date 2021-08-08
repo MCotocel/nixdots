@@ -12,16 +12,25 @@ Code that doesn't fit in anywhere else goes here.
 Modules required for configuration to work nicely.
 
 #+begin_src lua 
+  pcall(require, "luarocks.loader")
+
   local awful = require("awful")
-  local beautiful = require("beautiful")
-  beautiful.init("/home/matei/.config/awesome/quiet/theme.lua")
+  local hotkeys_popup = require("awful.hotkeys_popup")
+  require("awful.autofocus")
+  require("awful.hotkeys_popup.keys")
+
   local bling = require("bling")
   local gears = require("gears")
-  local hotkeys_popup = require("awful.hotkeys_popup")
+  local gfs = require("gears.filesystem")
   local machi = require("layout-machi")
   local naughty = require('naughty')
+
+  local beautiful = require("beautiful")
+  beautiful.init(gfs.get_configuration_dir() .. "quiet/theme.lua")
+
   local revelation = require("awesome-revelation")
   revelation.charorder = "1234567890qwertyuiopasdfghjklzxcvbnm"
+
   local wibox = require("wibox")
 #+end_src
 
@@ -341,29 +350,13 @@ Previewing tags with the bling module.
   root.buttons(gears.table.join(
       awful.button({ }, 3, function () mainmenu:toggle() end)
   ))
+
+root.keys(globalkeys)
 #+end_src
 
 * Menu bar
 
 #+begin_src lua
-  -- Click to change to workspace
-  local taglist_buttons = gears.table.join(awful.button({}, 1, function(t) t:view_only() end))
-
-  local tasklist_buttons = gears.table.join(
-      awful.button({}, 1,
-          function(c)
-              if c == client.focus then
-                  c.minimized = true
-              else
-                  c:emit_signal("request::activate", "tasklist", {raise = true})
-              end
-          end),
-      awful.button({}, 3,
-          function()
-              awful.menu.client_list({theme = {width = 250}})
-          end)
-  )
-
   awful.screen.connect_for_each_screen(function(s)
 
       -- Set tags and default layout
@@ -383,36 +376,47 @@ Previewing tags with the bling module.
           buttons = taglist_buttons,
       }
 
-      -- Tasklist widget
-      s.tasklist =
-          awful.widget.tasklist {
-              screen = s,
-              filter = awful.widget.tasklist.filter.currenttags,
-              buttons = tasklist_buttons,
-              layout = {
-                  spacing = 0,
-                  spacing_widget = {
-                      widget = wibox.container.background
+      s.tasklist = awful.widget.tasklist {
+          screen = s,
+          filter = awful.widget.tasklist.filter.currenttags,
+          buttons = tasklist_buttons,
+          layout = {
+              spacing_widget = {
+                  {
+                      forced_width  = 5,
+                      forced_height = 24,
+                      thickness = 1,
+                      color = '#777777',
+                      widget = wibox.widget.separator
                   },
-                  layout = wibox.layout.fixed.horizontal
+                  valign = 'center',
+                  halign = 'center',
+                  widget = wibox.container.place,
+              },
+              spacing = 1,
+              layout = wibox.layout.fixed.horizontal
           },
           widget_template = {
               {
+                  wibox.widget.base.make_widget(),
+                  forced_height = 5,
+                  id = 'background_role',
+                  widget = wibox.container.background,
+              },
+              {
                   {
-                      nil,
-                      awful.widget.clienticon,
-                      nil,
-                      layout = wibox.layout.fixed.horizontal,
+                      id = 'clienticon',
+                      widget = awful.widget.clienticon,
                   },
-                  top = 5,
-                  bottom = 5,
-                  left = 10,
-                  right = 10,
+                  margins = 5,
                   widget = wibox.container.margin
               },
-              id = "background_role",
-              widget = wibox.container.background
-          }
+              nil,
+              create_callback = function(self, c, index, objects)
+                  self:get_children_by_id('clienticon')[1].client = c
+              end,
+              layout = wibox.layout.align.vertical,
+              },
       }
 
       -- Prompt
@@ -421,10 +425,25 @@ Previewing tags with the bling module.
       -- Clock
       clock = wibox.widget.textclock()
 
+      -- Battery
+      battery = awful.widget.watch('bash -c "echo Battery: `cat /sys/class/power_supply/BAT0/capacity`%"', 15) 
+
+      local battery_tooltip = awful.tooltip
+      {
+          objects        = { battery },
+          timer_function = function()
+              return io.popen("bash -c \"echo -n Status: `cat /sys/class/power_supply/BAT0/status`\""):read("*a")
+          end,
+          timeout=0,
+          bg="#1f252a",
+          align="top_left",
+          margins="5"
+      }
+
       -- Menu
       awesomemenu = {
        {"Hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end},
-       {"Reload", awesome.restart()},
+       {"Reload", awesome.restart},
        {"Quit", function() awesome.quit() end},
       }
 
@@ -465,7 +484,7 @@ Previewing tags with the bling module.
           type = "dock",
           shape = function(cr, w, h, r) gears.shape.octogon(cr, w, h, 0) end,
           stretch = false,
-          bg = "#1f252a",
+          bg = "#181e23",
       })
 
       s.wibar.x = 80
@@ -496,11 +515,11 @@ Previewing tags with the bling module.
           },
           { -- Right widgets
               layout = wibox.layout.fixed.horizontal,
-              spacing = 10,
+              spacing = 5,
               clock,
-              --wibox.widget.systray(),
-              wibox.layout.margin(wibox.widget.systray(), 7, 7, 7, 7),
-              wibox.layout.margin(s.layoutbox, 7, 7, 7, 7),
+              wibox.layout.margin(battery, 0, 7, 0, 0),
+              wibox.layout.margin(wibox.widget.systray(), 0, 7, 7, 7),
+              wibox.layout.margin(s.layoutbox, 0, 0, 7, 7),
               wibox.widget {
                   widget = wibox.widget.separator,
                   forced_width = 1,
@@ -550,10 +569,10 @@ Previewing tags with the bling module.
               layout = wibox.layout.align.horizontal
           },
           widget = wibox.container.margin,
-          left = 2,
-          right = 2,
-          top = 0,
-          bottom = 2
+          left = 10,
+          right = 10,
+          top = 3,
+          bottom = 3
       }
   end)
 
@@ -564,7 +583,7 @@ Previewing tags with the bling module.
 
   -- Corners
   client.connect_signal("manage", function(c)
-      c.shape = function(cr, w, h, r) gears.shape.octogon(cr, w, h, 0) end
+      c.shape = function(cr, w, h, r) gears.shape.rounded_rect(cr, w, h, 15) end
   end)
 
   -- Rules
@@ -606,11 +625,7 @@ Previewing tags with the bling module.
           }
       }
   }
-#+end_src
 
-* Extras
-
-#+begin_src lua 
   -- Layouts
   awful.layout.layouts = {
       awful.layout.suit.fair,
@@ -626,7 +641,7 @@ Previewing tags with the bling module.
 
   -- Generate wallpaper
   awful.screen.connect_for_each_screen(function(s)
-      bling.module.tiled_wallpaper("", s, {
+      bling.module.tiled_wallpaper("", s, {
           fg = "#384149",
           bg = "#1f252a",
           offset_y = 15,
@@ -639,240 +654,132 @@ Previewing tags with the bling module.
   end)
 
   -- Flash focus
-  -- bling.module.flash_focus.enable()
+  bling.module.flash_focus.enable()
 #+end_src
 
-* Corners
+* Extras
 
 #+begin_src lua 
-  -- Hot corners module for AwesomeWM
-  -- Pretty much copied from github.com/manilarome/awesome-glorious-widgets/blob/master/hot-corners/init.lua
+  -- Titlebar
+  client.connect_signal("request::titlebars", function(c)
 
-  local execute_time = 0.01
-
-  local tl_callback = function()
-      beautiful.useless_gap = 0
-      for s in screen do s.wibar.visible = not s.wibar.visible end
-      for s in screen do s.wibar.visible = not s.wibar.visible end
-  end
-
-  local tr_callback = function()
-      beautiful.useless_gap = 10
-      for s in screen do s.wibar.visible = not s.wibar.visible end
-      for s in screen do s.wibar.visible = not s.wibar.visible end
-  end
-
-  local bl_callback = function()
-      beautiful.useless_gap = 50
-      for s in screen do s.wibar.visible = not s.wibar.visible end
-      for s in screen do s.wibar.visible = not s.wibar.visible end
-  end
-
-  local br_callback = function()
-      beautiful.useless_gap = 70
-      for s in screen do s.wibar.visible = not s.wibar.visible end
-      for s in screen do s.wibar.visible = not s.wibar.visible end
-  end
-
-  screen.connect_signal("request::desktop_decoration", function(s)
-
-      gears.timer.start_new(0.1, function()
-
-          s.corner_tl = wibox {
-              x = s.geometry.x,
-              y = s.geometry.y,
-              visible = true,
-              screen = s,
-              ontop = true,
-              opacity = 0.0,
-              height = 1,
-              width = 1,
-              type = 'utility'
-          }
-          local tl_timer = gears.timer {
-              timeout   = execute_time,
-              call_now  = false,
-              autostart = false,
-              callback = function(self)
-                  tl_callback()
-                  self:stop()
-              end
-          }
-          s.corner_tl:connect_signal(
-              "mouse::enter",
-              function()
-                  if tl_timer.started then
-                      tl_timer:again()
-                  else
-                      tl_timer:start()
-                  end
-              end
-          )
-          s.corner_tl:connect_signal(
-              "mouse::leave",
-              function()
-                  if tl_timer.started then
-                      tl_timer:stop()
-                  end
-              end
-          )
-
-          s.corner_tr = wibox {
-              x = s.geometry.x + (s.geometry.width - 1),
-              y = s.geometry.y,
-              visible = true,
-              screen = s,
-              ontop = true,
-              opacity = 0.0,
-              height = 1,
-              width = 1,
-              type = 'utility'
-          }
-          local tr_timer = gears.timer {
-              timeout   = execute_time,
-              call_now  = false,
-              autostart = false,
-              callback = function(self)
-                  tr_callback()
-                  self:stop()
-              end
-          }
-          s.corner_tr:connect_signal(
-              "mouse::enter",
-              function()
-                  if tr_timer.started then
-                      tr_timer:again()
-                  else
-                      tr_timer:start()
-                  end
-              end
-          )
-          s.corner_tr:connect_signal(
-              "mouse::leave",
-              function()
-                  if tr_timer.started then
-                      tr_timer:stop()
-                  end
-              end
-          )
-
-          s.corner_br = wibox {
-              x = s.geometry.x + (s.geometry.width - 1),
-              y = s.geometry.y + (s.geometry.height - 1),
-              visible = true,
-              screen = s,
-              ontop = true,
-              opacity = 0.0,
-              height = 1,
-              width = 1,
-              type = 'utility'
-          }
-          local br_timer = gears.timer {
-              timeout   = execute_time,
-              call_now  = false,
-              autostart = false,
-              callback = function(self)
-                  br_callback()
-                  self:stop()
-              end
-          }
-          s.corner_br:connect_signal(
-              "mouse::enter",
-              function()
-                  if br_timer.started then
-                      br_timer:again()
-                  else
-                      br_timer:start()
-                  end
-              end
-          )
-          s.corner_br:connect_signal(
-              "mouse::leave",
-              function()
-                  if br_timer.started then
-                      br_timer:stop()
-                  end
-              end
-          )
-
-          s.corner_bl = wibox {
-              x = s.geometry.x,
-              y = s.geometry.y + (s.geometry.height - 1),
-              visible = true,
-              screen = s,
-              ontop = true,
-              opacity = 0.0,
-              height = 1,
-              width = 1,
-              type = 'utility'
-          }
-          local bl_timer = gears.timer {
-              timeout   = execute_time,
-              call_now  = false,
-              autostart = false,
-              callback = function(self)
-                  bl_callback()
-                  self:stop()
-              end
-          }
-          s.corner_bl:connect_signal(
-              "mouse::enter",
-              function()
-                  if bl_timer.started then
-                      bl_timer:again()
-                  else
-                      bl_timer:start()
-                  end
-              end
-          )
-          s.corner_bl:connect_signal(
-              "mouse::leave",
-              function()
-                  if bl_timer.started then
-                      bl_timer:stop()
-                  end
-              end
-          )
-
-      end)
-
+      -- Buttons for the titlebar
+      local buttons = gears.table.join(awful.button({}, 1, function()
+          c:emit_signal("request::activate", "titlebar", {raise = true})
+          awful.mouse.client.move(c)
+      end), awful.button({}, 3, function()
+          c:emit_signal("request::activate", "titlebar", {raise = true})
+          awful.mouse.client.resize(c)
+      end))
+      awful.titlebar(c, {position = 'top', size = '20'}):setup{
+          {
+              {
+                  awful.titlebar.widget.closebutton(c),
+                  awful.titlebar.widget.minimizebutton(c),
+                  awful.titlebar.widget.maximizedbutton(c),
+                  layout = wibox.layout.fixed.horizontal,
+                  widget
+              },
+              {
+                  {
+                      align = "center",
+                      widget = awful.titlebar.widget.titlewidget(c),
+                  },
+                  buttons = buttons,
+                  layout = wibox.layout.flex.horizontal
+              },
+              {
+                  awful.widget.clienticon(c),
+                  layout = wibox.layout.fixed.horizontal,
+                  widget
+              },
+              layout = wibox.layout.align.horizontal
+          },
+          widget = wibox.container.margin,
+          left = 10,
+          right = 10,
+          top = 3,
+          bottom = 3
+      }
   end)
 
+  -- Titlebar only if floating
+  client.connect_signal("property::floating", function(c)
+      if c.floating then awful.titlebar.show(c) else awful.titlebar.hide(c) end
+  end)
 
-  -- A hack to always put the hot-corners on top
-  -- Pretty nasty code, eh?
-  -- Please, PR if you can improve this.
-  local move_to_top = function()
-      focused = awful.screen.focused()
+  -- Corners
+  client.connect_signal("manage", function(c)
+      c.shape = function(cr, w, h, r) gears.shape.rounded_rect(cr, w, h, 15) end
+  end)
 
-      local tl =focused.corner_tl
-      local tr = focused.corner_tr
-      local br = focused.corner_br
-      local bl = focused.corner_bl
+  -- Rules
+  awful.rules.rules = {
+      -- All clients will match this rule
+      {
+          rule = {},
+          properties = {
+              border_width = beautiful.border_width,
+              border_color = beautiful.border_normal,
+              focus = awful.client.focus.filter,
+              raise = true,
+              keys = clientkeys,
+              buttons = clientbuttons,
+              screen = awful.screen.preferred,
+              placement = awful.placement.no_overlap +
+              awful.placement.no_offscreen
+          }
+      }, -- Floating clients.
+      {
+          rule_any = {
+              class = {
+                  "Gpick", "Tor Browser", "Gimp"
+              }
 
-      tl.ontop = true
-      tl.visible = false
-      tl.visible = true
+          },
+          properties = {
+              floating = true
+          }
+      }, -- Add titlebars to normal clients and dialogs
+      {
+          rule_any = {
+              type = {
+                  "normal", "dialog"
+              }
+          },
+          properties = {
+              titlebars_enabled = false
+          }
+      }
+  }
 
-      tr.ontop = true
-      tr.visible = false
-      tr.visible = true
+  -- Layouts
+  awful.layout.layouts = {
+      awful.layout.suit.fair,
+      awful.layout.suit.tile,
+      awful.layout.suit.tile.left,
+      awful.layout.suit.tile.top,
+      awful.layout.suit.tile.bottom,
+      bling.layout.centered,
+      machi.default_layout,
+      bling.layout.mstab,
+      awful.layout.suit.floating,
+  }
 
-      br.ontop = true
-      br.visible = false
-      br.visible = true
+  -- Generate wallpaper
+  awful.screen.connect_for_each_screen(function(s)
+      bling.module.tiled_wallpaper("", s, {
+          fg = "#384149",
+          bg = "#1f252a",
+          offset_y = 15,
+          offset_x = 15,
+          font = "Iosevka Nerd Font",
+          font_size = 15,
+          padding = 100,
+          zickzack = true
+      })
+  end)
 
-      bl.ontop = true
-      bl.visible = false
-      bl.visible = true
-  end
-
-
-  client.connect_signal(
-      "property::fullscreen",
-      function(c)
-          move_to_top()
-      end
-  )
+  -- Flash focus
+  bling.module.flash_focus.enable()
 #+end_src
-

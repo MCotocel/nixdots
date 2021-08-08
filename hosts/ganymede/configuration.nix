@@ -113,7 +113,7 @@
   services.logind.lidSwitchExternalPower = "ignore";
 
   # Emacs
-  services.emacs.enable = true;
+  services.emacs.enable = false;
   services.emacs.package = pkgs.emacsUnstable;
 
   # Telegraf
@@ -300,10 +300,13 @@
     cowsay
     direnv
     discocss
+    discord
     emacs-all-the-icons-fonts
+    emacsUnstable
     exa
     exfat
     fd
+    feh
     ffmpeg
     firefox
     firmwareLinuxNonfree
@@ -318,6 +321,7 @@
     isync
     jq
     libinput
+    libnotify
     libvirt
     linuxPackages_xanmod.r8168
     manix
@@ -360,11 +364,12 @@
     wayfire
     wayland
     wget
+    wmctrl
     wofi
     wpa_supplicant
     xorg.xev
-    xorg.xinit
     xorg.xf86videoamdgpu
+    xorg.xinit
     youtube-dl
     zsh
 
