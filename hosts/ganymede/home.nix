@@ -11,15 +11,14 @@
 
   home.file = {
     # General
-    ".Xresources".source       = ../../config/xresources;
-    ".zshrc".source            = ../../config/zshrc;
-
+    ".Xresources".source                 = ../../config/xresources;
+    ".zshrc".source                      = ../../config/zshrc;
     ".local/share/applications".source   = ../../config/applications;
     ".config/discocss/custom.css".source = ../../config/discocss/custom.css;
 
-    ".config/awesome".source     = ../../config/awesome;
 
     ".config/alacritty".source   = ../../config/alacritty;
+    ".config/awesome".source     = ../../config/awesome;
     ".config/bspwm".source       = ../../config/bspwm;
     ".config/cava".source        = ../../config/cava;
     ".config/dunst".source       = ../../config/dunst;
@@ -60,6 +59,7 @@
     ".config/mpd/mpd.conf".source         = ../../config/mpd/mpd.conf;
 
     # User binaries
+    ".bin".source   = ../../config/bin;
     ".bin/nas".source = ../../nas;
   };
 }

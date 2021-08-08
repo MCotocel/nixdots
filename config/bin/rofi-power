@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+res=$(echo -en "Reload|Lock|Logout|Shutdown|Reboot" | rofi -sep "|" -dmenu -i -p 'Power Options') # Make selection prompt
+
+if [ $res = "Reload" ]; then # If selection is reload
+
+    notify-send 'Reloading config...'
+    sleep 1
+    echo 'awesome.restart()' | awesome-client
+
+elif [ $res = "Lock" ]; then
+
+    notify-send 'Locking screen...'
+    ~/.bin/lock
+
+elif [ $res = "Logout" ]; then
+
+    notify-send 'Logging out...'
+    sleep 1
+    echo 'awesome.quit()' | awesome-client
+
+elif [ $res = "Shutdown" ]; then # If selection is shutdown
+
+    notify-send 'Shutting down...'
+    sleep 1
+    systemctl poweroff
+
+elif [ $res = "Reboot" ]; then
+
+    notify-send "Rebooting..."
+    sleep 1
+    systemctl reboot
+
+fi
