@@ -14,6 +14,16 @@ Welcome to my virtual home. I wouldn't advise you to blindly copy large parts fr
 
 ** Information
 
+*** Programs
+
+| OS           | NixOS     |
+| WM           | AwesomeWM |
+| Editor       | Emacs     |
+| Terminal     | Alacritty |
+| Shell        | zsh       |
+| Launcher     | Rofi      |
+| Music player | ncmpcpp   |
+
 *** Setup
 
 - Get the latest minimal NixOS ISO
