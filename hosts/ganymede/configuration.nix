@@ -202,7 +202,10 @@
   # Mopidy
   services.mopidy = {
     enable = true;
-    extensionPackages = [ pkgs.mopidy-mpd ];
+    extensionPackages = [
+      pkgs.mopidy-mpd
+      pkgs.mopidy-youtube
+    ];
     configuration = ''
       [file]
       enabled = true
@@ -219,6 +222,9 @@
 
       [audio]
       output = pulsesink server=127.0.0.1
+
+      [youtube]
+      enabled = true
     '';
   };
 
