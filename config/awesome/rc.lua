@@ -243,6 +243,24 @@ awful.key({modkey}, "Escape", function() awful.spawn.with_shell("~/.bin/rofi-pow
 awful.key({modkey}, "/", hotkeys_popup.show_help, {
     description = "Hotkey menu",
     group = "Applications and menus"
+}),
+
+-- Volume up
+awful.key({}, "XF86AudioRaiseVolume", function() awful.util.spawn("amixer set Master 10%+") end, {
+    description = "Volume up",
+    group = "Applications and menus"
+}),
+
+-- Volume down
+awful.key({}, "XF86AudioLowerVolume", function() awful.util.spawn("amixer set Master 10%-") end, {  
+    description = "Volume down",
+    group = "Applications and menus"
+}),
+
+-- Toggle mute
+awful.key({}, "XF86AudioMute", function() awful.util.spawn("amixer set Master toggle") end, {
+    description = "Toggle mute",
+    group = "Applications and menus"
 }))
 
 for i = 1, 9 do

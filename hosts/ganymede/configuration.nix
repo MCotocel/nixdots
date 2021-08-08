@@ -290,6 +290,7 @@
   environment.systemPackages = with pkgs; [
     ack
     alacritty
+    alsa-utils
     apfs-fuse
     aria
     bash
