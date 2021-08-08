@@ -7,7 +7,19 @@
 //}
 
 * {
-    background-color: #181e23;
-    test-color: #d5d5d5;
+    bg: #181e23;
+    gr: #1f252a;
+    fg: #d5d5d5;
     font: "Iosevka Nerd Font 11";
+}
+
+window {
+    background-color: @bg;
+    border: 1;
+    border-color: @gr;
+    padding: 5;
+}
+
+textbox {
+    text-color: @fg;
 }
