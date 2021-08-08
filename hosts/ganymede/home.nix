@@ -59,7 +59,7 @@
     ".config/mpd/mpd.conf".source         = ../../config/mpd/mpd.conf;
 
     # User binaries
-    ".bin".source   = ../../config/bin;
     ".bin/nas".source = ../../nas;
+    ".bin".source     = ../../config/bin;
   };
 }
