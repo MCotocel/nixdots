@@ -208,6 +208,7 @@
         type "pulse"
         name "Pulseaudio"
       }
+      bind_to_address "localhost"
     '';
   };
 
