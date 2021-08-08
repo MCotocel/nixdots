@@ -203,33 +203,7 @@
   services.mopidy = {
     enable = true;
     extensionPackages = [ pkgs.mopidy-mpd ];
-    configuration = with config.resources; ''
-      [core]
-      cache_dir = $XDG_CACHE_DIR/mopidy
-      config_dir = $XDG_CONFIG_DIR/mopidy
-      data_dir = $XDG_DATA_DIR/mopidy
-      max_tracklist_length = 10000
-      restore_state = false
-      
-      [logging]
-      verbosity = 0
-      format = %(levelname)-8s %(asctime)s [%(process)d:%(threadName)s] %(name)s\n  %(message)s
-      color = true
-      config_file =
-      
-      [audio]
-      mixer = software
-      mixer_volume =
-      output = autoaudiosink
-      buffer_time =
-      
-      [proxy]
-      scheme =
-      hostname =
-      port =
-      username =
-      password =
-      
+    configuration = ''
       [file]
       enabled = true
       media_dirs =
@@ -239,41 +213,12 @@
       excluded_file_extensions = .nfo
       show_dotfiles = false
       follow_symlinks = true
-      metadata_timeout = 1000
-      
-      [http]
-      enabled = false
-      hostname = 127.0.0.1
-      port = 6680
-      zeroconf = Mopidy HTTP server on $hostname
-      allowed_origins =
-      csrf_protection = true
-      default_app = mopidy
-      
-      [m3u]
-      enabled = true
-      base_dir =
-      default_encoding = latin-1
-      default_extension = .m3u8
-      playlists_dir =
-      
-      [softwaremixer]
-      enabled = true
-      
-      [stream]
-      enabled = true
-      protocols =
-       http
-        https
-        mms
-        rtmp
-        rtmps
-        rtsp
-      metadata_blacklist =
-      timeout = 5000
       
       [mpd]
       enabled = true
+
+      [audio]
+      output = pulsesink server=127.0.0.1
     '';
   };
 
