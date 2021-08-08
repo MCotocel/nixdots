@@ -1,25 +1,56 @@
-//configuration {
-//    columns: 1;
-//    show-icons:	false;
-//    separator-style: "none";
-//    hide-scrollbar: true;
-//    click-to-exit: true;
-//}
+configuration {
+    font: 							"Iosevka Nerd Font 12";
+}
 
 * {
+    ac: #1f252a;
     bg: #181e23;
-    gr: #1f252a;
     fg: #d5d5d5;
-    font: "Iosevka Nerd Font 11";
+    background-color: @bg;
 }
 
 window {
-    background-color: @bg;
-    border: 1;
-    border-color: @gr;
-    padding: 5;
+    border: 5px;
+    border-color: @ac;
+    border-radius: 15px;
+    padding: 30;
+    width: 30%;
+    height: 70%;
 }
 
-textbox {
+prompt {
+    text-color:	@fg;
+}
+
+textbox-prompt-colon {
+    expand: 						false;
+    str: 							" - ";
+    text-color: 					inherit;
+}
+
+entry {
+    spacing:    					0;
+    text-color: 					@fg;
+}
+
+inputbar {
+    text-color: 					@fg;
+    children: 						[ prompt,textbox-prompt-colon,entry ];
+}
+
+listview {
+    padding: 5px 5px 5px 5px;
+}
+
+element {
+    border:	0px;
+    border-radius: 5px;
+    padding: 5px;
     text-color: @fg;
+    background-color: @bg;
+}
+
+element selected {
+    background-color: @fg;
+    text-color: @bg;
 }
