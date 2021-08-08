@@ -552,6 +552,12 @@ root.keys(globalkeys)
 
 #+begin_src lua 
   -- Titlebar
+
+  naughty.config.defaults.max_width = beautiful.notification_max_width
+  naughty.config.defaults.max_height = beautiful.notification_max_height
+naughty.config.defaults.margin = beautiful.notification_margin
+naughty.config.defaults.border_width = beautiful.notification_border_width
+
   client.connect_signal("request::titlebars", function(c)
 
       -- Buttons for the titlebar

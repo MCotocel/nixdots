@@ -13,17 +13,17 @@ function help() {
 Usage: nas [OPTION] [OPTION]
 
 Options:
-    help          show this text
+    help           show this text
 
-    nix           nix operations
-      pull        copy configs to home directory
-      push        copy configs to /etc/nixos
-      sync        pull config from git repo, then commit and push
-      rebuild     rebuilt configuration for host
-      rollback    rollback to previous generation
-      update      update flake
-      clean       clean and garabge collect store
-      search      search packages available
+    nix            nix operations
+      pull         copy configs to home directory
+      push         copy configs to /etc/nixos
+      sync         pull config from git repo, then commit and push
+      rebuild      rebuild configuration for host
+      rollback     rollback to previous generation
+      update       update flake
+      clean        clean and garabge collect store
+      search       search packages available
 EOF
 }
 
