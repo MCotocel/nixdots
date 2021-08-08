@@ -234,15 +234,15 @@
       enabled = true
       media_dirs =
         /Volumes/PiNAS/Media/Music|External
-        ~/Mount|Homternal
+        ~/Mount/Media/Music|Homternal
         ~/|Home
-      excluded_file_extensions =
+      excluded_file_extensions = .nfo
       show_dotfiles = false
       follow_symlinks = true
       metadata_timeout = 1000
       
       [http]
-      enabled = true
+      enabled = false
       hostname = 127.0.0.1
       port = 6680
       zeroconf = Mopidy HTTP server on $hostname
@@ -274,7 +274,7 @@
       
       [mpd]
       enabled = true
-      hostname = 127.0.0.1
+      hostname = ::
       port = 6600
       password =
       max_connections = 20
