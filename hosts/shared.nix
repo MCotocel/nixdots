@@ -17,7 +17,7 @@
   security.doas = {
     enable = true;
     wheelNeedsPassword = true;
-    extraConfig = "permit persist :wheel"
+    extraConfig = "permit persist :wheel";
     extraRules = [
       { groups = [ "wheel" ]; noPass = false; keepEnv = true; persist = true; }
     ];
