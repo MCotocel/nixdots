@@ -50,8 +50,8 @@ local terminal_scratch = bling.module.scratchpad:new {
 
 bling.widget.tag_preview.enable {
   show_client_content = false,
-  x = 1280,
-  y = 720,
+  x = 341.5,
+  y = 192,
   scale = 0.50,
   honor_padding = false,
   honor_workarea = false
