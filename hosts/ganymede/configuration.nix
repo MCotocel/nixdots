@@ -203,7 +203,6 @@
   services.mopidy = {
     enable = true;
     extensionPackages = [
-      pkgs.mopidy-mpd
       pkgs.mopidy-youtube
     ];
     configuration = ''
