@@ -30,7 +30,12 @@
 	      home-manager.nixosModules.home-manager {
             home-manager.users.matei = import ./hosts/ganymede/home.nix;
 	      }
-	      { nixpkgs.overlays = [ nur.overlay ]; }
+	      { nixpkgs.overlays = [
+            nur.overlay
+            (import (builtins.fetchTarball {
+              url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
+            }))
+            ]; }
 	      ./hosts/ganymede/configuration.nix
         ];
       };
