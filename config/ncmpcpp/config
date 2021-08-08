@@ -1,6 +1,6 @@
-#mpd_host = "127.0.0.1";
-#mpd_port = 6600;
-#mpd_music_dir = "~/Music";
+mpd_host = "127.0.0.1";
+mpd_port = 6600;
+mpd_music_dir = "~/Music";
 
 autocenter_mode = "yes";
 centered_cursor = "yes";
