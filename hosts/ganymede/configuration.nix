@@ -199,6 +199,18 @@
     theme = "spinfinity";
   };
 
+  # Mpd
+  services.mpd = {
+    enable = true;
+    musicDirectory = "~/Mount/Media/Music"
+    extraConfig = ''
+      audio_output {
+        type "pulse"
+        name "Pulseaudio"
+      }
+    '';
+  };
+
   # Mopidy
   services.mopidy = {
     enable = true;

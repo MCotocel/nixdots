@@ -56,7 +56,7 @@
     ".config/nvim/colors".source   = ../../config/nvim/colors;
 
     # MPD
-    ".config/mpd/mpd.conf".source         = ../../config/mpd/mpd.conf;
+    #".config/mpd/mpd.conf".source         = ../../config/mpd/mpd.conf;
 
     # User binaries
     ".bin".source     = ../../config/bin;
