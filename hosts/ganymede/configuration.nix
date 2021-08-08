@@ -219,9 +219,6 @@
       [mpd]
       enabled = true
 
-      [audio]
-      output = pulsesink server=127.0.0.1
-
       [youtube]
       enabled = true
     '';
