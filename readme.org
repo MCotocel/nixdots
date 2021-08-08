@@ -1,7 +1,7 @@
-# Nix dotfiles
+* Nix dotfiles
 
 
-## Setup
+** Setup
 
 - Get the latest minimal NixOS ISO
 - Boot into the installer, setup, and mount the disks
