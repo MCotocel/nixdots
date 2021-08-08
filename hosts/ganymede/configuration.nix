@@ -202,6 +202,7 @@
   # Mopidy
   services.mopidy = {
     enable = true;
+    extensionPackages = [ pkgs.mopidy-mpd ];
     configuration = with config.resources; ''
       [core]
       cache_dir = $XDG_CACHE_DIR/mopidy
