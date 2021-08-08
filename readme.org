@@ -12,6 +12,9 @@ Welcome to my virtual home. I wouldn't advise you to blindly copy large parts fr
   - [[#setup][Setup]]
   - [[#programs][Programs]]
 - [[#images][Images]]
+  - [[#main][Main]]
+  - [[#emacs][Emacs]]
+  - [[#rofi][Rofi]]
 #+end_quote
 
 ** Information
