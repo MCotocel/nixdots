@@ -202,7 +202,7 @@
   # Mpd
   services.mpd = {
     enable = true;
-    musicDirectory = "~/Mount/Media/Music"
+    musicDirectory = "~/Mount/Media/Music";
     extraConfig = ''
       audio_output {
         type "pulse"
