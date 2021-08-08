@@ -1,6 +1,8 @@
 * Nix dotfiles
 
-[[https://github.com/nixos/nixpkgs][file:https://img.shields.io/badge/NixOS-21.11-informational.svg?logo=nixos]]
+[[https://github.com/nixos/nixpkgs][file:https://img.shields.io/badge/NixOS-21.11-informational.svg?logo=nixos?style=flat.svg]]
+
+#+HTML:<a href="https://nixos.org/"><img alt="NixOS logo" height="160" align = "left" src="https://nixos.wiki/images/thumb/2/20/Home-nixos-logo.png/x207px-Home-nixos-logo.png.pagespeed.ic.38jujIAhx5.png"></a>
 
 ** Setup
 
