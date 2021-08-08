@@ -6,7 +6,15 @@
 
 Welcome to my virtual home. I wouldn't advise you to blindly copy large parts from these dotfiles, I may be doing some things wrong. However, looking through my configurations and copying some parts, or installing all of the dotfiles together should be fine.
 
-** Setup
+* Table of contents
+#+begin_quote
+- [[#information][Information]]
+  - [[#setup][Setup]]
+#+end_quote
+
+** Information
+
+*** Setup
 
 - Get the latest minimal NixOS ISO
 - Boot into the installer, setup, and mount the disks
