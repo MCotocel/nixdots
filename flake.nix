@@ -36,6 +36,7 @@
               url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
             }))
             ]; }
+          agenix.nixosModules.age
 	      ./hosts/ganymede/configuration.nix
         ];
       };
