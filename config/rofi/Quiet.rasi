@@ -1,16 +1,13 @@
-configuration {
-    columns: 1;
-    font: "Iosevka Nerd Font 11";
-    show-icons:	false;
-    separator-style: "none";
-    hide-scrollbar: true;
-    click-to-exit: true;
-}
+//configuration {
+//    columns: 1;
+//    show-icons:	false;
+//    separator-style: "none";
+//    hide-scrollbar: true;
+//    click-to-exit: true;
+//}
 
 * {
     background-color: #181e23;
-    foreground-color: #d5d5d5;
-    bg: #181e23;
-    fg: #d5d5d5;
-    ac: #80d1ff;
+    test-color: #d5d5d5;
+    font: "Iosevka Nerd Font 11";
 }

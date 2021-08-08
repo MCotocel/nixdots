@@ -314,13 +314,13 @@ Previewing tags with the bling module.
   }),
 
   -- Volume up
-  awful.key({}, "XF86AudioRaiseVolume", function() awful.util.spawn("amixer set Master 10+") end, {
+  awful.key({}, "XF86AudioRaiseVolume", function() awful.util.spawn("amixer set Master 10%+") end, {
       description = "Volume up",
       group = "Applications and menus"
   }),
 
   -- Volume down
-  awful.key({}, "XF86AudioLowerVolume", function() awful.util.spawn("amixer set Master 10-") end, {  
+  awful.key({}, "XF86AudioLowerVolume", function() awful.util.spawn("amixer set Master 10%-") end, {  
       description = "Volume down",
       group = "Applications and menus"
   }),
