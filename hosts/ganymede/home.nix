@@ -13,7 +13,7 @@
     # General
     ".Xresources".source                 = ../../config/xresources;
     ".zshrc".source                      = ../../config/zshrc;
-    ".local/share/applications".source   = ../../config/applications;
+    #".local/share/applications".source   = ../../config/applications;
     ".config/discocss/custom.css".source = ../../config/discocss/custom.css;
 
 
