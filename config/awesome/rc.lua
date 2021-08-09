@@ -496,7 +496,7 @@ client.connect_signal("request::titlebars", function(c)
         awful.mouse.client.resize(c)
     end))
 
-    awful.titlebar(c, {position = 'top', size = '40'}):setup{
+    awful.titlebar(c, {position = 'bottom', height = '40'}):setup{
         {
             {
                 awful.titlebar.widget.closebutton(c),
