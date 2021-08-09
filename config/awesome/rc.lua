@@ -528,6 +528,7 @@ titlebar:setup{
             top = 3,
             bottom = 3
 }
+end)
 
 -- Titlebar only if floating
 client.connect_signal("property::floating", function(c)
