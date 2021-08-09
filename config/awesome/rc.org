@@ -580,7 +580,7 @@ root.keys(globalkeys)
           awful.mouse.client.resize(c)
       end))
 
-      awful.titlebar(c, {position = 'top', height = '40'}):setup{
+      awful.titlebar(c, {position = 'bottom'}):setup{
           {
               {
                   awful.titlebar.widget.closebutton(c),
