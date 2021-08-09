@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-res=$(echo -en "Reload|NixOS rebuild|Lock|Logout|Shutdown|Reboot" | rofi -sep "|" -dmenu -i -p 'Power Options') # Make selection prompt
+res=$(echo -en "Reload|'NixOS rebuild'|Lock|Logout|Shutdown|Reboot" | rofi -sep "|" -dmenu -i -p 'Power Options') # Make selection prompt
 
 if [ $res = "Reload" ]; then
 

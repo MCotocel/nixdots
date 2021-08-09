@@ -580,7 +580,7 @@ root.keys(globalkeys)
           awful.mouse.client.resize(c)
       end))
 
-      awful.titlebar(c, {position = 'top', size = '10'}):setup{
+      awful.titlebar(c, {position = 'top', height = '40'}):setup{
           {
               {
                   awful.titlebar.widget.closebutton(c),
@@ -605,10 +605,10 @@ root.keys(globalkeys)
               layout = wibox.layout.align.horizontal
           },
           widget = wibox.container.margin,
-          left = 2,
-          right = 2,
-          top = 2,
-          bottom = 2
+          left = 10,
+          right = 10,
+          top = 3,
+          bottom = 3
       }
   end)
 
