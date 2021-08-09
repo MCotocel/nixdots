@@ -319,8 +319,6 @@
     pkgs.youtube-dl
     pkgs.zsh
 
-    agenix.defaultPackage.x86_64-linux 
-
     pkgs.nur.repos.fortuneteller2k.awesome-git
     pkgs.nur.repos.reedrw.picom-next-ibhagwan
   ];
