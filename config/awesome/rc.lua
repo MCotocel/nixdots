@@ -176,15 +176,28 @@ awful.key({modkey, "Shift"}, "q", function() client.focus:kill() end, {
     description = "Close window",
     group = "Windows"
 }),
--- Focus next client
-awful.key({modkey}, "j", function() awful.client.focus.byidx(1) end, {
-    description = "Focus next client",
+
+-- Left
+awful.key({modkey}, "h", function() awful.client.focus.bydirection("left") end, {
+    description = "Focus left",
     group = "Windows"
 }),
 
--- Focus previous client
-awful.key({modkey}, "k", function() awful.client.focus.byidx(-1) end, {
-    description = "Focus previous client",
+-- Down
+awful.key({modkey}, "j", function() awful.client.focus.bydirection("down") end, {
+    description = "Focus down",
+    group = "Windows"
+}),
+
+-- Up
+awful.key({modkey}, "k", function() awful.client.focus.bydirection("up") end, {
+    description = "Focus up",
+    group = "Windows"
+}),
+
+-- Right
+awful.key({modkey}, "l", function() awful.client.focus.bydirection("right") end, {
+    description = "Focus right",
     group = "Windows"
 }),
 
@@ -482,7 +495,7 @@ client.connect_signal("request::titlebars", function(c)
         c:emit_signal("request::activate", "titlebar", {raise = true})
         awful.mouse.client.resize(c)
     end))
-    awful.titlebar(c, {position = 'top', size = '30'}):setup{
+    awful.titlebar(c, {position = 'top', size = '40'}):setup{
         {
             {
                 awful.titlebar.widget.closebutton(c),
