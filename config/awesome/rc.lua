@@ -602,7 +602,7 @@ awful.layout.layouts = {
 -- Generate wallpaper
 awful.screen.connect_for_each_screen(function(s)
     bling.module.tiled_wallpaper("", s, {
-        bg = "#ffffff",
+        bg = "#d5d5d5",
         fg = "#181e23",
         offset_y = 15,
         offset_x = 15,
