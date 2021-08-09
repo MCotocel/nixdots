@@ -1,11 +1,21 @@
 #!/usr/bin/env bash
-res=$(echo -en "Reload|Lock|Logout|Shutdown|Reboot" | rofi -sep "|" -dmenu -i -p 'Power Options') # Make selection prompt
+res=$(echo -en "Reload|NixOS rebuild|Lock|Logout|Shutdown|Reboot" | rofi -sep "|" -dmenu -i -p 'Power Options') # Make selection prompt
 
-if [ $res = "Reload" ]; then # If selection is reload
+if [ $res = "Reload" ]; then
 
     notify-send 'Power menu' 'Reloading config...'
     sleep 1
     echo 'awesome.restart()' | awesome-client
+
+elif [ $res = "NixOS rebuild" ]; then
+
+    notify-send 'Power menu' 'Syncing NixOS config'
+    nas nix sync
+    notify-send 'Power menu' 'Pushing NixOS config'
+    nas nix push
+    notify-send 'Power menu' 'Rebuilding NixOS config'
+    nas nix rebuild
+    notify-send 'Power menu' 'NixOS config rebuilt'
 
 elif [ $res = "Lock" ]; then
 
