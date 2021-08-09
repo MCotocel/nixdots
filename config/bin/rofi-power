@@ -22,12 +22,12 @@ elif [ $res = "Shutdown" ]; then # If selection is shutdown
 
     notify-send 'Power menu' 'Shutting down...'
     sleep 1
-    systemctl poweroff
+    shutdown -h now
 
 elif [ $res = "Reboot" ]; then
 
     notify-send 'Power menu' 'Rebooting...'
     sleep 1
-    systemctl reboot
+    reboot
 
 fi
