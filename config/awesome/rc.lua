@@ -496,37 +496,38 @@ client.connect_signal("request::titlebars", function(c)
         awful.mouse.client.resize(c)
     end))
 
-    awful.titlebar(c, {position = 'bottom', height = '40'}):setup{
-        {
-            {
-                awful.titlebar.widget.closebutton(c),
-                awful.titlebar.widget.minimizebutton(c),
-                awful.titlebar.widget.maximizedbutton(c),
-                layout = wibox.layout.fixed.horizontal,
-                widget
-            },
-            {
-                {
-                    align = "center",
-                    widget = awful.titlebar.widget.titlewidget(c),
-                },
-                buttons = buttons,
-                layout = wibox.layout.flex.horizontal
-            },
-            {
-                awful.widget.clienticon(c),
-                layout = wibox.layout.fixed.horizontal,
-                widget
-            },
-            layout = wibox.layout.align.horizontal
-        },
-        widget = wibox.container.margin,
-        left = 10,
-        right = 10,
-        top = 3,
-        bottom = 3
-    }
-end)
+local titlebar = awful.titlebar(c, {position = 'top', height = '40'})
+
+titlebar:setup{
+  {
+    {
+      awful.titlebar.widget.closebutton(c),
+      awful.titlebar.widget.minimizebutton(c),
+      awful.titlebar.widget.maximizedbutton(c),
+      layout = wibox.layout.fixed.horizontal,
+      widget
+    },
+    {
+      {
+        align = "center",
+        widget = awful.titlebar.widget.titlewidget(c),
+      },
+        buttons = buttons,
+        layout = wibox.layout.flex.horizontal
+    },
+    {
+      awful.widget.clienticon(c),
+      layout = wibox.layout.fixed.horizontal,
+      widget
+    },
+       layout = wibox.layout.align.horizontal
+  },
+            widget = wibox.container.margin,
+            left = 10,
+            right = 10,
+            top = 3,
+            bottom = 3
+}
 
 -- Titlebar only if floating
 client.connect_signal("property::floating", function(c)
