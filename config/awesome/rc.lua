@@ -259,7 +259,7 @@ awful.key({modkey}, "Escape", function() awful.spawn.with_shell("~/.bin/rofi-pow
 }),
 
 -- Hotkey menu
-awful.key({modkey}, "/", hotkeys_popup.show_help, {
+awful.key({modkey}, "/", hotkeys_popup.widget.new({width = 1000, height = 700}), {
     description = "Hotkey menu",
     group = "Applications and menus"
 }),
