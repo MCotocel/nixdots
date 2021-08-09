@@ -484,14 +484,17 @@ end)
 naughty.config.defaults.margin = beautiful.notification_margin
 naughty.config.defaults.border_width = beautiful.notification_border_width
 
--- Buttons for the titlebar
-local buttons = gears.table.join(awful.button({}, 1, function()
-    c:emit_signal("request::activate", "titlebar", {raise = true})
-    awful.mouse.client.move(c)
-end), awful.button({}, 3, function()
-    c:emit_signal("request::activate", "titlebar", {raise = true})
-    awful.mouse.client.resize(c)
-end))
+-- Titlebar
+client.connect_signal("request::titlebars", function(c)
+
+    -- Buttons for the titlebar
+    local buttons = gears.table.join(awful.button({}, 1, function()
+        c:emit_signal("request::activate", "titlebar", {raise = true})
+        awful.mouse.client.move(c)
+    end), awful.button({}, 3, function()
+        c:emit_signal("request::activate", "titlebar", {raise = true})
+        awful.mouse.client.resize(c)
+    end))
 
 local titlebar = awful.titlebar(c, {position = 'top', height = '40'})
 
@@ -525,6 +528,7 @@ titlebar:setup{
             top = 3,
             bottom = 3
 }
+end)
 
 -- Titlebar only if floating
 client.connect_signal("property::floating", function(c)
