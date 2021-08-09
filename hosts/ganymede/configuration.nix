@@ -145,14 +145,6 @@
            "squashfs"
          ];
        };
-       github = {
-         repositories = [
-           "nixos/nixpkgs"
-           "influxdata/influxdb"
-         ];
-         access_token = "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";
-         http_timeout = "5s";
-       };
        #ping = {
        #  urls = [
        #    "cache.nixos"
