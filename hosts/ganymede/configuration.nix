@@ -319,6 +319,8 @@
     youtube-dl
     zsh
 
+    agenix.defaultPackage.x86_64-linux
+
     nur.repos.fortuneteller2k.awesome-git
     nur.repos.reedrw.picom-next-ibhagwan
   ];
