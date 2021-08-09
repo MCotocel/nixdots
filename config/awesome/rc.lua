@@ -246,6 +246,12 @@ awful.key({modkey}, "space", function() awful.spawn.with_shell("rofi -show drun 
     group = "Applications and menus"
 }),
 
+-- Open emacs
+awful.key({modkey, "Shift"}, "e", function() awful.spawn.with_shell("emacsclient -c") end, {
+    description = "Open emacs",
+    group = "Applications and menus"
+}),
+
 -- Power menu
 awful.key({modkey}, "Escape", function() awful.spawn.with_shell("~/.bin/rofi-power") end, {
     description = "Power menu",

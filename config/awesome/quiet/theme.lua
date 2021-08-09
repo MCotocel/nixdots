@@ -135,7 +135,7 @@ theme.hotkeys_font = "Iosevka 11"
 theme.hotkeys_description_font = "Iosevka 9"
 theme.hotkeys_modifiers_fg = "#80D1FF"
 theme.hotkeys_border_width = 3
-theme.hotkeys_group_margin = 50
+theme.hotkeys_group_margin = 20
 theme.hotkeys_border_color = "#181e23"
 
 -- Notifications

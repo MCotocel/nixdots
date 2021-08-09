@@ -425,8 +425,8 @@ Here I bind some extra keybindings for evil mode.
     (interactive)
     (setq unread-command-events (listify-key-sequence (kbd "C-k"))))
 
-  (evil-define-key 'normal global-map (kbd "cc") 'my/c-c)
-  (evil-define-key 'normal global-map (kbd "cx") 'my/c-k)
+  (evil-define-key 'normal global-map (kbd ",c") 'my/c-c)
+  (evil-define-key 'normal global-map (kbd ",k") 'my/c-k)
 #+END_SRC
 
 *** Miscellaneous settings

@@ -314,12 +314,6 @@ Previewing tags with the bling module.
       group = "Applications and menus"
   }),
 
-  -- Open emacs
-  awful.key({modkey, "Shift"}, "e", function() awful.spawn.with_shell("emacsclient -c") end, {
-      description = "Open emacs",
-      group = "Applications and menus"
-  }),
-
   -- Power menu
   awful.key({modkey}, "Escape", function() awful.spawn.with_shell("~/.bin/rofi-power") end, {
       description = "Power menu",
@@ -572,8 +566,6 @@ root.keys(globalkeys)
 #+begin_src lua 
   -- Notifications
   naughty.config.defaults.margin = beautiful.notification_margin
-  naughty.config.defaults.border_width = beautiful.notification_border_width
-
   -- Titlebar
   client.connect_signal("request::titlebars", function(c)
 
