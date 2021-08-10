@@ -24,6 +24,7 @@
     };
   };
   services.openssh.enable = true; # Enable openssh
+  services.openssh.forwardX11 = true;
 
   # Virtualisation
   virtualisation.libvirtd.enable = true;
