@@ -324,7 +324,6 @@
 
   nixpkgs.overlays = [
     (self: super: {                                                                                                                                                                                                                                        
-      final: prev: {
         awesome = (prev.awesome.overrideAttrs (old: rec {
           src = prev.fetchFromGitHub {
             owner = "awesomeWM";
@@ -339,7 +338,6 @@
           luaPackages = prev.lua52Packages;
           gtk3Support = true;
         };
-      }
     })
   ];
 
