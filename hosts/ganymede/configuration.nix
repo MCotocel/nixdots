@@ -339,7 +339,7 @@
           luaPackages = prev.lua52Packages;
           gtk3Support = true;
         };
-      }
+      };
     )
   ];
 
