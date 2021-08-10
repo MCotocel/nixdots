@@ -77,7 +77,7 @@
 
   services.xserver.windowManager = {
     awesome = {
-      enable = true;
+      enable = false;
       luaModules = with pkgs.lua52Packages; [
         lgi
         ldbus
