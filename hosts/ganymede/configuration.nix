@@ -37,6 +37,7 @@
     autoRepeatDelay = 225; # Keyboard repeat rate
     autoRepeatInterval = 33;
   };
+  hardware.brightnessctl.enable = true;
 
   # Sound
   sound.enable = false;
@@ -69,7 +70,7 @@
   # User accounts
   users.users.matei = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # For sudo/doas
+    extraGroups = [ "wheel" "video" ]; # For sudo/doas
     shell = pkgs.zsh;
   };
 
