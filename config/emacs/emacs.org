@@ -776,7 +776,6 @@ I use Emacs for coding as well, so we're going to configure lsp-mode.
            (markdown-mode . lsp)
            (latex-mode . lsp)
            (go-mode . lsp)
-           (nix-mode . lsp)
            (lsp-mode . lsp-enable-which-key-integration))
     :commands lsp
     :config
@@ -850,6 +849,16 @@ Here, we install and configure projectile, which is a project interaction librar
   (use-package projectile
     :config (projectile-mode 1))
 #+END_SRC
+
+** Indentation guides
+
+Guides to see level of indentation
+
+#+begin_src emacs-lisp 
+  (use-package highlight-indent-guides
+    :config (setq highlight-indent-guides-method 'character)
+    :hook (prog-mode-hook . highlight-indent-guides-mode))
+#+end_src
 
 * Org mode
 
