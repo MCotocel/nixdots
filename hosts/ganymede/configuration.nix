@@ -116,9 +116,9 @@
   services.emacs.enable = false;
   services.emacs.package = pkgs.emacsUnstable;
 
-  # Fingerprint
-  services.fprintd = {
-    enable = true;
+  # Firewall
+  networking.firewall = {
+    enable = false;
   };
 
   # Telegraf
