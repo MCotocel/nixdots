@@ -322,7 +322,15 @@
   
   console.colors = [ "181e23" "ff8080" "97d59b" "fffe80" "80d1ff" "c780ff" "80ffe4" "d5d5d5" "ffaeae" "bef8c1" "fcfba6" "ace1ff" "d8a8ff" "a2ffeb" "ffffff" ]; # Color for the console
 
-  nixpkgs.overlays = [];
+  nixpkgs.overlays = [
+    (self: super: {                                                                                                                                                                                                                                        
+      awesome = super.awesome.overrideAttrs (oldAttrs: rec {                                                                                                                                                                                                
+        src = builtins.fetchGit https://github.com/awesomewm/awesome;                                                                                                                                                                                         
+        rev = "a4572b9b52d89369ce3bd462904d536ec116dc35";                                                                                                                                                                                                     
+        sha = "1kj2qz2ns0jn5gha4ryr8w8vvy23s3bb5z3vjhwwfnrv7ypb40iz";                                                                                                                                                                                         
+      } 
+    );     
+  ];
 
   nixpkgs.config = {
     allowUnfree = true; # Allow unfree packages (forgive me stallman)
