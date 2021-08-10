@@ -328,8 +328,9 @@
         src = builtins.fetchGit https://github.com/awesomewm/awesome;                                                                                                                                                                                         
         rev = "a4572b9b52d89369ce3bd462904d536ec116dc35";                                                                                                                                                                                                     
         sha = "1kj2qz2ns0jn5gha4ryr8w8vvy23s3bb5z3vjhwwfnrv7ypb40iz";                                                                                                                                                                                         
-      } 
-    );     
+        }
+      );
+    )
   ];
 
   nixpkgs.config = {
