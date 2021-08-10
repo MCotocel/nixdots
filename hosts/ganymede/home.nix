@@ -46,6 +46,7 @@
     ".config/emacs/doom-quiet-dark-theme.el".source  = ../../config/emacs/doom-quiet-dark-theme.el;
     ".config/emacs/doom-quiet-light-theme.el".source = ../../config/emacs/doom-quiet-light-theme.el;
     ".config/emacs/emacs.org".source                 = ../../config/emacs/emacs.org;
+    ".config/emacs/emacs.el".source                  = ../../config/emacs/emacs.org;
     ".config/emacs/init.el".source                   = ../../config/emacs/init.el;
     ".config/emacs/style.css".source                 = ../../config/emacs/style.css;
     ".config/emacs/etc/private.el".source            = ../../config/emacs/private.el;

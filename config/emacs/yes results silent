@@ -1,0 +1,164 @@
+(load-file "~/.config/emacs/etc/private.el")
+(add-to-list 'load-path "~/.config/emacs/lisp/")
+(setq warning-minimum-level :emergency)
+(setq auto-window-vscroll nil)
+(setq frame-resize-pixelwise t)
+
+(require 'package)
+
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("melpa" . "http://melpa.org/packages/")))
+
+(package-initialize)
+(unless package-archive-contents
+  (package-refresh-contents))
+
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(require 'use-package)
+
+(setq use-package-always-ensure t)
+(setq straight-use-package-by-default t)
+
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 5))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+(setq package-enable-at-startup nil)
+
+(use-package auto-package-update
+   :ensure t
+   :config
+   (setq auto-package-update-delete-old-versions t
+         auto-package-update-interval 4)
+   (auto-package-update-maybe))
+
+(when (equal ""
+             (shell-command-to-string "git config user.name"))
+  (shell-command "git config --global user.name \"Matei Cotocel\"")
+  (shell-command "git config --global user.email \"mcotocel@outlook.com\""))
+
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
+(tool-bar-mode -1)
+(setq inhibit-splash-screen t
+      inhibit-startup-echo-area-message t
+      inhibit-startup-message t)
+(setq ring-bell-function 'ignore)
+
+(add-to-list 'default-frame-alist '(font . "Iosevka Nerd Font"))
+
+(set-fontset-font t 'symbol (font-spec :family "Twemoji") nil 'prepend)
+
+(defun org/prettify-set ()
+    (interactive)
+    (setq prettify-symbols-alist
+        '(("#+begin_src" . "")
+          ("#+BEGIN_SRC" . "")
+          ("#+end_src" . "")
+          ("#+END_SRC" . "")
+          ("#+begin_example" . "")
+          ("#+BEGIN_EXAMPLE" . "")
+          ("#+end_example" . "")
+          ("#+END_EXAMPLE" . "")
+          ("#+results:" . "")
+          ("#+RESULTS:" . "")
+          ("#+begin_quote" . "❝")
+          ("#+BEGIN_QUOTE" . "❝")
+          ("#+end_quote" . "❞")
+          ("#+END_QUOTE" . "❞")
+          ("[ ]" . "☐")
+          ("[-]" . "◯")
+          ("[X]" . "☑"))))
+  (add-hook 'org-mode-hook 'org/prettify-set)
+
+  (defun prog/prettify-set ()
+    (interactive)
+    (setq prettify-symbols-alist
+        '(("lambda" . "λ")
+          ("->" . "→")
+          ("<-" . "←")
+          ("<=" . "≤")
+          (">=" . "≥")
+          ("!=" . "≠")
+          ("~=" . "≃")
+          ("=~" . "≃"))))
+  (add-hook 'prog-mode-hook 'prog/prettify-set)
+
+(global-prettify-symbols-mode)
+
+(global-display-line-numbers-mode)
+(setq display-line-numbers-type 'relative)
+
+(dolist (mode '(org-mode-hook
+                term-mode-hook
+                eshell-mode-hook
+                neotree-mode-hook
+                elfeed-show-mode
+                circe-channel-mode
+                circe-chat-mode
+                woman-mode-hook))
+(add-hook mode (lambda () (display-line-numbers-mode 0))))
+
+(setq recentf-save-file "~/.config/emacs/etc/recentf" ;; File for recentf
+      recentf-max-saved-items 50)
+(setq savehist-file "~/.config/emacs/etc/savehist" ;; File for save history
+      history-length 150)
+(setq save-place-file "~/.config/emacs/etc/saveplace") ;; File for save place
+(setq bookmark-default-file "~/.config/emacs/etc/bookmarks") ;; File for bookmarks
+(setq backup-directory-alist '(("." . "~/.config/emacs/backups")) ;; Directory for backups
+      delete-old-versions t
+      kept-old-versions 20
+      vc-make-backup-files t
+      version-control t)
+(setq custom-file "~/.config/emacs/etc/custom.el") ;; For saved customizations
+(setq create-lockfiles nil) ;; Disable lockfiles
+
+(save-place-mode) ;; Save location
+(global-visual-line-mode) ;; Wrap lines
+(add-hook 'org-mode-hook 'flyspell-mode) ;; Spell checker
+
+(setq require-final-newline t)
+
+(defalias 'yes-or-no-p 'y-or-n-p)
+
+(setq redisplay-dont-pause t
+  scroll-margin 1
+  scroll-step 1
+  scroll-conservatively 10000
+  scroll-preserve-screen-position 1
+  scroll-up-aggressively 0.01
+  scroll-down-aggressively 0.01)
+
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+(setq indent-line-function 'insert-tab)
+
+(setq disabled-command-function nil)
+
+(add-to-list 'auto-mode-alist '("PKGBUILD\\'" . shell-script-mode))
+
+(use-package exec-path-from-shell
+   :config
+   (exec-path-from-shell-initialize))
+
+(use-package evil
+  :init
+  (setq evil-want-integration t)
+  (setq evil-want-keybinding nil)
+  :config
+  (evil-mode 1))
+
+(use-package evil-collection
+  :after evil
+  :config
+  (evil-collection-init))
