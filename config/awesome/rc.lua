@@ -487,8 +487,6 @@ awful.screen.connect_for_each_screen(function(s)
 end)
 
 -- Notifications
-naughty.config.defaults.margin = beautiful.notification_margin
-naughty.config.defaults.border_width = beautiful.notification_border_width
 
 -- Titlebar
 client.connect_signal("request::titlebars", function(c)
@@ -502,7 +500,7 @@ client.connect_signal("request::titlebars", function(c)
         awful.mouse.client.resize(c)
     end))
 
-local titlebar = awful.titlebar(c, {position = 'top', height = '40'})
+local titlebar = awful.titlebar(c, {position = 'top', size = '40'})
 
 titlebar:setup{
   {
@@ -725,8 +723,8 @@ awful.layout.layouts = {
 -- Generate wallpaper
 awful.screen.connect_for_each_screen(function(s)
     bling.module.tiled_wallpaper("", s, {
-        fg = "#384149",
-        bg = "#1f252a",
+        fg = "#181e23",
+        bg = "#384149",
         offset_y = 15,
         offset_x = 15,
         font = "Iosevka Nerd Font",
