@@ -308,6 +308,7 @@
     trash-cli
     usbutils
     vim
+    virt-manager
     wayfire
     wayland
     wget
