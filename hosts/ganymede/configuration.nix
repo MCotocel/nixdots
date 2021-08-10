@@ -323,7 +323,7 @@
   console.colors = [ "181e23" "ff8080" "97d59b" "fffe80" "80d1ff" "c780ff" "80ffe4" "d5d5d5" "ffaeae" "bef8c1" "fcfba6" "ace1ff" "d8a8ff" "a2ffeb" "ffffff" ]; # Color for the console
 
   nixpkgs.overlays = [
-    (self: supder
+    (self: super:
       final: prev: {
         awesome = (prev.awesome.overrideAttrs (old: rec {
           src = prev.fetchFromGitHub {
