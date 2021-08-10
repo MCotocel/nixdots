@@ -8,7 +8,7 @@
     agenix.url       = "github:ryantm/agenix";
   };
 
-  outputs = { self, nixpkgs, home-manager, nur, agenix }: {
+  outputs = { self, nixpkgs, home-manager, nur, agenix }@inputs:
     with nixpkgs.lib;
     let
       user-overlays = importNixFiles ./overlays;
