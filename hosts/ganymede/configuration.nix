@@ -8,7 +8,7 @@
   ];
 
    nixpkgs.overlays = let
-    source = builtins.fromJSON (builtins.readFile ../../source.json);
+    source = builtins.fromJSON (builtins.readFile ../../awesome-source.json);
   in [
     (self: super: {
       awesome = super.awesome.overrideAttrs (old: {
