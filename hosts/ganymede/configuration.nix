@@ -37,7 +37,6 @@
     autoRepeatDelay = 225; # Keyboard repeat rate
     autoRepeatInterval = 33;
   };
-  hardware.brightnessctl.enable = true;
 
   # Sound
   sound.enable = false;
