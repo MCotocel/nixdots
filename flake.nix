@@ -38,10 +38,8 @@
               }))
               ]; }
 	        ./hosts/ganymede/configuration.nix
-            user-overlays = importNixFiles ./overlays;
           ];
         };
       };
     };
-  };
 }
