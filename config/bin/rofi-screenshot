@@ -1,0 +1,22 @@
+sel=$(echo "Screen|Selection" | rofi -sep "|" -dmenu -i -p 'Screenshot')
+ 
+if [[ $sel = "Screen" ]]; then
+
+    sleep 0.5
+    maim ~/Pictures/Screenshots/TEMP.png
+    xclip -selection clipboard -t image/png -i ~/Pictures/Screenshots/TEMP.png
+    notify-send "Screenshot tool" "Screenshot taken" -i ~/Pictures/Screenshots/TEMP.png
+    mv ~/Pictures/Screenshots/TEMP.png ~/Pictures/Screenshots/$(date +%d:%H:%M:%S).png
+    
+fi
+
+if [[ $sel = "Selection" ]]; then # If selection is selection
+
+    sleep 0.5
+    maim -s ~/Pictures/Screenshots/TEMP.png
+    xclip -selection clipboard -t image/png -i ~/Pictures/Screenshots/TEMP.png
+    notify-send "Screenshot tool" "Screenshot taken" -i ~/Pictures/Screenshots/TEMP.png
+    mv ~/Pictures/Screenshots/TEMP.png ~/Pictures/Screenshots/$(date +%d:%H:%M:%S).png
+fi
+
+exit 0
