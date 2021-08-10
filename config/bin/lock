@@ -2,7 +2,9 @@ sleep 0.5
 brightnessctl | grep -i 'current brightness' | xargs | sed 's/Current\ brightness:\ [[:digit:]]*\ //g' | sed 's/[\(\)]//g' > /tmp/old-brightness
 maim /tmp/screen
 convert -filter Gaussian -resize 20% -define "filter:sigma=1.5" -resize 1366x786 /tmp/screen /tmp/screen
-convert /tmp/screen -gravity Center -family "Iosevka" -style normal -pointsize 300 -fill White -draw "translate -0,-800 text +0,+800 ''" /tmp/screen
+convert /tmp/screen -gravity Center -family "Iosevka" -style normal -pointsize 150 -fill White -draw "translate -0,-800 text +0,+800 ''" /tmp/screen
 brightnessctl s 1%
-i3lock-color -i /tmp/screen --bar-indicator --bar-color=#00000000 --bar-orientation=vertical --verif-text="" --wrong-text="" --noinput-text="" --bar-max-height 250 --redraw-thread --bar-periodic-step 50 -n
+
+i3lock-color -i /tmp/screen --verif-text="" --wrong-text="" --noinput-text="" --redraw-thread -n --no-modkey-text --inside-color=0000001c --ring-color=0000003e --line-color=00000000 --keyhl-color=ffffff80 --ringver-color=ffffff00 --separator-color=22222260 --insidever-color=ffffff1c --ringwrong-color=ffffff55 --insidewrong-color=ffffff1c --verif-color=ffffff00 --wrong-color=ff000000 --time-color=ffffff00 --date-color=ffffff00 --layout-color=ffffff00
+
 brightnessctl s $(cat /tmp/old-brightness)

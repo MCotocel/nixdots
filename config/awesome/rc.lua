@@ -258,6 +258,12 @@ awful.key({modkey}, "Escape", function() awful.spawn.with_shell("~/.bin/rofi-pow
     group = "Applications and menus"
 }),
 
+-- Lock screen
+awful.key({}, "XF86Sleep", function() awful.spawn.with_shell("~/.bin/lock") end, {
+    description = "Power menu",
+    group = "Applications and menus"
+}),
+
 -- Hotkey menu
 awful.key({modkey}, "/", hotkeys_popup.show_help, {
     description = "Hotkey menu",
