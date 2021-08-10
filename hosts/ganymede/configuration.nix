@@ -25,6 +25,10 @@
   };
   services.openssh.enable = true; # Enable openssh
 
+  # Virtualisation
+  virtualisation.libvirtd.enable = true;
+  programs.dconf.enable = true;
+
   # X11
   services.xserver = {
     enable = true;
