@@ -736,3 +736,8 @@ end)
 
 -- Flash focus
 bling.module.flash_focus.enable()
+
+beautiful.notification_height = 50
+beautiful.notification_width = 50
+beautiful.notification_max_height = 200
+beautiful.notification_max_width = 300
