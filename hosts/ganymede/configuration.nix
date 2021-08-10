@@ -7,19 +7,6 @@
     ../shared.nix
   ];
 
-   nixpkgs.overlays = let
-    source = builtins.fromJSON (builtins.readFile ../../awesome-source.json);
-  in [
-    (self: super: {
-      awesome = super.awesome.overrideAttrs (old: {
-        src = super.fetchFromGitHub rec {
-          name = "source-${owner}-${repo}-${rev}";
-          inherit (source) owner repo rev sha256;
-        };
-      });
-    })
-  ];
-
   boot.extraModulePackages = [ config.boot.kernelPackages.rtl8821ce ]; # Drivers
   boot.kernelPackages = pkgs.linuxPackages_xanmod; # Kernel package
   hardware.enableRedistributableFirmware = true; # Non-free firmware

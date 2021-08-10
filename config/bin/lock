@@ -1,0 +1,4 @@
+maim /tmp/screen
+convert -filter Gaussian -resize 20% -define "filter:sigma=1.5" -resize 1366x786 /tmp/screen /tmp/screen
+convert /tmp/screen -gravity Center -family "Iosevka" -style normal -pointsize 300 -fill White -draw "translate -0,-800 text +0,+800 ''" /tmp/screen
+i3lock-color -i /tmp/screen --bar-indicator --bar-color=#00000000 --bar-orientation=vertical --verif-text="" --wrong-text="" --noinput-text="" --bar-max-height 250 --redraw-thread --bar-periodic-step 50
