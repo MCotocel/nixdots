@@ -116,6 +116,11 @@
   services.emacs.enable = false;
   services.emacs.package = pkgs.emacsUnstable;
 
+  # Fingerprint
+  services.fprintd = {
+    enable = true;
+  };
+
   # Telegraf
   services.telegraf = {
     enable = true;
