@@ -2,7 +2,6 @@
 #+DESCRIPTION: A literate Emacs config written in Org
 #+AUTHOR: Matei Cotocel
 #+PROPERTY: header-args :tangle yes
-#+PROPERTY: results silent
 
 * Intro
 
