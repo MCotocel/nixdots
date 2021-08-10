@@ -229,6 +229,7 @@
     alsa-utils
     apfs-fuse
     aria
+    awesome
     bash
     bat
     cmake
@@ -326,7 +327,7 @@
     (self: super: {                                                                                                                                                                                                                                        
       awesome = super.awesome.overrideAttrs (oldAttrs: rec {
         src = builtins.fetchGit https://github.com/awesomewm/awesome;
-        rev = "8a81745d4d0466c0d4b346762a80e4f566c83461";
+        rev = "a4572b9b52d89369ce3bd462904d536ec116dc35";
         sha = "1kj2qz2ns0jn5gha4ryr8w8vvy23s3bb5z3vjhwwfnrv7ypb40iz";
         }
       );
