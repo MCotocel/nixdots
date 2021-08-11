@@ -32,7 +32,6 @@
     layout = "us"; # Set keyboard layout
     autoRepeatDelay = 225; # Keyboard repeat rate
     autoRepeatInterval = 33;
-    videoDrivers = [ "amdgpu" ];
   };
 
   # Sound
