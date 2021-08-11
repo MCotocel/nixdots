@@ -323,7 +323,6 @@
     wpa_supplicant
     xclip
     xorg.xev
-    xorg.xf86videoamdgpu
     xorg.xinit
     youtube-dl
     zsh
