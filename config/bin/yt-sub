@@ -9,7 +9,7 @@ function download() {
     VIDEO_PATH="$3"
     mkdir -p "$VIDEO_PATH"
     cd "$VIDEO_PATH"
-    ls "$VIDEO_PATH"/.download-date >/dev/null 2>&1
+    ls .download-date >/dev/null 2>&1
     if [[ $? != "0" ]]; then
         echo "No .download-date file found, downloading all videos"
         youtube-dl -c -f 136 -ciw -o "%(title)s.%(ext)s" -v $URL
