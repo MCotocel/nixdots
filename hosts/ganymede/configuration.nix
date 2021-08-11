@@ -65,7 +65,7 @@
   # User accounts
   users.users.matei = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" ]; # For sudo/doas
+    extraGroups = [ "wheel" "video" "libvirtd" ]; # For sudo/doas
     shell = pkgs.zsh;
   };
 
