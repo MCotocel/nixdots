@@ -1,6 +1,3 @@
-URL='https://www.youtube.com/channel/UCUs99naenQw3RQxx1Rv-lNg'
-VIDEO_PATH='/Volumes/PiNas/Media/Videos/specter/'
-
 function help() {
     echo "To download a channel, run this command like so:"
     echo
