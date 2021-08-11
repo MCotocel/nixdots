@@ -283,7 +283,7 @@ awful.key({}, "XF86AudioLowerVolume", function() awful.util.spawn("amixer set Ma
 }),
 
 -- Toggle mute
-awful.key({}, "XF86AudioMute", function() awful.util.spawn("amixer set Master toggle") awful.util.spawn("notify-send 'Speaker status' `amixer sget Master | grep -o '\[on\|off\]' | sed 's/[][]//g' | head -n 1`") end, {
+awful.key({}, "XF86AudioMute", function() awful.util.spawn("amixer set Master toggle") awful.util.spawn("notify-send 'Speaker status' `amixer sget Master | grep -o '\\[on\\|off\\]' | sed 's/[][]//g' | head -n 1`") end, {
     description = "Toggle mute",
     group = "Applications and menus"
 }))
