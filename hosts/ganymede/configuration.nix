@@ -16,12 +16,7 @@
     hostName = "ganymede"; # Hostname
     useDHCP = false; # Deprecated, so set explicitly to false
     wireless.userControlled.enable = true; # Allow user to control networking
-    #networkmanager.enable = true; # Enable networkmanager
-    wireless.networks = {
-      "E_Net" = {
-        psk = "silviu-1";
-      };
-    };
+    networkmanager.enable = true; # Enable networkmanager
   };
   services.openssh.enable = true; # Enable openssh
   services.openssh.forwardX11 = true;
