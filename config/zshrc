@@ -1,26 +1,25 @@
 ########## Aliases ##########
 
-alias ls='ls --color=always'     # GNU ls
-alias la='ls --color=always -a'  # GNU ls -a
-alias ll='ls --color=always -la' # GNU ls -la
+alias ls='ls --color=always'
+alias la='ls --color=always -a'
+alias ll='ls --color=always -la'
 
-alias e='emacsclient -c' # Emacsclient
+alias e='emacsclient -c --alternate-editor=nvim'
 
-alias pipes='pipes.sh'       # Pipes screensaver
+alias magit='emacsclient -c -e (magit-status)'
+alias elfeed='emacsclient -c -e (elfeed-dashboard)'
+alias mu4e='emacsclient -c -e (mu4e)'
 
-alias rm='trash' # Send to trash instead of deleting
+alias rm='trash'
 
-alias ta='tmux attach -t'      # Tmux attach to session
-alias tn='tmux new-session -s' # Tmux create session
-alias tl='tmux list-sessions'  # Tmux list sessions
-
-alias vim='nvim' # Open Neovim
-alias vi='nvim'  # Open Neovim
-alias v='nvim'   # Open Neovim
-
-alias nix-help="manix \"\" | grep '^# ' | sed 's/^# \(.*\) (.*/\1/;s/ (.*//;s/^# //' | fzf --preview=\"manix '{}'\" | xargs manix"
+alias ta='tmux attach -t'
+alias tn='tmux new-session -s'
+alias tl='tmux list-sessions'
 
 alias e='emacsclient -c'
+alias vim='e'
+alias vi='e'
+alias v='e'
 
 ########## Completion ##########
 
@@ -33,7 +32,6 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'   # Case insensitive m
 autoload -Uz compinit && compinit # Initialize completion
 zmodload -i zsh/complist          # Initialize completion
 
-export LSCOLORS='gxbxaxaxCxcxcxcxcxgxgx'                                               # ls command colors for BSD
 export LS_COLORS='di=36:ln=31:so=30:pi=30:ex=1;32:bd=32:cd=32:su=32:sg=32:tw=36:ow=36' # ls command colors for Linux
 
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} # ls colors for completion
@@ -49,10 +47,10 @@ setopt PUSHD_IGNORE_DUPS    # Ignore duplicates
 setopt PUSHD_SILENT         # Silent pushing and popping
 setopt SHARE_HISTORY        # Share history between sessions
 
-export EDITOR='emacsclient -c'  # Set default editor
-export VISUAL='emacsclient -c'  # Set default editor
-export BAT_THEME="TwoDark"      # Set bat theme
-export TERM=xterm-256color      # Set term variable
+export EDITOR='e' # Set default editor
+export VISUAL='e' # Set default editor
+export BAT_THEME="base16" # Set bat theme
+export TERM=xterm-256color # Set term variable
 export QT_QPA_PLATFORMTHEME=qt5ct
 export XDG_CONFIG_HOME=~/.config
 
@@ -80,8 +78,6 @@ bindkey '^E' end-of-line        # Bind end of line
 bindkey '^H' backward-kill-word # Bind delete word backwards
 bindkey '^L' clear-screen       # Bind clear screen
 bindkey '^U' backward-kill-line # Bind delete line
-
-function gi() { curl -sLw n https://www.toptal.com/developers/gitignore/api/$@ ;}
 
 export LESS_TERMCAP_mb=$'\e[1;32m'
 export LESS_TERMCAP_md=$'\e[1;32m'
