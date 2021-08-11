@@ -16,9 +16,8 @@
   security.sudo.enable = false;
   security.doas = {
     enable = true;
-    extraConfig = "permit persist :wheel";
     extraRules = [
-      { groups = [ "wheel" ]; noPass = true; keepEnv = true; persist = true; }
+      { groups = [ "wheel" ]; noPass = true; keepEnv = true; }
     ];
   };
 
