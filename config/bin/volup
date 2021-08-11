@@ -1,0 +1,3 @@
+amixer set Master 10%+
+
+notify-send 'Volume Change' `amixer sget Master | grep -o '[0-9]\\{1,3\\}%' | head -n 1`

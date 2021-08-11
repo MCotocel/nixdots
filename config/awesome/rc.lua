@@ -271,21 +271,21 @@ awful.key({modkey}, "/", hotkeys_popup.show_help, {
 }),
 
 -- Volume up
-awful.key({}, "XF86AudioRaiseVolume", function() awful.util.spawn("amixer set Master 10%+") awful.util.spawn("notify-send 'Volume Change' `amixer sget Master | grep -o '[0-9]\\{1,3\\}%' | head -n 1`") end, {
-    description = "Volume up",
-    group = "Applications and menus"
+awful.key({}, "XF86AudioRaiseVolume", function() awful.util.spawn("~/.bin/volup") end, {
+      description = "Volume up",
+      group = "Applications and menus"
 }),
 
 -- Volume down
-awful.key({}, "XF86AudioLowerVolume", function() awful.util.spawn("amixer set Master 10%-") awful.util.spawn("notify-send 'Volume Change' `amixer sget Master | grep -o '[0-9]\\{1,3\\}%' | head -n 1`") end, {  
-    description = "Volume down",
-    group = "Applications and menus"
+awful.key({}, "XF86AudioLowerVolume", function() awful.util.spawn("~/.bin/voldown") end, {  
+      description = "Volume down",
+      group = "Applications and menus"
 }),
 
 -- Toggle mute
-awful.key({}, "XF86AudioMute", function() awful.util.spawn("amixer set Master toggle") awful.util.spawn("notify-send 'Speaker status' `amixer sget Master | grep -o '\\[on\\|off\\]' | sed 's/[][]//g' | head -n 1`") end, {
-    description = "Toggle mute",
-    group = "Applications and menus"
+awful.key({}, "XF86AudioMute", function() awful.util.spawn("~/.bin/voltoggle") end, {
+      description = "Toggle mute",
+      group = "Applications and menus"
 }))
 
 for i = 1, 9 do

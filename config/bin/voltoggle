@@ -1,0 +1,2 @@
+amixer set Master toggle
+notify-send 'Speaker status' `amixer sget Master | grep -o '\\[on\\|off\\]' | sed 's/[][]//g' | head -n 1`
