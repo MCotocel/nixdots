@@ -2,9 +2,10 @@ sleep 0.5
 brightnessctl | grep -i 'current brightness' | xargs | sed 's/Current\ brightness:\ [[:digit:]]*\ //g' | sed 's/[\(\)]//g' > /tmp/old-brightness
 maim /tmp/screen
 convert -filter Gaussian -resize 20% -define "filter:sigma=1.5" -resize 1366x786 /tmp/screen /tmp/screen
-convert /tmp/screen -gravity Center -family "Iosevka" -style normal -pointsize 150 -fill White -draw "translate -0,-800 text +0,+800 ''" /tmp/screen
+convert /tmp/screen -gravity Center -family "Iosevka" -style normal -pointsize 250 -fill White -draw "translate -0,-800 text +0,+700 ''" /tmp/screen
+convert /tmp/screen -gravity Center -family "Iosevka" -style normal -pointsize 50 -fill White -draw "translate -0,-800 text +0,+900 'Type password to unlock...'" /tmp/screen
 brightnessctl s 10%
 
-i3lock-color -i /tmp/screen --verif-text="" --wrong-text="" --noinput-text="" --redraw-thread -n --no-modkey-text --inside-color=0000001c --ring-color=0000003e --line-color=00000000 --keyhl-color=ffffff80 --ringver-color=ffffff00 --separator-color=22222260 --insidever-color=ffffff1c --ringwrong-color=ffffff55 --insidewrong-color=ffffff1c --verif-color=ffffff00 --wrong-color=ff000000 --time-color=ffffff00 --date-color=ffffff00 --layout-color=ffffff00
+i3lock-color -i /tmp/screen --verif-text="" --wrong-text="" --noinput-text="" -n --no-modkey-text --bar-indicator --bar-orientation=vertical --bar-step 1000 --bar-max-height 200 --bar-color=#00000000 --keyhl-color=#80d1ff --ringver-color=#80d1ff --redraw-thread 
 
 brightnessctl s $(cat /tmp/old-brightness)

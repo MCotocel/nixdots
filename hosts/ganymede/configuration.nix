@@ -285,6 +285,7 @@
     networkmanager
     nyxt
     onefetch
+    openimagedenoise
     papirus-icon-theme
     pavucontrol
     pfetch
@@ -303,6 +304,7 @@
     teams
     telegraf
     telnet
+    tesseract
     texlive.combined.scheme-small
     tigervnc
     tmux
