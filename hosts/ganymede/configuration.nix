@@ -73,7 +73,7 @@
   services.xserver.displayManager.gdm.enable = true; # Gnome display manager
   hardware.opengl = {
     driSupport = true;
-    hardware.opengl.driSupport32Bit = true;
+    driSupport32Bit = true;
     extraPackages = with pkgs; [
       rocm-opencl-icd
       rocm-opencl-runtime
