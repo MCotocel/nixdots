@@ -492,8 +492,6 @@ awful.screen.connect_for_each_screen(function(s)
     }
 end)
 
--- Notifications
-
 -- Titlebar
 client.connect_signal("request::titlebars", function(c)
 
