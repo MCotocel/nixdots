@@ -71,7 +71,6 @@
   };
 
   services.xserver.displayManager.gdm.enable = true; # Gnome display manager
-  services.xserver.videoDrivers = [ "amdgpu" ]; # Use AMD driver
   hardware.opengl = {
     driSupport = true;
     hardware.opengl.driSupport32Bit = true;
