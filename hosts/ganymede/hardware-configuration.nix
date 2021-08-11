@@ -2,7 +2,7 @@
 
 {
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "uas" "sd_mod" "sdhci_pci" ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
   boot.kernelParams= [ "iommu=soft" ];
