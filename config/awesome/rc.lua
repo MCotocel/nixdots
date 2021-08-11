@@ -439,19 +439,16 @@ awful.screen.connect_for_each_screen(function(s)
 
     appmenu = {
      {"Terminal", function() awful.spawn.with_shell("alacritty") end},
-     {"Editor", function() awful.spawn.with_shell("emacs") end},
-     {"Browser", function() awful.spawn.with_shell("qutebrowser") end},
+     {"Editor", function() awful.spawn.with_shell("emacsclient -c") end},
+     {"Browser", function() awful.spawn.with_shell("firefox") end},
      {"Music", function() awful.spawn.with_shell("spotify") end},
      {"File manager", function() awful.spawn.with_shell("thunar") end},
     }
 
     scriptmenu = {
-     {"Replace app folder", function() awful.spawn.with_shell("~/.bin/apps") end},
-     {"Random man page", function() awful.spawn.with_shell("~/.bin/randman") end},
      {"Take screenshot", function() awful.spawn.with_shell("~/.bin/rofi-screenshot") end},
      {"Image to text", function() awful.spawn.with_shell("~/.bin/rofi-imgtext") end},
      {"Shorten url", function() awful.spawn.with_shell("~/.bin/rofi-urlshorten") end},
-     {"Change wallpaper", function() awful.spawn.with_shell("~/.bin/rofi-wallpaper") end},
     }
 
     mainmenu = awful.menu({items = {
