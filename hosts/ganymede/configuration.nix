@@ -274,6 +274,7 @@
     libvirt
     linuxPackages_xanmod.r8168
     manix
+    mesa
     mopidy
     mpc_cli
     mpd
