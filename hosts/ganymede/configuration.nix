@@ -325,7 +325,7 @@
     youtube-dl
     zsh
 
-    #nur.repos.fortuneteller2k.awesome-git
+    nur.repos.fortuneteller2k.awesome-git
     nur.repos.reedrw.picom-next-ibhagwan
   ];
 
