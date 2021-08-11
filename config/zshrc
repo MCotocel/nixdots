@@ -6,7 +6,7 @@ alias ll='ls --color=always -la'
 
 alias e='emacsclient -c --alternate-editor=nvim'
 
-alias magit='emacsclient -c -e "(delete-other-windows) (magit-status)"'
+alias magit='emacsclient -c -e "(progn (delete-other-windows) (magit-status))"'
 alias elfeed='emacsclient -c -e "(elfeed-dashboard)"'
 
 alias rm='trash'
