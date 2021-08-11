@@ -271,19 +271,28 @@ awful.key({modkey}, "/", hotkeys_popup.show_help, {
 }),
 
 -- Volume up
-awful.key({}, "XF86AudioRaiseVolume", function() awful.spawn.with_shell("~/.bin/volup") end, {
+awful.key({}, "XF86AudioRaiseVolume", function()
+      naughty.destroy_all_notifications()
+      awful.spawn.with_shell("~/.bin/volup")
+      end, {
       description = "Volume up",
       group = "Applications and menus"
 }),
 
 -- Volume down
-awful.key({}, "XF86AudioLowerVolume", function() awful.spawn.with_shell("~/.bin/voldown") end, {  
+awful.key({}, "XF86AudioLowerVolume", function()
+      naughty.destroy_all_notifications()
+      awful.spawn.with_shell("~/.bin/voldown")
+      end, {  
       description = "Volume down",
       group = "Applications and menus"
 }),
 
 -- Toggle mute
-awful.key({}, "XF86AudioMute", function() awful.spawn.with_shell("~/.bin/voltoggle") end, {
+awful.key({}, "XF86AudioMute", function()
+      naughty.destroy_all_notifications()
+      awful.spawn.with_shell("~/.bin/voltoggle")
+      end, {
       description = "Toggle mute",
       group = "Applications and menus"
 }))
