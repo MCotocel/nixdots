@@ -10,9 +10,10 @@
 
   outputs = { self, nixpkgs, home-manager, nur, agenix }: {
 
-    nixosConfigurations = {
+    nixosConfigurations = let lib = nixpkgs.lib;
+    in {
 
-      thebe = nixpkgs.lib.nixosSystem {
+      thebe = (lib.makeOverridable lib.nixosSystem) {
         system = "x86_64-linux";
         modules = [
 	      home-manager.nixosModules.home-manager {
@@ -23,7 +24,7 @@
         ];
       };
 
-      ganymede = nixpkgs.lib.nixosSystem {
+      ganymede = (lib.makeOverridable lib.nixosSystem) {
         system = "x86_64-linux";
         modules = [
           agenix.nixosModules.age
