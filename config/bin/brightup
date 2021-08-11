@@ -1,0 +1,3 @@
+brightnessctl s +10%
+
+notify-send 'Brightness Change' `brightnessctl | grep -o '[0-9][0-9]%'`

@@ -295,6 +295,24 @@ awful.key({}, "XF86AudioMute", function()
       end, {
       description = "Toggle mute",
       group = "Applications and menus"
+}),
+
+-- Brightness up
+awful.key({}, "XF86MonBrightnessUp", function()
+      naughty.destroy_all_notifications()
+      awful.spawn.with_shell("~/.bin/brightup")
+      end, {  
+      description = "Brightness up",
+      group = "Applications and menus"
+}),
+
+-- Brightness down
+awful.key({}, "XF86MonBrightnessDown", function()
+      naughty.destroy_all_notifications()
+      awful.spawn.with_shell("~/.bin/brightdown")
+      end, {  
+      description = "Brightness down",
+      group = "Applications and menus"
 }))
 
 for i = 1, 9 do
