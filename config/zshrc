@@ -6,9 +6,9 @@ alias ll='ls --color=always -la'
 
 alias e='emacsclient -c --alternate-editor=nvim'
 
-alias magit='emacsclient -c -e (magit-status)'
-alias elfeed='emacsclient -c -e (elfeed-dashboard)'
-alias mu4e='emacsclient -c -e (mu4e)'
+alias magit='emacsclient -c -e "(magit-status)"'
+alias elfeed='emacsclient -c -e "(elfeed-dashboard)"'
+alias mu4e='emacsclient -c -e "(mu4e)"'
 
 alias rm='trash'
 
