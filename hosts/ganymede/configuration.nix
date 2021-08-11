@@ -15,6 +15,7 @@
   networking = {
     hostName = "ganymede"; # Hostname
     useDHCP = false; # Deprecated, so set explicitly to false
+    wireless.enable = false;
     #wireless.userControlled.enable = true; # Allow user to control networking
     networkmanager.enable = true; # Enable networkmanager
   };
