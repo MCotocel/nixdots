@@ -71,6 +71,7 @@
 
   services.xserver.displayManager.gdm.enable = true; # Gnome display manager
   hardware.opengl = {
+    enable = true
     driSupport = true;
     driSupport32Bit = true;
     extraPackages = with pkgs; [
