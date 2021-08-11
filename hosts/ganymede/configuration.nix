@@ -71,9 +71,16 @@
   };
 
   services.xserver.displayManager.gdm.enable = true; # Gnome display manager
-  #services.xserver.videoDrivers = [ "amdgpu" ]; # Use AMD driver
-  hardware.opengl.driSupport = true; # DRI support
-  hardware.opengl.driSupport32Bit = true;
+  services.xserver.videoDrivers = [ "amdgpu" ]; # Use AMD driver
+  hardware.opengl = {
+    driSupport = true;
+    hardware.opengl.driSupport32Bit = true;
+    extraPackages = with pkgs; [
+      rocm-opencl-icd
+      rocm-opencl-runtime
+      amdvlk
+    ];
+  };
 
   services.xserver.xkbOptions = "caps:ctrl_modifier"; # Caps to control
 
