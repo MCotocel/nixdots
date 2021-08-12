@@ -33,7 +33,7 @@
     autoRepeatDelay = 225; # Keyboard repeat rate
     autoRepeatInterval = 33;
     videoDrivers = [
-      "amdgpu"
+      "radeon"
     ];
   };
 
