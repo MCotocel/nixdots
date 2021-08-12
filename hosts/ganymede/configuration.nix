@@ -35,7 +35,7 @@
     videoDrivers = [
       "amdgpu"
       "radeon"
-      "amdgpu-pro"
+      #"amdgpu-pro"
       "fbdev"
       "modesetting"
     ];
