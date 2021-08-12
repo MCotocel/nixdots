@@ -8,7 +8,7 @@
   ];
 
   boot.extraModulePackages = [ config.boot.kernelPackages.rtl8821ce ]; # Drivers
-  boot.kernelPackages = pkgs.linuxPackages_xanmod; # Kernel package
+  #boot.kernelPackages = pkgs.linuxPackages_xanmod; # Kernel package
   hardware.enableRedistributableFirmware = true; # Non-free firmware
 
   # Network settings.
