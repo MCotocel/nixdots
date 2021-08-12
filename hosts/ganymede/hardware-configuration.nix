@@ -3,9 +3,14 @@
 {
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "uas" "sd_mod" "sdhci_pci" ];
   boot.initrd.kernelModules = [ "amdgpu" ];
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [ "kvm-intel" "amdgpu" ];
   boot.extraModulePackages = [ ];
-  boot.kernelParams= [ "iommu=soft" "radeon.si_support=0" "amdgpu.si_support=1" ];
+  boot.kernelParams= [
+    "iommu=soft"
+    "radeon.ci_support=0"
+    "amdgpu.si_support=1"
+    "amdgpu.dc=1
+  "];
 
   fileSystems."/" =
     { device = "/dev/disk/by-label/nixos";
