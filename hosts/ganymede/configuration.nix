@@ -32,6 +32,9 @@
     layout = "us"; # Set keyboard layout
     autoRepeatDelay = 225; # Keyboard repeat rate
     autoRepeatInterval = 33;
+    videoDrivers = [
+      "amdgpu"
+    ];
   };
 
   # Sound
@@ -324,6 +327,7 @@
     wpa_supplicant
     xclip
     xorg.xev
+    xorg.xf86videoamdgpu
     xorg.xinit
     youtube-dl
     zsh
