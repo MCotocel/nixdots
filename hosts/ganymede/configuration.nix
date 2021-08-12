@@ -34,6 +34,7 @@
     autoRepeatInterval = 33;
     videoDrivers = [
       "radeon"
+      "ati"
     ];
   };
 
