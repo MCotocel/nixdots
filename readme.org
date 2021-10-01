@@ -1,3 +1,5 @@
+DON'T USE THIS. MY CONFIG DOESN'T WORK YET, IT IS PRIVATE ONLY FOR EASY SETUP FOR MY MACHINES
+
 * Nix dotfiles
 
 [[https://github.com/nixos/nixpkgs][file:https://img.shields.io/badge/NixOS-21.11-informational.svg?logo=nixos?style=flat.svg]]
