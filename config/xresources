@@ -1,6 +1,6 @@
 ! Color sceme
-#define black0    #0e131A
-#define black1    #1f252a
+#define black0    #0b1116
+#define black1    #181e23
 #define grey0     #6A6A6A
 #define grey1     #6A6A6A
 #define red0      #FF8080

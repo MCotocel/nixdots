@@ -103,7 +103,7 @@
   services.logind.lidSwitchExternalPower = "ignore";
 
   # Emacs
-  services.emacs.enable = true;
+  services.emacs.enable = false;
   services.emacs.package = pkgs.emacsUnstable;
 
   # Firewall

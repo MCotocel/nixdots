@@ -18,7 +18,7 @@
     ".Xresources".source                   = ../../config/xresources;
     ".zshrc".source                        = ../../config/zshrc;
     ".gtkrc-2.0".source                    = ../../config/gtk/gtk2;
-    ".config/gtk/settings.ini".source      = ../../config/gtk/gtk3;
+    ".config/gtk-3.0/settings.ini".source      = ../../config/gtk/gtk3;
 
     ".config/alacritty".source   = ../../config/alacritty;
     ".config/awesome".source     = ../../config/awesome;
