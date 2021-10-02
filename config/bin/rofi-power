@@ -29,6 +29,6 @@ elif [ $res = "Reboot" ]; then
 
     ~/.bin/sys-notify 'Rebooting' low
     sleep 1
-    sudo reboot
+    reboot
 
 fi
