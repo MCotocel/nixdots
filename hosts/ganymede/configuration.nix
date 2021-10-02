@@ -170,6 +170,7 @@
     bat
     bleachbit
     brightnessctl
+    capitaine-cursors
     cava
     cmake
     cmatrix
