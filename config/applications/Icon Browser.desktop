@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=Icon Browser
-Categories=Utility
-Icon=gtk3-icon-browser
-Exec=gtk3-icon-browser
-Terminal=false
-Type=Application

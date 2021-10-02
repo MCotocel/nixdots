@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=Disks
-Categories=Utility
-Icon=disk-utility
-Exec=gnome-disks
-Terminal=false
-Type=Application

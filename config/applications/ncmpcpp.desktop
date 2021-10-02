@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=ncmpcpp
-Categories=Audio
-Icon=mpd
-Exec=kitty -e ncmpcpp
-Terminal=false
-Type=Application

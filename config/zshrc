@@ -15,7 +15,6 @@ alias ta='tmux attach -t'
 alias tn='tmux new-session -s'
 alias tl='tmux list-sessions'
 
-alias e='emacsclient -c'
 alias vim='e'
 alias vi='e'
 alias v='e'
@@ -46,8 +45,8 @@ setopt PUSHD_IGNORE_DUPS    # Ignore duplicates
 setopt PUSHD_SILENT         # Silent pushing and popping
 setopt SHARE_HISTORY        # Share history between sessions
 
-export EDITOR='e' # Set default editor
-export VISUAL='e' # Set default editor
+export EDITOR='emacsclient -c --alternate-editor=nvim' # Set default editor
+export VISUAL='emacsclient -c --alternate-editor=nvim' # Set default editor
 export BAT_THEME="base16" # Set bat theme
 export TERM=xterm-256color # Set term variable
 export QT_QPA_PLATFORMTHEME=qt5ct
@@ -61,7 +60,7 @@ export PATH="$HOME/.bin/:$PATH"   # Add user binaries and scripts to path
 
 ########## Prompt ##########
 
-export PS1="%F{blue}%~%f %(?.%F{green} %f.%F{red} %f) " # Alternatives for prompt icon: ◯, •, ❯, ∮, λ, Δ, 
+export PS1="%F{blue}$USER@%m %~%f %(?.%F{green}>>>%f.%F{red}>>>%f) " # Alternatives for prompt icon: ◯, •, ❯, ∮, λ, Δ, 
 
 ########## ZLE ##########
 

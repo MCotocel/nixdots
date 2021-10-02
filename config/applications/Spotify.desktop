@@ -1,7 +1,5 @@
 [Desktop Entry]
-Name=Spotify
-Categories=Audio
-Icon=spotify
-Exec=spotify
-Terminal=false
 Type=Application
+Terminal=false
+Exec=/usr/bin/spotify
+Name=Spotify

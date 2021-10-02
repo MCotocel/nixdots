@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=ClamTK
-Categories=System
-Exec=clamtk
-Icon=clamtk
-Terminal=false
-Type=Application

@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Terminal=false
+Exec=/usr/bin/gpick
+Name=Color Picker

@@ -6,15 +6,15 @@ riverctl spawn rivertile
 riverctl output-layout rivertile
 
 # Opacity
-riverctl opacity 1.0 1.0 0.0 0.1 30
+#riverctl opacity 1.0 1.0 0.0 0.1 30
 
 # Border
-riverctl border-color-focused '#6A6A6A'
-riverctl border-color-unfocused '#181E23'
+riverctl border-color-focused 0x384149
+riverctl border-color-unfocused 0x1f252a
 riverctl border-width 3
 
 # Wallpaper
-riverctl spawn 'swaybg -c "#384149"'
+riverctl spawn 'swaybg -i ~/Pictures/Wallpaper/Stars.jpg'
 
 # Terminal
 riverctl map normal $mod Return spawn 'alacritty'

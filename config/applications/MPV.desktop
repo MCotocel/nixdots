@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=MPV
-Categories=AudioVideo
-Icon=mpv
-Exec=mpv --player-operation-mode=pseudo-gui
-Terminal=false
-Type=Application
-

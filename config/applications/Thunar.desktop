@@ -1,7 +1,6 @@
 [Desktop Entry]
-Name=Thunar
-Categories=Utility
-Icon=system-file-manager
-Exec=thunar
-Terminal=false
 Type=Application
+Terminal=false
+Exec=/usr/bin/thunar
+Name=Thunar
+Icon=/usr/share/icons/Papirus/16x16/apps/thunar.svg

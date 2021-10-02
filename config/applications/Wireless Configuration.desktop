@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Terminal=false
+Exec=/usr/bin/nm-connection-editor
+Name=Wireless Configuration

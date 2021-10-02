@@ -1,7 +1,5 @@
 [Desktop Entry]
-Name=Steam
-Categories=Games
-Icon=steam
-Exec=steam
-Terminal=false
 Type=Application
+Terminal=false
+Exec=env DRI_PRIME=1 /usr/bin/steam
+Name=Steam

@@ -9,7 +9,7 @@ let g:colors_name="quiet"
 let colors_name="quiet"
 
 
-let s:black       = { "gui": "#181e23", "cterm": "236" }
+let s:black       = { "gui": "#0b1116", "cterm": "236" }
 let s:red         = { "gui": "#ff8080", "cterm": "168" }
 let s:green       = { "gui": "#97d59b", "cterm": "114" }
 let s:yellow      = { "gui": "#fffe80", "cterm": "180" }
@@ -22,7 +22,7 @@ let s:fg          = s:white
 let s:bg          = s:black
 
 let s:comment_fg  = { "gui": "#384149", "cterm": "241" }
-let s:gutter_bg   = { "gui": "#181e23", "cterm": "236" }
+let s:gutter_bg   = { "gui": "#0b1116", "cterm": "236" }
 let s:gutter_fg   = { "gui": "#384149", "cterm": "247" }
 let s:non_text    = { "gui": "#384149", "cterm": "239" }
 

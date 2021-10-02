@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=Pulseaudio Equalizer
-Categories=Audio
-Icon=multimedia-volume-control
-Exec=qpaeq
-Terminal=false
-Type=Application

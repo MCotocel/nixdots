@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=Clocks
-Categories=Utility
-Icon=gnome-clocks
-Exec=gnome-clocks
-Terminal=false
-Type=Application

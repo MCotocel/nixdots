@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=XArchiver
-GenericName=XArchiver
-Comment=Archive extraction utility
-Categories=Utility
-Exec=xarchiver
-Icon=xarchiver
-Terminal=false
-Type=Application

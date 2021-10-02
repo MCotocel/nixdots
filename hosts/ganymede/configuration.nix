@@ -86,6 +86,7 @@
   services.xserver.windowManager = {
     awesome = {
       enable = true;
+      package = pkgs.awesome-git;
       luaModules = with pkgs.lua52Packages; [
         lgi
         ldbus
@@ -93,25 +94,6 @@
         luadbi-mysql
         luaposix
       ];
-    };
-    bspwm = {
-      enable = true;
-    };
-    xmonad = {
-      enable = true;
-      enableContribAndExtras = true;
-    };
-  };
-
-  services.xserver.desktopManager = {
-    xfce = {
-      enable = false;
-    };
-    gnome = {
-      enable = false;
-    };
-    plasma5 = {
-      enable = false;
     };
   };
 
@@ -121,61 +103,12 @@
   services.logind.lidSwitchExternalPower = "ignore";
 
   # Emacs
-  services.emacs.enable = false;
+  services.emacs.enable = true;
   services.emacs.package = pkgs.emacsUnstable;
 
   # Firewall
   networking.firewall = {
     enable = false;
-  };
-
-  # Telegraf
-  services.telegraf = {
-    enable = true;
-    extraConfig = {
-      outputs = {
-        influxdb = {
-          database = "telegraf";
-          username = "telegraf";
-          password = "telegraf";
-          urls = ["http://localhost:8086"];
-        };
-      };
-      inputs = {
-       cpu = {
-         percpu = true;
-         totalcpu = true;
-       };
-       disk = {
-         mount_points = ["/"];
-         ignore_fs = [
-           "tmpfs"
-           "devtmpfs"
-           "devfs"
-           "iso9660"
-           "overlay"
-           "aufs"
-           "squashfs"
-         ];
-       };
-       #ping = {
-       #  urls = [
-       #    "cache.nixos"
-       #    "github.com"
-       #    "stackoverflow.com"
-       #    "google.com"
-       #  ];
-       #  count = 4;
-       #  ping_interval = "5.0";
-       #};
-       mem = {};
-       net = {};
-       processes = {};
-       system = {};
-       temp = {};
-       wireless = {};
-      };
-    };
   };
 
   # Syncthing
@@ -185,24 +118,14 @@
     dataDir = "/home/matei";
   };
 
-  # Grafana
-  services.grafana = {
-    enable = true;
-    port = 3000;
-    domain = "localhost";
-    protocol = "http";
-  };
-
-  # Influxdb
-  services.influxdb = {
-    enable = true;
-  };
-
   # Plymouth splash
   boot.plymouth = {
     enable = true;
     theme = "spinfinity";
   };
+
+  # Touchegg
+  services.touchegg.enable = true;
 
   # Mpd
   services.mpd = {
@@ -237,13 +160,17 @@
 
   # System-wide packages
   environment.systemPackages = with pkgs; [
-    ack
+    acpi
     alacritty
     alsa-utils
     apfs-fuse
     aria
+    baobab
     bash
     bat
+    bleachbit
+    brightnessctl
+    cava
     cmake
     cmatrix
     coreutils
@@ -251,6 +178,7 @@
     direnv
     discocss
     discord
+    easyeffects
     emacs-all-the-icons-fonts
     emacsUnstable
     exa
@@ -259,21 +187,30 @@
     feh
     ffmpeg
     firefox
+    firejail
     firmwareLinuxNonfree
+    fractal
     fzf
     gcc
     gh
+    gimp
     git
+    gnome.geary
     htop
+    i3lock-color
     imagemagick
     influxdb
+    inkscape
     ispell
     isync
     jq
+    kid3
+    krita
     libinput
     libnotify
     libvirt
     linuxPackages_xanmod.r8168
+    maim
     manix
     mesa
     mopidy
@@ -286,24 +223,32 @@
     neofetch
     neovim
     nethack
-    networkmanager
+    networkmanagerapplet
     nyxt
     onefetch
     openimagedenoise
+    pamixer
     papirus-icon-theme
     pavucontrol
     pfetch
-    pulseeffects-pw
+    playerctl
+    pulseaudio
+    pulsemixer
     python39
     qemu
+    qutebrowser
+    radeontop
     ranger
     ripgrep
     river
     rofi
     scrot
+    solaar
+    speedtest-cli
     spicetify-cli
     sqlite
     steam
+    superTuxKart
     swaybg
     teams
     telegraf
@@ -313,23 +258,29 @@
     tigervnc
     tmux
     trash-cli
+    ueberzug
     usbutils
     vim
     virt-manager
     wayfire
     wayland
+    wezterm
     wget
+    wine
+    winetricks
     wmctrl
-    wofi
     wpa_supplicant
     xclip
+    xdotool
+    xfce.thunar
     xorg.xev
     xorg.xf86videoamdgpu
     xorg.xinit
     youtube-dl
+    zathura
+    zeroad
     zsh
 
-    nur.repos.fortuneteller2k.awesome-git
     nur.repos.reedrw.picom-next-ibhagwan
   ];
 

@@ -1,7 +1,0 @@
-[Desktop Entry]
-Comment=Vim, but better
-Categories=Development
-Icon=nvim
-Exec=kitty -e nvim
-Terminal=false
-Type=Application

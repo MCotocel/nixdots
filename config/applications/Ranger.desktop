@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=Ranger
-Categories=Utility
-Icon=system-file-manager
-Exec=kitty -e ranger
-Terminal=false
-Type=Application

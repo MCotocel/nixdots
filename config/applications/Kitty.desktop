@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=Kitty
-Categories=Development
-Icon=terminal
-Exec=kitty
-Terminal=false
-Type=Application

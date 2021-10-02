@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=Software Center
-Categories=System
-Exec=pamac-manager
-Icon=softwarecenter
-Terminal=false
-Type=Application

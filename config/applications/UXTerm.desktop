@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=UXTerm
-Categories=Development
-Icon=xterm
-Exec=uxterm
-Terminal=false
-Type=Application

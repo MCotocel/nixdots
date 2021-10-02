@@ -1,7 +1,5 @@
 [Desktop Entry]
-Name=System Monitor
-Categories=Utility
-Icon=gnome-system-monitor
-Exec=gnome-system-monitor
-Terminal=false
 Type=Application
+Terminal=false
+Exec=/usr/bin/gnome-system-monitor
+Name=System monitor

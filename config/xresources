@@ -1,6 +1,6 @@
 ! Color sceme
-#define black0    #181e23
-#define black1    #384149
+#define black0    #0e131A
+#define black1    #1f252a
 #define grey0     #6A6A6A
 #define grey1     #6A6A6A
 #define red0      #FF8080
@@ -9,7 +9,7 @@
 #define green1    #BEF8C1
 #define yellow0   #FFFE80
 #define yellow1   #FCFBA6
-#define blue0     #80D1FF
+#define blue0     #4061CF
 #define blue1     #ACE1FF
 #define magenta0  #C780FF
 #define magenta1  #D8A8FF
@@ -20,7 +20,7 @@
 
 *background: black0
 *foreground: white0
-*color0: black0
+*color0: black1
 *color1: red0
 *color2: green0
 *color3: yellow0
@@ -28,7 +28,7 @@
 *color5: magenta0
 *color6: cyan0
 *color7: white0
-*color8: black0
+*color8: black1
 *color9: red1
 *color10: green1
 *color11: yellow1
@@ -36,13 +36,14 @@
 *color13: magenta1
 *color14: cyan1
 *color15: white1
-Xft.dpi:   96
+Xft.dpi: 96
 Xft.autohint: 0
 Xft.lcdfilter:  lcddefault
 Xft.hintstyle:  hintfull
 Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
+Xcursor.theme: Breeze
 *renderFont: true
 *faceName: Iosevka Nerd Font
 *faceSize: 11

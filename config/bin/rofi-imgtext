@@ -1,3 +1,5 @@
+sleep 0.2
+    
 sel=$(echo "Screen|Selection" | rofi -sep "|" -dmenu -i -p 'Image to text')
 
 if [[ $sel = "Screen" ]]; then

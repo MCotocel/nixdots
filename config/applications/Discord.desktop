@@ -1,7 +1,5 @@
 [Desktop Entry]
-Name=Discord
-Categories=Game
-Exec=discocss
-Icon=discord
-Terminal=false
 Type=Application
+Terminal=false
+Exec=/usr/bin/discocss
+Name=Discord

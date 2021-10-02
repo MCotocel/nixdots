@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=2048
-Categories=Game
-Exec=gnome-2048
-Icon=gnome-2048
-Terminal=false
-Type=Application

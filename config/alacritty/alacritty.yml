@@ -3,8 +3,8 @@ env:
 
 window:
   padding:
-    x: 30
-    y: 30
+    x: 20
+    y: 20
 
   startup_mode: Windowed
 
@@ -38,7 +38,7 @@ font:
 
 colors:
   primary:
-    background: '#181E23'
+    background: '#181e23'
     foreground: '#D5D5D5'
 
     dim_foreground: '#384149'
@@ -51,17 +51,17 @@ colors:
   search:
     matches:
       foreground: '#80D1FF'
-      background: '#181E23'
+      background: '#0E131A'
     focused_match:
       foreground: CellBackground
       background: CellForeground
 
   selection:
-    text: "#181E23"
+    text: "#0E131A"
     background: "#D5D5D5"
 
   normal:
-    black:   '#181E23'
+    black:   '#0E131A'
     red:     '#FF8080'
     green:   '#97D59B'
     yellow:  '#FFFE80'

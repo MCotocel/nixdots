@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=Calculator
-Categories=Utility
-Icon=gnome-calculator
-Exec=gnome-calculator
-Terminal=false
-Type=Application

@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=Font Viewer
-Categories=Utility
-Icon=fonts
-Exec=gnome-font-viewer
-Terminal=false
-Type=Application

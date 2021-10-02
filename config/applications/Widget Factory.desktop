@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=Widget Factory
-Categories=Graphics
-Icon=gtk3-widget-factory
-Exec=gtk3-widget-factory
-Terminal=false
-Type=Application

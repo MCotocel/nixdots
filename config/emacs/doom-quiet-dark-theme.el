@@ -100,9 +100,7 @@ Can be an integer to determine the exact padding."
    ;; mandatory for derived themes.
    (modeline-fg              fg)
    (modeline-fg-alt          base5)
-   (modeline-bg              (if doom-quiet-dark-brighter-modeline
-                                 (doom-darken blue 0.45)
-                               (doom-darken bg-alt 0.1)))
+   (modeline-bg              (doom-lighten base3 0.05))
    (modeline-bg-alt          (if doom-quiet-dark-brighter-modeline
                                  (doom-darken blue 0.475)
                                `(,(doom-darken (car bg-alt) 0.15) ,@(cdr bg))))
