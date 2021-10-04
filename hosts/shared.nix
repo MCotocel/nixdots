@@ -27,6 +27,6 @@
   };
 
   nixpkgs.config = {
-    allowUnfree = true;
+    allowUnfree = true; # Forgive me Stallman
   };
 }

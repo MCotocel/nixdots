@@ -13,7 +13,7 @@
 
   # Network settings.
   networking = {
-    hostName = "ganymede"; # Hostname
+    hostName = "thonkpad"; # Hostname
     useDHCP = false; # Deprecated, so set explicitly to false
     wireless.enable = false;
     #wireless.userControlled.enable = true; # Allow user to control networking
@@ -301,10 +301,6 @@
   ];
   
   console.colors = [ "181e23" "ff8080" "97d59b" "fffe80" "80d1ff" "c780ff" "80ffe4" "d5d5d5" "ffaeae" "bef8c1" "fcfba6" "ace1ff" "d8a8ff" "a2ffeb" "ffffff" ]; # Color for the console
-
-  nixpkgs.config = {
-    allowUnfree = true; # Allow unfree packages (forgive me stallman)
-  };
 
   # System version, do not change
   system.stateVersion = "21.11";

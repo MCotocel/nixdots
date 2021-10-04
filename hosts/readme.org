@@ -1,0 +1,7 @@
+#+title: Hosts
+
+All hosts are named after whatever I want them to. Usually related to the product name
+
+* Thonkpad
+
+Thinkpad E580 (NixOS)

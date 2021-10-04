@@ -1,6 +1,4 @@
-DON'T USE THIS. MY CONFIG DOESN'T WORK YET, IT IS PUBLIC ONLY FOR EASY SETUP FOR MY MACHINES
-
-* Nix dotfiles
+#+title: Nix dotfiles
 
 [[https://github.com/nixos/nixpkgs][file:https://img.shields.io/badge/NixOS-21.11-informational.svg?logo=nixos?style=flat.svg]]
 
@@ -47,7 +45,7 @@ Welcome to my virtual home. I wouldn't advise you to blindly copy large parts fr
 
 *** Main
 
- [[assets/main.png]]
+[[assets/main.png]]
 
 *** Emacs
 

@@ -14,23 +14,12 @@
     nixosConfigurations = let lib = nixpkgs.lib;
     in {
 
-      thebe = (lib.makeOverridable lib.nixosSystem) {
-        system = "x86_64-linux";
-        modules = [
-	      home-manager.nixosModules.home-manager {
-            home-manager.users.matei = import ./hosts/thebe/home.nix;
-	      }
-	      { nixpkgs.overlays = [ nur.overlay nixpkgs-f2k.overlay ]; }
-	      ./hosts/thebe/configuration.nix
-        ];
-      };
-
-      ganymede = (lib.makeOverridable lib.nixosSystem) {
+      thonkpad = (lib.makeOverridable lib.nixosSystem) {
         system = "x86_64-linux";
         modules = [
           agenix.nixosModules.age
 	      home-manager.nixosModules.home-manager {
-            home-manager.users.matei = import ./hosts/ganymede/home.nix;
+            home-manager.users.matei = import ./hosts/thonkpad/home.nix;
 	      }
 	      { nixpkgs.overlays = [
 
@@ -42,7 +31,7 @@
             nixpkgs-f2k.overlay
 
             ]; }
-	      ./hosts/ganymede/configuration.nix
+	      ./hosts/thonkpad/configuration.nix
         ];
       };
 
