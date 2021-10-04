@@ -5,7 +5,7 @@
   boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
-  boot.kernelParams = [ "iommu=soft" ];
+  boot.kernelParams = [ "intel_iommu=on" ];
   boot.blacklistedKernelModules = [ "radeon" ];
 
   fileSystems."/" =
@@ -22,5 +22,5 @@
     [ { device = "/dev/disk/by-label/swap"; }
     ];
 
-  powerManagement.cpuFreqGovernor = "performance";
+  powerManagement.cpuFreqGovernor = "ondemand";
 }

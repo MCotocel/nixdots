@@ -48,7 +48,7 @@ function nix-sync() {
   git pull
   git add .
   git diff --cached
-  git commit -m "update"
+  git commit
   git push
 }
 

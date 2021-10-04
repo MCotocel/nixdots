@@ -36,7 +36,7 @@ machi.editor.nested_layouts = {
 
 awful.screen.connect_for_each_screen(function(s)
     bling.module.tiled_wallpaper("", s, {
-        fg = "#1f252a",
+        fg = "#181e23",
         bg = "#0b1116",
         offset_y = 0,
         offset_x = 0,

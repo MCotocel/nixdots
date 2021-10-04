@@ -785,6 +785,7 @@ I use Emacs for coding as well, so we're going to configure lsp-mode.
   (use-package go-mode)
   (use-package json-mode)
   (use-package lua-mode)
+  (use-package nix-mode)
   (use-package lsp-jedi
     :hook (python-mode . lsp-jedi))
 

@@ -19,11 +19,18 @@
     #wireless.userControlled.enable = true; # Allow user to control networking
     networkmanager.enable = true; # Enable networkmanager
   };
+
   services.openssh.enable = true; # Enable openssh
   services.openssh.forwardX11 = true;
 
   # Virtualisation
-  virtualisation.libvirtd.enable = true;
+  virtualisation.libvirtd ={
+    enable = false;
+    qemuOvmf = true;
+    onBoot = "ignore";
+    onShutdown = "shutdown";
+  };
+
   programs.dconf.enable = true;
 
   # X11
@@ -195,6 +202,7 @@
     gcc
     gh
     gimp
+    giph
     git
     gnome.geary
     htop
@@ -209,11 +217,12 @@
     krita
     libinput
     libnotify
-    libvirt
     linuxPackages_xanmod.r8168
+    lm_sensors
     maim
     manix
     mesa
+    mesa-demos
     mopidy
     mpc_cli
     mpd
@@ -231,6 +240,7 @@
     pamixer
     papirus-icon-theme
     pavucontrol
+    pciutils
     pfetch
     playerctl
     pulseaudio
@@ -238,6 +248,7 @@
     python39
     qemu
     qutebrowser
+    radeontop
     radeontop
     ranger
     ripgrep

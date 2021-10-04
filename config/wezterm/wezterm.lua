@@ -13,7 +13,7 @@ return {
       selection_fg = "#0b1116",
       selection_bg = "#d5d5d5",
       scrollbar_thumb = "#d5d5d5",
-      split = "#384149",
+      split = "#181e23",
       ansi = {"#384149", "#ff8080", "#97d59b", "#fffe80", "#80d1ff", "#c780ff", "#ace1ff", "#d5d5d5"},
       brights = {"#384149", "#ff8080", "#97d59b", "#fffe80", "#80d1ff", "#c780ff", "#ace1ff", "#d5d5d5"},
       indexed = {[136] = "#d5d5d5"},

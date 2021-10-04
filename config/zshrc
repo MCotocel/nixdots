@@ -60,7 +60,7 @@ export PATH="$HOME/.bin/:$PATH"   # Add user binaries and scripts to path
 
 ########## Prompt ##########
 
-export PS1="%F{blue}$USER@%m %~%f %(?.%F{green}>>>%f.%F{red}>>>%f) " # Alternatives for prompt icon: ◯, •, ❯, ∮, λ, Δ, 
+export PS1="%F{blue}%~%f %(?.%F{green}|%f.%F{red}|%f) " # Alternatives for prompt icon: ◯, •, ❯, ∮, λ, Δ, 
 
 ########## ZLE ##########
 
@@ -69,8 +69,8 @@ autoload -U edit-command-line && zle -N edit-command-line # Load edit current co
 zle -N fzf-history
 
 bindkey '^@' edit-command-line  # Bind edit current command
-bindkey "^[[1;3C" forward-word  # Bind forward one word
-bindkey "^[[1;3D" backward-word # Bind backward one word
+bindkey "[C" forward-word  # Bind forward one word
+bindkey "[D" backward-word # Bind backward one word
 bindkey '^A' beginning-of-line  # Bind beginning of line
 bindkey '^E' end-of-line        # Bind end of line
 bindkey '^H' backward-kill-word # Bind delete word backwards

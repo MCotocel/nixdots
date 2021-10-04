@@ -20,13 +20,13 @@ elif [[ $sel = "Selection" ]]; then # If selection is selection
 
 elif [[ $sel = "Record screen" ]]; then
     
-    sleep 0.5
-    ~/.bin/sys-notify "Started screen recording"
-    ffmpeg -video_size $(xdpyinfo | grep dimensions | sed -r 's/^[^0-9]*([0-9]+x[0-9]+).*$/\1/') -framerate 30 -f x11grab -i :0.0+0,0 ~/Pictures/Screenshots/TEMP.mp4
+    ~/.bin/sys-notify "Started screen recording" normal
+    giph ~/Pictures/Screenshots/TEMP.mp4
 
 elif [[ $sel = "Stop recording screen" ]]; then
     
-    pkill ffmpeg
+    giph --stop
+    pkill -INT .giph-wrapped
     xclip -selection clipboard -t video/mp4 -i ~/Pictures/Screenshots/TEMP.mp4
     ~/.bin/sys-notify "Video recorded" normal
     mv ~/Pictures/Screenshots/TEMP.mp4 ~/Pictures/Screenshots/$(date +%d:%H:%M:%S).mp4
