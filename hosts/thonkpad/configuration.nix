@@ -23,6 +23,11 @@
   services.openssh.enable = true; # Enable openssh
   services.openssh.forwardX11 = true;
 
+  services.avahi = {
+    enable = true;
+    nssmdns = true;
+  };
+
   # Virtualisation
   virtualisation.libvirtd ={
     enable = false;
@@ -105,7 +110,7 @@
   };
 
   # Configure closed lid actions
-  services.logind.lidSwitch = "ignore";
+  services.logind.lidSwitch = "suspend";
   services.logind.lidSwitchDocked = "ignore";
   services.logind.lidSwitchExternalPower = "ignore";
 
@@ -189,6 +194,7 @@
     easyeffects
     emacs-all-the-icons-fonts
     emacsUnstable
+    eww
     exa
     exfat
     fd
@@ -219,6 +225,7 @@
     libnotify
     linuxPackages_xanmod.r8168
     lm_sensors
+    lynis
     maim
     manix
     mesa
@@ -234,6 +241,7 @@
     neovim
     nethack
     networkmanagerapplet
+    nodejs
     nyxt
     onefetch
     openimagedenoise
@@ -255,6 +263,7 @@
     river
     rofi
     scrot
+    shellcheck
     solaar
     speedtest-cli
     spicetify-cli
@@ -292,7 +301,6 @@
     zathura
     zeroad
     zsh
-
     nur.repos.reedrw.picom-next-ibhagwan
   ];
 

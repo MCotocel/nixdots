@@ -7,7 +7,7 @@ function check() {
     fi
 }
 
-check "i3lock"
+check "i3lock-color"
 check "brightnessctl"
 check "pactl"
 check "acpi"
