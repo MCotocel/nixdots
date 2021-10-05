@@ -18,20 +18,27 @@
         system = "x86_64-linux";
         modules = [
           agenix.nixosModules.age
-	      home-manager.nixosModules.home-manager {
+	        home-manager.nixosModules.home-manager {
             home-manager.users.matei = import ./hosts/thonkpad/home.nix;
-	      }
-	      { nixpkgs.overlays = [
+	        }
+	        { nixpkgs.overlays = [
 
-            nur.overlay
-            (import (builtins.fetchTarball {
-              url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
-            }))
+              nur.overlay
+              (import (builtins.fetchTarball {
+                url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
+              }))
 
-            nixpkgs-f2k.overlay
+              nixpkgs-f2k.overlay
 
-            ]; }
-	      ./hosts/thonkpad/configuration.nix
+              ]; }
+	        ./hosts/thonkpad/configuration.nix
+        ];
+      };
+
+      applepie = (lib.makeOverridable lib.nixosSystem) {
+        system = "aarch64-linux";
+        modules = [
+	        ./hosts/applepie/configuration.nix
         ];
       };
 

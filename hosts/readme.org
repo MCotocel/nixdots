@@ -1,7 +1,17 @@
 #+title: Hosts
 
-All hosts are named after whatever I want them to. Usually related to the product name
+All hosts are named after whatever I want them to. Usually related to the product name.
 
 * Thonkpad
 
-Thinkpad E580 (NixOS)
+- Thinkpad E580
+- Runs NixOS
+- Main (Linux) machine
+- Quite capable, used for pretty much everything
+
+* Applepie (Work in progress)
+
+- Raspberry Pi 4
+- Runs NixOS
+- Server machine
+- Not very powerful, mainly used for hosting things
