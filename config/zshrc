@@ -3,8 +3,8 @@
 alias ls='exa'
 alias la='exa -a'
 alias ll='exa -la'
-alias lt='exa -lt'
-alias lat='exa -lat'
+alias lt='exa -lT'
+alias lat='exa -laT'
 
 alias magit='emacsclient -c -e "(magit-status)"'
 alias elfeed='emacsclient -c -e "(elfeed)"'
