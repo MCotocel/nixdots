@@ -114,10 +114,10 @@ Here we set a nice font, because if I'm going to be staring at code for hours, I
 
 *** Symbol font
 
-We also need to set a symbol font. Here I use Twemoji, since it looks pretty good.
+We also need to set a symbol font. Here I use Twemoji (Twitter Color Emoji), since it looks pretty good.
 
 #+BEGIN_SRC emacs-lisp
-  (set-fontset-font t 'symbol (font-spec :family "Twemoji") nil 'prepend)
+  (set-fontset-font t 'symbol (font-spec :family "Twitter Color Emoji") nil 'prepend)
 #+END_SRC
 
 ** Prettify symbols
@@ -452,7 +452,7 @@ Vertico helps with better completion and to replace the default M-x. Consult add
     :init (vertico-mode 1)
     :config
     (setq vertico-resize nil
-          vertico-count 17
+          vertico-count 5
           vertico-cycle t))
 
   (use-package orderless

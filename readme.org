@@ -4,17 +4,19 @@
 
 #+HTML:<a href="https://nixos.org/"><img alt="NixOS logo" height="160" align = "left" src="https://nixos.wiki/images/thumb/2/20/Home-nixos-logo.png/x207px-Home-nixos-logo.png.pagespeed.ic.38jujIAhx5.png"></a>
 
-Welcome to my virtual home. I wouldn't advise you to blindly copy large parts from these dotfiles, I may be doing some things wrong. However, looking through my configurations and copying some parts, or installing all of the dotfiles together should be fine.
+⚠️ I'll admit it, I have no idea what the hell I'm doing. I could be doing everything perfectly (doubtful), or I could be doing everything wrong, and it only works out of chance and luck. Or, most probably, I'm doing a mix of correct and incorrect things. With that out of the way:
+
+Welcome to my virtual home. I wouldn't advise you to blindly copy large parts from these dotfiles, because if you read the short description above, you'd know it's not a good idea. If you /haven't/ read the description above, go and read it. This whole configuration is managed with NixOS's flake feature (which is currently unstable).
 
 * Table of contents
 #+begin_quote
 - [[#information][Information]]
   - [[#programs][Programs]]
   - [[#setup][Setup]]
+  - [[#why][Why NixOS?]]
 - [[#images][Images]]
   - [[#main][Main]]
   - [[#emacs][Emacs]]
-  - [[#rofi][Rofi]]
 #+end_quote
 
 ** Information
@@ -31,26 +33,35 @@ Welcome to my virtual home. I wouldn't advise you to blindly copy large parts fr
 
 *** Setup
 
-- Get the latest minimal NixOS ISO
+- Get the latest minimal NixOS ISO. I get it from [[https://channels.nixos.org][here]]. You may want a slightly more stable ISO.
 - Boot into the installer, setup, and mount the disks
-  - Depending on which host you want to setup, you'll have to follow different instructions, each in =./hosts/<host>/readme.md=
+  - Depending on which host you want to setup, you'll have to follow different instructions, each in =./hosts/<host>/readme.org=
 - Get a nix shell with `git` and `nix flake` set up: =nix-shell -p git nixFlakes=
 - Clone these dotfiles to =/etc/nixos=: =git clone https://github.com/mcotocel/nixdots /mnt/etc/nixos=
-- Install NixOS with the flake: =nixos-install --root /mnt --flake /mnt/etc/nixos#host --impure=
+  - At this point, it would be smart to edit the =hardware-configuration.nix= file to suit your hardware, and additionally add or remove things you need or don't need
+- Install NixOS using the flake: =nixos-install --root /mnt --flake /mnt/etc/nixos#host=. If that doesn't work, try it with =--impure=.
   - Host is the host you want to install. A list of hosts is in =./hosts=
-- Reboot and change the user password
+- Reboot and change the user password. Unless you want to use root the whole time, which is stupid
 - Log in as the normal user and run =nas nix pull= to pull the config to your home folder
+
+*** Why NixOS?
+
+- Declarative package and configuration management
+- Lots of packages
+- Rollbacks of configurations (When you mess something up (Like the kernel (I've definitely never done this before (Maybe that's a small lie (No, it's a huge lie (Oh, this sentence is starting to look like my messy Emacs config!))))))
+- Reliable system
+- Reproducible environment
 
 ** Images
 
 *** Main
 
+Pretty much my AwesomeWM config, with floating windows and layout switcher. Titlebars can be toggled, but they are off by default. The bottom bar can also be toggled.
+
 [[assets/main.png]]
 
 *** Emacs
 
+An Emacs config. Pictured are Neotree, Vertico, and Emacs.
+
 [[assets/emacs.png]]
-
-*** Rofi
-
-[[assets/rofi.png]]
