@@ -1,13 +1,13 @@
 ########## Aliases ##########
 
-alias ls='ls --color=always'
-alias la='ls --color=always -a'
-alias ll='ls --color=always -la'
-
-alias e='emacsclient -c --alternate-editor=nvim'
+alias ls='exa'
+alias la='exa -a'
+alias ll='exa -la'
+alias lt='exa -lt'
+alias lat='exa -lat'
 
 alias magit='emacsclient -c -e "(magit-status)"'
-alias elfeed='emacsclient -c -e "(elfeed-dashboard)"'
+alias elfeed='emacsclient -c -e "(elfeed)"'
 
 alias rm='trash'
 
@@ -15,9 +15,8 @@ alias ta='tmux attach -t'
 alias tn='tmux new-session -s'
 alias tl='tmux list-sessions'
 
-alias vim='e'
-alias vi='e'
-alias v='e'
+alias vim='emacsclient -c'
+alias vi='emacsclient -c'
 
 ########## Completion ##########
 

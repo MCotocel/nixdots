@@ -20,7 +20,6 @@
     ".gtkrc-2.0".source                    = ../../config/gtk/gtk2;
     ".config/gtk-3.0/settings.ini".source  = ../../config/gtk/gtk3;
 
-    ".config/alacritty".source   = ../../config/alacritty;
     ".config/awesome".source     = ../../config/awesome;
     ".config/cava".source        = ../../config/cava;
     ".config/kmonad".source      = ../../config/kmonad;

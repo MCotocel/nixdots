@@ -258,7 +258,6 @@ awful.key({}, "XF86AudioLowerVolume", function()
 
 -- Toggle mute
 awful.key({}, "XF86AudioMute", function()
-      awesome.emit_signal("volume_change")
       awful.spawn.with_shell("pactl set-sink-mute 0 toggle")
       end, {
       description = "Toggle mute",
