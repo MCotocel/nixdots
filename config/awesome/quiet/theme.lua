@@ -92,8 +92,9 @@ theme.titlebar_maximized_button_focus_active  = gfs.get_configuration_dir() .. "
 
 -- Edge snap
 
-theme.snap_bg = "#0b1116"
-theme.snap_border_width = dpi(10)
+theme.snap_shape = global_shape
+theme.snap_bg = "#d5d5d5"
+theme.snap_border_width = dpi(3)
 
 -- Icon theme
 
@@ -153,14 +154,14 @@ theme.hotkeys_group_margin = dpi(10)
 
 -- Notifications
 
-local notif_shape = function(cr, width, height)
+local global_shape = function(cr, width, height)
     gears.shape.rounded_rect(cr, width, height, 0)
 end
 
 theme.notification_font = "Iosevka 11"
 theme.notification_bg = "#0b1116"
 theme.notification_fg = "#D5D5D5"
-theme.notification_shape = notif_shape
+theme.notification_shape = global_shape
 theme.notification_spacing = dpi(10)
 theme.notification_margin = dpi(15)
 theme.notification_border_width = dpi(3)

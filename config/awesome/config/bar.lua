@@ -127,7 +127,7 @@ awful.screen.connect_for_each_screen(function(s)
         taglist,
         left = dpi(3),
         right = dpi(3),
-        bg = "#181e23",
+        bg = beautiful.bg_systray,
         widget = wibox.container.margin
     }
 
@@ -140,7 +140,7 @@ awful.screen.connect_for_each_screen(function(s)
             right = dpi(3),
             layout = wibox.container.margin
         },
-        bg = "#181e23",
+        bg = beautiful.bg_systray,
         shape = gears.shape.rounded_rect,
         widget = wibox.container.background
     }
@@ -188,7 +188,7 @@ awful.screen.connect_for_each_screen(function(s)
         tasklist,
         left = dpi(3),
         right = dpi(3),
-        bg = "#181e23",
+        bg = beautiful.bg_systray,
         widget = wibox.container.margin
     }
 
@@ -201,7 +201,7 @@ awful.screen.connect_for_each_screen(function(s)
             right = dpi(3),
             layout = wibox.container.margin
         },
-        bg = "#181e23",
+        bg = beautiful.bg_systray,
         shape = gears.shape.rounded_rect,
         widget = wibox.container.background
     }
@@ -215,7 +215,7 @@ awful.screen.connect_for_each_screen(function(s)
         systray,
         left = dpi(8),
         right = dpi(8),
-        bg = "#181e23",
+        bg = beautiful.bg_systray,
         widget = wibox.container.margin
     }
 
@@ -228,7 +228,7 @@ awful.screen.connect_for_each_screen(function(s)
             right = dpi(3),
             layout = wibox.container.margin
         },
-        bg = "#181e23",
+        bg = beautiful.bg_systray,
         shape = gears.shape.rounded_rect,
         widget = wibox.container.background
     }
@@ -240,7 +240,7 @@ awful.screen.connect_for_each_screen(function(s)
         clock,
         left = dpi(8),
         right = dpi(8),
-        bg = "#181e23",
+        bg = beautiful.bg_systray,
         widget = wibox.container.margin
     }
 
@@ -253,7 +253,7 @@ awful.screen.connect_for_each_screen(function(s)
             right = dpi(3),
             layout = wibox.container.margin
         },
-        bg = "#181e23",
+        bg = beautiful.bg_systray,
         shape = gears.shape.rounded_rect,
         widget = wibox.container.background
     }
@@ -265,7 +265,7 @@ awful.screen.connect_for_each_screen(function(s)
         battery,
         left = dpi(8),
         right = dpi(8),
-        bg = "#181e23",
+        bg = beautiful.bg_systray,
         widget = wibox.container.margin
     }
 
@@ -278,7 +278,7 @@ awful.screen.connect_for_each_screen(function(s)
             right = dpi(3),
             layout = wibox.container.margin
         },
-        bg = "#181e23",
+        bg = beautiful.bg_systray,
         shape = gears.shape.rounded_rect,
         widget = wibox.container.background
     }

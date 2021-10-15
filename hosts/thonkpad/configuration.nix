@@ -82,6 +82,7 @@
   };
 
   services.xserver.displayManager.gdm.enable = true; # Gnome display manager
+
   hardware.opengl = {
     enable = true;
     driSupport = true;
@@ -230,6 +231,7 @@
     manix
     mesa
     mesa-demos
+    minecraft
     mopidy
     mpc_cli
     mpd
@@ -244,6 +246,7 @@
     nodejs
     nyxt
     onefetch
+    openbox
     openimagedenoise
     pamixer
     papirus-icon-theme
@@ -254,6 +257,7 @@
     pulseaudio
     pulsemixer
     python39
+    qbittorrent
     qemu
     qutebrowser
     radeontop
@@ -267,6 +271,7 @@
     solaar
     speedtest-cli
     spicetify-cli
+    spotify
     sqlite
     steam
     superTuxKart
@@ -301,6 +306,7 @@
     zathura
     zeroad
     zsh
+
     nur.repos.reedrw.picom-next-ibhagwan
   ];
 

@@ -697,11 +697,11 @@ I read RSS feeds, so we're going to configure a reader.
          '(("http://nixers.net/syndication.php?fid=12,15&limit=25" tech)
            ("http://christine.website/blog.rss" tech)
            ("http://ag91.github.io/rss.xml" tech)
-           ("http://protesilaos.com/codeblog.xml" tech)
+           ("http://protesilaos.com/codelog.xml" tech)
            ("http://sachachua.com/blog/category/emacs/feed" tech)
            ("http://lepisma.xyz/atom.xml" tech)
            ("http://vermaden.wordpress.com/feed/" tech)
-           ("http://pragmaticemacs.con/feed" tech)
+           ("http://pragmaticemacs.com/feed" tech)
            ("http://bitcannon.net/index.xml" tech)
            ("http://writepermission.com/rss.xml" tech)
            ("http://unixsheikh.com/feed.rss" tech)
@@ -710,8 +710,6 @@ I read RSS feeds, so we're going to configure a reader.
   (evil-define-key 'normal elfeed-search-mode-map (kbd "r") 'elfeed-search-untag-all-unread)
   (evil-define-key 'normal elfeed-search-mode-map (kbd "u") 'elfeed-update)
 #+END_SRC
-
-#+RESULTS:
 
 ** EMMS
 
