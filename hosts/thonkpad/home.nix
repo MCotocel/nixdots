@@ -10,24 +10,26 @@
   home.stateVersion = "21.11";
 
   home.file = {
-    "Pictures/Wallpaper".source            = ../../config/wallpaper;
-    ".bin".source                          = ../../config/bin;
-    ".config/discocss/custom.css".source   = ../../config/discocss/custom.css;
-    ".config/qutebrowser/config.py".source = ../../config/qutebrowser/config.py;
-    ".mbsyncrc".source                     = ../../config/mbsyncrc;
-    ".Xresources".source                   = ../../config/xresources;
-    ".zshrc".source                        = ../../config/zshrc;
-    ".gtkrc-2.0".source                    = ../../config/gtk/gtk2;
-    ".config/gtk-3.0/settings.ini".source  = ../../config/gtk/gtk3;
+    "Pictures/Wallpaper".source             = ../../config/wallpaper;
+    ".bin".source                           = ../../config/bin;
+    ".config/discocss/custom.css".source    = ../../config/discocss/custom.css;
+    ".config/qutebrowser/config.py".source  = ../../config/qutebrowser/config.py;
+    ".mbsyncrc".source                      = ../../config/mbsyncrc;
+    ".Xresources".source                    = ../../config/xresources;
+    ".zshrc".source                         = ../../config/zshrc;
+    ".gtkrc-2.0".source                     = ../../config/gtk/gtk2;
+    ".config/gtk-3.0/settings.ini".source   = ../../config/gtk/gtk3;
+    ".config/touchegg/touchegg.conf".source = ../../config/touchegg/touchegg.conf;
 
     ".config/awesome".source     = ../../config/awesome;
+    ".config/bspwm".source       = ../../config/bspwm;
     ".config/cava".source        = ../../config/cava;
     ".config/kmonad".source      = ../../config/kmonad;
     ".config/ncmpcpp".source     = ../../config/ncmpcpp;
     ".config/neofetch".source    = ../../config/neofetch;
     ".config/picom".source       = ../../config/picom;
     ".config/rofi".source        = ../../config/rofi;
-    ".config/touchegg".source    = ../../config/touchegg;
+    ".config/sxhkd".source       = ../../config/sxhkd;
     ".config/wezterm".source     = ../../config/wezterm;
     ".config/zathura".source     = ../../config/zathura;
 

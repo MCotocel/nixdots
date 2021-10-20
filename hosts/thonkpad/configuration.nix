@@ -8,7 +8,7 @@
   ];
 
   boot.extraModulePackages = [ config.boot.kernelPackages.rtl8821ce ]; # Drivers
-  #boot.kernelPackages = pkgs.linuxPackages_xanmod; # Kernel package
+  boot.kernelPackages = pkgs.linuxPackages_xanmod; # Kernel package
   hardware.enableRedistributableFirmware = true; # Non-free firmware
 
   # Network settings.
@@ -18,9 +18,11 @@
     wireless.enable = false;
     #wireless.userControlled.enable = true; # Allow user to control networking
     networkmanager.enable = true; # Enable networkmanager
+    firewall.enable = true;
   };
 
-  services.openssh.enable = true; # Enable openssh
+  # SSH
+  services.openssh.enable = true;
   services.openssh.forwardX11 = true;
 
   services.avahi = {
@@ -36,20 +38,36 @@
     onShutdown = "shutdown";
   };
 
+  # I forgot what this is
   programs.dconf.enable = true;
 
   # X11
   services.xserver = {
     enable = true;
     layout = "us"; # Set keyboard layout
+    xkbOptions = "caps:ctrl_modifier"; # Caps to control
     autoRepeatDelay = 225; # Keyboard repeat rate
     autoRepeatInterval = 33;
+    libinput.enable = true; # Enable libinput for trackpad
+    displayManager.gdm.enable = true; # Gnome display manager
+    windowManager = {
+      awesome = {
+        enable = true;
+        package = pkgs.awesome-git;
+        luaModules = with pkgs.lua52Packages; [
+          lgi
+          ldbus
+          luarocks-nix
+          luadbi-mysql
+          luaposix
+        ];
+      };
+    };
   };
 
   # Sound
   sound.enable = false;
   hardware.pulseaudio.enable = false; # Pulseaudio
-
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -58,17 +76,21 @@
     jack.enable = true;
   };
 
+  # Printing
+  services.printing = {
+    enable = true;
+    drivers = [ pkgs.hplip ];
+  };
+
   # Bluetooth
   hardware.bluetooth.enable = true; # Enable bluetooth
   services.blueman.enable = true; # Blueman service
 
-  services.xserver.libinput.enable = true; # Enable libinput for trackpad
-
   # Antivirus
   services.clamav = {
-    daemon.enable = false;
+    daemon.enable = true;
     updater = {
-      enable = false;
+      enable = true;
       frequency = 24;
       interval = "hourly";
     };
@@ -81,8 +103,7 @@
     shell = pkgs.zsh;
   };
 
-  services.xserver.displayManager.gdm.enable = true; # Gnome display manager
-
+  # Hardware acceleration
   hardware.opengl = {
     enable = true;
     driSupport = true;
@@ -94,22 +115,6 @@
     ];
   };
 
-  services.xserver.xkbOptions = "caps:ctrl_modifier"; # Caps to control
-
-  services.xserver.windowManager = {
-    awesome = {
-      enable = true;
-      package = pkgs.awesome-git;
-      luaModules = with pkgs.lua52Packages; [
-        lgi
-        ldbus
-        luarocks-nix
-        luadbi-mysql
-        luaposix
-      ];
-    };
-  };
-
   # Configure closed lid actions
   services.logind.lidSwitch = "suspend";
   services.logind.lidSwitchDocked = "ignore";
@@ -118,11 +123,6 @@
   # Emacs
   services.emacs.enable = false;
   services.emacs.package = pkgs.emacsGit;
-
-  # Firewall
-  networking.firewall = {
-    enable = false;
-  };
 
   # Syncthing
   services.syncthing = {
@@ -183,6 +183,7 @@
     bat
     bleachbit
     brightnessctl
+    bspwm
     capitaine-cursors
     cava
     cmake
@@ -243,6 +244,7 @@
     neovim
     nethack
     networkmanagerapplet
+    nitrogen
     nodejs
     nyxt
     onefetch
@@ -276,6 +278,7 @@
     steam
     superTuxKart
     swaybg
+    sxhkd
     teams
     telegraf
     telnet
@@ -309,9 +312,10 @@
 
     nur.repos.reedrw.picom-next-ibhagwan
   ];
-
+  
+  # Nerd Fonts
   fonts.fonts = with pkgs; [
-    (nerdfonts.override { fonts = [ "Iosevka" ]; }) # Nerd Fonts
+    (nerdfonts.override { fonts = [ "Iosevka" ]; })
   ];
   
   console.colors = [ "181e23" "ff8080" "97d59b" "fffe80" "80d1ff" "c780ff" "80ffe4" "d5d5d5" "ffaeae" "bef8c1" "fcfba6" "ace1ff" "d8a8ff" "a2ffeb" "ffffff" ]; # Color for the console
@@ -320,4 +324,3 @@
   system.stateVersion = "21.11";
 
 }
-
