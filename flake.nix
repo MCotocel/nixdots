@@ -19,7 +19,7 @@
         modules = [
           agenix.nixosModules.age
 	      home-manager.nixosModules.home-manager {
-            home-manager.users.matei = import ./hosts/thonkpad/home.nix;
+            home-manager.users.matei = import /etc/nixos/hosts/thonkpad/home.nix;
 	      }
 	      { nixpkgs.overlays = [
 
