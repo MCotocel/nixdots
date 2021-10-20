@@ -2,7 +2,7 @@
 
 {
   programs.home-manager.enable = true;
-  programs.ncmpcpp.enable      = true;
+  programs.ncmpcpp.enable = true;
 
   home.username = "matei";
   home.homeDirectory = "/home/matei";

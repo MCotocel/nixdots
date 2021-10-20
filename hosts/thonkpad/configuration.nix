@@ -117,7 +117,7 @@
 
   # Emacs
   services.emacs.enable = false;
-  services.emacs.package = pkgs.emacsUnstable;
+  services.emacs.package = pkgs.emacsGit;
 
   # Firewall
   networking.firewall = {
@@ -194,7 +194,7 @@
     discord
     easyeffects
     emacs-all-the-icons-fonts
-    emacsUnstable
+    emacsGit
     eww
     exa
     exfat

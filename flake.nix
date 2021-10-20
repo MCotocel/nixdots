@@ -6,10 +6,10 @@
     home-manager.url = "github:nix-community/home-manager";
     nur.url          = "github:nix-community/nur";
     agenix.url       = "github:ryantm/agenix";
-    nixpkgs-f2k.url  = "github:fortuneteller2k/nixpkgs-f2k";
+    f2k.url          = "github:fortuneteller2k/nixpkgs-f2k";
   };
 
-  outputs = { self, nixpkgs, home-manager, nur, agenix, nixpkgs-f2k }: {
+  outputs = { self, nixpkgs, home-manager, nur, agenix, f2k }: {
 
     nixosConfigurations = let lib = nixpkgs.lib;
     in {
@@ -18,28 +18,28 @@
         system = "x86_64-linux";
         modules = [
           agenix.nixosModules.age
-	        home-manager.nixosModules.home-manager {
+	      home-manager.nixosModules.home-manager {
             home-manager.users.matei = import ./hosts/thonkpad/home.nix;
-	        }
-	        { nixpkgs.overlays = [
+	      }
+	      { nixpkgs.overlays = [
 
-              nur.overlay
+            nur.overlay
 
-              (import (builtins.fetchTarball {
-                url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
-              }))
-              (self: super: {
-                emacsGit = super.emacsGit.override {        
-                  withXwidgets = true;
-                };
-              })
+            (import (builtins.fetchTarball {
+              url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
+            }))
+            (self: super: {
+              emacsGit = super.emacsGit.override {        
+                withXwidgets = true;
+                withGTK3 = true;
+              };
+            })
 
-              nixpkgs-f2k.overlay
+            f2k.overlay
 
-              ]; }
-	        ./hosts/thonkpad/configuration.nix
-        ];
-      };
+            ]; }
+	      ./hosts/thonkpad/configuration.nix
+        ]; };
 
       applepie = (lib.makeOverridable lib.nixosSystem) {
         system = "aarch64-linux";
