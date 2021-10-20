@@ -27,7 +27,7 @@ awful.rules.rules = {
             screen = awful.screen.preferred,
             placement = awful.placement.no_overlap +
             awful.placement.no_offscreen,
-            titlebars_enabled = false
+            titlebars_enabled = true
         }
     }, -- Floating clients.
     {

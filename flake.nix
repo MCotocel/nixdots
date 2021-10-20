@@ -24,9 +24,15 @@
 	        { nixpkgs.overlays = [
 
               nur.overlay
+
               (import (builtins.fetchTarball {
                 url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
               }))
+              (self: super: {
+                emacsGit = super.emacsGit.override {        
+                  withXwidgets = true;
+                };
+              })
 
               nixpkgs-f2k.overlay
 
