@@ -30,8 +30,7 @@ EOF
 # Nix
 function nix-pull() {
   echo "Pulling config from /etc/nixos..."
-  rm -rf $HOME/nixdots-back
-  mv $HOME/nixdots $HOME/.nixdots-bak
+  rm -rf $HOME/nixdots
   cp -R /etc/nixos/ $HOME/nixdots
 }
 
