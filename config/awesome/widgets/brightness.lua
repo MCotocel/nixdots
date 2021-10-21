@@ -8,10 +8,10 @@ local backlight_bar = wibox.widget {
     max_value = 100,
     value = 0,
     forced_height = dpi(80),
-    margins = {top = dpi(5), bottom = dpi(5), left = dpi(5), right = dpi(5)},
+    margins = {top = dpi(0), bottom = dpi(0), left = dpi(0), right = dpi(0)},
     forced_width = dpi(200),
-    shape = gears.shape.rounded_rect,
-    bar_shape = gears.shape.rounded_rect,
+    shape = gears.shape.rectangle,
+    bar_shape = gears.shape.rectangle,
     color = beautiful.bg_diff,
     background_color = beautiful.bg_normal,
     border_width = dpi(2),
@@ -22,7 +22,7 @@ local backlight_bar = wibox.widget {
 local backlight_box = wibox {
   widget = backlight_bar,
   width = dpi(250),
-  height = dpi(100),
+  height = dpi(50),
   visible = false,
   ontop = true,
   shape = gears.shape.rectangle,
@@ -39,7 +39,7 @@ local hide_backlight_box = gears.timer {
    end
 }
 
-awful.placement.centered(backlight_box)
+awful.placement.top(backlight_box)
 
 awesome.connect_signal("backlight_change",
    function()

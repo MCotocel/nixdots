@@ -117,7 +117,7 @@ Here we set a nice font, because if I'm going to be staring at code for hours, I
 We also need to set a symbol font. Here I use Twemoji (Twitter Color Emoji), since it looks pretty good.
 
 #+BEGIN_SRC emacs-lisp
-  (set-fontset-font t 'symbol (font-spec :family "Twitter Color Emoji") nil 'prepend)
+  (set-fontset-font t 'symbol "Apple Color Emoji")
 #+END_SRC
 
 ** Prettify symbols
@@ -867,7 +867,17 @@ Let's set the export backends to things I commonly use, along with some extra se
            :headline-levels 4
            :auto-preamble t
            )
+          ("Garden"
+           :base-directory "~/Org/"
+           :base-extension "org" "png" "css"
+           :publishing-directory "~/Garden/"
+           :recursive t
+           :publishing-function org-html-publish-to-html
+           :headline-levels 4
+           :auto-preamble t
+           )
         ))
+
 
   (add-to-list 'org-latex-packages-alist '("" "minted"))
   (setq org-latex-listings 'minted) 
@@ -886,6 +896,7 @@ Let's set the export backends to things I commonly use, along with some extra se
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((R . t)
+     (shell . t)
      (latex . t)))
   (setq org-html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"./style.css\"/>"
     org-html-doctype "html5")

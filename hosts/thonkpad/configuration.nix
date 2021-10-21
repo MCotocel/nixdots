@@ -88,9 +88,9 @@
 
   # Antivirus
   services.clamav = {
-    daemon.enable = true;
+    daemon.enable = false;
     updater = {
-      enable = true;
+      enable = false;
       frequency = 24;
       interval = "hourly";
     };
@@ -254,6 +254,7 @@
     fd
     feh
     ffmpeg
+    file
     firefox
     firejail
     firmwareLinuxNonfree
@@ -279,6 +280,7 @@
     libnotify
     linuxPackages_xanmod.r8168
     lm_sensors
+    lua
     lynis
     maim
     manix
@@ -298,16 +300,19 @@
     networkmanagerapplet
     nitrogen
     nodejs
+    nvd
     nyxt
     onefetch
     openbox
     openimagedenoise
+    openjdk
     pamixer
     papirus-icon-theme
     pavucontrol
     pciutils
     pfetch
     playerctl
+    ps_mem
     pulseaudio
     pulsemixer
     python39
@@ -338,7 +343,10 @@
     texlive.combined.scheme-small
     tigervnc
     tmux
+    tokei
     trash-cli
+    twemoji-color-font
+    twitter-color-emoji
     ueberzug
     usbutils
     vim
@@ -362,7 +370,8 @@
     zeroad
     zsh
 
-    nur.repos.reedrw.picom-next-ibhagwan
+    #nur.repos.reedrw.picom-next-ibhagwan
+    picom-pijulius
   ];
   
   # Nerd Fonts
