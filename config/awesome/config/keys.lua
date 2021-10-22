@@ -241,7 +241,7 @@ awful.key({modkey}, "/", hotkeys_popup.show_help, {
 -- Volume up
 awful.key({}, "XF86AudioRaiseVolume", function()
       awesome.emit_signal("volume_change")
-      awful.spawn.with_shell("pactl set-sink-volume 0 +1%")
+      awful.spawn.with_shell("pactl set-sink-volume 0 +5%")
       end, {
       description = "Volume up",
       group = "Various functions"
@@ -250,7 +250,7 @@ awful.key({}, "XF86AudioRaiseVolume", function()
 -- Volume down
 awful.key({}, "XF86AudioLowerVolume", function()
       awesome.emit_signal("volume_change")
-      awful.spawn.with_shell("pactl set-sink-volume 0 -1%")
+      awful.spawn.with_shell("pactl set-sink-volume 0 -5%")
       end, {
       description = "Volume down",
       group = "Various functions"
@@ -291,7 +291,7 @@ awful.key({modkey}, "XF86AudioMute", function()
 -- Brightness up
 awful.key({}, "XF86MonBrightnessUp", function()
       awesome.emit_signal("backlight_change")
-      awful.spawn.with_shell("brightnessctl s +1%")
+      awful.spawn.with_shell("brightnessctl s +5%")
       end, {
       description = "Brightness up",
       group = "Various functions"
@@ -300,7 +300,7 @@ awful.key({}, "XF86MonBrightnessUp", function()
 -- Brightness down
 awful.key({}, "XF86MonBrightnessDown", function()
       awesome.emit_signal("backlight_change")
-      awful.spawn.with_shell("brightnessctl s 1%-")
+      awful.spawn.with_shell("brightnessctl s 5%-")
       end, {
       description = "Brightness down",
       group = "Various functions"

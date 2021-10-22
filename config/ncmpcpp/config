@@ -1,11 +1,9 @@
 mpd_host = "127.0.0.1";
 mpd_port = "6600";
-mpd_music_dir = "~/Music";
 
 # Visualizer
 visualizer_data_source = "/tmp/mpd.fifo"
 visualizer_output_name = "my_fifo"
-visualizer_type = "spectrum"
 
 autocenter_mode = "yes";
 centered_cursor = "yes";

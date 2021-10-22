@@ -216,6 +216,7 @@ These are some useful minor modes that I tend to use.
 #+BEGIN_SRC emacs-lisp
   (save-place-mode) ;; Save location
   (global-visual-line-mode) ;; Wrap lines
+  (global-auto-revert-mode) ;; Revert buffers
   (recentf-mode) ;; Recent files
   (add-hook 'org-mode-hook 'flyspell-mode) ;; Spell checker
 #+END_SRC
