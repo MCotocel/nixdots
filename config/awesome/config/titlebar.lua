@@ -8,6 +8,10 @@ require("awful.autofocus")
 -- Widget and layout library
 local wibox = require("wibox")
 local dpi = require("beautiful.xresources").apply_dpi
+local gears = require("gears")
+
+-- Bling
+local bling = require("modules.bling")
 
 -- Hotkey help for other apps
 require("awful.hotkeys_popup.keys")
@@ -27,9 +31,7 @@ client.connect_signal("request::titlebars", function(c)
     awful.titlebar(c, {position = 'top', size = dpi(35)}):setup{
         {
             {
-                awful.titlebar.widget.closebutton(c),
-                awful.titlebar.widget.minimizebutton(c),
-                awful.titlebar.widget.maximizedbutton(c),
+                wibox.layout.margin(awful.widget.clienticon(c), dpi(7), dpi(7), dpi(7), dpi(7)),
                 layout = wibox.layout.fixed.horizontal,
             },
             {
@@ -37,15 +39,17 @@ client.connect_signal("request::titlebars", function(c)
                 layout = wibox.layout.flex.horizontal
             },
             {
-                awful.widget.clienticon(c),
+                wibox.layout.margin(awful.titlebar.widget.maximizedbutton(c), dpi(1), dpi(1), dpi(9), dpi(9)),
+                wibox.layout.margin(awful.titlebar.widget.minimizebutton(c), dpi(1), dpi(1), dpi(9), dpi(9)),
+                wibox.layout.margin(awful.titlebar.widget.closebutton(c), dpi(1), dpi(1), dpi(9), dpi(9)),
                 layout = wibox.layout.fixed.horizontal,
             },
             layout = wibox.layout.align.horizontal
         },
         widget = wibox.container.margin,
-        left = dpi(12),
-        right = dpi(12),
-        top = dpi(9),
-        bottom = dpi(9)
+        --left = dpi(12),
+        --right = dpi(12),
+        --top = dpi(9),
+        --bottom = dpi(9)
     }
 end)

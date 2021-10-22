@@ -226,16 +226,19 @@
   # System-wide packages
   environment.systemPackages = with pkgs; [
     acpi
-    alacritty
     alsa-utils
     apfs-fuse
+    arduino
     aria
+    atom
     baobab
     bash
     bat
     bleachbit
+    blender
     brightnessctl
     bspwm
+    calibre
     capitaine-cursors
     cava
     cmake
@@ -255,6 +258,7 @@
     feh
     ffmpeg
     file
+    filezilla
     firefox
     firejail
     firmwareLinuxNonfree
@@ -265,7 +269,13 @@
     gimp
     giph
     git
+    github-desktop
+    gnome.gnome-calendar
+    gnome.gnome-chess
+    gnome.gnome-dictionary
     gnome.geary
+    googleearth-pro
+    handbrake
     htop
     i3lock-color
     imagemagick
@@ -322,6 +332,7 @@
     radeontop
     radeontop
     ranger
+    retroarch
     ripgrep
     river
     rofi
@@ -348,9 +359,11 @@
     twemoji-color-font
     twitter-color-emoji
     ueberzug
+    unity3d
     usbutils
     vim
     virt-manager
+    vscode
     wayfire
     wayland
     wezterm
@@ -381,7 +394,12 @@
   
   console.colors = [ "181e23" "ff8080" "97d59b" "fffe80" "80d1ff" "c780ff" "80ffe4" "d5d5d5" "ffaeae" "bef8c1" "fcfba6" "ace1ff" "d8a8ff" "a2ffeb" "ffffff" ]; # Color for the console
 
+  # Risky
+  nixpkgs.config.permittedInsecurePackages = [
+    "ffmpeg-3.4.8"
+     "libav-12.3"
+  ];
+
   # System version, do not change
   system.stateVersion = "21.11";
-
 }

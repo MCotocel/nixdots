@@ -7,18 +7,6 @@ local bling = require("modules.bling")
 local machi = require("modules.layout-machi")
 local revelation = require("modules.awesome-revelation")
 
--- Terminal scratchpad
-local term_scratch = bling.module.scratchpad {
-   command = "wezterm start --class scratch",
-   rule = { instance = "scratch" },
-   sticky = true,
-   autoclose = true,
-   floating = true,
-   geometry = {x = 0, y = 0, height = 200, width = 1366},
-   reapply = true,
-   dont_focus_before_close = false
-},
-
 -- Mouse Bindings
 awful.mouse.append_global_mousebindings({
     awful.button({}, 8, awful.tag.viewprev),
@@ -70,13 +58,14 @@ awful.key({modkey}, 't', function() bling.module.tabbed.pick() end, {
    description = 'Add client to tabbed layout', group = "Bling"
 }),
 
--- Tab through clients in tabbed client
-awful.key({modkey}, 'Tab', function() bling.module.tabbed.iter() end, {
-   description = 'Tab through clients in tabbed client', group = "Bling"
+-- Switch through windows
+awful.key({modkey}, 'Tab', function() awesome.emit_signal("bling::window_switcher::turn_on") end, {
+   description = 'Switch through windows', group = "Bling"
 }),
 
-awful.key({modkey, "Shift"}, 't', function() term_scratch:toggle() end, {
-   description = 'Terminal scratchpad', group = "Bling"
+-- Flash current client
+awful.key({modkey}, 'f', function() bling.module.flash_focus.flashfocus(client.focus) end, {
+   description = 'Flash current client', group = "Bling"
 }),
 
 --- Tags ---

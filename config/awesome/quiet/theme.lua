@@ -10,7 +10,7 @@ local dpi = require("beautiful.xresources").apply_dpi
 theme.font = "Iosevka Nerd Font 11"
 
 -- Bar
-theme.wibar_border_width = dpi(2)
+theme.wibar_border_width = dpi(0)
 theme.wibar_border_color = "#1f252a"
 theme.taglist_squares_sel = nil
 theme.taglist_squares_unsel = nil
@@ -37,9 +37,9 @@ theme.fg_minimize = "#C780FF"
 
 theme.useless_gap = dpi(15)
 theme.gap_single_client = true
-theme.border_width = dpi(2)
-theme.border_color_normal = "#1f252a"
-theme.border_color_active = "#384149"
+theme.border_width = dpi(5)
+theme.border_color_normal = "#0b1116"
+theme.border_color_active = "#0b1116"
 theme.border_color_marked = "#80d1ff"
 
 -- Taglist
@@ -143,6 +143,25 @@ theme.task_preview_widget_bg = "#0b1116"
 theme.task_preview_widget_border_color = "#0b1116"
 theme.task_preview_widget_border_width = 0
 theme.task_preview_widget_margin = dpi(5)
+
+theme.window_switcher_widget_bg = "#181e23"
+theme.window_switcher_widget_border_width = 3
+theme.window_switcher_widget_border_radius = 0
+theme.window_switcher_widget_border_color = "#0b1116"
+theme.window_switcher_clients_spacing = 5
+theme.window_switcher_client_icon_horizontal_spacing = 5
+theme.window_switcher_client_width = 150
+theme.window_switcher_client_height = 150
+theme.window_switcher_client_margins = 5
+theme.window_switcher_thumbnail_margins = 5
+theme.thumbnail_scale = false
+theme.window_switcher_name_margins = 5
+theme.window_switcher_name_valign = "center"
+theme.window_switcher_name_font = "Iosevka Nerd Font 0"
+theme.window_switcher_name_normal_color = "#d5d5d5"
+theme.window_switcher_name_focus_color = "#80d1ff"
+theme.window_switcher_icon_valign = "center"
+theme.window_switcher_icon_width = 40
 
 -- Hotkey popup
 

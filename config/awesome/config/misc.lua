@@ -3,6 +3,10 @@ local awful = require("awful")
 
 -- Theme handling library
 local beautiful = require("beautiful")
+local dpi = require("beautiful.xresources").apply_dpi
+
+-- Gears for shapes
+local gears = require("gears")
 
 -- Misc libraries
 local bling = require("modules.bling")
@@ -49,3 +53,16 @@ bling.module.wallpaper.setup {
 
 -- Flash focus
 bling.module.flash_focus.disable()
+
+-- Window switcher
+bling.widget.window_switcher.enable {
+    type = "thumbnail",
+    hide_window_switcher_key = "Escape",
+    minimize_key = "m",
+    unminimize_key = "M",
+    kill_client_key = "q",
+    cycle_key = "Tab",
+    previous_key = "Left",
+    next_key = "Right"
+}
+
