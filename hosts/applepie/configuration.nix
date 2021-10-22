@@ -28,6 +28,7 @@
   users.users.matei = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # For sudo/doas
+    password = "matei";
     shell = pkgs.zsh;
   };
 

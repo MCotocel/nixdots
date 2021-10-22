@@ -48,14 +48,20 @@ awful.key({modkey}, "e", revelation, {
 
 --- Bling ---
 
--- Toggle swallowing
-awful.key({modkey}, 's', function() bling.module.window_swallowing.toggle() end, {
-   description = 'Toggle swallowing', group = "Bling"
+-- Add client to tabbed layout
+awful.key({modkey}, 't', function() bling.module.tabbed.pick_with_dmenu() end, {
+   description = 'Add client to tabbed layout', group = "Bling"
 }),
 
 -- Add client to tabbed layout
-awful.key({modkey}, 't', function() bling.module.tabbed.pick() end, {
+awful.key({modkey, "Shift"}, 't', function() bling.module.tabbed.pop() end, {
    description = 'Add client to tabbed layout', group = "Bling"
+}),
+
+
+-- Switch through tabbed clients
+awful.key({"Mod1"}, 'Tab', function() bling.module.tabbed.iter() end, {
+   description = 'Switch through tabbed clients', group = "Bling"
 }),
 
 -- Switch through windows

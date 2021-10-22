@@ -6,7 +6,6 @@ local naughty = require("naughty")
 local dpi = require("beautiful.xresources").apply_dpi
 
 -- Fonts
-
 theme.font = "Iosevka Nerd Font 11"
 
 -- Bar
@@ -18,7 +17,6 @@ theme.taglist_squares_sel_empty = nil
 theme.taglist_squares_unsel_empty = nil
 
 -- Backgrounds
-
 theme.bg_normal = "#0b1116"
 theme.bg_focus = "#0b1116"
 theme.bg_urgent = "#0b1116"
@@ -27,14 +25,12 @@ theme.bg_systray = "#181e23"
 theme.bg_diff = "#181e23"
 
 -- Foregrounds
-
 theme.fg_normal = "#D5D5D5"
 theme.fg_focus = "#80d1ff"
 theme.fg_urgent = "#ff8080"
 theme.fg_minimize = "#C780FF"
 
 -- Gap and borders
-
 theme.useless_gap = dpi(15)
 theme.gap_single_client = true
 theme.border_width = dpi(5)
@@ -53,14 +49,12 @@ theme.taglist_fg_empty = "#d5d5d5"
 theme.taglist_fg_occupied = "#97D59B"
 
 -- Tasklist
-
 theme.tasklist_bg_normal = "#0b1116"
 theme.tasklist_align = "center"
 theme.tasklist_disable_task_name = false
 theme.tasklist_disable_icon = true
 
 -- Titlebar
-
 theme.titlebar_bg_focus = "#0b1116"
 theme.titlebar_bg_normal = "#0b1116"
 
@@ -91,13 +85,10 @@ theme.titlebar_maximized_button_normal_active = gfs.get_configuration_dir() .. "
 theme.titlebar_maximized_button_focus_active  = gfs.get_configuration_dir() .. "quiet/titlebar/maximize.png"
 
 -- Edge snap
-
-theme.snap_shape = global_shape
-theme.snap_bg = "#d5d5d5"
+theme.snap_bg = "#0b1116"
 theme.snap_border_width = dpi(3)
 
 -- Icon theme
-
 theme.icon_theme = "Papirus-Dark"
 
 -- Menu
@@ -109,14 +100,12 @@ theme.menu_submenu_icon = nil
 theme.ghost = "~/.config/awesome/icons/pfp_trans.png"
 theme.pfp = "~/.config/awesome/icons/pfp.png"
 theme.awesome_icon = "~/.config/awesome/icons/awesome.png"
-theme.app = "~/.config/awesome/icons/app.png"
-theme.terminal = "~/.config/awesome/icons/terminal.png"
 
 -- Bling
 theme.tabbed_spawn_in_tab = true
 theme.tabbar_ontop = true
-theme.tabbar_style = "modern"
-theme.tabbar_position = "top"
+theme.tabbar_style = "boxes"
+theme.tabbar_position = "bottom"
 theme.tabbar_size = dpi(40)
 theme.tabbar_radius = dpi(0)
 theme.mstab_bar_padding = dpi(0)
@@ -148,20 +137,18 @@ theme.window_switcher_widget_bg = "#181e23"
 theme.window_switcher_widget_border_width = 3
 theme.window_switcher_widget_border_radius = 0
 theme.window_switcher_widget_border_color = "#0b1116"
-theme.window_switcher_clients_spacing = 5
-theme.window_switcher_client_icon_horizontal_spacing = 5
+theme.window_switcher_clients_spacing = 0
+theme.window_switcher_client_icon_horizontal_spacing = 0
 theme.window_switcher_client_width = 150
 theme.window_switcher_client_height = 150
 theme.window_switcher_client_margins = 5
-theme.window_switcher_thumbnail_margins = 5
+theme.window_switcher_thumbnail_margins = 0
 theme.thumbnail_scale = false
-theme.window_switcher_name_margins = 5
+theme.window_switcher_name_margins = 0
 theme.window_switcher_name_valign = "center"
 theme.window_switcher_name_font = "Iosevka Nerd Font 0"
 theme.window_switcher_name_normal_color = "#d5d5d5"
 theme.window_switcher_name_focus_color = "#80d1ff"
-theme.window_switcher_icon_valign = "center"
-theme.window_switcher_icon_width = 40
 
 -- Hotkey popup
 

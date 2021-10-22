@@ -298,16 +298,11 @@ awful.screen.connect_for_each_screen(function(s)
     -- Menu
     local awesomemenu = {
      {"Hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end},
+     {"View desktop", function() awful.tag.viewnone() end},
+     {"Tab client", function() bling.module.tabbed.pick_with_dmenu() end},
      {"Reload", awesome.restart},
-     {"Quit", function() awesome.quit() end},
-    }
-
-    local appmenu = {
-     {"Terminal", function() awful.spawn.with_shell("wezterm") end},
-     {"Editor", function() awful.spawn.with_shell("emacsclient -c") end},
-     {"Browser", function() awful.spawn.with_shell("firefox") end},
-     {"Music", function() awful.spawn.with_shell("spotify") end},
-     {"File manager", function() awful.spawn.with_shell("thunar") end},
+     {"Lock screen", function() awful.spawn.with_shell("~/.bin/lock") end},
+     {"Power menu", function() awful.spawn.with_shell("~/.bin/rofi-power") end},
     }
 
     local scriptmenu = {
@@ -316,10 +311,18 @@ awful.screen.connect_for_each_screen(function(s)
      {"Shorten url", function() awful.spawn.with_shell("~/.bin/rofi-urlshorten") end},
     }
 
+    local appmenu = {
+     {"Terminal", function() awful.spawn.with_shell("wezterm") end},
+     {"Editor", function() awful.spawn.with_shell("emacsclient -c") end},
+     {"Browser", function() awful.spawn.with_shell("qutebrowser") end},
+     {"Music", function() awful.spawn.with_shell("spotify") end},
+     {"File manager", function() awful.spawn.with_shell("thunar") end},
+    }
+
     local mainmenu = awful.menu({items = {
-        {"AwesomeWM", awesomemenu, beautiful.awesome_icon},
-        {"Scripts", scriptmenu, beautiful.terminal},
-        {"Apps", appmenu, beautiful.app},
+        {"AwesomeWM", awesomemenu},
+        {"Scripts", scriptmenu},
+        {"Apps", appmenu},
     }})
 
     local launcher = awful.widget.launcher({image = beautiful.ghost, menu = mainmenu})

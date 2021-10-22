@@ -11,6 +11,9 @@
   boot.kernelPackages = pkgs.linuxPackages_xanmod; # Kernel package
   hardware.enableRedistributableFirmware = true; # Non-free firmware
 
+  # Build image for raspberry pi
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
   # Network settings.
   networking = {
     hostName = "thonkpad"; # Hostname
