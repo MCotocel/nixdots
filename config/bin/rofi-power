@@ -1,6 +1,6 @@
 sleep 0.2
 
-res=$(echo -en "Reload|Lock|Logout|Shutdown|Reboot" | rofi -sep "|" -dmenu -i -p 'Power Options') # Make selection prompt
+res=$(echo -en "Reload|Lock|Logout|Suspend|Hibernate|Shutdown|Reboot" | rofi -sep "|" -dmenu -i -p 'Power Options') # Make selection prompt
 
 if [ $res = "Reload" ]; then
 
@@ -18,6 +18,18 @@ elif [ $res = "Logout" ]; then
     ~/.bin/sys-notify 'Logging out' low
     sleep 1
     echo 'awesome.quit()' | awesome-client
+
+elif [ $res = "Suspend" ]; then
+
+    ~/.bin/sys-notify 'Suspending' low
+    sleep 1
+    echo mem | doas tee /sys/power/state
+
+elif [ $res = "Hibernate" ]; then
+
+    ~/.bin/sys-notify 'Hibernating' low
+    sleep 1
+    echo disk | doas tee /sys/power/state
 
 elif [ $res = "Shutdown" ]; then # If selection is shutdown
 

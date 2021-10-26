@@ -7,10 +7,13 @@
           kernelModules = [ "amdgpu" ];
       };
       kernelModules = [ "kvm-intel" ];
-      extraModulePackages = [ ];
       kernelParams = [ "intel_iommu=on" ];
       blacklistedKernelModules = [ "radeon" ];
+      extraModulePackages = [ config.boot.kernelPackages.rtl8821ce ]; # Drivers
+      kernelPackages = pkgs.linuxPackages_xanmod; # Kernel package
   };
+
+  hardware.enableRedistributableFirmware = true; # Non-free firmware
 
   fileSystems."/" =
     { device = "/dev/disk/by-label/nixos";
@@ -25,5 +28,4 @@
   swapDevices =
     [ { device = "/dev/disk/by-label/swap"; } ];
 
-  powerManagement.cpuFreqGovernor = "ondemand";
 }

@@ -743,16 +743,16 @@ I use Emacs for coding as well, so we're going to configure lsp-mode.
            (lsp-mode . lsp-enable-which-key-integration))
     :commands lsp
     :config
-    (setq lsp-enable-symbol-highlighting nil)
-    lsp-ui-doc-enable t
-    lsp-lens-enable nil
-    lsp-headerline-breadcrumb-enable nil
-    lsp-ui-sideline-enable nil
-    lsp-ui-sideline-enable t
-    lsp-modeline-code-actions-enable t
-    lsp-ui-sideline-enable t
-    lsp-ui-doc-border nil
-    lsp-eldoc-enable-hover t)
+    (setq lsp-enable-symbol-highlighting nil
+        lsp-ui-doc-enable t
+        lsp-lens-enable nil
+        lsp-headerline-breadcrumb-enable nil
+        lsp-ui-sideline-enable nil
+        lsp-ui-sideline-enable t
+        lsp-modeline-code-actions-enable t
+        lsp-ui-sideline-enable t
+        lsp-ui-doc-border nil
+        lsp-eldoc-enable-hover t)
   (setq lsp-log-io nil)
   (setq lsp-enable-file-watchers nil)
 
@@ -762,9 +762,21 @@ I use Emacs for coding as well, so we're going to configure lsp-mode.
   (custom-set-faces '(nobreak-space ((t nil))))
 
   (use-package company
-    :hook (prog-mode . company-mode)
+    :config (global-company-mode)
     :bind (:map company-active-map
                 ("<tab>" . company-select-next)))
+
+  (use-package company-statistics
+    :hook (company-mode . company-statistics-mode))
+
+  (use-package company-quickhelp
+    :hook (company-mode . company-quickhelp-mode))
+
+  (setq-default company-backends '(company-capf
+                                   company-yasnippet
+                                   company-keywords
+                                   compny-files
+                                   company-ispell))
 
   (setq company-idle-delay 0.1
         company-minimum-prefix-length 1
