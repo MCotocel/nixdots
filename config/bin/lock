@@ -6,6 +6,6 @@ convert /tmp/screen -gravity Center -family "Iosevka" -style normal -pointsize 2
 convert /tmp/screen -gravity Center -family "Iosevka" -style normal -pointsize 50 -fill White -draw "translate -0,-800 text +0,+900 'Type password to unlock...'" /tmp/screen
 brightnessctl s 10%
 
-i3lock-color -i /tmp/screen --verif-text="" --wrong-text="" --noinput-text="" -n --no-modkey-text --bar-indicator --bar-orientation=vertical --bar-step 1000 --bar-max-height 200 --bar-color=#00000000 --keyhl-color=#80d1ff --ringver-color=#80d1ff --redraw-thread --pass-media-keys --pass-screen-keys --pass-volume-keys
+i3lock-color -i /tmp/screen --verif-text="" --wrong-text="" --noinput-text="" --indicator --inside-color=ffffff00 --ring-color=ffffffff --insidever-color=ffffff00 --ringver-color=ffffffff --insidewrong-color=ff808000 --ringwrong-color=ff8080ff --line-color=ffffffff --keyhl-color=0b1116ff --bshl-color=0b1116ff --separator-color=ffffffff --verif-text="" --wrong-text="" --noinput-text="" --lock-text="" --lockfailed-text="" --no-modkey-text --ind-pos="682:295" --radius 140 --ring-width 15
 
 brightnessctl s $(cat /tmp/old-brightness)

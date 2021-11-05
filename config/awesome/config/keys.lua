@@ -190,7 +190,12 @@ awful.key({modkey}, "Return", function() awful.spawn(terminal) end, {
 }),
 
 -- Open launcher
-awful.key({modkey}, "space", function() awful.spawn.with_shell("rofi -show drun -display-drun 'App Launcher'") end, {
+-- awful.key({modkey}, "space", function() awful.spawn.with_shell("rofi -show drun -display-drun 'App Launcher'") end, {
+--     description = "Open launcher",
+--     group = "Applications and menus"
+-- }),
+
+awful.key({modkey}, "space", function() bling.widget.app_launcher:toggle() end, {
     description = "Open launcher",
     group = "Applications and menus"
 }),

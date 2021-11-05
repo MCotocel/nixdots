@@ -54,6 +54,28 @@ awful.screen.connect_for_each_screen(function(s)
     -- Show currently used layout
     local layoutbox = awful.widget.layoutbox(s)
 
+    local layoutbox_container = {
+        layoutbox,
+        left = dpi(3),
+        right = dpi(3),
+        bg = beautiful.bg_systray,
+        widget = wibox.container.margin
+    }
+
+    local final_layoutbox = wibox.widget {
+        {
+            layoutbox_container,
+            top = dpi(5),
+            bottom = dpi(5),
+            left = dpi(5),
+            right = dpi(5),
+            layout = wibox.container.margin
+        },
+        bg = beautiful.bg_systray,
+        shape = gears.shape.rounded_rect,
+        widget = wibox.container.background
+    }
+
     layoutbox:buttons(gears.table.join(
         awful.button({}, 1, function() awful.layout.inc(1) end),
         awful.button({}, 3, function() awful.layout.inc(-1) end)
@@ -327,6 +349,28 @@ awful.screen.connect_for_each_screen(function(s)
 
     local launcher = awful.widget.launcher({image = beautiful.ghost, menu = mainmenu})
 
+    local launcher_container = {
+        launcher,
+        left = dpi(1),
+        right = dpi(1),
+        bg = beautiful.bg_systray,
+        widget = wibox.container.margin
+    }
+
+    local final_launcher = wibox.widget {
+        {
+            launcher_container,
+            top = dpi(1),
+            bottom = dpi(1),
+            left = dpi(1),
+            right = dpi(1),
+            layout = wibox.container.margin
+        },
+        bg = beautiful.bg_systray,
+        shape = gears.shape.rounded_rect,
+        widget = wibox.container.background
+    }
+
     -- Create the wibar
     s.wibar = awful.wibar({
         position = "bottom",
@@ -344,7 +388,7 @@ awful.screen.connect_for_each_screen(function(s)
         expand = "none",
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            launcher,
+            wibox.layout.margin(final_launcher, dpi(3), dpi(3), dpi(3), dpi(3)),
             wibox.layout.margin(final_taglist, dpi(3), dpi(3), dpi(3), dpi(3)),
         },
         {
@@ -359,7 +403,7 @@ awful.screen.connect_for_each_screen(function(s)
             wibox.layout.margin(final_clock, dpi(3), dpi(3), dpi(3), dpi(3)),
             wibox.layout.margin(final_battery, dpi(3), dpi(3), dpi(3), dpi(3)),
             wibox.layout.margin(final_systray, dpi(3), dpi(3), dpi(3), dpi(3)),
-            wibox.layout.margin(layoutbox, dpi(7), dpi(7), dpi(7), dpi(7))
+            wibox.layout.margin(final_layoutbox, dpi(3), dpi(3), dpi(3), dpi(3))
         },
     }
 end)

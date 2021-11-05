@@ -3,14 +3,14 @@
 {
 
   imports = [
-    ./hardware.nix
     ./desktop.nix
     ./grafana.nix
+    ./hardware.nix
     ./network.nix
-    ./performance.nix
-    ./sound.nix
     ./packages.nix
+    ./performance.nix
     ./services.nix
+    ./sound.nix
     ../shared.nix
   ];
 
@@ -29,6 +29,7 @@
   nixpkgs.config.permittedInsecurePackages = [
     "ffmpeg-3.4.8"
      "libav-12.3"
+     "googleearth-pro-7.3.4.8248"
   ];
 
   system.stateVersion = "21.11";

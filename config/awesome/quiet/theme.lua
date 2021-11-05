@@ -134,21 +134,20 @@ theme.task_preview_widget_border_width = 0
 theme.task_preview_widget_margin = dpi(5)
 
 theme.window_switcher_widget_bg = "#181e23"
-theme.window_switcher_widget_border_width = 3
+theme.window_switcher_widget_border_width = 0
 theme.window_switcher_widget_border_radius = 0
 theme.window_switcher_widget_border_color = "#0b1116"
 theme.window_switcher_clients_spacing = 0
-theme.window_switcher_client_icon_horizontal_spacing = 0
 theme.window_switcher_client_width = 150
 theme.window_switcher_client_height = 150
-theme.window_switcher_client_margins = 5
-theme.window_switcher_thumbnail_margins = 0
+theme.window_switcher_client_margins = 0
+theme.window_switcher_thumbnail_margins = 5
 theme.thumbnail_scale = false
-theme.window_switcher_name_margins = 0
+theme.window_switcher_name_margins = 20
 theme.window_switcher_name_valign = "center"
-theme.window_switcher_name_font = "Iosevka Nerd Font 0"
+theme.window_switcher_name_font = "Iosevka Nerd Font 12"
 theme.window_switcher_name_normal_color = "#d5d5d5"
-theme.window_switcher_name_focus_color = "#80d1ff"
+theme.window_switcher_name_focus_color = "#ffffff"
 
 -- Hotkey popup
 

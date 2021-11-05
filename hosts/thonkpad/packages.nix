@@ -53,6 +53,7 @@
     gnome.gnome-dictionary
     gnome.geary
     googleearth-pro
+    gource
     handbrake
     htop
     i3lock-color
@@ -137,7 +138,7 @@
     twemoji-color-font
     twitter-color-emoji
     ueberzug
-    unity3d
+    unityhub
     usbutils
     vim
     virt-manager
