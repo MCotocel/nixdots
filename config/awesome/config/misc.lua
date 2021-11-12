@@ -15,11 +15,15 @@ local machi = require("modules.layout-machi")
 -- Layouts
 awful.layout.layouts = {
     awful.layout.suit.fair,
-    awful.layout.suit.tile,
+    awful.layout.suit.tile.right,
+    awful.layout.suit.magnifier,
+    awful.layout.suit.spiral.dwindle,
     bling.layout.centered,
     bling.layout.deck,
     bling.layout.equalarea,
     bling.layout.mstab,
+    bling.layout.horizontal,
+    bling.layout.vertical,
     awful.layout.suit.floating,
     machi.default_layout,
 }

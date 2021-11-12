@@ -2,10 +2,16 @@
 
 {
   virtualisation.libvirtd ={
-    enable = false;
+    enable = true;
     qemu.ovmf.enable = true;
-    onBoot = "ignore";
-    onShutdown = "shutdown";
+    qemu.verbatimConfig = ''
+      namespaces = []
+      nographics_allow_host_audio = 1
+      user = "matei"
+      group = "kvm"
+    '';
+    #onBoot = "ignore";
+    #onShutdown = "shutdown";
   };
 
   #programs.dconf.enable = true;
@@ -41,4 +47,6 @@
   services.logind.lidSwitch = "suspend";
   services.logind.lidSwitchDocked = "ignore";
   services.logind.lidSwitchExternalPower = "ignore";
+
+  programs.steam.enable = true;
 }

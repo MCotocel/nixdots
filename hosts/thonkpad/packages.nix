@@ -69,6 +69,7 @@
     libnotify
     linuxPackages_xanmod.r8168
     lm_sensors
+    looking-glass-client
     lua
     lynis
     maim
@@ -122,7 +123,6 @@
     spicetify-cli
     spotify
     sqlite
-    steam
     superTuxKart
     swaybg
     sxhkd

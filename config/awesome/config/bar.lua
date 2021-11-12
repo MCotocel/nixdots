@@ -256,7 +256,7 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Clock
-    local clock = wibox.widget.textclock()
+    local clock = awful.widget.watch('bash -c "date +%H:%M"', 1)
 
     local clock_container = {
         clock,
@@ -280,8 +280,20 @@ awful.screen.connect_for_each_screen(function(s)
         widget = wibox.container.background
     }
 
+    local clock_tooltip = awful.tooltip
+    {
+        objects = { clock },
+        timer_function = function()
+            return io.popen("bash -c \"echo -n `date '+%a, %b %d'`\""):read("*a")
+        end,
+        timeout = 0,
+        bg = beautiful.bg_diff,
+        align = "top_left",
+        margins = dpi(5)
+    }
+
     -- Battery
-    local battery = awful.widget.watch('bash -c "echo Battery: `cat /sys/class/power_supply/BAT0/capacity`%"', 15)
+    local battery = awful.widget.watch('bash -c "echo `cat /sys/class/power_supply/BAT0/capacity`%"', 15)
 
     local battery_container = {
         battery,
@@ -309,7 +321,7 @@ awful.screen.connect_for_each_screen(function(s)
     {
         objects = { battery },
         timer_function = function()
-            return io.popen("bash -c \"echo -n Status: `cat /sys/class/power_supply/BAT0/status`\""):read("*a")
+            return io.popen("bash -c \"echo -n `cat /sys/class/power_supply/BAT0/status`\""):read("*a")
         end,
         timeout = 0,
         bg = beautiful.bg_diff,
@@ -318,8 +330,29 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Menu
-    local awesomemenu = {
-     {"Hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end},
+    local appmenu = {
+     {"Wezterm", function() awful.spawn.with_shell("wezterm") end},
+     {"Emacs", function() awful.spawn.with_shell("emacsclient -c") end},
+     {"Qutebrowser", function() awful.spawn.with_shell("qutebrowser") end},
+     {"Spotify", function() awful.spawn.with_shell("spotify") end},
+     {"All apps", function() awful.spawn.with_shell("rofi -show drun") end},
+    }
+
+    local powermenu = {
+     {"Reload", function() awesome.restart() end},
+     {"Lock", function() awful.spawn.with_shell("~/.bin/lock") end},
+     {"Logout", function() awesome.quit() end},
+     {"Suspend", function() awful.spawn.with_shell("echo mem | doas tee /sys/power/state") end},
+     {"Hibernate", function() awful.spawn.with_shell("echo disk | doas tee /sys/power/state") end},
+     {"Shutdown", function() awful.spawn.with_shell("shutdown -h now") end},
+     {"Reboot", function() awful.spawn.with_shell("reboot") end},
+    }
+
+    local miscmenu = {
+     {"Take screenshot", function() awful.spawn.with_shell("~/.bin/rofi-screenshot") end},
+     {"Image to text", function() awful.spawn.with_shell("~/.bin/rofi-imgtext") end},
+     {"Shorten url", function() awful.spawn.with_shell("~/.bin/rofi-urlshorten") end},
+     {"View hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end},
      {"View desktop", function() awful.tag.viewnone() end},
      {"Tab client", function() bling.module.tabbed.pick_with_dmenu() end},
      {"Reload", awesome.restart},
@@ -327,24 +360,10 @@ awful.screen.connect_for_each_screen(function(s)
      {"Power menu", function() awful.spawn.with_shell("~/.bin/rofi-power") end},
     }
 
-    local scriptmenu = {
-     {"Take screenshot", function() awful.spawn.with_shell("~/.bin/rofi-screenshot") end},
-     {"Image to text", function() awful.spawn.with_shell("~/.bin/rofi-imgtext") end},
-     {"Shorten url", function() awful.spawn.with_shell("~/.bin/rofi-urlshorten") end},
-    }
-
-    local appmenu = {
-     {"Terminal", function() awful.spawn.with_shell("wezterm") end},
-     {"Editor", function() awful.spawn.with_shell("emacsclient -c") end},
-     {"Browser", function() awful.spawn.with_shell("qutebrowser") end},
-     {"Music", function() awful.spawn.with_shell("spotify") end},
-     {"File manager", function() awful.spawn.with_shell("thunar") end},
-    }
-
     local mainmenu = awful.menu({items = {
-        {"AwesomeWM", awesomemenu},
-        {"Scripts", scriptmenu},
         {"Apps", appmenu},
+        {"Power options", powermenu},
+        {"Misc", miscmenu},
     }})
 
     local launcher = awful.widget.launcher({image = beautiful.ghost, menu = mainmenu})

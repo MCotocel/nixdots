@@ -38,7 +38,14 @@ awful.key({modkey}, ".", function() machi.switcher.start(client.focus) end, {
 awful.key({modkey}, "b", function()
       for s in screen do s.wibar.visible = not s.wibar.visible end
     end, {
-    description = 'Togkle Wibar', group = "AwesomeWM"
+    description = 'Toggle Wibar', group = "AwesomeWM"
+}),
+
+-- Toggle dashboard
+awful.key({modkey}, "w", function()
+      awesome.emit_signal("toggle::dash")
+    end, {
+    description = 'Toggle dashboard', group = "AwesomeWM"
 }),
 
 -- Expose
@@ -190,12 +197,7 @@ awful.key({modkey}, "Return", function() awful.spawn(terminal) end, {
 }),
 
 -- Open launcher
--- awful.key({modkey}, "space", function() awful.spawn.with_shell("rofi -show drun -display-drun 'App Launcher'") end, {
---     description = "Open launcher",
---     group = "Applications and menus"
--- }),
-
-awful.key({modkey}, "space", function() bling.widget.app_launcher:toggle() end, {
+awful.key({modkey}, "space", function() awful.spawn.with_shell("rofi -show drun -display-drun 'App Launcher'") end, {
     description = "Open launcher",
     group = "Applications and menus"
 }),

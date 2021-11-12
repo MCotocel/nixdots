@@ -18,6 +18,10 @@ alias tl='tmux list-sessions'
 alias vim='emacsclient -c'
 alias vi='emacsclient -c'
 
+alias cpuslow='echo powersave | doas tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor'
+alias cpufast='echo performance | doas tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor'
+alias purge='doas sync; echo 3 | doas tee /proc/sys/vm/drop_caches'
+
 ######### Completion ##########
 
 bindkey '^[[A' up-line-or-search    # Search up through history

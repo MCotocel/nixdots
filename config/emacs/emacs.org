@@ -4,19 +4,19 @@
 
 * Intro
 
-Emacs is not just a mere text editor. It's a Lisp interpreter with text editing capabilities. This means anything you can think of, Emacs can do. Of course, you have the text editing. But you can also use it as a Git frontend, as an IRC client, as an RSS reader, and so much more. Such is the extensible of Emacs.
+Emacs is not just a mere text editor. It's a Lisp interpreter with text editing capabilities. Anything you can think of Emacs can do. Of course, you have text editing. But you can also use it as a Git frontend, as an IRC client, as an RSS reader, and so much more. Such is the extensibility of Emacs.
 
-In this Org document, you'll find my literate Emacs configuration. I wouldn't advise you to use all of this as your config. Instead, you should add snippets of this document to your personal configuration.
+In this Org document, you'll find my literate Emacs configuration. I wouldn't advise you to use all of this as your config. Instead, you should add snippets of this document to your own configuration.
 
 ** Why org?
 
-I'm not going to write separate documentation for a configuration file. My config hasn't reached that level yet. However, an Org file allows me to write information /in/ the configuration file itself.
+I'm not going to write separate documentation for a configuration file. My config hasn't reached that level yet. However, an Org file allows me to document the configuration in the configuration file itself.
   
 * General settings
   
 ** Small changes
 
-We add the load path for pieces of lisp code, and change the warning level to emergency so we don't get distracted. We also change some defaults.
+We add the load path for pieces of lisp code and change the warning level so that we get notified only for an emergency. We also change some defaults.
   
 #+BEGIN_SRC emacs-lisp
   (add-to-list 'load-path "~/.config/emacs/lisp/")
@@ -31,11 +31,15 @@ We add the load path for pieces of lisp code, and change the warning level to em
 
   (defalias 'yes-or-no-p 'y-or-n-p) ;; Y or N instead of yes or no
 
+  (setq scroll-margin 1
+    scroll-step 1
+    scroll-conservatively 10000
+    smooth-scroll-margin 1)
 #+end_src
 
 ** Package config
 
-We setup melpa, use-package, and straight.el for installing package later on. Melpa has a lot more packages than the default elpa. Use-package is pretty /useful/ (pun intended), since packages can be automatically installed and lazy-loaded. Straight.el is for downloading packages from git repos. We also install the package =auto-package-update= to update installed packages.
+We set up melpa, use-package, and straight.el for installing package later on. Melpa has a lot more packages than the default elpa. Use-package is pretty /useful/ (pun intended) since packages can be automatically installed and lazy-loaded. Straight.el is for downloading packages from git repos. We also install the package =auto-package-update= to update installed packages.
 
 #+BEGIN_SRC emacs-lisp
   (require 'package)
@@ -75,13 +79,13 @@ We setup melpa, use-package, and straight.el for installing package later on. Me
      (setq auto-package-update-delete-old-versions t
            auto-package-update-interval 4)
      (auto-package-update-maybe))
-#+END_SRC
+#+end_src
 
 ** Git info
 
 We set up our username and email for git.
   
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
   (when (equal ""
                (shell-command-to-string "git config user.name"))
     (shell-command "git config --global user.name \"Matei Cotocel\"")
@@ -90,7 +94,7 @@ We set up our username and email for git.
 
 ** UI elements
 
-We remove unnecessary UI elements, like the menu bar, scroll bar, and tool bar. These are useless (for me), I don't like them, I don't want them.
+We remove unnecessary UI elements, like the menu bar, scrollbar, and toolbar. These are useless (for me), I don't like them, I don't want them.
 
 #+BEGIN_SRC emacs-lisp
   (menu-bar-mode -1)
@@ -282,6 +286,7 @@ For some reason evil-collection doesn't include org bindings, so we install anot
     (require 'evil-org-agenda)
     (evil-org-agenda-set-keys))
 #+END_SRC
+
 *** Leader
 
 This adds a leader key to Emacs, which is /incredibly/ useful.
@@ -302,6 +307,10 @@ This adds a leader key to Emacs, which is /incredibly/ useful.
       "uu" 'undo-tree-undo
       "ur" 'undo-tree-redo
       "uc" 'consult-yank-pop
+      ;; Words
+      "wt" 'mw-thesaurus-lookup-dwim
+      "wd" 'dictionary-lookup-definition
+      "wt" 'gts-do-translate
       ;; Files
       "fr" 'consult-recent-file
       "fb" 'consult-bookmark
@@ -314,7 +323,7 @@ This adds a leader key to Emacs, which is /incredibly/ useful.
       "bx" 'switch-to-scratch
       ;; Projectile
       "pa" 'projectile-add-known-project
-      "pf" 'projectile-find-file
+      "pf" 'consult-projectile
       "pp" 'projectile-switch-project
       "pg" 'projectile-grep
       "pm" 'projectile-commander
@@ -378,6 +387,7 @@ Here I bind some extra keybindings for evil mode.
   (define-key evil-normal-state-map (kbd "C-r") 'undo-tree-redo)
 
   (define-key evil-normal-state-map (kbd "M-t") 'neotree-toggle)
+  (define-key evil-normal-state-map (kbd "M-m") 'minimap-mode)
   (define-key evil-normal-state-map (kbd "<C-return>") 'shr-browse-url)
   (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
 
@@ -440,6 +450,12 @@ We install which-key in case we ever forget any keybinds.
     :config (which-key-mode)
     (which-key-setup-side-window-bottom)
     (setq which-key-idle-delay 0.1))
+
+  (use-package which-key-posframe
+    :init (which-key-posframe-mode))
+
+  (setq which-key-posframe-border-width 3
+      which-key-posframe-font "Iosevka Nerd Font-16")
 #+END_SRC
 
 ** Vertico
@@ -449,11 +465,14 @@ Vertico helps with better completion and to replace the default M-x. Consult add
 #+BEGIN_SRC emacs-lisp
   (use-package consult)
 
+  (use-package consult-projectile
+    :straight (consult-projectile :type git :host gitlab :repo "OlMon/consult-projectile" :branch "master"))
+
   (use-package vertico
     :init (vertico-mode 1)
     :config
     (setq vertico-resize nil
-          vertico-count 5
+          vertico-count 8
           vertico-cycle t))
 
   (use-package orderless
@@ -464,6 +483,20 @@ Vertico helps with better completion and to replace the default M-x. Consult add
 
   (use-package marginalia
     :init (marginalia-mode))
+
+  (use-package vertico-posframe
+    :init (vertico-posframe-mode))
+
+  (setq vertico-posframe-parameters
+       '((left-fringe . 5)
+         (right-fringe . 5)))
+
+  (set-face-attribute 'vertico-posframe-border nil :background "gray40")
+
+  (setq vertico-posframe-border-width 3
+      vertico-posframe-width 50
+      vertico-posframe-height 9
+      vertico-posframe-font "Iosevka Nerd Font-16")
 #+END_SRC
 
 ** Dashboard
@@ -554,7 +587,7 @@ Most code editors automatically match parentheses, but Emacs doesn't do this, so
 
 *** Rainbow parentheses
 
-Most editors also automatically color matching parentheses, but again, we need to install a package for this.
+Most editors also automatically color matching parentheses, but we need to install a package for this to happen.
 
 #+BEGIN_SRC emacs-lisp
   (use-package rainbow-delimiters
@@ -564,7 +597,7 @@ Most editors also automatically color matching parentheses, but again, we need t
 
 ** Icons
 
-We need all-the-icons for some packages, so let's install it.
+We need the all-the-icons package for some packages using icons, so let's install it.
 
 #+BEGIN_SRC emacs-lisp
   (use-package all-the-icons)
@@ -572,7 +605,7 @@ We need all-the-icons for some packages, so let's install it.
 
 ** Mode line
 
-The default mode line is ugly, this package replaces it with one that looks like the doom mode line.
+The default mode line is ugly, so this package replaces it with one that looks like the doom mode line.
 
 #+BEGIN_SRC emacs-lisp
   (use-package doom-modeline
@@ -585,8 +618,8 @@ The default mode line is ugly, this package replaces it with one that looks like
       doom-modeline-icon t))
 
   (doom-modeline-def-modeline 'main
-      '(bar " " matches buffer-info remote-host buffer-position parrot selection-info)
-      '(misc-info minor-modes checker input-method buffer-encoding major-mode process vcs " " bar)) ; <-- added padding here
+      '(bar " " matches buffer-info remote-host)
+      '(buffer-position checker major-mode process vcs " " bar))
 
   (use-package hide-mode-line
     :hook
@@ -594,9 +627,24 @@ The default mode line is ugly, this package replaces it with one that looks like
     (neotree-mode . hide-mode-line-mode))
 #+END_SRC
 
+** Minimap
+
+Here, we install a minimap.
+
+#+begin_src emacs-lisp 
+  (use-package minimap
+    :config
+    (setq minimap-window-location 'right
+          minimap-update-delay 0
+          minimap-width-fraction 0.1
+          minimap-minimum-width 10
+          minimap-major-modes '(text-mode prog-mode))
+    :init (minimap-mode))
+#+end_src
+
 ** Undo-tree
 
-We want to visualize undo history better, so we install undo-tree.
+We want to visualize the undo history better, so we install the undo-tree package.
 
 #+BEGIN_SRC emacs-lisp
   (use-package undo-tree
@@ -730,8 +778,8 @@ I use Emacs for coding as well, so we're going to configure lsp-mode.
 #+BEGIN_SRC emacs-lisp
   (use-package lsp-mode
     :init
-    :hook ((python-mode . lsp)
-           (lua-mode . lsp)
+    :hook ((lua-mode . lsp)
+           ;;(python-mode . lsp)
            (sh-mode . lsp)
            (lisp-mode . lsp)
            (css-mode . lsp)
@@ -740,6 +788,8 @@ I use Emacs for coding as well, so we're going to configure lsp-mode.
            (markdown-mode . lsp)
            (latex-mode . lsp)
            (go-mode . lsp)
+           (text-mode . lsp)
+           (org-mode . lsp)
            (lsp-mode . lsp-enable-which-key-integration))
     :commands lsp
     :config
@@ -752,15 +802,31 @@ I use Emacs for coding as well, so we're going to configure lsp-mode.
         lsp-modeline-code-actions-enable t
         lsp-ui-sideline-enable t
         lsp-ui-doc-border nil
-        lsp-eldoc-enable-hover t)
-  (setq lsp-log-io nil)
-  (setq lsp-enable-file-watchers nil)
+        lsp-eldoc-enable-hover t
+        lsp-log-io nil
+        lsp-enable-file-watchers nil))
+
+  (use-package lsp-grammarly)
 
   (use-package lsp-ui :commands lsp-ui-mode)
 
   (setq lsp-enable-symbol-highlighting nil)
-  (custom-set-faces '(nobreak-space ((t nil))))
 
+  (use-package go-mode)
+  (use-package json-mode)
+  (use-package lua-mode)
+  (use-package nix-mode)
+  ;;(use-package lsp-jedi
+  ;;  :hook (python-mode . lsp-jedi)) ;; Doesn't work atm
+
+  (use-package lsp-ivy)
+#+end_src
+
+** Company
+
+Company is used for completions
+
+#+begin_src emacs-lisp
   (use-package company
     :config (global-company-mode)
     :bind (:map company-active-map
@@ -793,20 +859,12 @@ I use Emacs for coding as well, so we're going to configure lsp-mode.
     :config
     (setq company-box-scrollbar nil))
 
-  (use-package go-mode)
-  (use-package json-mode)
-  (use-package lua-mode)
-  (use-package nix-mode)
-  (use-package lsp-jedi
-    :hook (python-mode . lsp-jedi))
 
   (use-package yasnippet
     :hook (prog-mode . yas-global-mode))
 
   (use-package yasnippet-snippets
     :defer t)
-
-  (use-package lsp-ivy)
 #+END_SRC
 
 ** Debugger
@@ -836,6 +894,38 @@ Here, we install and configure projectile, which is a project interaction librar
     :config (projectile-mode 1))
 #+END_SRC
 
+** Dictionary
+
+Emacs has to have a dictionary.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package dictionary)
+#+end_src
+
+** Thesaurus
+
+If we need to find a synonym for any reason, this package will be helpful.
+
+#+begin_src emacs-lisp
+  (use-package mw-thesaurus)
+#+end_src
+
+** Translate
+
+Ah yes, translation. Just what every text editor needs.
+
+#+begin_src emacs-lisp
+  (use-package go-translate)
+
+  (setq gts-translate-list '(("en" "ro") ("ro" "en")))
+
+  (setq gts-default-translator
+        (gts-translator
+         :picker (gts-prompt-picker)
+         :engines (gts-google-engine)
+         :render (gts-buffer-render)))
+#+end_src
+
 * Org mode
 
 ** Org-contrib
@@ -844,6 +934,14 @@ Org-contrib has some neat stuff.
 
 #+begin_src emacs-lisp
   (use-package org-contrib)
+#+end_src
+
+** Org-download
+
+Drag-and-drop images directly into Emacs!
+
+#+begin_src emacs-lisp
+  (use-package org-download)
 #+end_src
 
 ** Files locations
@@ -867,13 +965,16 @@ Let's set the export backends to things I commonly use, along with some extra se
   (require 'ox-latex)
   (require 'ox-man)
   (require 'ox-publish)
-  (require 'ox-rss)
+  (use-package 'ox-rss)
+
+  (setq org-publish-use-timestamps-flag nil)
+  (setq org-export-with-broken-links t)
 
   (setq org-publish-project-alist
         '(
           ("Blog"
            :base-directory "~/Blog/"
-           :base-extension "org"
+           :base-extension "org" "png" "jpg" "css"
            :publishing-directory "~/Blog/"
            :recursive t
            :publishing-function org-html-publish-to-html
@@ -882,11 +983,10 @@ Let's set the export backends to things I commonly use, along with some extra se
            )
           ("Garden"
            :base-directory "~/Org/"
-           :base-extension "org" "png" "css"
+           :base-extension "org" "png" "jpg" "css"
            :publishing-directory "~/Garden/"
-           :recursive t
+           :recursive nil
            :publishing-function org-html-publish-to-html
-           :headline-levels 4
            :auto-preamble t
            )
         ))
@@ -917,7 +1017,7 @@ Let's set the export backends to things I commonly use, along with some extra se
 
 ** Bullets
 
-Package that makes the bullets look nicer
+This is a package that makes the bullets look nicer
 
 #+BEGIN_SRC emacs-lisp
   (use-package org-bullets
@@ -931,11 +1031,12 @@ Package that makes the bullets look nicer
 A few additions to make everything look neater
 
 #+BEGIN_SRC emacs-lisp
-  (setq org-hide-emphasis-markers t)
-  (setq org-image-actual-width '(300))
+  (setq org-hide-emphasis-markers t
+      org-image-actual-width '(300)
+      org-agenda-start-on-weekday 0
+      org-src-tab-acts-natively t
+      org-startup-with-inline-images t)
   (set-face-attribute 'org-headline-done nil :strike-through t)
-  (setq org-agenda-start-on-weekday 0)
-  (setq org-src-tab-acts-natively t)
 #+END_SRC
 
 ** Keywords
