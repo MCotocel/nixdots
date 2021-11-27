@@ -408,22 +408,22 @@ awful.screen.connect_for_each_screen(function(s)
         expand = "none",
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            wibox.layout.margin(final_launcher, dpi(3), dpi(3), dpi(3), dpi(3)),
-            wibox.layout.margin(final_taglist, dpi(3), dpi(3), dpi(3), dpi(3)),
+            wibox.container.margin(final_launcher, dpi(3), dpi(3), dpi(3), dpi(3)),
+            wibox.container.margin(final_taglist, dpi(3), dpi(3), dpi(3), dpi(3)),
         },
         {
             layout = wibox.layout.fixed.horizontal,
             {
-                wibox.layout.margin(final_tasklist, dpi(3), dpi(3), dpi(3), dpi(3)),
+                wibox.container.margin(final_tasklist, dpi(3), dpi(3), dpi(3), dpi(3)),
                 widget = wibox.container.background
             }
         },
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            wibox.layout.margin(final_clock, dpi(3), dpi(3), dpi(3), dpi(3)),
-            wibox.layout.margin(final_battery, dpi(3), dpi(3), dpi(3), dpi(3)),
-            wibox.layout.margin(final_systray, dpi(3), dpi(3), dpi(3), dpi(3)),
-            wibox.layout.margin(final_layoutbox, dpi(3), dpi(3), dpi(3), dpi(3))
+            wibox.container.margin(final_clock, dpi(3), dpi(3), dpi(3), dpi(3)),
+            wibox.container.margin(final_battery, dpi(3), dpi(3), dpi(3), dpi(3)),
+            wibox.container.margin(final_systray, dpi(3), dpi(3), dpi(3), dpi(3)),
+            wibox.container.margin(final_layoutbox, dpi(3), dpi(3), dpi(3), dpi(3))
         },
     }
 end)

@@ -13,11 +13,10 @@
     autoRepeatDelay = 225; # Keyboard repeat rate
     autoRepeatInterval = 33;
     libinput.enable = true; # Enable libinput for trackpad
-    displayManager.gdm.enable = true; # Gnome display manager
-    displayManager.defaultSession = "none+awesome";
+    displayManager.startx.enable = true;
     desktopManager = {
       gnome = {
-        enable = true;
+        enable = false;
       };
     };
     windowManager = {

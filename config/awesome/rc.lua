@@ -59,7 +59,7 @@ require("config.misc")
 -- Widgets
 require("widgets.brightness")
 require("widgets.volume")
-require("widgets.center")
+--require("widgets.center")
 
 -- Battery warning
 require("config.battery-warning")

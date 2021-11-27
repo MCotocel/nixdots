@@ -74,23 +74,23 @@ client.connect_signal("request::titlebars", function(c)
     awful.titlebar(c, {position = 'top', size = dpi(35)}):setup{
         {
             {
-               wibox.layout.margin(awful.widget.clienticon(c), dpi(7), dpi(7), dpi(7), dpi(7)),
-               layout = wibox.layout.fixed.horizontal,
+               wibox.container.margin(awful.widget.clienticon(c), dpi(7), dpi(7), dpi(7), dpi(7)),
+               layout = wibox.container.fixed.horizontal,
             },
             {
                buttons = buttons,
-               layout = wibox.layout.flex.horizontal
+               layout = wibox.container.flex.horizontal
             },
             {
                --max,
                --min,
                --close,
-               wibox.layout.margin(awful.titlebar.widget.maximizedbutton(c), dpi(1), dpi(1), dpi(9), dpi(9)),
-               wibox.layout.margin(awful.titlebar.widget.minimizebutton(c), dpi(1), dpi(1), dpi(9), dpi(9)),
-               wibox.layout.margin(awful.titlebar.widget.closebutton(c), dpi(1), dpi(1), dpi(9), dpi(9)),
-               layout = wibox.layout.fixed.horizontal,
+               wibox.container.margin(awful.titlebar.widget.maximizedbutton(c), dpi(1), dpi(1), dpi(9), dpi(9)),
+               wibox.container.margin(awful.titlebar.widget.minimizebutton(c), dpi(1), dpi(1), dpi(9), dpi(9)),
+               wibox.container.margin(awful.titlebar.widget.closebutton(c), dpi(1), dpi(1), dpi(9), dpi(9)),
+               layout = wibox.container.fixed.horizontal,
             },
-            layout = wibox.layout.align.horizontal
+            layout = wibox.container.align.horizontal
         },
         widget = wibox.container.margin,
         --left = dpi(12),
