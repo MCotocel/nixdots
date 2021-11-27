@@ -14,12 +14,12 @@
 
   # Mpd
   services.mpd = {
-    enable = true;
+    enable = false;
   };
 
   # Mopidy
   services.mopidy = {
-    enable = true;
+    enable = false;
     extensionPackages = [
       pkgs.mopidy-mpd
       pkgs.mopidy-youtube

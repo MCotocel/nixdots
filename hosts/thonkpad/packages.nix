@@ -18,6 +18,7 @@
     bspwm
     calibre
     capitaine-cursors
+    cataclysm-dda
     cava
     cmake
     cmatrix
@@ -74,6 +75,7 @@
     lynis
     maim
     manix
+    matcha-gtk-theme
     mesa
     mesa-demos
     minecraft
@@ -130,7 +132,7 @@
     telegraf
     telnet
     tesseract
-    texlive.combined.scheme-small
+    texlive.combined.scheme-full
     tigervnc
     tmux
     tokei
@@ -153,7 +155,6 @@
     wpa_supplicant
     xclip
     xdotool
-    xfce.thunar
     xorg.xev
     xorg.xf86videoamdgpu
     xorg.xinit

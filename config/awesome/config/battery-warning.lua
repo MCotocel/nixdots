@@ -16,7 +16,7 @@ local function bat_notification()
      naughty.notify({ title = "Battery Warning",
       text = "Battery low! " .. bat_capacity .."%" .. " left!",
       fg="#ff8080",
-      bg="#0b1116",
+      bg="#181e23",
       timeout = 0
     })
   end

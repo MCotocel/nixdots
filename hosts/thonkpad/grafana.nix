@@ -46,6 +46,7 @@
     port = 3000;
     domain = "localhost";
     protocol = "http";
+    security.adminPassword = "1234";
   };
 
   # Influxdb

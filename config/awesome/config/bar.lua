@@ -331,10 +331,11 @@ awful.screen.connect_for_each_screen(function(s)
 
     -- Menu
     local appmenu = {
-     {"Wezterm", function() awful.spawn.with_shell("wezterm") end},
-     {"Emacs", function() awful.spawn.with_shell("emacsclient -c") end},
-     {"Qutebrowser", function() awful.spawn.with_shell("qutebrowser") end},
-     {"Spotify", function() awful.spawn.with_shell("spotify") end},
+     {"Music", function() awful.spawn.with_shell("spotify") end},
+     {"Files", function() awful.spawn.with_shell("nautilus") end},
+     {"Editor", function() awful.spawn.with_shell("emacsclient -c") end},
+     {"Browser", function() awful.spawn.with_shell("qutebrowser") end},
+     {"Terminal", function() awful.spawn.with_shell("wezterm") end},
      {"All apps", function() awful.spawn.with_shell("rofi -show drun") end},
     }
 

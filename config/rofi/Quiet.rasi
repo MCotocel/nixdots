@@ -4,7 +4,7 @@ configuration {
 
 * {
     ac: #384149;
-    bg: #0b1116;
+    bg: #181e23;
     fg: #d5d5d5;
     background-color: @bg;
 }

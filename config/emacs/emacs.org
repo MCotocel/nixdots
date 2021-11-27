@@ -121,7 +121,7 @@ Here we set a nice font, because if I'm going to be staring at code for hours, I
 We also need to set a symbol font. Here I use Twemoji (Twitter Color Emoji), since it looks pretty good.
 
 #+BEGIN_SRC emacs-lisp
-  (set-fontset-font t 'symbol "Apple Color Emoji")
+  (set-fontset-font t 'symbol "Twitter Color Emoji")
 #+END_SRC
 
 ** Prettify symbols
@@ -311,6 +311,7 @@ This adds a leader key to Emacs, which is /incredibly/ useful.
       "wt" 'mw-thesaurus-lookup-dwim
       "wd" 'dictionary-lookup-definition
       "wt" 'gts-do-translate
+      "we" 'emoji-insert
       ;; Files
       "fr" 'consult-recent-file
       "fb" 'consult-bookmark
@@ -450,12 +451,6 @@ We install which-key in case we ever forget any keybinds.
     :config (which-key-mode)
     (which-key-setup-side-window-bottom)
     (setq which-key-idle-delay 0.1))
-
-  (use-package which-key-posframe
-    :init (which-key-posframe-mode))
-
-  (setq which-key-posframe-border-width 3
-      which-key-posframe-font "Iosevka Nerd Font-16")
 #+END_SRC
 
 ** Vertico
@@ -501,7 +496,7 @@ Vertico helps with better completion and to replace the default M-x. Consult add
 
 ** Dashboard
 
-The default startup screen is bland, let's replace it with a simplistic dashboard, configured by me.
+The default startup screen is quite bland, so let's replace it with a simplistic dashboard.
 
 #+BEGIN_SRC emacs-lisp
   (use-package dashboard)
@@ -538,6 +533,7 @@ The centaur tabs package adds tabs to Emacs.
     (centaur-tabs-mode t)
     :hook
     (dashboard-mode . centaur-tabs-local-mode)
+    (term-mode . centaur-tabs-local-mode)
     (special-mode . centaur-tabs-local-mode))
   (setq centaur-tabs-height 32
     centaur-tabs-gray-out-icons 'buffer
@@ -624,6 +620,7 @@ The default mode line is ugly, so this package replaces it with one that looks l
   (use-package hide-mode-line
     :hook
     (special-mode . hide-mode-line-mode)
+    (term-mode . hide-mode-line-mode)
     (neotree-mode . hide-mode-line-mode))
 #+END_SRC
 
@@ -665,7 +662,7 @@ Let's install a formatter to format our horrible code.
 
 ** Colorscheme
 
-My colorscheme uses doom-themes as a base, so we have to install it.
+My colorscheme uses doom-themes as a base, so we have to install it. It also has some other cool themes.
 
 #+BEGIN_SRC emacs-lisp
   (use-package doom-themes
@@ -956,7 +953,7 @@ We want to save everything in /one/ location.
 
 ** Exporting
 
-Let's set the export backends to things I commonly use, along with some extra settings for html exports.
+Let's set the export backends to things I commonly use, along with some extra settings for HTML exports.
 
 #+BEGIN_SRC emacs-lisp
   (setq org-export-backends '(latex md html man))
@@ -965,10 +962,10 @@ Let's set the export backends to things I commonly use, along with some extra se
   (require 'ox-latex)
   (require 'ox-man)
   (require 'ox-publish)
-  (use-package 'ox-rss)
 
-  (setq org-publish-use-timestamps-flag nil)
-  (setq org-export-with-broken-links t)
+  (setq org-publish-use-timestamps-flag nil
+      org-export-with-toc nil
+      org-export-with-broken-links t)
 
   (setq org-publish-project-alist
         '(
@@ -983,14 +980,13 @@ Let's set the export backends to things I commonly use, along with some extra se
            )
           ("Garden"
            :base-directory "~/Org/"
-           :base-extension "org" "png" "jpg" "css"
+           :base-extension "org" "css" "png"
            :publishing-directory "~/Garden/"
            :recursive nil
            :publishing-function org-html-publish-to-html
            :auto-preamble t
            )
         ))
-
 
   (add-to-list 'org-latex-packages-alist '("" "minted"))
   (setq org-latex-listings 'minted) 
@@ -1014,6 +1010,9 @@ Let's set the export backends to things I commonly use, along with some extra se
   (setq org-html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"./style.css\"/>"
     org-html-doctype "html5")
 #+END_SRC
+
+#+RESULTS:
+: html5
 
 ** Bullets
 
@@ -1095,16 +1094,24 @@ We also add some templates for Org capture
 
 ** Babel
 
-*** Go support
+*** Extended language support
 
-Go support for babel
+More languages for babel
 
 #+begin_src emacs-lisp
-  (use-package ob-go
-    :config (org-babel-do-load-languages
+  (use-package ob-go)
+  (use-package ob-rust)
+
+  (org-babel-do-load-languages
    'org-babel-load-languages
-   '((go . t))))
+   '((go . t)
+     (rust . t)
+     (shell . t)
+     (python . t)
+     (emacs-lisp . t)))
+
 #+end_src
+
 
 ** Present
 

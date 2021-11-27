@@ -44,8 +44,8 @@ bling.module.wallpaper.setup {
 
 --awful.screen.connect_for_each_screen(function(s)
 --    bling.module.tiled_wallpaper("", s, {
---        fg = "#181e23",
---        bg = "#0b1116",
+--        fg = "#1f252a",
+--        bg = "#181e23",
 --        offset_y = 0,
 --        offset_x = 0,
 --        font = "Iosevka Nerd Font",

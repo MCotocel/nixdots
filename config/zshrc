@@ -1,26 +1,26 @@
 ########## Aliases ##########
 
-alias ls='exa'
-alias la='exa -a'
-alias ll='exa -la'
-alias lt='exa -lT'
-alias lat='exa -laT'
-
-alias magit='emacsclient -c -e "(magit-status)"'
-alias elfeed='emacsclient -c -e "(elfeed)"'
-
-alias rm='trash'
-
-alias ta='tmux attach -t'
-alias tn='tmux new-session -s'
-alias tl='tmux list-sessions'
-
-alias vim='emacsclient -c'
-alias vi='emacsclient -c'
-
-alias cpuslow='echo powersave | doas tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor'
-alias cpufast='echo performance | doas tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor'
-alias purge='doas sync; echo 3 | doas tee /proc/sys/vm/drop_caches'
+#alias ls='exa'
+#alias la='exa -a'
+#alias ll='exa -la'
+#alias lt='exa -lT'
+#alias lat='exa -laT'
+#
+#alias magit='emacsclient -c -e "(magit-status)"'
+#alias elfeed='emacsclient -c -e "(elfeed)"'
+#
+#alias rm='trash'
+#
+#alias ta='tmux attach -t'
+#alias tn='tmux new-session -s'
+#alias tl='tmux list-sessions'
+#
+#alias vim='emacsclient -c'
+#alias vi='emacsclient -c'
+#
+#alias cpuslow='echo powersave | doas tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor'
+#alias cpufast='echo performance | doas tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor'
+#alias purge='doas sync; echo 3 | doas tee /proc/sys/vm/drop_caches'
 
 ######### Completion ##########
 
@@ -65,17 +65,17 @@ SAVEHIST=1000
 export PS1="%F{blue}%~%f %(?.%F{green}|%f.%F{red}|%f) " # Alternatives for prompt icon: ◯, •, ❯, ∮, λ, Δ, 
 
 ########## ZLE ##########
-
-autoload -U edit-command-line && zle -N edit-command-line # Load edit current command
-
-bindkey '^@' edit-command-line  # Bind edit current command
-bindkey "[C" forward-word  # Bind forward one word
-bindkey "[D" backward-word # Bind backward one word
-bindkey '^A' beginning-of-line  # Bind beginning of line
-bindkey '^E' end-of-line        # Bind end of line
-bindkey '^H' backward-kill-word # Bind delete word backwards
-bindkey '^L' clear-screen       # Bind clear screen
-bindkey '^U' backward-kill-line # Bind delete line
+#
+#autoload -U edit-command-line && zle -N edit-command-line # Load edit current command
+#
+#bindkey '^@' edit-command-line  # Bind edit current command
+#bindkey "[C" forward-word  # Bind forward one word
+#bindkey "[D" backward-word # Bind backward one word
+#bindkey '^A' beginning-of-line  # Bind beginning of line
+#bindkey '^E' end-of-line        # Bind end of line
+#bindkey '^H' backward-kill-word # Bind delete word backwards
+#bindkey '^L' clear-screen       # Bind clear screen
+#bindkey '^U' backward-kill-line # Bind delete line
 
 export LESS_TERMCAP_mb=$'\e[1;32m'
 export LESS_TERMCAP_md=$'\e[1;32m'
@@ -85,4 +85,4 @@ export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
 
-clear
+eval $(thefuck --alias)

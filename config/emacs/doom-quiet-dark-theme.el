@@ -34,23 +34,23 @@ Can be an integer to determine the exact padding."
 (def-doom-theme doom-quiet-dark
   "A dark theme partially inspired by Atom One Dark"
 
-  ((bg         '("#0b1116"))
+  ((bg         '("#181e23"))
    (fg         '("#D5D5D5"))
 
    ;; These are off-color variants of bg/fg, used primarily for `solaire-mode',
    ;; but can also be useful as a basis for subtle highlights (e.g. for hl-line
    ;; or region), especially when paired with the `doom-darken', `doom-lighten',
    ;; and `doom-blend' helper functions.
-   (bg-alt     '("#181e23"))
+   (bg-alt     '("#1f252a"))
    (fg-alt     '("#cacaca"))
 
    ;; These should represent a spectrum from bg to fg, where base0 is a starker
    ;; bg and base8 is a starker fg. For example, if bg is light grey and fg is
    ;; dark grey, base0 should be white and base8 should be black.
-   (base0      '("#0b1116"))
-   (base1      '("#0b1116"))
-   (base2      '("#0b1116"))
-   (base3      '("#0b1116"))
+   (base0      '("#181e23"))
+   (base1      '("#181e23"))
+   (base2      '("#181e23"))
+   (base3      '("#181e23"))
    (base4      '("#384149"))
    (base5      '("#384149"))
    (base6      '("#384149"))

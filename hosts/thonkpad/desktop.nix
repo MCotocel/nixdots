@@ -37,4 +37,44 @@
       };
     };
   };
+
+  location.provider = "geoclue2";
+
+  fonts = {
+    enableDefaultFonts = true;
+    fontconfig.defaultFonts = {
+      emoji = [ "Twitter Color Emoji" ];
+      monospace = [ "Iosevka Nerd Font" ];
+    };
+    fonts = with pkgs; [
+      (nerdfonts.override { fonts = [ "Iosevka" ]; })
+    ];
+  };
+
+  qt5.platformTheme = "gtk2";
+  qt5.style = "gtk2";
+
+  environment.gnome.excludePackages = [
+    pkgs.gnome.file-roller
+    pkgs.gnome.gedit
+    pkgs.gnome.gnome-calendar
+    pkgs.gnome.gnome-characters
+    pkgs.gnome.gnome-chess
+    pkgs.gnome.gnome-clocks
+    pkgs.gnome.gnome-color-manager
+    pkgs.gnome.gnome-contacts
+    pkgs.gnome.gnome-dictionary
+    pkgs.gnome.gnome-documents
+    pkgs.gnome.gnome-font-viewer
+    pkgs.gnome.gnome-logs
+    pkgs.gnome.gnome-maps
+    pkgs.gnome.gnome-music
+    pkgs.gnome.gnome-screenshot
+    pkgs.gnome.gnome-terminal
+    pkgs.gnome.gnome-weather
+    pkgs.gnome.simple-scan
+    pkgs.gnome.totem
+  ];
+
+  services.autorandr.enable = true;
 }

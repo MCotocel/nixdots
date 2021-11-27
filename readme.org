@@ -23,13 +23,13 @@ Welcome to my virtual home. I wouldn't advise you to blindly copy large parts fr
 
 *** Programs
 
-| OS           | NixOS     |
-| WM           | AwesomeWM |
-| Editor       | Emacs     |
-| Terminal     | Alacritty |
-| Shell        | zsh       |
-| Launcher     | Rofi      |
-| Music player | ncmpcpp   |
+| OS           | NixOS             |
+| WM           | AwesomeWM         |
+| Editor       | Emacs             |
+| Terminal     | Wezterm           |
+| Shell        | zsh               |
+| Launcher     | Rofi              |
+| Music player | ncmpcpp / spotify |
 
 *** Setup
 
@@ -48,7 +48,7 @@ Welcome to my virtual home. I wouldn't advise you to blindly copy large parts fr
 
 - Declarative package and configuration management
 - Lots of packages
-- Rollbacks of configurations (When you mess something up (Like the kernel (I've definitely never done this before (Maybe that's a small lie (No, it's a huge lie (Oh, this sentence is starting to look like my messy Emacs config!))))))
+- Rollbacks of configurations (When you mess something up, like the kernel)
 - Reliable system
 - Reproducible environment
 
