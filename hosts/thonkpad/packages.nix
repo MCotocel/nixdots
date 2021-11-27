@@ -163,7 +163,7 @@
     zeroad
     zsh
 
-    #nur.repos.reedrw.picom-next-ibhagwan
-    picom-pijulius
+    nur.repos.reedrw.picom-next-ibhagwan
+    #picom-pijulius
   ];
 }
