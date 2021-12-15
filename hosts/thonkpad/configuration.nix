@@ -13,14 +13,29 @@
     ./shell.nix
     ./sound.nix
     ../shared.nix
+    ../../modules/kmonad/nix/nixos-module.nix
   ];
+
+  services.kmonad = {
+    enable = true;
+    configfiles = [ ~/.config/kmonad/kmonad.kbd ];
+	  package = import ../../derivations/kmonad.nix;
+  };
+
+  users.groups = { uinput = {}; };
 
   users.users.matei = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" "libvirtd" ];
+    extraGroups = [ "wheel" "video" "libvirtd" "input" "uinput" ];
     shell = pkgs.zsh;
     initialPassword = "1234";
   };
+
+  services.udev.extraRules =
+    ''
+      # KMonad user access to /dev/uinput
+      KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"
+    '';
 
   boot = {
     binfmt.emulatedSystems = [ "aarch64-linux" ];

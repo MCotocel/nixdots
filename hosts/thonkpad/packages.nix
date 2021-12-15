@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
-{
+let
+  kmonad =  import ../../derivations/kmonad.nix;
+in {
   # System-wide packages
   environment.systemPackages = with pkgs; [
     acpi
@@ -49,10 +51,11 @@
     giph
     git
     github-desktop
+    gnome.geary
     gnome.gnome-calendar
     gnome.gnome-chess
     gnome.gnome-dictionary
-    gnome.geary
+    gnome.nautilus
     googleearth-pro
     gource
     handbrake
@@ -65,6 +68,7 @@
     isync
     jq
     kid3
+    kmonad
     krita
     libinput
     libnotify
@@ -163,7 +167,8 @@
     zeroad
     zsh
 
-    nur.repos.reedrw.picom-next-ibhagwan
+    #nur.repos.reedrw.picom-next-ibhagwan
+    picom
     #picom-pijulius
   ];
 }

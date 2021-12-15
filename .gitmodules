@@ -7,3 +7,6 @@
 [submodule "config/awesome/modules/layout-machi"]
 	path = config/awesome/modules/layout-machi
 	url = https://github.com/xinhaoyuan/layout-machi
+[submodule "modules/kmonad"]
+	path = modules/kmonad
+	url = https://github.com/kmonad/kmonad

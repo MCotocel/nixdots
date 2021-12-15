@@ -1,6 +1,5 @@
+@theme "~/.config/rofi/Quiet.rasi"
 configuration {
-  theme: "~/.config/rofi/Quiet.rasi";
-  icon-theme: "Papirus";
-  terminal: "alacritty";
-  modi: "window,drun,run,keys";
+    icon-theme: "Papirus";
+    modi: "window,drun,run,keys";
 }

@@ -25,5 +25,7 @@ return {
     bottom = 30,
   },
   enable_tab_bar = false,
+  show_update_window = false,
+  check_for_updates = false,
   default_cursor_style = "BlinkingBar",
 }

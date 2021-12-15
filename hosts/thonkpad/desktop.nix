@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
-{
+let
+  kmonad =  import ../../derivations/kmonad.nix;
+in {
 
   # Touchegg
   services.touchegg.enable = true;

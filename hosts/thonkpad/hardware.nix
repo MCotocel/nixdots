@@ -7,7 +7,7 @@
           kernelModules = [ "amdgpu" ];
       };
       kernelModules = [ "kvm-intel" ];
-      kernelParams = [ "intel_iommu=on" ];
+      kernelParams = [ "amd_iommu=on" "intel_iommu=on" ];
       blacklistedKernelModules = [ "radeon" ];
       extraModulePackages = [ config.boot.kernelPackages.rtl8821ce ]; # Drivers
       kernelPackages = pkgs.linuxPackages_xanmod; # Kernel package

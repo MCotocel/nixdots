@@ -294,6 +294,10 @@ awful.screen.connect_for_each_screen(function(s)
 
     -- Battery
     local battery = awful.widget.watch('bash -c "echo `cat /sys/class/power_supply/BAT0/capacity`%"', 15)
+    local battery_img = {
+       image = beautiful.pfp,
+       widget = wibox.widget.imagebox
+    }
 
     local battery_container = {
         battery,
@@ -303,18 +307,37 @@ awful.screen.connect_for_each_screen(function(s)
         widget = wibox.container.margin
     }
 
+    local battery_img_container = {
+        battery_img,
+        top = dpi(2),
+        bottom = dpi(2),
+        bg = beautiful.bg_systray,
+        widget = wibox.container.margin
+    }
+
     local final_battery = wibox.widget {
+        {
+            battery_img_container,
+            top = dpi(3),
+            bottom = dpi(3),
+            left = dpi(1),
+            right = dpi(1),
+            bg = beautiful.bg_systray,
+            layout = wibox.container.margin
+        },
         {
             battery_container,
             top = dpi(6),
             bottom = dpi(6),
             left = dpi(3),
             right = dpi(3),
+            bg = beautiful.bg_systray,
             layout = wibox.container.margin
         },
         bg = beautiful.bg_systray,
         shape = gears.shape.rounded_rect,
-        widget = wibox.container.background
+        widget = wibox.container.background,
+        layout = wibox.layout.align.horizontal
     }
 
     local battery_tooltip = awful.tooltip

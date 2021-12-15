@@ -1,7 +1,7 @@
 (defcfg
   input (device-file "/dev/input/by-id/usb-Logitech_USB_Receiver-event-kbd")
   output (uinput-sink "KMonad output")
-  cmp-seq-delay 0
+  ;;cmp-seq-delay 0
   fallthrough false
   allow-cmd true
 )
