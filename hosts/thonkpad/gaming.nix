@@ -15,6 +15,17 @@
     ];
   };
 
+  environment.systemPackages = with pkgs; [
+    cataclysm-dda
+    lutris
+    minecraft
+    nethack
+    osu-lazer
+    retroarch
+    superTuxKart
+    zeroad
+  ];
+
   programs.gamemode.enable = false;
 
   services.power-profiles-daemon.enable = false;

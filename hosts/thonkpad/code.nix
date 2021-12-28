@@ -3,6 +3,76 @@
 {
   environment = {
 
+    systemPackages = with pkgs; [
+      #emacsGit
+      arduino
+      aria
+      atom
+      bash
+      bat
+      cava
+      cmake
+      cmatrix
+      coreutils
+      cowsay
+      direnv
+      emacs
+      emacs-all-the-icons-fonts
+      exa
+      fd
+      feh
+      ffmpeg
+      file
+      fzf
+      gcc
+      gh
+      git
+      github-desktop
+      gource
+      handbrake
+      htop
+      imagemagick
+      jq
+      lshw
+      lua
+      lynis
+      neofetch
+      neovim
+      nodejs
+      onefetch
+      openjdk
+      pfetch
+      ps_mem
+      python39
+      ripgrep
+      tmux
+      tokei
+      trash-cli
+      unityhub
+      vim
+      vscode
+      wget
+      xorg.xev
+      youtube-dl
+      zsh
+    ispell
+    isync
+    manix
+    mesa-demos
+    mu
+    ncdu
+    nvd
+    openimagedenoise
+    pciutils
+    radeontop
+    ranger
+    shellcheck
+    speedtest-cli
+    sqlite
+    telnet
+    ueberzug
+    ];
+
     shellAliases = {
       ls = "exa";
       la = "exa -a";

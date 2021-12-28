@@ -7,10 +7,11 @@
     useDHCP = false; # Deprecated, so set explicitly to false
     wireless.enable = false;
     networkmanager.enable = true; # Enable networkmanager
-    firewall.enable = true; # Stay out, hackers
+    firewall.enable = false; # Stay out, hackers
     firewall.allowedTCPPorts = [
       22
       88
+      1701
     ];
   };
 

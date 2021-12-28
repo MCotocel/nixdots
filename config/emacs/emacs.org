@@ -168,6 +168,23 @@ This replaces some text with icons. Also ligatures.
 
 #+end_src
 
+** SVG tags :TODO:
+
+This replaces words with SVG tags
+
+#+begin_src emacs-lisp
+  ;;(use-package svg-tag-mode)
+  ;;(defface svg-tag-org-face
+  ;;  '((t :foreground "#ffffff" :background "#1f252a" :box "#1f1e23"
+  ;;       :family "Iosevka" :weight bold))
+  ;;  "Face for Org mode" :group nil)
+  ;;(defun svg-tag-org (text)
+  ;;  (svg-tag-make "TODO" 'svg-tag-org-face 1 1 3))
+  ;;(setq svg-tag-tags
+  ;;        '((":TODO:" . svg-tag-org)))
+  ;;(global-svg-tag-mode 1)
+#+end_src
+
 ** Line numbers
 
 Line numbers are useful. Relative line numbers even more so, since you don't have to do much maths with them (so if I'm on 321, and I want to go to 357, that means I have to... wait no that's not right... etc).
@@ -608,14 +625,17 @@ The default mode line is ugly, so this package replaces it with one that looks l
     :init
     (doom-modeline-mode 1)
     (setq doom-modeline-height 30
-      doom-modeline-bar-width 5
+      doom-modeline-bar-width 3
       doom-modeline-buffer-encoding 'nondefault
       doom-modeline-major-mode-icon t
       doom-modeline-icon t))
 
   (doom-modeline-def-modeline 'main
-      '(bar " " matches buffer-info remote-host)
-      '(buffer-position checker major-mode process vcs " " bar))
+      '(bar modals buffer-info-simple remote-host " " major-mode workspace-name)
+      '(buffer-position matches process checker lsp debug vcs))
+
+  (custom-set-faces
+   '(mode-line ((t (:family "Iosevka Nerd Font" :height 120)))))
 
   (use-package hide-mode-line
     :hook
@@ -623,6 +643,9 @@ The default mode line is ugly, so this package replaces it with one that looks l
     (term-mode . hide-mode-line-mode)
     (neotree-mode . hide-mode-line-mode))
 #+END_SRC
+
+#+RESULTS:
+| hide-mode-line-mode | (lambda nil (define-key evil-normal-state-local-map (kbd SPC) 'neotree-quick-look) (define-key evil-normal-state-local-map (kbd RET) 'neotree-enter) (define-key evil-normal-state-local-map (kbd g) 'neotree-refresh) (define-key evil-normal-state-local-map (kbd n) 'neotree-next-line) (define-key evil-normal-state-local-map (kbd p) 'neotree-previous-line) (define-key evil-normal-state-local-map (kbd A) 'neotree-stretch-toggle) (define-key evil-normal-state-local-map (kbd H) 'neotree-hidden-file-toggle)) | (lambda nil (display-line-numbers-mode 0)) |
 
 ** Minimap
 
@@ -636,7 +659,7 @@ Here, we install a minimap.
           minimap-width-fraction 0.1
           minimap-minimum-width 10
           minimap-major-modes '(text-mode prog-mode))
-    :init (minimap-mode))
+    :init (minimap-mode 0))
 #+end_src
 
 ** Undo-tree
@@ -1111,7 +1134,6 @@ More languages for babel
      (emacs-lisp . t)))
 
 #+end_src
-
 
 ** Present
 

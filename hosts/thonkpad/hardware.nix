@@ -41,4 +41,8 @@
   swapDevices =
     [ { device = "/dev/disk/by-label/swap"; } ];
 
+  
+  environment.systemPackages = with pkgs; [
+    linuxPackages_xanmod.r8168
+  ];
 }

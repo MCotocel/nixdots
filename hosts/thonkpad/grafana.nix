@@ -1,6 +1,12 @@
 { config, pkgs, ... }:
 
 {
+
+  environment.systemPackages = with pkgs; [
+    influxdb
+    telegraf
+  ];
+
   # Telegraf
   services.telegraf = {
     enable = true;

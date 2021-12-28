@@ -1,25 +1,25 @@
 :root {
-  --background-primary : #181e23;
-  --background-secondary : #181e23;
-  --background-secondary-alt : #1f252a;
-  --background-tertiary : #181e23;
-  --background-floating : #1f252a;
-  --header-primary : #d5d5d5;
+  --background-primary: #181e23;
+  --background-secondary: #1f252a;
+  --background-secondary-alt: #1f252a;
+  --background-tertiary: #1f252a;
+  --background-floating: #1f252a;
+  --header-primary: #d5d5d5;
 
-  --interactive-normal : #d5d5d5;
-  --interactive-hover : #ffffff;
-  --interactive-active : #ffffff;
-  --interactive-muted : #d5d5d5;
+  --interactive-normal: #d5d5d5;
+  --interactive-hover: #ffffff;
+  --interactive-active: #ffffff;
+  --interactive-muted: #d5d5d5;
 
-  --text-normal : #d5d5d5;
-  --text-link : #80d1ff;
-  --text-muted : #d5d5d5;
+  --text-normal: #d5d5d5;
+  --text-link: #80d1ff;
+  --text-muted: #d5d5d5;
 
-  --channeltextarea-background : #181e23;
+  --channeltextarea-background: #1f252a;
 
-  --text-warning : #ff8080;
+  --text-warning: #ff8080;
 
-  --brand-experiment : #1f252a !important;
+  --brand-experiment: #1f252a !important;
 }
 
 .container-1D34oG > div {
@@ -31,8 +31,8 @@
 }
 
 .sidebar-2K8pFh {
-  width : 0;
-  transition : width 0.5s;
+  width: 0;
+  transition : width 0.3s;
 }
 
 .guilds-1SWlCJ:hover + .base-3dtUhz .sidebar-2K8pFh,
@@ -46,11 +46,7 @@
   min-width : 0;
 }
 
-.panels-j1ci_ {
-  border-radius: 0 15px 0 0;
-}
-
 .root-1gCeng,
 .footer-2gL1pp {
-  background-color: var(--background-primary) !important;
+  background-color: var(--background-secondary) !important;
 }

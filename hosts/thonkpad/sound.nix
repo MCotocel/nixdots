@@ -17,6 +17,24 @@
     enable = false;
   };
 
+
+  environment.systemPackages = with pkgs; [
+    alsa-utils
+    easyeffects
+    mopidy
+    mpv
+    ncmpcpp
+    pamixer
+    pavucontrol
+    playerctl
+    pulseaudio
+    spotify
+    vlc
+    pulsemixer
+    mpc_cli
+    mpd
+  ];
+
   # Mopidy
   services.mopidy = {
     enable = false;

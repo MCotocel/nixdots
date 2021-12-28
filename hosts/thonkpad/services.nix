@@ -45,6 +45,7 @@
   programs.steam.enable = true;
   services.gvfs.enable = true;
   services.locate.enable = true;
+  programs.weylus.enable = true;
 
   services.unclutter = {
     enable = true;
