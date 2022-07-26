@@ -34,7 +34,7 @@
                 withGTK3 = true;
               };
             })
-            f2k.overlay # Fortuneteller2k's overlays, mostly for awesome-git
+            f2k.overlays.default # Fortuneteller2k's overlays, mostly for awesome-git
             ]; }
 	      ./hosts/thonkpad/configuration.nix # Load main config for thonkpad
         ]; };

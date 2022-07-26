@@ -69,7 +69,6 @@
     shellcheck
     speedtest-cli
     sqlite
-    telnet
     ueberzug
     ];
 

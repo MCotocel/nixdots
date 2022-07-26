@@ -1,12 +1,12 @@
-[submodule "config/awesome/modules/bling"]
-	path = config/awesome/modules/bling
-	url = https://github.com/blingcorp/bling
-[submodule "config/awesome/modules/awesome-revelation"]
-	path = config/awesome/modules/awesome-revelation
-	url = https://github.com/guotsuan/awesome-revelation
-[submodule "config/awesome/modules/layout-machi"]
-	path = config/awesome/modules/layout-machi
-	url = https://github.com/xinhaoyuan/layout-machi
-[submodule "modules/kmonad"]
-	path = modules/kmonad
-	url = https://github.com/kmonad/kmonad
+#[submodule "config/awesome/modules/bling"]
+#	path = config/awesome/modules/bling
+#	url = https://github.com/blingcorp/bling
+#[submodule "config/awesome/modules/awesome-revelation"]
+#	path = config/awesome/modules/awesome-revelation
+#	url = https://github.com/guotsuan/awesome-revelation
+#[submodule "config/awesome/modules/layout-machi"]
+#	path = config/awesome/modules/layout-machi
+#	url = https://github.com/xinhaoyuan/layout-machi
+#[submodule "modules/kmonad"]
+#	path = modules/kmonad
+#	url = https://github.com/kmonad/kmonad
