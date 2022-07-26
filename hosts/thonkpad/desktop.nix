@@ -5,7 +5,7 @@ let
 in {
 
   environment.systemPackages = with pkgs; [
-    aseprite
+    #aseprite
     baobab
     bleachbit
     blender
@@ -29,7 +29,7 @@ in {
     gnome.gnome-disk-utility
     gnome.nautilus
     gnome.gnome-system-monitor
-    googleearth-pro
+    #googleearth-pro
     i3lock-color
     inkscape
     kid3

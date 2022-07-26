@@ -21,7 +21,7 @@
         modules = [
           agenix.nixosModules.age # Agenix, will use it later
 	        home-manager.nixosModules.home-manager {
-              home-manager.users.matei = import /etc/nixos/hosts/thonkpad/home.nix; # Home-manager for managing dotfiles
+              home-manager.users.matei = import ./hosts/thonkpad/home.nix; # Home-manager for managing dotfiles
 	        }
 	      { nixpkgs.overlays = [
             nur.overlay # Nix User Repository, for user-maintained packages

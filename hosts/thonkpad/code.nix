@@ -48,7 +48,7 @@
       tmux
       tokei
       trash-cli
-      unityhub
+      #unityhub
       vim
       vscode
       wget
