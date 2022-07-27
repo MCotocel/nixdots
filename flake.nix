@@ -38,14 +38,6 @@
             ]; }
 	      ./hosts/thonkpad/configuration.nix # Load main config for thonkpad
         ]; };
-
-      applepie = (lib.makeOverridable lib.nixosSystem) {
-        system = "aarch64-linux"; # It's a Raspberry Pi 4, it uses an ARM processor
-        modules = [
-	        ./hosts/applepie/configuration.nix # Load main config for applepie
-        ];
-      };
-
     };
   };
 }
