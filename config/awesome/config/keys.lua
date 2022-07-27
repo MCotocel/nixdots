@@ -268,7 +268,7 @@ awful.key({}, "XF86AudioMute", function()
 }),
 
 -- Next song
-awful.key({modkey}, "XF86AudioRaiseVolume", function()
+awful.key({}, "XF86AudioNext", function()
       awful.spawn.with_shell("playerctl next")
       end, {
       description = "Next song",
@@ -276,7 +276,7 @@ awful.key({modkey}, "XF86AudioRaiseVolume", function()
 }),
 
 -- Previous song
-awful.key({modkey}, "XF86AudioLowerVolume", function()
+awful.key({}, "XF86AudioPrev", function()
       awful.spawn.with_shell("playerctl previous")
       end, {
       description = "Previous song",
@@ -284,7 +284,7 @@ awful.key({modkey}, "XF86AudioLowerVolume", function()
 }),
 
 -- Toggle song
-awful.key({modkey}, "XF86AudioMute", function()
+awful.key({}, "XF86AudioPlay", function()
       awful.spawn.with_shell("playerctl play-pause")
       end, {
       description = "Toggle song",

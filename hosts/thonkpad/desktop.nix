@@ -23,7 +23,6 @@ in {
     fractal
     gimp
     giph
-    gnome.geary
     gnome.gnome-calendar
     gnome.gnome-chess
     gnome.gnome-dictionary
@@ -61,6 +60,7 @@ in {
     teams
     tesseract
     texlive.combined.scheme-full
+    thunderbird
     twemoji-color-font
     twitter-color-emoji
     usbutils
@@ -156,4 +156,5 @@ in {
   ];
 
   services.autorandr.enable = true;
+  
 }
