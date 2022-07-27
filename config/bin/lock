@@ -1,11 +1,11 @@
 sleep 0.5
 brightnessctl | grep -i 'current brightness' | xargs | sed 's/Current\ brightness:\ [[:digit:]]*\ //g' | sed 's/[\(\)]//g' > /tmp/old-brightness
 maim /tmp/screen
-convert -filter Gaussian -resize 20% -define "filter:sigma=1.5" -resize 1366x786 /tmp/screen /tmp/screen
+convert -filter Gaussian -resize 20% -define "filter:sigma=1.5" -resize $(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1)x$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f2) /tmp/screen /tmp/screen
 convert /tmp/screen -gravity Center -family "Iosevka" -style normal -pointsize 250 -fill White -draw "translate -0,-800 text +0,+700 ''" /tmp/screen
 convert /tmp/screen -gravity Center -family "Iosevka" -style normal -pointsize 50 -fill White -draw "translate -0,-800 text +0,+900 'Type password to unlock...'" /tmp/screen
 brightnessctl s 10%
 
-i3lock-color -i /tmp/screen --verif-text="" --wrong-text="" --noinput-text="" --indicator --inside-color=ffffff00 --ring-color=ffffffff --insidever-color=ffffff00 --ringver-color=ffffffff --insidewrong-color=ff808000 --ringwrong-color=ff8080ff --line-color=ffffffff --keyhl-color=181e23ff --bshl-color=181e23ff --separator-color=ffffffff --verif-text="" --wrong-text="" --noinput-text="" --lock-text="" --lockfailed-text="" --no-modkey-text --ind-pos="682:295" --radius 140 --ring-width 15
+i3lock-color -i /tmp/screen --verif-text="" --wrong-text="" --noinput-text="" --bar-indicator --verif-text="" --wrong-text="" --noinput-text="" --lock-text="" --lockfailed-text="" --no-modkey-text --bar-color "#ffffff00" --bar-max-height "100" --bar-count "50" --redraw-thread --keyhl-color "#181e23" --ringver-color "#ACE1FF" --ringwrong-color "#FF8080"
 
 brightnessctl s $(cat /tmp/old-brightness)

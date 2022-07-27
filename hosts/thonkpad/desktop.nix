@@ -6,6 +6,7 @@ in {
 
   environment.systemPackages = with pkgs; [
     #aseprite
+    obsidian
     baobab
     bleachbit
     blender
@@ -81,6 +82,8 @@ in {
 
   # Touchegg
   services.touchegg.enable = true;
+
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   # X11
   services.xserver = {

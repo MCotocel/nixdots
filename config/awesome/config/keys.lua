@@ -1,4 +1,5 @@
 local awful = require("awful")
+local gears = require("gears")
 require("awful.autofocus")
 
 local hotkeys_popup = require("awful.hotkeys_popup")
@@ -8,10 +9,10 @@ local machi = require("modules.layout-machi")
 local revelation = require("modules.awesome-revelation")
 
 -- Mouse Bindings
-awful.mouse.append_global_mousebindings({
-    awful.button({}, 8, awful.tag.viewprev),
-    awful.button({}, 9, awful.tag.viewnext)
-})
+root.buttons(gears.table.join(
+    awful.button({ }, 13, awful.tag.viewnext),
+    awful.button({ }, 12, awful.tag.viewprev)
+))
 
 awful.keyboard.append_global_keybindings({
 
@@ -310,6 +311,8 @@ awful.key({}, "XF86MonBrightnessDown", function()
 
 client.connect_signal("request::default_mousebindings", function()
     awful.mouse.append_client_mousebindings({
+        awful.button({ }, 13, function(t) awful.tag.viewnext(1) end),
+        awful.button({ }, 12, function(t) awful.tag.viewprev(1) end),
         awful.button({}, 1, function (c)
             c:activate { context = "mouse_click" }
         end),

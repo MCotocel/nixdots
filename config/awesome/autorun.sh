@@ -5,8 +5,14 @@ sh ~/.config/awesome/preflightchecks.sh
 pkill kmonad
 kmonad ~/.config/kmonad/kmonad.kbd &
 
+# Xinput
+xinput set-button-map 17 1 2 3 4 5 6 7 12 13 0 0 0 0 0 0
+
 # Xresources
 xrdb -merge ~/.Xresources
+
+# Discocss
+discocss & sleep 2; pkill Discord
 
 # Compositor
 picom &
