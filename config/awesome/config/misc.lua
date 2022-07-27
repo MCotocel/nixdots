@@ -37,23 +37,23 @@ machi.editor.nested_layouts = {
     ["4"] = bling.layout.mstab,
 }
 
-bling.module.wallpaper.setup {
-  wallpaper = {"/home/matei/Pictures/Wallpaper/Leafs.jpg"},
-  position = "maximized",
-}
+-- bling.module.wallpaper.setup {
+--   wallpaper = {"/home/matei/Pictures/Wallpaper/City.jpg"},
+--   position = "maximized",
+-- }
 
---awful.screen.connect_for_each_screen(function(s)
---    bling.module.tiled_wallpaper("", s, {
---        fg = "#1f252a",
---        bg = "#181e23",
---        offset_y = 0,
---        offset_x = 0,
---        font = "Iosevka Nerd Font",
---        font_size = 12,
---        padding = 75,
---        zickzack = true
---    })
---end)
+awful.screen.connect_for_each_screen(function(s)
+    bling.module.tiled_wallpaper("", s, {
+        fg = "#1f252a",
+        bg = "#181e23",
+        offset_y = 0,
+        offset_x = 0,
+        font = "Iosevka Nerd Font",
+        font_size = 12,
+        padding = 75,
+        zickzack = true
+    })
+end)
 
 -- Flash focus
 bling.module.flash_focus.disable()
