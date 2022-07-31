@@ -1,21 +1,14 @@
-# Pre-flight checks
-sh ~/.config/awesome/preflightchecks.sh
+# Compositor
+picom &
 
-# Kmonad
-pkill kmonad
-kmonad ~/.config/kmonad/kmonad.kbd &
+# Music
+mpd
 
 # Xinput
 xinput set-button-map 17 1 2 3 4 5 6 7 12 13 0 0 0 0 0 0
 
 # Xresources
 xrdb -merge ~/.Xresources
-
-# Discocss
-discocss & sleep 2; pkill Discord
-
-# Compositor
-picom &
 
 # Cursor
 xsetroot -cursor_name arrow
@@ -32,3 +25,7 @@ blueman-applet &
  
 # Emacs daemon
 emacs --daemon
+
+# Discocss
+discocss & sleep 2; pkill Discord
+

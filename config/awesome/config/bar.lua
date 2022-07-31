@@ -293,11 +293,7 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Battery
-    local battery = awful.widget.watch('bash -c "echo `cat /sys/class/power_supply/BAT0/capacity`%"', 15)
-    local battery_img = {
-       image = beautiful.pfp,
-       widget = wibox.widget.imagebox
-    }
+    local battery = awful.widget.watch('bash -c "echo -n Bat: `cat /sys/class/power_supply/BAT0/capacity`%"', 15)
 
     local battery_container = {
         battery,
@@ -307,37 +303,18 @@ awful.screen.connect_for_each_screen(function(s)
         widget = wibox.container.margin
     }
 
-    local battery_img_container = {
-        battery_img,
-        top = dpi(2),
-        bottom = dpi(2),
-        bg = beautiful.bg_systray,
-        widget = wibox.container.margin
-    }
-
     local final_battery = wibox.widget {
-        {
-            battery_img_container,
-            top = dpi(3),
-            bottom = dpi(3),
-            left = dpi(1),
-            right = dpi(1),
-            bg = beautiful.bg_systray,
-            layout = wibox.container.margin
-        },
         {
             battery_container,
             top = dpi(6),
             bottom = dpi(6),
             left = dpi(3),
             right = dpi(3),
-            bg = beautiful.bg_systray,
             layout = wibox.container.margin
         },
         bg = beautiful.bg_systray,
         shape = gears.shape.rounded_rect,
-        widget = wibox.container.background,
-        layout = wibox.layout.align.horizontal
+        widget = wibox.container.background
     }
 
     local battery_tooltip = awful.tooltip
@@ -350,6 +327,31 @@ awful.screen.connect_for_each_screen(function(s)
         bg = beautiful.bg_diff,
         align = "top_left",
         margins = dpi(5)
+    }
+
+    -- Volume
+    local volume = awful.widget.watch('bash -c \" echo -n Vol: `pamixer --get-volume`"', 0.1)
+
+    local volume_container = {
+        volume,
+        left = dpi(8),
+        right = dpi(8),
+        bg = beautiful.bg_systray,
+        widget = wibox.container.margin
+    }
+
+    local final_volume = wibox.widget {
+        {
+            volume_container,
+            top = dpi(6),
+            bottom = dpi(6),
+            left = dpi(3),
+            right = dpi(3),
+            layout = wibox.container.margin
+        },
+        bg = beautiful.bg_systray,
+        shape = gears.shape.rounded_rect,
+        widget = wibox.container.background
     }
 
     -- Menu
@@ -444,6 +446,7 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             wibox.container.margin(final_clock, dpi(3), dpi(3), dpi(3), dpi(3)),
+            wibox.container.margin(final_volume, dpi(3), dpi(3), dpi(3), dpi(3)),
             wibox.container.margin(final_battery, dpi(3), dpi(3), dpi(3), dpi(3)),
             wibox.container.margin(final_systray, dpi(3), dpi(3), dpi(3), dpi(3)),
             wibox.container.margin(final_layoutbox, dpi(3), dpi(3), dpi(3), dpi(3))

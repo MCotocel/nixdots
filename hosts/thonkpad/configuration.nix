@@ -2,7 +2,7 @@
 
 {
 
-  imports = [
+  imports = [ # Bringing everything in
     ./code.nix
     ./desktop.nix
     ./gaming.nix
@@ -23,33 +23,27 @@
 
   users.groups = { uinput = {}; };
 
-  users.users.matei = {
+  users.users.matei = { # That's me
     isNormalUser = true;
     extraGroups = [ "wheel" "video" "libvirtd" "input" "uinput" ];
     shell = pkgs.zsh;
-    initialPassword = "1234";
+    initialPassword = "1234"; # I always change this don't worry
   };
 
-  #services.udev.extraRules =
-  #  ''
-  #    # KMonad user access to /dev/uinput
-  #    KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"
-  #  '';
-
   boot = {
-    binfmt.emulatedSystems = [ "aarch64-linux" ];
+    binfmt.emulatedSystems = [ "aarch64-linux" ]; # For my Raspberry Pi
     cleanTmpDir = true;
   };
 
-  console.colors = [ "181e23" "ff8080" "97d59b" "fffe80" "80d1ff" "c780ff" "80ffe4" "d5d5d5" "ffaeae" "bef8c1" "fcfba6" "ace1ff" "d8a8ff" "a2ffeb" "ffffff" ];
+  console.colors = [ "181e23" "ff8080" "97d59b" "fffe80" "80d1ff" "c780ff" "80ffe4" "d5d5d5" "ffaeae" "bef8c1" "fcfba6" "ace1ff" "d8a8ff" "a2ffeb" "ffffff" ]; # Easier on the eyes
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "ffmpeg-3.4.8"
+  nixpkgs.config.permittedInsecurePackages = [ # Sorry
+     "ffmpeg-3.4.8"
      "libav-12.3"
      "googleearth-pro-7.3.4.8248"
   ];
 
-  nixpkgs.config.allowBroken = true;
+  nixpkgs.config.allowBroken = true; # I mess around with NixOS a lot
 
-  system.stateVersion = "21.11";
+  system.stateVersion = "22.11"; # Current system version
 }

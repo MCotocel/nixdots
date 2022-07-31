@@ -2,88 +2,83 @@
 
 {
   environment = {
-
     systemPackages = with pkgs; [
-      #emacsGit
-      arduino
-      aria
-      atom
-      bash
-      bat
-      cava
-      cmake
-      cmatrix
-      coreutils
-      cowsay
-      direnv
-      emacs
-      emacs-all-the-icons-fonts
-      exa
-      fd
-      feh
-      ffmpeg
-      file
-      fzf
-      gcc
-      gh
-      git
-      github-desktop
-      gource
-      handbrake
-      htop
-      imagemagick
-      jq
-      lshw
-      lua
-      lynis
-      neofetch
-      neovim
-      nodejs
-      onefetch
-      openjdk
-      pfetch
-      ps_mem
-      python39
-      ripgrep
-      tmux
-      tokei
-      trash-cli
-      #unityhub
-      vim
-      vscode
-      wget
-      xorg.xev
-      youtube-dl
-      zsh
-    ispell
-    isync
-    manix
-    mesa-demos
-    mu
-    ncdu
-    nvd
-    openimagedenoise
-    pciutils
-    radeontop
-    ranger
-    shellcheck
-    speedtest-cli
-    sqlite
-    ueberzug
+      arduino # I mess around with it occasionally
+      aria # For downloading stuff
+      bash # Gotta have bash
+      bat # Cat but better
+      cava # Move to audio
+      cmake # Necessary
+      coreutils # Necessary
+      cowsay # My machine cannot run without this
+      direnv # Need to implement this sometime
+      emacs # The best text editor
+      emacs-all-the-icons-fonts # Fonts for Emacs
+      exa # ls but better
+      fd # Find but better
+      feh # Image viewer for the terminal
+      ffmpeg # I deal with a lot of videos, okay?
+      file # No more asking yourself what file it is
+      fzf # Fuzzy finder, pretty useful
+      gcc # Necessary
+      gh # Github's CLI tool
+      git # Use it every day
+      github-desktop # Ocassionally useful
+      gource # Nice for visualising repo history
+      handbrake # Again, I deal with videos
+      htop # Why is my laptop so hot? Oh yeah I'm compiling 20 programs while running two games
+      imagemagick # Really useful for scripts
+      ispell # Spell checking
+      isync # For mail
+      jq # For when you have to deal with json
+      lshw # Diagnostic time!
+      lua # Big fan of AwesomeWM
+      lynis # Security audits. Although passwordless doas probably undermines all of it
+      manix # Nix help
+      mesa-demos # Checking if my GPU works
+      mu # For mail
+      ncdu # What the hell is taking up so much disk space? Oh
+      neofetch # Everyone loves neofetch
+      neovim # The second-best editor. For when Emacs doesn't work
+      nodejs # Some programs need it
+      nvd # Package version diff tool for Nix
+      nvtop # Top, but for nvidia
+      onefetch # Neofetch but for git repos
+      openimagedenoise # Denoising images
+      openjdk # Java
+      pciutils # I love diagnosing my system
+      ps_mem # (Why is Emacs using so much RAM?)
+      python311 # I know Python better than I know most languages
+      ranger # Terminal file manager
+      ripgrep # Grep but better
+      shellcheck # Checking my crappy shell code
+      speedtest-cli # Testing my internet speed from the terminal
+      sqlite # Databases and stuff
+      tmux # A terminal multiplexer
+      tokei # Counting lines of code
+      trash-cli # Trash instead of delete
+      ueberzug # Images in terminal (again for some reason)
+      vim # The original (not quite)
+      vscode # For emergencies
+      wget # For downloading web pages and stuff
+      xorg.xev # Good for scripts
+      youtube-dl # For downloading videos
+      zsh # The better shell
     ];
 
-    shellAliases = {
+    shellAliases = { # Loads of aliases
       ls = "exa";
       la = "exa -a";
       ll = "exa -la";
       lt = "exa -lT";
       lat = "exa -laT";
 
+      cat = "bat";
+
       magit = "emacsclient -c -e '(magit-status)'";
       elfeed = "emacsclient -c -e '(elfeed)'";
       
       rm = "trash";
-      oh = "fuck";
       
       ta = "tmux attach -t";
       tn = "tmux new-session -s";
@@ -95,7 +90,7 @@
       purge = "doas sync; echo 3 | doas tee /proc/sys/vm/drop_caches";
     };
 
-    variables = {
+    variables = { # Some variables cause variables are cool
       EDITOR = "emacsclient -c --alternate-editor=nvim";
       VISUAL = "emacsclient -c --alternate-editor=nvim";
       BAT_THEME = "base16";
@@ -106,7 +101,7 @@
 
   programs.command-not-found.enable = true;
 
-  programs.zsh = {
+  programs.zsh = { # ZSH is cool too
     enable = true;
     ohMyZsh.enable = true;
     autosuggestions.enable = true;
@@ -114,5 +109,5 @@
   };
 
   programs.thefuck.enable = true;
-  programs.thefuck.alias = "oh";
+  programs.thefuck.alias = "oh"; # Let's make it a bit more... yeah
 }

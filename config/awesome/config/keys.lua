@@ -44,7 +44,7 @@ awful.key({modkey}, "b", function()
 
 -- Toggle dashboard
 awful.key({modkey}, "w", function()
-      awesome.emit_signal("toggle::dash")
+      for s in screen do s.dashboard.visible = not s.dashboard.visible end
     end, {
     description = 'Toggle dashboard', group = "AwesomeWM"
 }),
@@ -243,8 +243,7 @@ awful.key({modkey}, "/", hotkeys_popup.show_help, {
 
 -- Volume up
 awful.key({}, "XF86AudioRaiseVolume", function()
-      awesome.emit_signal("volume_change")
-      awful.spawn.with_shell("pactl set-sink-volume 0 +5%")
+      awful.spawn.with_shell("pamixer --increase 5")
       end, {
       description = "Volume up",
       group = "Various functions"
@@ -252,8 +251,7 @@ awful.key({}, "XF86AudioRaiseVolume", function()
 
 -- Volume down
 awful.key({}, "XF86AudioLowerVolume", function()
-      awesome.emit_signal("volume_change")
-      awful.spawn.with_shell("pactl set-sink-volume 0 -5%")
+      awful.spawn.with_shell("pamixer --decrease 5")
       end, {
       description = "Volume down",
       group = "Various functions"
@@ -261,7 +259,7 @@ awful.key({}, "XF86AudioLowerVolume", function()
 
 -- Toggle mute
 awful.key({}, "XF86AudioMute", function()
-      awful.spawn.with_shell("pactl set-sink-mute 0 toggle")
+      awful.spawn.with_shell("amixer set Master toggle")
       end, {
       description = "Toggle mute",
       group = "Various functions"
@@ -330,7 +328,7 @@ awful.keyboard.append_global_keybindings({
         modifiers = { modkey },
         keygroup = "numrow",
         description = "Only view tag",
-        group = "Tag",
+        group = "Tags",
         on_press = function (index)
             local screen = awful.screen.focused()
             local tag = screen.tags[index]

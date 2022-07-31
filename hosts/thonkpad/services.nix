@@ -1,24 +1,22 @@
 { config, pkgs, ... }:
 
 {
-  virtualisation.libvirtd ={
+  virtualisation.libvirtd = { # VMs are cool (and useful)
     enable = false;
     qemu.ovmf.enable = true;
     onBoot = "ignore";
     onShutdown = "shutdown";
   };
 
-  #programs.dconf.enable = true;
-
-  services.printing = {
+  services.printing = { # I need to print stuff off sometimes
     enable = true;
     drivers = [ pkgs.hplip ];
   };
 
-  hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
+  hardware.bluetooth.enable = true; # Bluetooth cause why not
+  services.blueman.enable = true; # Bluetooth GUI
 
-  services.clamav = {
+  services.clamav = { # Antivirus for those weakling Windows users
     daemon.enable = false;
     updater = {
       enable = false;
@@ -27,32 +25,28 @@
     };
   };
 
-  services.syncthing = {
+  services.syncthing = { # Syncing files
     enable = true;
     user = "matei";
     dataDir = "/home/matei";
   };
 
-  boot.plymouth = {
-    enable = true;
+  boot.plymouth = { # Cool startup splash screen
+    enable = false;
     theme = "spinfinity";
   };
 
-  services.logind.lidSwitch = "suspend";
-  services.logind.lidSwitchDocked = "ignore";
-  services.logind.lidSwitchExternalPower = "ignore";
+  services.logind.lidSwitch = "suspend"; # Power settings
+  services.logind.lidSwitchDocked = "ignore"; # Quick access while plugged in
+  services.logind.lidSwitchExternalPower = "ignore"; # Quick access while plugged in
 
-  programs.steam.enable = true;
-  services.gvfs.enable = true;
-  services.locate.enable = true;
-  programs.weylus.enable = true;
+  programs.steam.enable = true; # I like my games
+  services.gvfs.enable = true; # For the Gnome apps
+  services.locate.enable = true; # Locating files quickly
+  programs.weylus.enable = true; # Sometimes use my tablet with this
 
-  services.unclutter = {
+  services.unclutter = { # Decluttering stuff
     enable = true;
     timeout = 3;
   };
-
-  services.xrdp = {
-    enable = true;
-   };
 }

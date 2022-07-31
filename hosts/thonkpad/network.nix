@@ -5,7 +5,7 @@
   networking = {
     hostName = "thonkpad"; # Hostname
     useDHCP = false; # Deprecated, so set explicitly to false
-    wireless.enable = false;
+    wireless.enable = false; # Using networkmanager instead
     networkmanager.enable = true; # Enable networkmanager
     firewall.enable = false; # Stay out, hackers
     firewall.allowedTCPPorts = [
@@ -19,7 +19,7 @@
   services.openssh.enable = true; # Secure shell
   services.openssh.forwardX11 = true; # Forwarding X11
 
-  services.avahi = {
+  services.avahi = { # For my NAS
     enable = true;
     nssmdns = true;
   };

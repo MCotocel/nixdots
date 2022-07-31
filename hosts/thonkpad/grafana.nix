@@ -2,13 +2,13 @@
 
 {
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [ # Packages needed
     influxdb
     telegraf
   ];
 
   # Telegraf
-  services.telegraf = {
+  services.telegraf = { # For collection
     enable = true;
     extraConfig = {
       outputs = {
@@ -47,7 +47,7 @@
   };
 
   # Grafana
-  services.grafana = {
+  services.grafana = { # For displaying
     enable = true;
     port = 3000;
     domain = "localhost";
@@ -56,7 +56,7 @@
   };
 
   # Influxdb
-  services.influxdb = {
+  services.influxdb = { # Also for collection
     enable = true;
   };
 }

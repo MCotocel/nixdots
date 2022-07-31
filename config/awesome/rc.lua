@@ -32,7 +32,7 @@ naughty.connect_signal("request::display_error", function(message, startup)
 end)
 
 -- Autostart stuff
-awful.spawn.once("~/.config/awesome/autorun.sh")
+awful.spawn.with_shell("~/.config/awesome/autorun.sh")
 
 terminal = "wezterm" -- Lua superiority
 editor = os.getenv("EDITOR") or "vim" -- Lisp superiority (my default editor is emacs)
@@ -47,6 +47,9 @@ require("config.keys")
 -- Bar config
 require("config.bar")
 
+-- Dashboard config
+require("widgets.main")
+
 -- Titlebar config
 require("config.titlebar")
 
@@ -55,11 +58,6 @@ require("config.rules")
 
 -- Misc config
 require("config.misc")
-
--- Widgets
-require("widgets.brightness")
-require("widgets.volume")
---require("widgets.center")
 
 -- Battery warning
 require("config.battery-warning")

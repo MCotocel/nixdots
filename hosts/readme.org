@@ -4,7 +4,7 @@ All hosts are named after whatever I want them to. Usually related to the produc
 
 * Thonkpad
 
-- Thinkpad E580
+- Lenovo Legion 5 (Not a Thinkpad sadly)
 - Runs NixOS
 - Main (Linux) machine
 - Quite capable, used for pretty much everything

@@ -2,9 +2,8 @@
 
 {
   # Sound
-  sound.enable = false;
-  hardware.pulseaudio.enable = false; # Pulseaudio
-  services.pipewire = {
+  sound.enable = false; # We want to use pipewire
+  services.pipewire = { # Why? Because pipewire is hip and trendy
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
@@ -13,40 +12,52 @@
   };
 
   # Mpd
-  services.mpd = {
+  services.mpd = { # Mopidy > mpd
     enable = false;
+    musicDirectory = "/home/matei/Music";
+    extraConfig = ''
+      audio_output {
+        type "pulse"
+        name "Pulseaudio"
+        server "127.0.0.1" # add this line - MPD must connect to the local sound server
+      }
+    '';
+    network.listenAddress = "any";
   };
 
 
   environment.systemPackages = with pkgs; [
-    alsa-utils
-    easyeffects
-    mopidy
-    mpv
-    ncmpcpp
-    pamixer
-    pavucontrol
-    playerctl
-    pulseaudio
-    spotify
-    vlc
-    pulsemixer
-    mpc_cli
-    mpd
+    alsa-utils # Utlities for also
+    easyeffects # Audio effects
+    mopidy # Mpd but better
+    mpv # Video player
+    ncmpcpp # Mopidy front end
+    pamixer # CLI mixer
+    pavucontrol # GUI mixer
+    playerctl # Song control
+    pulseaudio # For some apps
+    spotify # I love music
+    vlc # GUI video player
+    pulsemixer # TUI mixer
+    mpc_cli # MPD cli client
+    mpd # MPD
   ];
 
   # Mopidy
   services.mopidy = {
-    enable = false;
+    enable = false; # Can't be bothered right now
     extensionPackages = [
-      pkgs.mopidy-mpd
-      pkgs.mopidy-youtube
+      pkgs.mopidy-mpd # Play from MPD
+      pkgs.mopidy-youtube # Play from Youtube
     ];
     configuration = ''
+      [local]
+      enabled = true
+      media_dirs =~/|Home
+
       [file]
       enabled = true
       media_dirs =
-        /Volumes/PiNAS/Media/Music|External
         ~/Mount/Media/Music|Homternal
         ~/|Home
       excluded_file_extensions = .nfo
@@ -55,6 +66,8 @@
       
       [mpd]
       enabled = true
+      hostname = 127.0.0.1
+      port = 6600
 
       [youtube]
       enabled = true

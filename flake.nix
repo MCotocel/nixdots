@@ -16,7 +16,7 @@
 
     in {
 
-      thonkpad = (lib.makeOverridable lib.nixosSystem) {
+      thonkpad = (lib.makeOverridable lib.nixosSystem) { # It's not a thonkpad, I just can't be bothered to change the name
         system = "x86_64-linux"; # Like most laptops and desktops
         modules = [
           agenix.nixosModules.age # Agenix, will use it later

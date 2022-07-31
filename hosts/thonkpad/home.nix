@@ -1,15 +1,15 @@
 { config, pkgs, lib, ... }:
 
 {
-  programs.home-manager.enable = true;
-  programs.ncmpcpp.enable = true;
+  programs.home-manager.enable = true; # Enabling home-manager, really useful
+  programs.ncmpcpp.enable = true; # Confusing acronym but good program
 
-  home.username = "matei";
-  home.homeDirectory = "/home/matei";
+  home.username = "matei"; # Yes, that is my name
+  home.homeDirectory = "/home/matei"; # Directory path
 
-  home.stateVersion = "21.11";
+  home.stateVersion = "21.11"; # Version
 
-  home.file = {
+  home.file = { # Files and stuff
     "Pictures/Wallpaper".source             = ../../config/wallpaper;
     ".bin".source                           = ../../config/bin;
     ".config/discocss/custom.css".source    = ../../config/discocss/custom.css;
@@ -21,17 +21,18 @@
     ".config/gtk-3.0/settings.ini".source   = ../../config/gtk/gtk3;
     ".config/touchegg/touchegg.conf".source = ../../config/touchegg/touchegg.conf;
 
-    ".config/awesome".source     = ../../config/awesome;
-    ".config/bspwm".source       = ../../config/bspwm;
-    ".config/cava".source        = ../../config/cava;
-    ".config/kmonad".source      = ../../config/kmonad;
-    ".config/ncmpcpp".source     = ../../config/ncmpcpp;
-    ".config/neofetch".source    = ../../config/neofetch;
-    ".config/picom".source       = ../../config/picom;
-    ".config/rofi".source        = ../../config/rofi;
-    ".config/sxhkd".source       = ../../config/sxhkd;
-    ".config/wezterm".source     = ../../config/wezterm;
-    ".config/zathura".source     = ../../config/zathura;
+    ".config/awesome".source      = ../../config/awesome;
+    ".config/bspwm".source        = ../../config/bspwm;
+    ".config/cava".source         = ../../config/cava;
+    ".config/kmonad".source       = ../../config/kmonad;
+    ".config/mpd/mpd.conf".source = ../../config/mpd/mpd.conf;
+    ".config/ncmpcpp".source      = ../../config/ncmpcpp;
+    ".config/neofetch".source     = ../../config/neofetch;
+    ".config/picom".source        = ../../config/picom;
+    ".config/rofi".source         = ../../config/rofi;
+    ".config/sxhkd".source        = ../../config/sxhkd;
+    ".config/wezterm".source      = ../../config/wezterm;
+    ".config/zathura".source      = ../../config/zathura;
 
     # Ranger
     ".config/ranger/rc.conf".source    = ../../config/ranger/rc.conf;
