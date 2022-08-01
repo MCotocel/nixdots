@@ -30,17 +30,20 @@
     alsa-utils # Utlities for also
     easyeffects # Audio effects
     mopidy # Mpd but better
+    mpc_cli # MPD cli client
+    mpd # MPD
+    mpd-discord-rpc # Discord rich presence
+    mpd-mpris # Control mpd with audio keys
+    mpdevil # MPD GUI client
     mpv # Video player
     ncmpcpp # Mopidy front end
     pamixer # CLI mixer
     pavucontrol # GUI mixer
     playerctl # Song control
     pulseaudio # For some apps
+    pulsemixer # TUI mixer
     spotify # I love music
     vlc # GUI video player
-    pulsemixer # TUI mixer
-    mpc_cli # MPD cli client
-    mpd # MPD
   ];
 
   # Mopidy

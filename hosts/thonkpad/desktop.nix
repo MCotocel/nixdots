@@ -4,6 +4,7 @@ let
   kmonad =  import ../../derivations/kmonad.nix;
 in {
   environment.systemPackages = with pkgs; [
+    arandr # Xrandr GUI
     aseprite # Pixel art is cool
     baobab # For checking what's taking up so much disk space
     bleachbit # For removing the files taking up so much disk space

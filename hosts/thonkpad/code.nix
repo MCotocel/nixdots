@@ -58,6 +58,7 @@
       tokei # Counting lines of code
       trash-cli # Trash instead of delete
       ueberzug # Images in terminal (again for some reason)
+      unzip # For unzipping archives
       vim # The original (not quite)
       vscode # For emergencies
       wget # For downloading web pages and stuff

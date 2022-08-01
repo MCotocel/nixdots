@@ -25,7 +25,7 @@
     ".config/bspwm".source        = ../../config/bspwm;
     ".config/cava".source         = ../../config/cava;
     ".config/kmonad".source       = ../../config/kmonad;
-    ".config/mpd/mpd.conf".source = ../../config/mpd/mpd.conf;
+    ".config/mpd".source          = ../../config/mpd;
     ".config/ncmpcpp".source      = ../../config/ncmpcpp;
     ".config/neofetch".source     = ../../config/neofetch;
     ".config/picom".source        = ../../config/picom;

@@ -16,6 +16,7 @@
 
   environment.systemPackages = with pkgs; [ # Some games
     cataclysm-dda
+    gzdoom
     lutris
     mangohud
     minecraft
