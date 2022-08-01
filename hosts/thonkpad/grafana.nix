@@ -2,11 +2,6 @@
 
 {
 
-  environment.systemPackages = with pkgs; [ # Packages needed
-    influxdb
-    telegraf
-  ];
-
   # Telegraf
   services.telegraf = { # For collection
     enable = true;
@@ -20,42 +15,44 @@
         };
       };
       inputs = {
-       cpu = {
-         percpu = true;
-         totalcpu = true;
-       };
-       disk = {
-         mount_points = ["/"];
-         ignore_fs = [
-           "tmpfs"
-           "devtmpfs"
-           "devfs"
-           "iso9660"
-           "overlay"
-           "aufs"
-           "squashfs"
-         ];
-       };
-       github = {
-         repositories = [
-           "NixOS/nixpkgs"
-           "MCotocel/nixdots"
-         ];
-         access_token = "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"; # Don't worry, it can't do much at all
-       };
-       ping = {
-         urls = [
-           "google.com"
-           "1.1.1.1"
-           "store.steampowered.com"
-         ];
-         ping_interval = 5;
-       };
-       mem = {};
-       net = {};
-       processes = {};
-       system = {};
-       temp = {};
+        cpu = {
+          percpu = true;
+          totalcpu = true;
+        };
+        disk = {
+          mount_points = ["/"];
+          ignore_fs = [
+            "tmpfs"
+            "devtmpfs"
+            "devfs"
+            "iso9660"
+            "overlay"
+            "aufs"
+            "squashfs"
+          ];
+        };
+        github = {
+          repositories = [
+            "NixOS/nixpkgs"
+            "MCotocel/nixdots"
+          ];
+          access_token = "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"; # Don't worry, it can't do much at all
+        };
+        ping = {
+          urls = [
+            "google.com"
+            "outlook.com"
+            "cloudflare.com"
+            "store.steampowered.com"
+          ];
+          binary = "/run/wrappers/bin/ping";
+          #ping_interval = 5;
+        };
+        mem = {};
+        net = {};
+        processes = {};
+        system = {};
+        temp = {};
       };
     };
   };

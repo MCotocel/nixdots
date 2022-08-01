@@ -27,8 +27,16 @@
     zeroad
   ];
 
-  programs.gamemode.enable = false; # Some stuff
-
+  programs.gamemode = {
+    enable = true; # Some stuff
+    settings = {
+      custom = {
+        start = "${pkgs.libnotify}/bin/notify-send 'GameMode started'";
+        end = "${pkgs.libnotify}/bin/notify-send 'GameMode ended'";
+      };
+    };
+  };
+  
   services.power-profiles-daemon.enable = false; # Power profiles
   services.upower.enable = true; # UPower
 }
