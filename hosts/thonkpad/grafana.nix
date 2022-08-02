@@ -31,13 +31,6 @@
             "squashfs"
           ];
         };
-        github = {
-          repositories = [
-            "NixOS/nixpkgs"
-            "MCotocel/nixdots"
-          ];
-          access_token = "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"; # Don't worry, it can't do much at all
-        };
         ping = {
           urls = [
             "google.com"
@@ -47,6 +40,26 @@
           ];
           binary = "/run/wrappers/bin/ping";
           #ping_interval = 5;
+        };
+        exec = {
+          commands = [ "/run/current-system/sw/bin/speedtest --json" ];
+          name_override = "speedtest";
+          timeout = "1m";
+          interval = "2m";
+          data_format = "json";
+          json_string_fields = [
+            "interface_externalIp"
+            "server_name"
+            "server_location"
+            "server_host"
+            "server_ip"
+            "result_url"
+          ];
+        };
+        filecount = {
+          directories = [ "/home/matei/Desktop/Folder/Brain" ];
+          name = "*.md";
+          recursive = true;
         };
         mem = {};
         net = {};
