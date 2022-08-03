@@ -41,6 +41,9 @@ in {
     mesa # The graphics thing
     networkmanagerapplet # When I want to quickly connect to a Wi-Fi network
     nitrogen # Used to use it for setting my wallpaper
+    noto-fonts # Fonts
+    noto-fonts-cjk-sans # For CJK languages
+    noto-fonts-extra # Fonts for languages
     nyxt # An interesting browser, similar to qutebrowser
     obs-studio # For recording my desktop
     obs-studio-plugins.obs-pipewire-audio-capture # For recording audio

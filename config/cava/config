@@ -20,19 +20,6 @@ method = ncurses
 
 channels = stereo
 
-[color]
-
-; background = default
-; foreground = default
-
-gradient = 1
-gradient_count = 5
-gradient_color_1 = '#333333'
-gradient_color_2 = '#666666'
-gradient_color_3 = '#bbbbbb'
-gradient_color_4 = '#dddddd'
-gradient_color_5 = '#ffffff'
-
 [smoothing]
 
 integral = 90

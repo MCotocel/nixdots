@@ -42,6 +42,8 @@
     playerctl # Song control
     pulseaudio # For some apps
     pulsemixer # TUI mixer
+    python310Packages.deemix # I like offline MP3s
+    scdl # For when I need to download from soundcloud
     spotify # I love music
     vlc # GUI video player
   ];

@@ -34,6 +34,11 @@
                 withGTK3 = true;
               };
             })
+            (self: super: {
+                ncmpcpp = super.ncmpcpp.override {
+                  visualizerSupport = true;
+                };
+              })
             f2k.overlays.default # Fortuneteller2k's overlays, mostly for awesome-git
             ]; }
 	      ./hosts/thonkpad/configuration.nix # Load main config for thonkpad

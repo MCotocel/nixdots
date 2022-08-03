@@ -1,6 +1,6 @@
 # Monitors
-xrandr --output HDMI-0 --primary --left-of DP-0 --auto # Primary monitor and positioning
-xrandr --output DP-0 --rotate left # Rotate secondary monitor (It's vertical)
+#xrandr --output HDMI-0 --primary --left-of DP-0 --auto # Primary monitor and positioning
+#xrandr --output DP-0 --rotate left # Rotate secondary monitor (It's vertical)
 
 # Compositor
 picom &

@@ -2,7 +2,6 @@
 
 {
   programs.home-manager.enable = true; # Enabling home-manager, really useful
-  programs.ncmpcpp.enable = true; # Confusing acronym but good program
 
   home.username = "matei"; # Yes, that is my name
   home.homeDirectory = "/home/matei"; # Directory path
