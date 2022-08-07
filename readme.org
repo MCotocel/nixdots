@@ -2,7 +2,7 @@
 
 [[https://github.com/nixos/nixpkgs][file:https://img.shields.io/badge/NixOS-21.11-informational.svg?logo=nixos?style=flat.svg]]
 
-#+HTML:<a href="https://nixos.org/"><img alt="NixOS logo" height="160" align = "left" src="https://nixos.wiki/images/thumb/2/20/Home-nixos-logo.png/x207px-Home-nixos-logo.png.pagespeed.ic.38jujIAhx5.png"></a>
+#+HTML:<a href="https://nixos.org/"><img alt="NixOS logo" height="160" align = "left" src="https://nixos.wiki/images/thumb/2/20/Home-nixos-logo.png/207px-Home-nixos-logo.png"></a>
 
 ⚠️ I'll admit it, I have no idea what the hell I'm doing. I could be doing everything perfectly (doubtful), or I could be doing everything wrong, and it only works out of chance and luck. Or, most probably, I'm doing a mix of correct and incorrect things. With that out of the way:
 

@@ -1,6 +1,5 @@
 # Monitors
-#xrandr --output HDMI-0 --primary --left-of DP-0 --auto # Primary monitor and positioning
-#xrandr --output DP-0 --rotate left # Rotate secondary monitor (It's vertical)
+xrandr --output HDMI-0 --primary
 
 # Compositor
 picom &
@@ -8,13 +7,8 @@ picom &
 # Lock screen
 xscreensaver &
 
-# Music
-mpd
-mpd-mpris &
-mpd-discord-rpc &
-
 # Xinput
-xinput set-button-map 17 1 2 3 4 5 6 7 12 13 0 0 0 0 0 0
+xinput set-button-map 13 1 2 3 4 5 6 7 12 13 0 0 0 0 0 0
 
 # Xresources
 xrdb -merge ~/.Xresources

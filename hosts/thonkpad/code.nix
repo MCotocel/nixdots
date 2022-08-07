@@ -41,6 +41,7 @@
       ncdu # What the hell is taking up so much disk space? Oh
       neofetch # Everyone loves neofetch
       neovim # The second-best editor. For when Emacs doesn't work
+      nix-linter # Lint Nix files
       nodejs # Some programs need it
       nvd # Package version diff tool for Nix
       nvtop # Top, but for nvidia
