@@ -60,7 +60,7 @@ set render-loading true
 set render-loading-fg "#181e23"
 set render-loading-bg "#181e23"
 
-set recolor true
+set recolor false
 set recolor-lightcolor "#181e23"
 set recolor-darkcolor "#ffffff"
 set recolor-keephue true     

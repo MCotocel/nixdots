@@ -31,10 +31,9 @@ touchegg &
 # Applets
 nm-applet &
 blueman-applet &
- 
-# Emacs daemon
-emacs --daemon
 
 # Discocss
 discocss & sleep 2; pkill Discord
-
+ 
+# Emacs daemon
+emacs --daemon

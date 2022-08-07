@@ -12,6 +12,7 @@
       coreutils # Necessary
       cowsay # My machine cannot run without this
       direnv # Need to implement this sometime
+      #emacsGit # The best text editor
       emacs # The best text editor
       emacs-all-the-icons-fonts # Fonts for Emacs
       exa # ls but better

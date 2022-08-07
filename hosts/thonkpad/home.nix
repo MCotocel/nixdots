@@ -39,7 +39,6 @@
     ".config/ranger/scope.sh".source   = ../../config/ranger/scope.sh;
 
     # Emacs
-    ".config/emacs/emacs.org".source                = ../../config/emacs/emacs.org;
     ".config/emacs/init.el".source                  = ../../config/emacs/init.el;
     ".config/emacs/style.css".source                = ../../config/emacs/style.css;
     ".config/emacs/doom-quiet-dark-theme.el".source = ../../config/emacs/doom-quiet-dark-theme.el;

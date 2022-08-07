@@ -26,7 +26,6 @@ in {
     gnome.gnome-dictionary # For definitions of words cause I'm stupid
     gnome.gnome-disk-utility # Formatting disks. I think I use fdisk more though
     gnome.gnome-system-monitor # htop > *
-    gnome.nautilus # A file explorer
     googleearth-pro # When I want to explore the neighbourhood without going outside into a sandstorm
     i3lock-color # For locking my device
     inkscape # Occasionally used
@@ -78,6 +77,7 @@ in {
     wpa_supplicant # Connecting to networks
     xclip # Copying stuff to my clipboard
     xdotool # Used for scrips
+    xfce.thunar # Good file manager
     xorg.xinit # So I can do startx when I log in
     xscreensaver # Nice screensavers
     zathura # For reading my downloaded PDFs
