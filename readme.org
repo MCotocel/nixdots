@@ -35,7 +35,7 @@ Welcome to my virtual home. I wouldn't advise you to blindly copy large parts fr
 
 - Get the latest minimal NixOS ISO. I get it from [[https://channels.nixos.org][here]]. You may want a slightly more stable ISO.
 - Boot into the installer, setup, and mount the disks
-  - Depending on which host you want to setup, you'll have to follow different instructions, each in =./hosts/<host>/readme.org=
+  - Depending on which host you want to set up, you'll have to follow different instructions, each in =./hosts/<host>/readme.org=
 - Get a nix shell with `git` and `nix flake` set up: =nix-shell -p git nixFlakes=
 - Clone these dotfiles to =/etc/nixos=: =git clone https://github.com/mcotocel/nixdots /mnt/etc/nixos=
   - At this point, it would be smart to edit the =hardware-configuration.nix= file to suit your hardware, and additionally add or remove things you need or don't need

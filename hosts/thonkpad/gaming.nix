@@ -24,6 +24,7 @@
     osu-lazer
     retroarch
     superTuxKart
+    xorg.xf86inputjoystick
     zeroad
   ];
 

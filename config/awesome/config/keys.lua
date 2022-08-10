@@ -160,6 +160,18 @@ awful.key({modkey, "Control"}, "k", function() awful.client.swap.byidx(-1) end, 
     group = "Windows"
 }),
 
+-- Move to the monitor on the right
+awful.key({modkey, "Control"}, "l", function() client.focus:move_to_screen(1) end, {
+    description = "Move to the monitor on the right",
+    group = "Windows"
+}),
+
+-- Move to the monitor on the left
+awful.key({modkey, "Control"}, "h", function() client.focus:move_to_screen(2) end, {
+    description = "Move to the monitor on the left",
+    group = "Windows"
+}),
+
 -- Resize to the right
 awful.key({modkey, "Shift"}, "l", function() awful.tag.incmwfact(0.05) end, {
     description = "Resize to the right",
@@ -218,6 +230,13 @@ awful.key({modkey, "Shift"}, "r", function() awful.spawn.with_shell("emacsclient
 -- Take screenshot
 awful.key({modkey, "Shift"}, "s", function() awful.spawn.with_shell("~/.bin/rofi-screenshot") end, {
     description = "Take screenshot",
+    group = "Applications and menus"
+}),
+
+
+-- Image to text
+awful.key({modkey, "Shift"}, "i", function() awful.spawn.with_shell("~/.bin/rofi-imgtext") end, {
+    description = "Image to text",
     group = "Applications and menus"
 }),
 

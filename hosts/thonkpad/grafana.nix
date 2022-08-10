@@ -45,7 +45,7 @@
           commands = [ "/run/current-system/sw/bin/speedtest --json" ];
           name_override = "speedtest";
           timeout = "1m";
-          interval = "2m";
+          interval = "5m";
           data_format = "json";
           json_string_fields = [
             "interface_externalIp"

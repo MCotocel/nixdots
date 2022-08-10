@@ -50,3 +50,7 @@ current_item_inactive_column_suffix = " -";
 
 color1 = "white";
 color2 = "white"; 
+
+execute_on_song_change = notify-send "Now Playing" "$(mpc --format '%title% \n%artist% - %album%' current)"
+
+lyrics_fetchers = musixmatch
