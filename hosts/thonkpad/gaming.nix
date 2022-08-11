@@ -22,10 +22,10 @@
     minecraft
     nethack
     osu-lazer
+    protonup
     retroarch
     superTuxKart
     xorg.xf86inputjoystick
-    zeroad
   ];
 
   programs.gamemode = {
