@@ -326,7 +326,7 @@
   dashboard-set-file-icons t
   dashboard-set-navigator t)
 (setq dashboard-items 'nil)
-(setq dashboard-init-info (format "Startup took around %s seconds" (round (string-to-number (emacs-init-time)))))
+(setq dashboard-init-info (format "Startup took around %ss" (round (string-to-number (emacs-init-time)))))
 (setq dashboard-set-footer 'nil)
 
 (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
