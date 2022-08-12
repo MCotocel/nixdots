@@ -12,7 +12,6 @@
       coreutils # Necessary
       cowsay # My machine cannot run without this
       direnv # Need to implement this sometime
-      #emacsGit # The best text editor
       emacs # The best text editor
       emacs-all-the-icons-fonts # Fonts for Emacs
       exa # ls but better
@@ -38,7 +37,7 @@
       manix # Nix help
       mesa-demos # Checking if my GPU works
       mu # For mail
-      ncdu # What the hell is taking up so much disk space? Oh
+      ncdu # What the hell is taking up so much disk space? Oh.
       neofetch # Everyone loves neofetch
       neovim # The second-best editor. For when Emacs doesn't work
       nix-linter # Lint Nix files

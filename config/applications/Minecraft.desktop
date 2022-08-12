@@ -1,5 +1,5 @@
 [Desktop Entry]
 Type=Application
 Terminal=false
-Exec=/usr/bin/minecraft-launcher
+Exec=minecraft-launcher
 Name=Minecraft

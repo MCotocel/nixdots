@@ -16,6 +16,7 @@
     enableRedistributableFirmware = true; # More firmware stuff
     opengl.enable = true; # OpenGL stuff
     nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable; # For my stupid GPU
+    nvidia.modesetting.enable = true;
     nvidia.prime.nvidiaBusId = "PCI:1:0:0"; # Also for my stupid GPU
     nvidia.prime.intelBusId = "PCI:0:2:0"; # For Intel
   };

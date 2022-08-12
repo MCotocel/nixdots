@@ -92,8 +92,10 @@ theme.snap_border_width = dpi(3)
 theme.icon_theme = "Papirus-Dark"
 
 -- Menu
-theme.menu_height = dpi(25)
+theme.menu_height = dpi(30)
 theme.menu_width = dpi(200)
+theme.menu_font = "Iosevka Bold 14"
+theme.menu_bg_focus = "#1f252a"
 theme.menu_submenu = ""
 theme.menu_submenu_icon = nil
 
@@ -134,19 +136,20 @@ theme.task_preview_widget_border_width = 0
 theme.task_preview_widget_margin = dpi(5)
 
 theme.window_switcher_widget_bg = "#1f252a"
-theme.window_switcher_widget_border_width = 0
+theme.window_switcher_widget_border_width = 5
 theme.window_switcher_widget_border_radius = 0
 theme.window_switcher_widget_border_color = "#181e23"
-theme.window_switcher_clients_spacing = 0
-theme.window_switcher_client_width = 150
+theme.window_switcher_clients_spacing = 20
+theme.window_switcher_client_width = 700
 theme.window_switcher_client_height = 150
-theme.window_switcher_client_margins = 0
-theme.window_switcher_thumbnail_margins = 5
+theme.window_switcher_client_margins = 1
+theme.window_switcher_thumbnail_margins = 20
 theme.thumbnail_scale = false
-theme.window_switcher_name_margins = 20
+theme.window_switcher_name_margins = 0
+theme.window_switcher_name_forced_width = 600 
 theme.window_switcher_name_valign = "center"
 theme.window_switcher_name_font = "Iosevka Nerd Font 12"
-theme.window_switcher_name_normal_color = "#d5d5d5"
+theme.window_switcher_name_normal_color = "#8b8b8b"
 theme.window_switcher_name_focus_color = "#ffffff"
 
 -- Hotkey popup

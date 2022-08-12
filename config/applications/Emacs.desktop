@@ -1,5 +1,5 @@
 [Desktop Entry]
 Type=Application
 Terminal=false
-Exec=/usr/bin/emacs
+Exec=emacs
 Name=Emacs

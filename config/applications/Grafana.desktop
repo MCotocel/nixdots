@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Terminal=false
+Exec=firefox --new-window http://localhost:3000/d/tv1z81dnz/thinkpad?orgId=1&refresh=5s&kiosk
+Name=Grafana

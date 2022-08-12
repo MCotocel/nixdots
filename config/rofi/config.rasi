@@ -2,4 +2,7 @@
 configuration {
     icon-theme: "Papirus";
     modi: "window,drun,run,keys";
+    drun {
+        parse-system: false;
+    }
 }

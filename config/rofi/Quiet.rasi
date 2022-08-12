@@ -13,7 +13,7 @@ window {
     border: 2px;
     border-color: @ac;
     border-radius: 0px;
-    padding: 20;
+    padding: 20px;
     width: 30%;
     height: 60%;
 }

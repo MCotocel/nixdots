@@ -1,6 +1,4 @@
-sleep 0.2
-
-res=$(echo -en "Reload|Lock|Logout|Suspend|Hibernate|Shutdown|Reboot" | rofi -sep "|" -dmenu -i -p 'Power Options') # Make selection prompt
+res=$(echo -en "Reload|Lock|Logout|Suspend|Hibernate|Shutdown|Reboot" | rofi -sep "|" -dmenu -i -p 'Power Options' -theme-str 'window { height: 25%; width: 15%;}') # Make selection prompt
 
 if [ $res = "Reload" ]; then
 

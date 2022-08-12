@@ -1,6 +1,4 @@
-sleep 0.2
-    
-sel=$(echo "Screen|Selection" | rofi -sep "|" -dmenu -i -p 'Image to text')
+sel=$(echo "Screen|Selection" | rofi -sep "|" -dmenu -i -p 'Image to text' -theme-str 'window { height: 10%; width: 10%;}')
 
 if [[ $sel = "Screen" ]]; then
 

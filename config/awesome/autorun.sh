@@ -1,5 +1,5 @@
 # Monitors
-xrandr --output HDMI-0 --primary
+xrandr --output DP-2 --output HDMI-0 --primary --mode 2560x1440 --right-of DP-2
 
 # Compositor
 picom &
@@ -25,9 +25,6 @@ touchegg &
 # Applets
 nm-applet &
 blueman-applet &
-
-# Discocss
-discocss & sleep 2; pkill Discord
  
 # Emacs daemon
 emacs --daemon

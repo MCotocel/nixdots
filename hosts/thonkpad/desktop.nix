@@ -3,9 +3,11 @@
 let
   kmonad =  import ../../derivations/kmonad.nix;
 in {
+
   environment.systemPackages = with pkgs; [
     arandr # Xrandr GUI
     aseprite # Pixel art is cool
+    autorandr # Auto xrandr!
     baobab # For checking what's taking up so much disk space
     bleachbit # For removing the files taking up so much disk space
     blender # Occasional tinkering with 3D models
@@ -22,10 +24,7 @@ in {
     gimp # Photo editor
     giph # For taking videos
     gnome.gnome-calendar # A calendar because I am a very busy person with no time at all
-    gnome.gnome-chess # Chess for when I'm not busy
-    gnome.gnome-dictionary # For definitions of words cause I'm stupid
     gnome.gnome-disk-utility # Formatting disks. I think I use fdisk more though
-    gnome.gnome-system-monitor # htop > *
     googleearth-pro # When I want to explore the neighbourhood without going outside into a sandstorm
     i3lock-color # For locking my device
     inkscape # Occasionally used
@@ -156,6 +155,4 @@ in {
     pkgs.gnome.simple-scan
     pkgs.gnome.totem
   ];
-
-  services.autorandr.enable = true; # I use an external monitor
 }

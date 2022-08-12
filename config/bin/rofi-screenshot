@@ -1,6 +1,4 @@
-sleep 0.2
-
-sel=$(echo "Screen|Selection|Record screen|Stop recording screen" | rofi -sep "|" -dmenu -i -p 'Screenshot')
+sel=$(echo "Screen|Selection|Record screen|Stop recording screen" | rofi -sep "|" -dmenu -i -p 'Screenshot' -theme-str 'window { height: 15%; width: 15%;}')
  
 if [[ $sel = "Screen" ]]; then
 
