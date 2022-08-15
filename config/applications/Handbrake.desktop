@@ -1,5 +1,6 @@
 [Desktop Entry]
 Type=Application
 Terminal=false
+Icon=handbrake
 Exec=handbrake
 Name=Handbrake

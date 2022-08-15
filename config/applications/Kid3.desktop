@@ -1,5 +1,6 @@
 [Desktop Entry]
 Type=Application
 Terminal=false
+Icon=kid3
 Exec=kid3-qt
 Name=Kid3

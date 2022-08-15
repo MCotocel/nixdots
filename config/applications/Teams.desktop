@@ -1,5 +1,6 @@
 [Desktop Entry]
 Type=Application
 Terminal=false
+Icon=teams-for-linux
 Exec=teams
 Name=Microsoft Teams

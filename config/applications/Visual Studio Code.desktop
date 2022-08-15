@@ -1,5 +1,6 @@
 [Desktop Entry]
 Type=Application
 Terminal=false
+Icon=visual-studio-code
 Exec=code
 Name=Visual Studio Code

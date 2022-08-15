@@ -1,5 +1,6 @@
 [Desktop Entry]
 Type=Application
 Terminal=false
-Exec=thunderbird
-Name=Thunderbird
+Icon=audacity
+Exec=Audacity
+Name=Audacity

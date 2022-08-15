@@ -67,7 +67,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.5",
+      "pluginVersion": "9.0.6",
       "targets": [
         {
           "datasource": {
@@ -159,7 +159,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.5",
+      "pluginVersion": "9.0.6",
       "targets": [
         {
           "datasource": {
@@ -248,7 +248,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.5",
+      "pluginVersion": "9.0.6",
       "targets": [
         {
           "datasource": {
@@ -340,7 +340,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.5",
+      "pluginVersion": "9.0.6",
       "targets": [
         {
           "alias": "Uptime",
@@ -434,7 +434,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.5",
+      "pluginVersion": "9.0.6",
       "targets": [
         {
           "datasource": {
@@ -815,7 +815,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.5",
+      "pluginVersion": "9.0.6",
       "targets": [
         {
           "datasource": {
@@ -910,7 +910,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.5",
+      "pluginVersion": "9.0.6",
       "targets": [
         {
           "datasource": {
@@ -1005,7 +1005,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.5",
+      "pluginVersion": "9.0.6",
       "targets": [
         {
           "datasource": {
@@ -1100,7 +1100,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.5",
+      "pluginVersion": "9.0.6",
       "targets": [
         {
           "datasource": {
@@ -1195,7 +1195,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.5",
+      "pluginVersion": "9.0.6",
       "targets": [
         {
           "datasource": {
@@ -1306,7 +1306,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.5",
+      "pluginVersion": "9.0.6",
       "targets": [
         {
           "datasource": {
@@ -1342,7 +1342,7 @@
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "last"
               }
             ]
           ],
@@ -1423,7 +1423,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.5",
+      "pluginVersion": "9.0.6",
       "targets": [
         {
           "datasource": {
@@ -1459,7 +1459,7 @@
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "last"
               }
             ]
           ],
@@ -1540,7 +1540,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.5",
+      "pluginVersion": "9.0.6",
       "targets": [
         {
           "datasource": {
@@ -1576,7 +1576,7 @@
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "last"
               }
             ]
           ],
@@ -1657,7 +1657,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.5",
+      "pluginVersion": "9.0.6",
       "targets": [
         {
           "datasource": {
@@ -1693,7 +1693,7 @@
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "last"
               }
             ]
           ],
@@ -2137,7 +2137,7 @@
         },
         "showUnfilled": true
       },
-      "pluginVersion": "9.0.5",
+      "pluginVersion": "9.0.6",
       "targets": [
         {
           "alias": "Core 0",
@@ -2481,7 +2481,7 @@
         },
         "showUnfilled": true
       },
-      "pluginVersion": "9.0.5",
+      "pluginVersion": "9.0.6",
       "targets": [
         {
           "alias": "System",
@@ -3447,8 +3447,7 @@
             "mode": "percentage",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -3587,7 +3586,7 @@
     "list": []
   },
   "time": {
-    "from": "now-24h",
+    "from": "now-30d",
     "to": "now"
   },
   "timepicker": {
@@ -3607,6 +3606,6 @@
   "timezone": "",
   "title": "Thinkpad",
   "uid": "tv1z81dnz",
-  "version": 10,
+  "version": 11,
   "weekStart": ""
 }

@@ -1,5 +1,6 @@
 [Desktop Entry]
 Type=Application
 Terminal=false
+Icon=obs
 Exec=obs
 Name=OBS

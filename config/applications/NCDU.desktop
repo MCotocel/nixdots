@@ -1,5 +1,6 @@
 [Desktop Entry]
 Type=Application
 Terminal=false
+Icon=drive-harddisk-ieee1394
 Exec=wezterm start ncdu -x /
 Name=NCDU

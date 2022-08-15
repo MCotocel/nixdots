@@ -27,17 +27,11 @@ awful.rules.rules = {
             screen = awful.screen.preferred,
             placement = awful.placement.no_overlap +
             awful.placement.no_offscreen,
-            titlebars_enabled = true
-        }
-    }, -- Floating clients.
-    {
-        rule_any = {
-            class = {
-                "Gpick", "Tor Browser", "Gimp"
-            }
-        },
-        properties = {
-            floating = true
+            titlebars_enabled = false
         }
     }
 }
+
+client.connect_signal("property::maximized", function(c)
+    c.maximized = false
+end)

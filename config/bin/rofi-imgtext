@@ -13,7 +13,7 @@ fi
 if [[ $sel = "Selection" ]]; then
 
     maim -s ~/Pictures/Screenshots/imgtext.png;
-    tesseract ~/Pictures/Screenshots/imgtext.png ~/imgtext;
+    tesseract ~/Pictures/Screenshots/imgtext.png ~/imgtext -l eng;
     xclip -sel c < ~/imgtext.txt;
     notify-send "Image to text" "Saved text to clipboard" -i ~/Pictures/Screenshots/imgtext.png
     rm ~/imgtext.txt ~/Pictures/Screenshots/imgtext.png

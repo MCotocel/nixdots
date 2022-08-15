@@ -1,5 +1,6 @@
 [Desktop Entry]
 Type=Application
 Terminal=false
+Icon=nvim-qt
 Exec=wezterm start neovim
 Name=Neovim

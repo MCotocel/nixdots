@@ -1,5 +1,6 @@
 [Desktop Entry]
 Type=Application
 Terminal=false
-Exec=wezterm start neofetch
-Name=Neofetch
+Icon=internet-mail
+Exec=evolution
+Name=Mail

@@ -7,6 +7,7 @@ require("awful.autofocus")
 
 -- Theme handling library
 local beautiful = require("beautiful")
+
 -- Themes. Currently using Quiet theme, a theme of my own creation
 beautiful.init(gears.filesystem.get_configuration_dir() .. "quiet/theme.lua")
 
@@ -26,7 +27,7 @@ require("awful.hotkeys_popup.keys")
 naughty.connect_signal("request::display_error", function(message, startup)
     naughty.notification {
         urgency = "critical",
-        title   = "An error occured"..(startup and " during startup"),
+        title = "An error occured"..(startup and " during startup"),
         message = message
     }
 end)
@@ -41,14 +42,8 @@ editor_cmd = "emacsclient -c" -- Lisp superiority
 -- Super key as mod key. Windows key for you window plebians
 modkey = "Mod4"
 
--- Keybindings
-require("config.keys")
-
 -- Bar config
 require("config.bar")
-
--- Dashboard config
-require("widgets.main")
 
 -- Titlebar config
 require("config.titlebar")
@@ -64,3 +59,7 @@ require("config.battery-warning")
 
 -- Layout switcher
 require("config.layout")
+
+-- Keybindings
+require("config.keys")
+

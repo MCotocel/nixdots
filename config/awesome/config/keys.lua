@@ -8,12 +8,6 @@ local bling = require("modules.bling")
 local machi = require("modules.layout-machi")
 local revelation = require("modules.awesome-revelation")
 
--- Mouse Bindings
-root.buttons(gears.table.join(
-    awful.button({ }, 13, awful.tag.viewnext),
-    awful.button({ }, 12, awful.tag.viewprev)
-))
-
 awful.keyboard.append_global_keybindings({
 
 --- AwesomeWM ---
@@ -210,7 +204,7 @@ awful.key({modkey}, "Return", function() awful.spawn(terminal) end, {
 }),
 
 -- Open launcher
-awful.key({modkey}, "space", function() awful.spawn.with_shell("rofi -show drun -display-drun 'App Launcher'") end, {
+awful.key({modkey}, "space", function() awful.spawn.with_shell("rofi -show drun -display-drun 'App Launcher' -disable-history") end, {
     description = "Open launcher",
     group = "Applications and menus"
 }),
@@ -328,19 +322,24 @@ awful.key({}, "XF86MonBrightnessDown", function()
 
 client.connect_signal("request::default_mousebindings", function()
     awful.mouse.append_client_mousebindings({
-        awful.button({ }, 13, function(t) awful.tag.viewnext(1) end),
-        awful.button({ }, 12, function(t) awful.tag.viewprev(1) end),
-        awful.button({}, 1, function (c)
+        awful.button({ }, 1, function (c)
             c:activate { context = "mouse_click" }
         end),
-        awful.button({modkey}, 1, function (c)
+        awful.button({ modkey }, 1, function (c)
             c:activate { context = "mouse_click", action = "mouse_move"  }
         end),
-        awful.button({modkey}, 3, function (c)
+        awful.button({ modkey }, 3, function (c)
             c:activate { context = "mouse_click", action = "mouse_resize"}
         end),
+        awful.button({ }, 13, function(c) awful.tag.viewnext(c.screen) end),
+        awful.button({ }, 12, function(c) awful.tag.viewprev(c.screen) end)
     })
 end)
+
+root.buttons(awful.util.table.join(
+    awful.button({ }, 13, function() awful.tag.viewnext() end),
+    awful.button({ }, 12, function() awful.tag.viewprev() end)
+))
 
 awful.keyboard.append_global_keybindings({
     awful.key {
@@ -383,3 +382,4 @@ awful.keyboard.append_global_keybindings({
             end
         end,
 }})
+

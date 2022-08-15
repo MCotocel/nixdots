@@ -1,5 +1,6 @@
 [Desktop Entry]
 Type=Application
 Terminal=false
+Icon=emacs
 Exec=emacsclient -c
 Name=Emacs - Client

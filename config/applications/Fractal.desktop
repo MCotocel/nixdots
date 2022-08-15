@@ -1,5 +1,6 @@
 [Desktop Entry]
 Type=Application
 Terminal=false
+Icon=internet-chat
 Exec=fractal
 Name=Fractal

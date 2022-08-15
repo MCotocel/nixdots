@@ -9,8 +9,8 @@ local dpi = require("beautiful.xresources").apply_dpi
 theme.font = "Iosevka Nerd Font 11"
 
 -- Bar
-theme.wibar_border_width = dpi(0)
-theme.wibar_border_color = "#1f252a"
+theme.wibar_border_width = dpi(5)
+theme.wibar_border_color = "#181e23"
 theme.taglist_squares_sel = nil
 theme.taglist_squares_unsel = nil
 theme.taglist_squares_sel_empty = nil
@@ -31,9 +31,9 @@ theme.fg_urgent = "#ff8080"
 theme.fg_minimize = "#C780FF"
 
 -- Gap and borders
-theme.useless_gap = dpi(15)
+theme.useless_gap = dpi(10)
 theme.gap_single_client = true
-theme.border_width = dpi(5)
+theme.border_width = dpi(0)
 theme.border_color_normal = "#181e23"
 theme.border_color_active = "#181e23"
 theme.border_color_marked = "#80d1ff"
@@ -59,10 +59,10 @@ theme.titlebar_bg_focus = "#181e23"
 theme.titlebar_bg_normal = "#181e23"
 
 theme.titlebar_close_button_normal = gfs.get_configuration_dir() .. "quiet/titlebar/inactive.png"
-theme.titlebar_close_button_focus  = gfs.get_configuration_dir() .. "quiet/titlebar/close.png"
+theme.titlebar_close_button_focus  = gfs.get_configuration_dir() .. "quiet/titlebar/close.svg"
 
 theme.titlebar_minimize_button_normal = gfs.get_configuration_dir() .. "quiet/titlebar/inactive.png"
-theme.titlebar_minimize_button_focus  = gfs.get_configuration_dir() .. "quiet/titlebar/minimize.png"
+theme.titlebar_minimize_button_focus  = gfs.get_configuration_dir() .. "quiet/titlebar/minimize.svg"
 
 theme.titlebar_ontop_button_normal_inactive = gfs.get_configuration_dir() .. "quiet/titlebar/inactive.png"
 theme.titlebar_ontop_button_focus_inactive  = gfs.get_configuration_dir() .. "quiet/titlebar/ontop.png"
@@ -80,9 +80,9 @@ theme.titlebar_floating_button_normal_active = gfs.get_configuration_dir() .. "q
 theme.titlebar_floating_button_focus_active  = gfs.get_configuration_dir() .. "quiet/titlebar/floating.png"
 
 theme.titlebar_maximized_button_normal_inactive = gfs.get_configuration_dir() .. "quiet/titlebar/inactive.png"
-theme.titlebar_maximized_button_focus_inactive  = gfs.get_configuration_dir() .. "quiet/titlebar/maximize.png"
+theme.titlebar_maximized_button_focus_inactive  = gfs.get_configuration_dir() .. "quiet/titlebar/maximize.svg"
 theme.titlebar_maximized_button_normal_active = gfs.get_configuration_dir() .. "quiet/titlebar/inactive.png"
-theme.titlebar_maximized_button_focus_active  = gfs.get_configuration_dir() .. "quiet/titlebar/maximize.png"
+theme.titlebar_maximized_button_focus_active  = gfs.get_configuration_dir() .. "quiet/titlebar/maximize.svg"
 
 -- Edge snap
 theme.snap_bg = "#181e23"
@@ -94,14 +94,14 @@ theme.icon_theme = "Papirus-Dark"
 -- Menu
 theme.menu_height = dpi(30)
 theme.menu_width = dpi(200)
-theme.menu_font = "Iosevka Bold 14"
+theme.menu_font = "Iosevka 12"
 theme.menu_bg_focus = "#1f252a"
 theme.menu_submenu = ""
 theme.menu_submenu_icon = nil
 
 theme.ghost = "~/.config/awesome/icons/pfp_trans.png"
 theme.pfp = "~/.config/awesome/icons/pfp.png"
-theme.awesome_icon = "~/.config/awesome/icons/awesome.png"
+theme.awesome_icon = "~/.config/awesome/icons/awesome.svg"
 
 -- Bling
 theme.tabbed_spawn_in_tab = true
@@ -111,7 +111,7 @@ theme.tabbar_position = "bottom"
 theme.tabbar_size = dpi(40)
 theme.tabbar_radius = dpi(0)
 theme.mstab_bar_padding = dpi(0)
-theme.tabbar_bg_focus = "#181e23"
+theme.tabbar_bg_focus = "#1f252a"
 theme.tabbar_bg_normal = "#181e23"
 theme.tabbar_color_close = "#181e23"
 theme.tabbar_color_min = "#181e23"
@@ -163,7 +163,7 @@ theme.hotkeys_group_margin = dpi(10)
 -- Notifications
 
 local global_shape = function(cr, width, height)
-    gears.shape.rounded_rect(cr, width, height, 0)
+    gears.shape.rounded_rect(cr, width, height, 15)
 end
 
 theme.notification_font = "Iosevka 11"
@@ -178,7 +178,7 @@ theme.notification_max_width = dpi(300)
 theme.notification_max_height = dpi(200)
 theme.notification_icon_size = dpi(100)
 naughty.config.defaults.padding = dpi(70)
-naughty.config.defaults.position = "bottom_left"
+naughty.config.defaults.position = "top_right"
 naughty.config.defaults.margin = theme.notification_margin
 naughty.config.defaults.border_width = theme.notification_border_width
 naughty.config.presets.critical.bg = '#181e23'

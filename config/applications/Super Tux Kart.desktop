@@ -1,5 +1,6 @@
 [Desktop Entry]
 Type=Application
 Terminal=false
+Icon=supertuxkart
 Exec=supertuxkart
 Name=Super Tux Kart

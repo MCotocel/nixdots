@@ -7,9 +7,6 @@ picom &
 # Lock screen
 xscreensaver &
 
-# Xinput
-xinput set-button-map 13 1 2 3 4 5 6 7 12 13 0 0 0 0 0 0
-
 # Xresources
 xrdb -merge ~/.Xresources
 
@@ -20,6 +17,8 @@ xsetroot -cursor_name arrow
 pgrep -x mopidy > /dev/null || mopidy &
 
 # Gestures
+pkill touchegg
+rm ~/.config/touchegg/.*
 touchegg &
 
 # Applets
@@ -28,3 +27,6 @@ blueman-applet &
  
 # Emacs daemon
 emacs --daemon
+
+# Xinput
+xinput set-button-map 13 1 2 3 4 5 6 7 12 13 0 0 0 0 0 0

@@ -1,5 +1,6 @@
 [Desktop Entry]
 Type=Application
 Terminal=false
+Icon=retroarch
 Exec=retroarch
 Name=Retroarch

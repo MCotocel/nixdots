@@ -1,5 +1,6 @@
 [Desktop Entry]
 Type=Application
 Terminal=false
+Icon=drive-harddisk
 Exec=gnome-disks
 Name=Disks

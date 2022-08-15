@@ -1,5 +1,6 @@
 [Desktop Entry]
 Type=Application
 Terminal=false
+Icon=preferences-system-bluetooth
 Exec=blueman-manager
 Name=Blueman

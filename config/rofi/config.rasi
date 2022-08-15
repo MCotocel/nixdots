@@ -1,4 +1,4 @@
-@theme "~/.config/rofi/Quiet.rasi"
+@theme "./Quiet.rasi"
 configuration {
     icon-theme: "Papirus";
     modi: "window,drun,run,keys";

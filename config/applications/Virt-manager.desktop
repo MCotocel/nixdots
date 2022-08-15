@@ -1,5 +1,6 @@
 [Desktop Entry]
 Type=Application
 Terminal=false
+Icon=virt-manager
 Exec=virt-manager
 Name=Virt-Manager

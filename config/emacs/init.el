@@ -430,8 +430,6 @@
   :hook ((lua-mode . lsp)
          (python-mode . lsp)
          (sh-mode . lsp)
-         (lisp-mode . lsp)
-         (emacs-lisp-mode . lsp)
          (css-mode . lsp)
          (html-mode . lsp)
          (json-mode . lsp)

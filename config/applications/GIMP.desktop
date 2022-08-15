@@ -1,5 +1,6 @@
 [Desktop Entry]
 Type=Application
 Terminal=false
+Icon=gimp
 Exec=gimp
 Name=GIMP

@@ -1,5 +1,6 @@
 [Desktop Entry]
 Type=Application
 Terminal=false
+Icon=xscreensaver
 Exec=xscreensaver-settings
 Name=XScreensaver

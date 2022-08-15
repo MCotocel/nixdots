@@ -1,0 +1,1 @@
+mpv "$(find ~/Desktop/Folder/Media/Music -name "*.mp3" | rofi -dmenu -i)"

@@ -4,6 +4,18 @@ let
   kmonad =  import ../../derivations/kmonad.nix;
 in {
 
+  # For saving passwords and stuff
+  services.gnome.gnome-keyring.enable = true;
+
+  # Email
+  programs.evolution = {
+    enable = true;
+    plugins = [ pkgs.evolution-ews ];
+  };
+
+  # Everything is bad without it
+  programs.dconf.enable = true;
+
   environment.systemPackages = with pkgs; [
     arandr # Xrandr GUI
     aseprite # Pixel art is cool
@@ -23,8 +35,11 @@ in {
     fractal # Matrix client
     gimp # Photo editor
     giph # For taking videos
+    gnome.file-roller # Unarchiver
     gnome.gnome-calendar # A calendar because I am a very busy person with no time at all
     gnome.gnome-disk-utility # Formatting disks. I think I use fdisk more though
+    gnome.nautilus # File manager
+    gnome.seahorse # Viewing keychain
     googleearth-pro # When I want to explore the neighbourhood without going outside into a sandstorm
     i3lock-color # For locking my device
     inkscape # Occasionally used
@@ -33,6 +48,7 @@ in {
     krita # Sometimes used for posters and stuff
     libinput # I think this is for my trackpad
     libnotify # For sending notifications
+    libreoffice # Office suite for Linux
     lm_sensors # Time to clean my fans out
     maim # Selecting an area for screenshots is useful
     matcha-gtk-theme # A cool GTK theme
@@ -62,7 +78,6 @@ in {
     teams # Very clunky but I need it
     tesseract # Images to text. Very cool
     texlive.combined.scheme-full # LaTeX package
-    thunderbird # A nice email client
     twemoji-color-font # Emoji
     twitter-color-emoji # Also emoji
     usbutils # For my USB sticks
@@ -76,7 +91,6 @@ in {
     wpa_supplicant # Connecting to networks
     xclip # Copying stuff to my clipboard
     xdotool # Used for scrips
-    xfce.thunar # Good file manager
     xorg.xinit # So I can do startx when I log in
     xscreensaver # Nice screensavers
     zathura # For reading my downloaded PDFs

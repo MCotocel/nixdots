@@ -1,5 +1,6 @@
 [Desktop Entry]
 Type=Application
 Terminal=false
+Icon=input-gaming
 Exec=wezterm start nethack
 Name=Nethack

@@ -30,6 +30,8 @@
     alsa-utils # Utlities for also
     easyeffects # Audio effects
     mopidy # Mpd but better
+    audacity # Ecsiditing audio
+    lmms # Making music
     mpc_cli # MPD cli client
     mpd # MPD
     mpd-discord-rpc # Discord rich presence

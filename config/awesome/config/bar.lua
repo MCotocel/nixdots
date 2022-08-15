@@ -34,10 +34,10 @@ awful.screen.connect_for_each_screen(function(s)
     local final_layoutbox = wibox.widget {
         {
             layoutbox_container,
-            top = dpi(5),
-            bottom = dpi(5),
-            left = dpi(5),
-            right = dpi(5),
+            top = dpi(8),
+            bottom = dpi(8),
+            left = dpi(8),
+            right = dpi(8),
             layout = wibox.container.margin
         },
         bg = beautiful.bg_systray,
@@ -204,8 +204,10 @@ awful.screen.connect_for_each_screen(function(s)
 
     local systray_container = {
         systray,
-        left = dpi(8),
-        right = dpi(8),
+        left = dpi(5),
+        right = dpi(5),
+        top = dpi(5),
+        bottom = dpi(5),
         bg = beautiful.bg_systray,
         widget = wibox.container.margin
     }
@@ -330,7 +332,7 @@ awful.screen.connect_for_each_screen(function(s)
      {"Editor", function() awful.spawn.with_shell("emacsclient -c") end},
      {"Browser", function() awful.spawn.with_shell("firefox") end},
      {"Terminal", function() awful.spawn.with_shell("wezterm") end},
-     {"All apps", function() awful.spawn.with_shell("sleep 0.2; rofi -show drun") end},
+     {"All apps", function() awful.spawn.with_shell("sleep 0.2; rofi -show drun -display-drun 'App Launcher' -disable-history") end},
     }
 
     local powermenu = {
@@ -347,6 +349,7 @@ awful.screen.connect_for_each_screen(function(s)
      {"Take screenshot", function() awful.spawn.with_shell("sleep 0.2; ~/.bin/rofi-screenshot") end},
      {"Image to text", function() awful.spawn.with_shell("sleep 0.2; ~/.bin/rofi-imgtext") end},
      {"Shorten url", function() awful.spawn.with_shell("sleep 0.2; ~/.bin/rofi-urlshorten") end},
+     {"Play music", function() awful.spawn.with_shell("sleep 0.2; ~/.bin/rofi-music") end},
      {"View hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end},
      {"View desktop", function() awful.tag.viewnone() end},
      {"Tab client", function() bling.module.tabbed.pick_with_dmenu() end},
@@ -361,7 +364,7 @@ awful.screen.connect_for_each_screen(function(s)
         {"Misc", miscmenu},
     }})
 
-    local launcher = awful.widget.launcher({image = beautiful.ghost, menu = mainmenu})
+    local launcher = awful.widget.launcher({image = beautiful.awesome_icon, menu = mainmenu})
 
     local launcher_container = {
         launcher,
@@ -374,10 +377,10 @@ awful.screen.connect_for_each_screen(function(s)
     local final_launcher = wibox.widget {
         {
             launcher_container,
-            top = dpi(1),
-            bottom = dpi(1),
-            left = dpi(1),
-            right = dpi(1),
+            top = dpi(5),
+            bottom = dpi(5),
+            left = dpi(5),
+            right = dpi(5),
             layout = wibox.container.margin
         },
         bg = beautiful.bg_systray,
