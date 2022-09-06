@@ -1,0 +1,1 @@
+emacsclient -c ~/Desktop/Folder/Brain/"$(find ~/Desktop/Folder/Brain -name "*.md" -printf '%P\n' | rofi -dmenu -i -theme-str "listview{ columns: 1 ; }")"

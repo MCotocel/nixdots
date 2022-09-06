@@ -18,7 +18,7 @@ local bling = require("modules.bling")
 awful.screen.connect_for_each_screen(function(s)
 
     -- Set tags and default layout
-    awful.tag({"1", "2", "3", "4", "5", "6", "7", "8", "9"}, s, awful.layout.suit.fair)
+    awful.tag({"", "", "", "", "", "", "", "", ""}, s, awful.layout.suit.fair)
 
     -- Show currently used layout
     local layoutbox = awful.widget.layoutbox(s)
@@ -53,7 +53,9 @@ awful.screen.connect_for_each_screen(function(s)
     local taglist_buttons = gears.table.join(
         awful.button({}, 1, function(t) t:view_only() end),
         awful.button({}, 2, function(t) client.focus:move_to_tag(t) end),
-        awful.button({}, 3, function(t) awful.tag.viewtoggle(t) end))
+        awful.button({}, 3, function(t) awful.tag.viewtoggle(t) end),
+        awful.button({}, 4, function(t) awful.tag.viewnext(t.screen) end),
+        awful.button({}, 5, function(t) awful.tag.viewprev(t.screen) end))
 
     local taglist = awful.widget.taglist {
         screen = s,
@@ -156,7 +158,7 @@ awful.screen.connect_for_each_screen(function(s)
                     id = 'clienticon',
                     widget = awful.widget.clienticon,
                 },
-                margins = dpi(3),
+                margins = dpi(5),
                 widget = wibox.container.margin
             },
             nil,
@@ -257,7 +259,7 @@ awful.screen.connect_for_each_screen(function(s)
         timer_function = function()
             return io.popen("bash -c \"echo -n `date '+%a, %b %d'`\""):read("*a")
         end,
-        timeout = 0,
+        timeout = 2,
         bg = beautiful.bg_diff,
         align = "top",
         margins = dpi(10)
@@ -292,9 +294,9 @@ awful.screen.connect_for_each_screen(function(s)
     {
         objects = { battery },
         timer_function = function()
-            return io.popen("bash -c \"echo -n `cat /sys/class/power_supply/BAT0/status`\""):read("*a")
+            return io.popen('bash -c "echo; acpi -b | tail -n 1 | sed \'s/Battery 1: Charging, //g\'"'):read("*a")
         end,
-        timeout = 0,
+        timeout = 2,
         bg = beautiful.bg_diff,
         align = "top",
         margins = dpi(10)

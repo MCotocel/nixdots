@@ -39,6 +39,36 @@
                   visualizerSupport = true;
                 };
               })
+            (final: prev: rec {
+              zathuraPkgs = rec {
+                inherit
+                  (prev.zathuraPkgs)
+                  gtk
+                  zathura_djvu
+                  zathura_pdf_poppler
+                  zathura_ps
+                  zathura_core
+                  zathura_cb
+                ;
+
+                zathura_pdf_mupdf = prev.zathuraPkgs.zathura_pdf_mupdf.overrideAttrs (o: {
+                  patches = [./fix-fz_search_stext_page.patch];
+                });
+
+                zathuraWrapper = prev.zathuraPkgs.zathuraWrapper.overrideAttrs (o: {
+                  paths = [
+                    zathura_core.man
+                    zathura_core.dev
+                    zathura_core.out
+                    zathura_djvu
+                    zathura_ps
+                    zathura_cb
+                    zathura_pdf_mupdf
+                  ];
+                });
+              };
+
+              zathura = zathuraPkgs.zathuraWrapper;})
             f2k.overlays.default # Fortuneteller2k's overlays, mostly for awesome-git
             ]; }
 	      ./hosts/thonkpad/configuration.nix # Load main config for thonkpad

@@ -55,6 +55,7 @@
       shellcheck # Checking my crappy shell code
       speedtest-cli # Testing my internet speed from the terminal
       sqlite # Databases and stuff
+      sublime4 # A cool text editor
       tmux # A terminal multiplexer
       tokei # Counting lines of code
       trash-cli # Trash instead of delete

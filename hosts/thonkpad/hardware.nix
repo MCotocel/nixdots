@@ -8,7 +8,7 @@
       kernelModules = [ "kvm-intel" ]; # For KVM
       kernelParams = [ "intel_iommu=on" ]; # Forgot what this does
       extraModulePackages = [ config.boot.kernelPackages.rtl8821ce ]; # Drivers
-      kernelPackages = pkgs.linuxPackages_xanmod; # Kernel package
+      kernelPackages = pkgs.linuxPackages_xanmod_latest; # Kernel package
   };
 
   hardware = {
@@ -20,6 +20,19 @@
     nvidia.prime.nvidiaBusId = "PCI:1:0:0"; # Also for my stupid GPU
     nvidia.prime.intelBusId = "PCI:0:2:0"; # For Intel
   };
+
+  services.thermald.enable = lib.mkDefault true; # Keep temps in check
+  services.fstrim.enable = true; # I have an SSD
+  services.tlp = {
+    enable = true;
+    settings = {
+      CPU_SCALING_GOVERNOR_ON_BAT="powersave";
+      CPU_SCALING_GOVERNOR_ON_AC="performance";
+      CPU_MAX_PERF_ON_AC=100;
+      CPU_MAX_PERF_ON_BAT=20;
+    };
+  };
+  powerManagement.powertop.enable = true;
 
   fileSystems."/" = # Main disk
     { device = "/dev/disk/by-label/nixos";
@@ -43,7 +56,7 @@
       external-display.configuration = {
         system.nixos.tags = [ "external-display" ];
         hardware.nvidia.prime.offload.enable = lib.mkForce false;
-        hardware.nvidia.powerManagement.enable = lib.mkForce false;
+        hardware.nvidia.powerManagement.enable = lib.mkForce true;
       };
       internal-display.configuration = {
         system.nixos.tags = [ "internal-display" ];

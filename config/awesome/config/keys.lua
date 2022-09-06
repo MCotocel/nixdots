@@ -104,7 +104,7 @@ awful.key({modkey, "Control"}, "space", awful.client.floating.toggle, {
     group = "Windows"
 }),
 
--- Toggle Fullscreen
+-- Toggle fullscreen
 awful.key({modkey, "Shift"}, "f", function()
         client.focus.fullscreen = not client.focus.fullscreen client.focus:raise()
     end, {
@@ -305,7 +305,7 @@ awful.key({}, "XF86AudioPlay", function()
 -- Brightness up
 awful.key({}, "XF86MonBrightnessUp", function()
       awesome.emit_signal("backlight_change")
-      awful.spawn.with_shell("brightnessctl s +5%")
+      awful.spawn.with_shell("brightnessctl s +1%")
       end, {
       description = "Brightness up",
       group = "Various functions"
@@ -314,7 +314,7 @@ awful.key({}, "XF86MonBrightnessUp", function()
 -- Brightness down
 awful.key({}, "XF86MonBrightnessDown", function()
       awesome.emit_signal("backlight_change")
-      awful.spawn.with_shell("brightnessctl s 5%-")
+      awful.spawn.with_shell("brightnessctl s 1%-")
       end, {
       description = "Brightness down",
       group = "Various functions"

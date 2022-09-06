@@ -1,8 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  powerManagement.cpuFreqGovernor = "ondemand"; # When needed
-
   # Hardware acceleration
   hardware.opengl = { # OpenGL for better performance
     enable = true;

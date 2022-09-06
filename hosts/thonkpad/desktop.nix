@@ -7,12 +7,6 @@ in {
   # For saving passwords and stuff
   services.gnome.gnome-keyring.enable = true;
 
-  # Email
-  programs.evolution = {
-    enable = true;
-    plugins = [ pkgs.evolution-ews ];
-  };
-
   # Everything is bad without it
   programs.dconf.enable = true;
 
@@ -26,8 +20,10 @@ in {
     brightnessctl # Controlling brightness
     calibre # Converting my books for my Kindle
     capitaine-cursors # Nice cursors
+    davinci-resolve # Video editing
     discocss # Customizing Discord CSS
     discord # Chat app
+    dnd-tools # I play D&D so this is useful
     eww # Widgets for when I can't get the AwesomeWM ones working
     filezilla # FTP app
     firefox # Main web browser
@@ -40,6 +36,7 @@ in {
     gnome.gnome-disk-utility # Formatting disks. I think I use fdisk more though
     gnome.nautilus # File manager
     gnome.seahorse # Viewing keychain
+    google-chrome
     googleearth-pro # When I want to explore the neighbourhood without going outside into a sandstorm
     i3lock-color # For locking my device
     inkscape # Occasionally used
@@ -63,8 +60,10 @@ in {
     obs-studio-plugins.obs-pipewire-audio-capture # For recording audio
     obsidian # I use this for all of my notes
     openbox # Neat floating window manager, I occasionally dabble in it
+    pandoc # Converting stuff
     papirus-icon-theme # Best icon theme
     picom # A cool compositor
+    pmutils # Power management utils I guess
     qbittorrent # For downloading certain things
     qemu # Woo VMs
     qutebrowser # Secondary browser, controlled through my keyboard mostly
@@ -78,14 +77,16 @@ in {
     teams # Very clunky but I need it
     tesseract # Images to text. Very cool
     texlive.combined.scheme-full # LaTeX package
+    thunderbird # Email
     twemoji-color-font # Emoji
     twitter-color-emoji # Also emoji
+    unrar # Extract rar fils
     usbutils # For my USB sticks
     virt-manager # For managing my virtual machines
     wayfire # It's fun to mess around with
     wayland # The cooler X
     wezterm # Best terminal
-    wine # Who needs Windows?
+    wineWowPackages.stable # Who needs windows?
     winetricks # Who needs a CLI?
     wmctrl # Moving windows around in scripts
     wpa_supplicant # Connecting to networks
@@ -110,7 +111,7 @@ in {
     displayManager.startx.enable = true;
     videoDrivers = [ "nvidia" ]; # Didn't have much of a choice
     desktopManager = {
-      gnome = {
+      plasma5 = {
         enable = false;
       };
     };
@@ -145,8 +146,8 @@ in {
     ];
   };
 
-  qt5.platformTheme = "gtk3";
-  qt5.style = "gtk3";
+  qt5.platformTheme = "gtk2";
+  qt5.style = "gtk2";
 
   environment.gnome.excludePackages = [ # Exclude all the stuff I don't need
     pkgs.gnome.file-roller

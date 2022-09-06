@@ -1,1 +1,1 @@
-mpv "$(find ~/Desktop/Folder/Media/Music -name "*.mp3" | rofi -dmenu -i)"
+mpv ~/Desktop/Folder/Media/Music/"$(find ~/Desktop/Folder/Media/Music -name "*.mp3" -printf '%P\n' | rofi -dmenu -i -theme-str "listview{ columns: 1 ; }")"

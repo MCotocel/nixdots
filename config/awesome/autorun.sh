@@ -13,9 +13,6 @@ xrdb -merge ~/.Xresources
 # Cursor
 xsetroot -cursor_name arrow
 
-# Mopidy
-pgrep -x mopidy > /dev/null || mopidy &
-
 # Gestures
 pkill touchegg
 rm ~/.config/touchegg/.*
@@ -30,3 +27,18 @@ emacs --daemon
 
 # Xinput
 xinput set-button-map 13 1 2 3 4 5 6 7 12 13 0 0 0 0 0 0
+xinput set-button-map 14 1 2 3 4 5 6 7 12 13 0 0 0 0 0 0
+
+# MPD
+if ! pidof mpd;
+then
+    mpd
+fi
+if ! pidof mpd-mpris;
+then
+    mpd-mpris
+fi
+if ! pidof mpd-discord-rpc;
+then
+    mpd-discord-rpc
+fi

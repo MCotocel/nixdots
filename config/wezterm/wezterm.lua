@@ -28,4 +28,6 @@ return {
   show_update_window = false,
   check_for_updates = false,
   default_cursor_style = "BlinkingBar",
+  animation_fps = 1,
+  cursor_blink_rate = 0,
 }

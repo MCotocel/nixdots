@@ -200,22 +200,10 @@
     "pg" 'projectile-grep
     "pm" 'projectile-commander
     "pc" 'projectile-compile-project
-    ;; Org mode
-    "oc" 'org-edit-special
-    "ol" 'org-latex-preview
-    "ot" 'org-ctrl-c-ctrl-c
-    "oi" 'org-toggle-inline-images
-    "oa" 'org-agenda
-    "os" 'org-schedule
-    ; Export
-    "oep" 'org-latex-export-to-pdf
-    "oeh" 'org-html-export-to-html
-    "oem" 'org-man-export-to-man
-    "oeu" 'org-publish-project
-    ; Babel
-    "obs" 'org-babel-execute-src-block
-    "obb" 'org-babel-execute-buffer
-    "obl" 'org-babel-load-file
+    ;; Obsidian
+    "of" 'obsidian-jump
+    "on" 'obsidian-capture
+    "ol" 'obsidian-insert-wikilink
     ;; Workspaces
     "ws" 'persp-switch
     "wd" 'persp-kill
@@ -254,6 +242,7 @@
 (define-key evil-normal-state-map (kbd "M-t") 'neotree-toggle)
 (define-key evil-normal-state-map (kbd "M-m") 'minimap-mode)
 (define-key evil-normal-state-map (kbd "<C-return>") 'shr-browse-url)
+(define-key evil-normal-state-map (kbd "<C-return>") 'obsidian-follow-link-at-point)
 (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
 
 (define-key evil-normal-state-map (kbd "C-=") 'text-scale-increase)
@@ -544,6 +533,11 @@
        :picker (gts-prompt-picker)
        :engines (gts-google-engine)
        :render (gts-buffer-render)))
+
+(use-package obsidian)
+
+(obsidian-specify-path "~/Desktop/Folder/BRAINBACK")
+(global-obsidian-mode t)
 
 (use-package org-contrib)
 

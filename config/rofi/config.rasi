@@ -5,4 +5,7 @@ configuration {
     drun {
         parse-system: false;
     }
+    filebrowser {
+        sorting-method: "name";
+    }
 }

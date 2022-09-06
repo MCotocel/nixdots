@@ -18,7 +18,7 @@ local function bat_notification()
       text = "Battery low! " .. bat_capacity .."%" .. " left!",
       fg="#ff8080",
       bg="#181e23",
-      timeout = 0
+      timeout = 2
     })
   end
 end

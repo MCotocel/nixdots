@@ -29,7 +29,6 @@
   environment.systemPackages = with pkgs; [
     alsa-utils # Utlities for also
     easyeffects # Audio effects
-    mopidy # Mpd but better
     audacity # Ecsiditing audio
     lmms # Making music
     mpc_cli # MPD cli client
@@ -49,35 +48,4 @@
     spotify # I love music
     vlc # GUI video player
   ];
-
-  # Mopidy
-  services.mopidy = {
-    enable = false; # Can't be bothered right now
-    extensionPackages = [
-      pkgs.mopidy-mpd # Play from MPD
-      pkgs.mopidy-youtube # Play from Youtube
-    ];
-    configuration = ''
-      [local]
-      enabled = true
-      media_dirs =~/|Home
-
-      [file]
-      enabled = true
-      media_dirs =
-        ~/Mount/Media/Music|Homternal
-        ~/|Home
-      excluded_file_extensions = .nfo
-      show_dotfiles = false
-      follow_symlinks = true
-      
-      [mpd]
-      enabled = true
-      hostname = 127.0.0.1
-      port = 6600
-
-      [youtube]
-      enabled = true
-    '';
-  };
 }

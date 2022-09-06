@@ -2,7 +2,7 @@
 
 {
   virtualisation.libvirtd = { # VMs are cool (and useful)
-    enable = false;
+    enable = true;
     qemu.ovmf.enable = true;
     onBoot = "ignore";
     onShutdown = "shutdown";
@@ -26,7 +26,7 @@
   };
 
   services.syncthing = { # Syncing files
-    enable = true;
+    enable = false;
     user = "matei";
     dataDir = "/home/matei";
   };
@@ -39,14 +39,17 @@
   services.logind.lidSwitch = "suspend"; # Power settings
   services.logind.lidSwitchDocked = "ignore"; # Quick access while plugged in
   services.logind.lidSwitchExternalPower = "ignore"; # Quick access while plugged in
+  services.logind.extraConfig = ''
+    HandlePowerKey=suspend
+  '';
 
   programs.steam.enable = true; # I like my games
   services.gvfs.enable = true; # For the Gnome apps
   services.locate.enable = true; # Locating files quickly
-  programs.weylus.enable = true; # Sometimes use my tablet with this
+  programs.weylus.enable = false; # Sometimes use my tablet with this
 
   services.unclutter = { # Decluttering stuff
-    enable = true;
+    enable = false;
     timeout = 3;
   };
 }

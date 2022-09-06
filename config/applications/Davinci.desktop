@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Terminal=false
+Icon=davinci-panels
+Exec=davinci-resolve
+Name=Davinci Resolve

@@ -25,13 +25,13 @@ awful.rules.rules = {
             maximized_horizontal = false,
             buttons = clientbuttons,
             screen = awful.screen.preferred,
-            placement = awful.placement.no_overlap +
-            awful.placement.no_offscreen,
-            titlebars_enabled = false
+            placement = awful.placement.no_overlap + awful.placement.no_offscreen,
+            titlebars_enabled = true
         }
     }
 }
 
 client.connect_signal("property::maximized", function(c)
     c.maximized = false
+    c.fullscreen = true
 end)
