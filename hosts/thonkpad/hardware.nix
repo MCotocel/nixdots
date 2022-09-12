@@ -15,24 +15,28 @@
     enableAllFirmware = true; # Firmware stuff
     enableRedistributableFirmware = true; # More firmware stuff
     opengl.enable = true; # OpenGL stuff
-    nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable; # For my stupid GPU
-    nvidia.modesetting.enable = true;
-    nvidia.prime.nvidiaBusId = "PCI:1:0:0"; # Also for my stupid GPU
-    nvidia.prime.intelBusId = "PCI:0:2:0"; # For Intel
+    nvidia = {
+      package = config.boot.kernelPackages.nvidiaPackages.stable; # For my stupid GPU
+      prime.nvidiaBusId = "PCI:1:0:0"; # Also for my stupid GPU
+      prime.intelBusId = "PCI:0:2:0"; # For Intel
+      modesetting.enable = true;
+      prime.offload.enable = lib.mkForce false;
+      powerManagement.enable = lib.mkForce false;
+    };
   };
 
-  services.thermald.enable = lib.mkDefault true; # Keep temps in check
-  services.fstrim.enable = true; # I have an SSD
+  services.thermald.enable = lib.mkDefault false; # Keep temps in check
+  services.fstrim.enable = false; # I have an SSD
   services.tlp = {
-    enable = true;
+    enable = false;
     settings = {
       CPU_SCALING_GOVERNOR_ON_BAT="powersave";
       CPU_SCALING_GOVERNOR_ON_AC="performance";
       CPU_MAX_PERF_ON_AC=100;
       CPU_MAX_PERF_ON_BAT=20;
+      USB_AUTOSUSPEND=0;
     };
   };
-  powerManagement.powertop.enable = true;
 
   fileSystems."/" = # Main disk
     { device = "/dev/disk/by-label/nixos";
@@ -44,24 +48,11 @@
       fsType = "vfat";
     };
 
-  swapDevices = # Swap drive (Don't use it much)
+  swapDevices = # Swap drive
     [ { device = "/dev/disk/by-label/swap"; } ];
 
   
   environment.systemPackages = with pkgs; [ # Better kernel
     linuxPackages_xanmod.r8168
   ];
-
-  specialisation = { # For switching between displays
-      external-display.configuration = {
-        system.nixos.tags = [ "external-display" ];
-        hardware.nvidia.prime.offload.enable = lib.mkForce false;
-        hardware.nvidia.powerManagement.enable = lib.mkForce true;
-      };
-      internal-display.configuration = {
-        system.nixos.tags = [ "internal-display" ];
-        hardware.nvidia.prime.offload.enable = lib.mkForce true;
-        hardware.nvidia.powerManagement.enable = lib.mkForce true;
-      };
-    };
 }

@@ -12,14 +12,7 @@
     ./services.nix
     ./sound.nix
     ../shared.nix
-    #../../modules/kmonad/nix/nixos-module.nix
   ];
-
-  #services.kmonad = {
-  #  enable = true;
-  #  configfiles = [ ~/.config/kmonad/kmonad.kbd ];
-	#  package = import ../../derivations/kmonad.nix;
-  #};
 
   users.groups = { uinput = {}; };
 

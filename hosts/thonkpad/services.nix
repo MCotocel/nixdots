@@ -1,6 +1,7 @@
-{ config, pkgs, ... }:
+{ config, pkgs, kmonad, ... }:
 
 {
+
   virtualisation.libvirtd = { # VMs are cool (and useful)
     enable = true;
     qemu.ovmf.enable = true;
@@ -42,6 +43,13 @@
   services.logind.extraConfig = ''
     HandlePowerKey=suspend
   '';
+
+  # For kmonad
+  services.udev.extraRules =
+    ''
+      # KMonad user access to /dev/uinput
+      KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"
+    '';
 
   programs.steam.enable = true; # I like my games
   services.gvfs.enable = true; # For the Gnome apps

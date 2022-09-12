@@ -294,7 +294,7 @@ awful.screen.connect_for_each_screen(function(s)
     {
         objects = { battery },
         timer_function = function()
-            return io.popen('bash -c "echo; acpi -b | tail -n 1 | sed \'s/Battery 1: Charging, //g\'"'):read("*a")
+            return io.popen('bash -c "echo; acpi -b"'):read("*a")
         end,
         timeout = 2,
         bg = beautiful.bg_diff,

@@ -7,7 +7,6 @@
     nur.url          = "github:nix-community/nur";
     agenix.url       = "github:ryantm/agenix";
     f2k.url          = "github:fortuneteller2k/nixpkgs-f2k";
-    #kmonad           = "file:./derivations/kmonad.nix";
   };
 
   outputs = { self, nixpkgs, home-manager, nur, agenix, f2k, ... }: {
@@ -29,7 +28,7 @@
               url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz; # Latest Emacs version
             }))
             (self: super: {
-              emacsGit = super.emacsGit.override { # Modify Emacs to use Xwidgets
+              emacsPgtkNativeComp = super.emacsPgtkNativeComp.override { # Modify Emacs to use Xwidgets
                 withXwidgets = true;
                 withGTK3 = true;
               };

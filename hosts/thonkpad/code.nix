@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 
-{
+
+let
+  kmonad =  import ../../derivations/kmonad.nix;
+in {
   environment = {
     systemPackages = with pkgs; [
       arduino # I mess around with it occasionally
@@ -12,7 +15,8 @@
       coreutils # Necessary
       cowsay # My machine cannot run without this
       direnv # Need to implement this sometime
-      emacs # The best text editor
+      #emacs # The best text editor
+      emacsPgtkNativeComp # The better best text editor
       emacs-all-the-icons-fonts # Fonts for Emacs
       exa # ls but better
       fd # Find but better
@@ -25,12 +29,16 @@
       git # Use it every day
       github-desktop # Ocassionally useful
       gource # Nice for visualising repo history
+      gnumake # Make command
       handbrake # Again, I deal with videos
       htop # Why is my laptop so hot? Oh yeah I'm compiling 20 programs while running two games
+      ifuse # Also for connecting my phone
       imagemagick # Really useful for scripts
       ispell # Spell checking
       isync # For mail
       jq # For when you have to deal with json
+      kmonad # Remapping keys
+      libimobiledevice # For connecting my phone
       lshw # Diagnostic time!
       lua # Big fan of AwesomeWM
       lynis # Security audits. Although passwordless doas probably undermines all of it
@@ -51,6 +59,7 @@
       ps_mem # (Why is Emacs using so much RAM?)
       python311 # I know Python better than I know most languages
       ranger # Terminal file manager
+      ruby # That one language
       ripgrep # Grep but better
       shellcheck # Checking my crappy shell code
       speedtest-cli # Testing my internet speed from the terminal
@@ -61,6 +70,7 @@
       trash-cli # Trash instead of delete
       ueberzug # Images in terminal (again for some reason)
       unzip # For unzipping archives
+      usbmuxd # Yet again, for connecting my phone
       vim # The original (not quite)
       vscode # For emergencies
       wget # For downloading web pages and stuff

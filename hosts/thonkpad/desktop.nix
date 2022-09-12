@@ -1,8 +1,6 @@
 { config, pkgs, ... }:
 
-let
-  kmonad =  import ../../derivations/kmonad.nix;
-in {
+{
 
   # For saving passwords and stuff
   services.gnome.gnome-keyring.enable = true;
@@ -11,6 +9,8 @@ in {
   programs.dconf.enable = true;
 
   environment.systemPackages = with pkgs; [
+    acpi # Battery and stuff
+    appimage-run # To run appimages
     arandr # Xrandr GUI
     aseprite # Pixel art is cool
     autorandr # Auto xrandr!
@@ -41,7 +41,6 @@ in {
     i3lock-color # For locking my device
     inkscape # Occasionally used
     kid3 # I download lots of music
-    kmonad # I could be very efficient if I actually used it
     krita # Sometimes used for posters and stuff
     libinput # I think this is for my trackpad
     libnotify # For sending notifications
@@ -60,10 +59,13 @@ in {
     obs-studio-plugins.obs-pipewire-audio-capture # For recording audio
     obsidian # I use this for all of my notes
     openbox # Neat floating window manager, I occasionally dabble in it
+    openssl # For certs
+    p7zip # Unzipping stuff
     pandoc # Converting stuff
     papirus-icon-theme # Best icon theme
     picom # A cool compositor
     pmutils # Power management utils I guess
+    poppler_utils # PDF stuff
     qbittorrent # For downloading certain things
     qemu # Woo VMs
     qutebrowser # Secondary browser, controlled through my keyboard mostly
@@ -78,6 +80,7 @@ in {
     tesseract # Images to text. Very cool
     texlive.combined.scheme-full # LaTeX package
     thunderbird # Email
+    tor # Privacy yeah
     twemoji-color-font # Emoji
     twitter-color-emoji # Also emoji
     unrar # Extract rar fils
@@ -104,7 +107,6 @@ in {
   services.xserver = {
     enable = true;
     layout = "us"; # Set keyboard layout
-    xkbOptions = "caps:ctrl_modifier"; # Caps to control
     autoRepeatDelay = 225; # Keyboard repeat rate
     autoRepeatInterval = 33; 
     libinput.enable = true; # Enable libinput for trackpad
@@ -132,8 +134,6 @@ in {
       };
     };
   };
-
-  location.provider = "geoclue2"; # For stuff that needs my general location
 
   fonts = {
     enableDefaultFonts = true;
@@ -170,4 +170,18 @@ in {
     pkgs.gnome.simple-scan
     pkgs.gnome.totem
   ];
+
+  # My eyes must be preserved
+  services.redshift = {
+    enable = true;
+    extraOptions = [
+      "-l 24:54"
+    ];
+  };
+
+  location = {
+    provider = "manual";
+    longitude = 54.0;
+    latitude = 24.0;
+  };
 }

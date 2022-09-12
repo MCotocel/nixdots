@@ -166,7 +166,7 @@ theme.hotkeys_group_margin = dpi(10)
 -- Notifications
 
 local global_shape = function(cr, width, height)
-    gears.shape.rounded_rect(cr, width, height, 15)
+    gears.shape.rounded_rect(cr, width, height, 0)
 end
 
 theme.notification_font = "Iosevka 11"

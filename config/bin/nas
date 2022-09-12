@@ -20,10 +20,15 @@ Options:
       push         copy configs to /etc/nixos
       sync         pull config from git repo, then commit and push
       rebuild      rebuild configuration for host
+      full         push configs to /etc/nixos, sync, then rebuild
       rollback     rollback to previous generation
       update       update flake
       clean        clean and garabge collect store
+
       search       search packages available
+      install      install a package
+      uninstall    remove a package
+      list         list packages installed
 EOF
 }
 
@@ -53,7 +58,12 @@ function nix-sync() {
 
 function nix-rebuild() {
   echo "Rebuilding config"
-  $priv nixos-rebuild --flake /etc/nixos#$3 --impure switch
+  $priv nixos-rebuild --flake /etc/nixos --impure switch
+}
+
+function nix-full() {
+    nix-sync
+    nix-rebuild
 }
 
 function nix-rollback() {
@@ -71,23 +81,41 @@ function nix-clean() {
   $priv nix-store --gc
   $priv nix-collect-garbage
   $priv nix-env --delete-generations old
+  $priv nix-collect-garbage -d
+  nix-collect-garbage -d
 }
 
 function nix-search() {
   nix search nixpkgs ${@:3:9999}
 }
 
+function nix-install() {
+  nix profile install nixpkgs#$3
+}
+
+function nix-uninstall() {
+  nix profile remove nixpkgs#$3
+}
+
+function nix-list() {
+  nix profile list
+}
+
 case "$1" in
     nix)
       case "$2" in
-        pull)     nix-pull ;;
-        push)     nix-push ;;
-        sync)     nix-sync ;;
-        rebuild)  nix-rebuild $@ ;;
-        rollback) nix-rollback ;;
-        update)   nix-update ;;
-        clean)    nix-clean ;;
-        search)   nix-search $@ ;;
+        pull)      nix-pull ;;
+        push)      nix-push ;;
+        sync)      nix-sync ;;
+        rebuild)   nix-rebuild ;;
+        rebuild)   nix-full ;;
+        rollback)  nix-rollback ;;
+        update)    nix-update ;;
+        clean)     nix-clean ;;
+        search)    nix-search $@ ;;
+        install)   nix-install $@ ;;
+        uninstall) nix-uninstall $@ ;;
+        list)      nix-list $@ ;;
         '')      help ;;
         help)    help ;;
         *)       help ;;

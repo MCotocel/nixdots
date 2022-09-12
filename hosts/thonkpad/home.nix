@@ -21,6 +21,8 @@
     ".config/gtk-3.0/settings.ini".source   = ../../config/gtk/gtk3;
     ".config/touchegg/touchegg.conf".source = ../../config/touchegg/touchegg.conf;
 
+    ".config/autorandr/postswitch".source = ../../config/autorandr/postswitch;
+    
     ".config/awesome".source      = ../../config/awesome;
     ".config/bspwm".source        = ../../config/bspwm;
     ".config/cava".source         = ../../config/cava;

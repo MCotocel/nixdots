@@ -19,6 +19,7 @@
     mangohud
     minecraft
     nethack
+    optifine
     osu-lazer
     protonup
     retroarch
