@@ -108,7 +108,7 @@ case "$1" in
         push)      nix-push ;;
         sync)      nix-sync ;;
         rebuild)   nix-rebuild ;;
-        rebuild)   nix-full ;;
+        full)   nix-full ;;
         rollback)  nix-rollback ;;
         update)    nix-update ;;
         clean)     nix-clean ;;
