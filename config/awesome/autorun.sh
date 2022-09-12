@@ -27,7 +27,10 @@ touchegg &
 # Applets
 nm-applet &
 blueman-applet &
-doas solaar -w hide &
+if ps aux | grep solaar
+then
+    doas solaar -w hide &
+fi
  
 # Emacs daemon
 emacs --daemon
