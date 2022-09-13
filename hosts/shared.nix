@@ -19,6 +19,11 @@
     ];
   };
 
+  # Locales
+  i18n = {
+    defaultLocale = "en_GB.UTF-8";
+  };
+
   # Nix and NixOS config
   nix = {
     package = pkgs.nixUnstable;

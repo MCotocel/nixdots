@@ -38,7 +38,7 @@ machi.editor.nested_layouts = {
 }
 
 bling.module.wallpaper.setup {
-  wallpaper = {"/home/matei/Pictures/Wallpaper/Rails.jpg"},
+  wallpaper = {"/home/matei/Pictures/Wallpaper/Waves.jpg"},
   position = "maximized",
 }
 

@@ -27,7 +27,7 @@ touchegg &
 # Applets
 nm-applet &
 blueman-applet &
-if ps aux | grep solaar
+if ! ps aux | grep solaar | grep -v grep;
 then
     doas solaar -w hide &
 fi
