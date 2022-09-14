@@ -28,7 +28,7 @@
   services.thermald.enable = lib.mkDefault false; # Keep temps in check
   services.fstrim.enable = false; # I have an SSD
   services.tlp = {
-    enable = false;
+    enable = true;
     settings = {
       CPU_SCALING_GOVERNOR_ON_BAT="powersave";
       CPU_SCALING_GOVERNOR_ON_AC="performance";
