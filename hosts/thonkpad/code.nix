@@ -15,8 +15,8 @@ in {
       coreutils # Necessary
       cowsay # My machine cannot run without this
       direnv # Need to implement this sometime
-      #emacs # The best text editor
-      emacsPgtkNativeComp # The better best text editor
+      emacs # The best text editor
+      #emacsPgtkNativeComp # The better best text editor
       emacs-all-the-icons-fonts # Fonts for Emacs
       exa # ls but better
       fd # Find but better
