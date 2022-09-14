@@ -1,2 +1,5 @@
 #!/bin/sh
+xset dpms force off
 echo 'awesome.restart()' | awesome-client
+sleep 2
+xset dpms force on
