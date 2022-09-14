@@ -17,16 +17,27 @@ picom &
 xscreensaver &
 
 # Monitor displays
-watch -n 3 autorandr -c &
+if ! ps aux | grep autorandr | grep -v grep;
+then
+    watch -n 3 autorandr -c &
+fi
 
 # Gestures
-pkill touchegg
 rm ~/.config/touchegg/.*
-touchegg &
+if ! ps aux | grep nm-applet | grep -v grep;
+then
+    touchegg &
+fi
 
 # Applets
-nm-applet &
-blueman-applet &
+if ! ps aux | grep nm-applet | grep -v grep;
+then
+    nm-applet &
+fi
+if ! ps aux | grep blueman-applet | grep -v grep;
+then
+    blueman-applet &
+fi
 if ! ps aux | grep solaar | grep -v grep;
 then
     doas solaar -w hide &
