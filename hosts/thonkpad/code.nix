@@ -27,7 +27,6 @@ in {
       gcc # Necessary
       gh # Github's CLI tool
       git # Use it every day
-      github-desktop # Ocassionally useful
       gource # Nice for visualising repo history
       gnumake # Make command
       handbrake # Again, I deal with videos
