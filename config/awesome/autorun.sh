@@ -13,9 +13,6 @@ xsetroot -cursor_name arrow
 # Compositor
 picom &
 
-# Lock screen
-xscreensaver &
-
 # Monitor displays
 if ! ps aux | grep autorandr | grep -v grep;
 then

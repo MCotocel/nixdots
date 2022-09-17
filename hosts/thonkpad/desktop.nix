@@ -97,6 +97,7 @@
     xdotool # Used for scrips
     xorg.xinit # So I can do startx when I log in
     xscreensaver # Nice screensavers
+    xsecurelock # Simple lock screen
     zathura # For reading my downloaded PDFs
   ];
 

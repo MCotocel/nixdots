@@ -13,7 +13,7 @@
   };
 
   environment.systemPackages = with pkgs; [ # Some games
-    cataclysm-dda
+    cataclysm-dda-git
     gzdoom
     lutris
     mangohud
@@ -22,7 +22,7 @@
     optifine
     osu-lazer
     protonup
-    retroarch
+    retroarchFull
     superTuxKart
     xorg.xf86inputjoystick
   ];
