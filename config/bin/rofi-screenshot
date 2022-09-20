@@ -1,11 +1,11 @@
-sel=$(echo "Screen|Selection|Record screen|Stop recording screen" | rofi -sep "|" -dmenu -i -p 'Screenshot' -theme-str 'window { height: 15%; width: 15%;}')
+sel=$(echo "Screen|Selection" | rofi -sep "|" -dmenu -i -p 'Screenshot' -theme-str 'window { height: 15%; width: 15%;}')
  
 if [[ $sel = "Screen" ]]; then
 
     sleep 0.5
     maim ~/Pictures/Screenshots/TEMP.png
     xclip -selection clipboard -t image/png -i ~/Pictures/Screenshots/TEMP.png
-    ~/.bin/sys-notify "Screenshot taken" normal
+    notify-send "Screenshot" "Screenshot taken!" -i ~/Pictures/Screenshots/TEMP.png
     mv ~/Pictures/Screenshots/TEMP.png ~/Pictures/Screenshots/$(date +%d:%H:%M:%S).png
     
 elif [[ $sel = "Selection" ]]; then # If selection is selection
@@ -13,21 +13,8 @@ elif [[ $sel = "Selection" ]]; then # If selection is selection
     sleep 0.5
     maim -s ~/Pictures/Screenshots/TEMP.png
     xclip -selection clipboard -t image/png -i ~/Pictures/Screenshots/TEMP.png
-    ~/.bin/sys-notify "Screenshot taken" normal
+    notify-send "Screenshot" "Screenshot taken!" -i ~/Pictures/Screenshots/TEMP.png
     mv ~/Pictures/Screenshots/TEMP.png ~/Pictures/Screenshots/$(date +%d:%H:%M:%S).png
-
-elif [[ $sel = "Record screen" ]]; then
-    
-    ~/.bin/sys-notify "Started screen recording" normal
-    giph ~/Pictures/Screenshots/TEMP.mp4
-
-elif [[ $sel = "Stop recording screen" ]]; then
-    
-    giph --stop
-    pkill -INT .giph-wrapped
-    xclip -selection clipboard -t video/mp4 -i ~/Pictures/Screenshots/TEMP.mp4
-    ~/.bin/sys-notify "Video recorded" normal
-    mv ~/Pictures/Screenshots/TEMP.mp4 ~/Pictures/Screenshots/$(date +%d:%H:%M:%S).mp4
 
 fi
 

@@ -1,77 +1,45 @@
+# You probably shouldn't be using my configuration as a guideline
+# Sure, it works (mostly), but the code is horrible
+
 {
   description = "I have no idea what the hell I'm doing"; # It's true!
 
   inputs = {
-    nixpkgs.url      = "github:NixOS/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager";
-    nur.url          = "github:nix-community/nur";
-    agenix.url       = "github:ryantm/agenix";
-    f2k.url          = "github:fortuneteller2k/nixpkgs-f2k";
+    agenix.url = "github:ryantm/agenix"; # Secret management, I should probably set this up
+    f2k.url = "github:fortuneteller2k/nixpkgs-f2k"; # F2K's packages
+    home-manager.url = "github:nix-community/home-manager"; # Managing my environment
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable"; # Living on the edge
+    nur.url = "github:nix-community/nur"; # Nix User Repository for packages not in nixpkgs
+
+    deemix-gui.url = "path:./derivations/deemix-gui"; # Music downloader
+    upscayl.url = "path:./derivations/upscayl"; # Image upscaler
   };
 
-  outputs = { self, nixpkgs, home-manager, nur, agenix, f2k, ... }: {
+  outputs = { self, nixpkgs, home-manager, nur, f2k, upscayl, deemix-gui, ... }@inputs: {
 
     nixosConfigurations = let lib = nixpkgs.lib;
 
     in {
 
-      thonkpad = (lib.makeOverridable lib.nixosSystem) { # It's not a thonkpad, I just can't be bothered to change the name
-        system = "x86_64-linux"; # Like most laptops and desktops
+      thonkpad = (lib.makeOverridable lib.nixosSystem) {
+        system = "x86_64-linux"; # What did you expect?
         modules = [
-          agenix.nixosModules.age # Agenix, will use it later
-	        home-manager.nixosModules.home-manager {
-              home-manager.users.matei = import ./hosts/thonkpad/home.nix; # Home-manager for managing dotfiles
-	        }
-	      { nixpkgs.overlays = [
-            nur.overlay # Nix User Repository, for user-maintained packages
-            (import (builtins.fetchTarball {
-              url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz; # Latest Emacs version
-            }))
-            (self: super: {
-              emacsPgtkNativeComp = super.emacsPgtkNativeComp.override { # Modify Emacs to use Xwidgets
-                withXwidgets = true;
-                withGTK3 = true;
-              };
-            })
-            (self: super: {
-                ncmpcpp = super.ncmpcpp.override {
-                  visualizerSupport = true;
-                };
+          home-manager.nixosModules.home-manager
+          { home-manager.users.matei = import ./hosts/thonkpad/home.nix; }
+          {
+            nixpkgs.overlays = [
+              (_: _: { upscayl = upscayl.packages.x86_64-linux.upscayl; }) # I spent 90 minutes searching up how to do this, I felt like a genius after finally figuring out. I went up to a friend, slapped his back, and screamed "I'm a fucking genius"
+              (_: _: { deemix-gui = deemix-gui.packages.x86_64-linux.deemix-gui; }) # I currently have Spotify premium, but if I'm ever not able to afford it, I've got this. Plus it's nice to own it.
+              nur.overlay
+              (self: super: {
+                ncmpcpp = super.ncmpcpp.override { visualizerSupport = true; };
               })
-            (final: prev: rec {
-              zathuraPkgs = rec {
-                inherit
-                  (prev.zathuraPkgs)
-                  gtk
-                  zathura_djvu
-                  zathura_pdf_poppler
-                  zathura_ps
-                  zathura_core
-                  zathura_cb
-                ;
-
-                zathura_pdf_mupdf = prev.zathuraPkgs.zathura_pdf_mupdf.overrideAttrs (o: {
-                  patches = [./fix-fz_search_stext_page.patch];
-                });
-
-                zathuraWrapper = prev.zathuraPkgs.zathuraWrapper.overrideAttrs (o: {
-                  paths = [
-                    zathura_core.man
-                    zathura_core.dev
-                    zathura_core.out
-                    zathura_djvu
-                    zathura_ps
-                    zathura_cb
-                    zathura_pdf_mupdf
-                  ];
-                });
-              };
-
-              zathura = zathuraPkgs.zathuraWrapper;})
-            f2k.overlays.default # Fortuneteller2k's overlays, mostly for awesome-git
-            ]; }
-	      ./hosts/thonkpad/configuration.nix # Load main config for thonkpad
-        ]; };
+              f2k.overlays.default
+            ];
+          }
+          ./hosts/thonkpad/configuration.nix
+        ];
+      };
     };
   };
 }

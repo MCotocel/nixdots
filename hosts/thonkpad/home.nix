@@ -25,6 +25,7 @@
     
     ".config/awesome".source      = ../../config/awesome;
     ".config/bspwm".source        = ../../config/bspwm;
+    ".config/btop".source         = ../../config/btop;
     ".config/cava".source         = ../../config/cava;
     ".config/kmonad".source       = ../../config/kmonad;
     ".config/mpd".source          = ../../config/mpd;

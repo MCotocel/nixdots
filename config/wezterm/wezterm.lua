@@ -30,4 +30,5 @@ return {
   default_cursor_style = "BlinkingBar",
   animation_fps = 1,
   cursor_blink_rate = 0,
+  scrollback_lines = 7500,
 }

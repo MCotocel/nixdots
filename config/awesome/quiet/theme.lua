@@ -35,7 +35,7 @@ theme.useless_gap = dpi(10)
 theme.gap_single_client = true
 theme.border_width = dpi(0)
 theme.border_color_normal = "#181e23"
-theme.border_color_active = "#181e23"
+theme.border_color_active = "#1f252a"
 theme.border_color_marked = "#80d1ff"
 
 -- Taglist
@@ -157,7 +157,7 @@ theme.window_switcher_name_focus_color = "#ffffff"
 
 -- Hotkey popup
 
-theme.hotkeys_font = "Iosevka 11"
+theme.hotkeys_font = "Iosevka 14"
 theme.hotkeys_description_font = "Iosevka 9"
 theme.hotkeys_modifiers_fg = "#80D1FF"
 theme.hotkeys_border_width = 0

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, system, ... }:
 
 {
 
@@ -21,6 +21,7 @@
     calibre # Converting my books for my Kindle
     capitaine-cursors # Nice cursors
     davinci-resolve # Video editing
+    deemix-gui # Music downloading
     discocss # Customizing Discord CSS
     discord # Chat app
     dnd-tools # I play D&D so this is useful
@@ -38,6 +39,7 @@
     gnome.seahorse # Viewing keychain
     google-chrome
     googleearth-pro # When I want to explore the neighbourhood without going outside into a sandstorm
+    gwe # Nvidia settings thingy
     i3lock-color # For locking my device
     inkscape # Occasionally used
     kid3 # I download lots of music
@@ -84,6 +86,7 @@
     twemoji-color-font # Emoji
     twitter-color-emoji # Also emoji
     unrar # Extract rar fils
+    upscayl
     usbutils # For my USB sticks
     virt-manager # For managing my virtual machines
     wayfire # It's fun to mess around with

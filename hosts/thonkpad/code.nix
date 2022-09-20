@@ -1,8 +1,6 @@
 { config, pkgs, ... }:
 
-
-let
-  kmonad =  import ../../derivations/kmonad.nix;
+let kmonad = import ../../derivations/kmonad.nix;
 in {
   environment = {
     systemPackages = with pkgs; [
@@ -10,13 +8,13 @@ in {
       aria # For downloading stuff
       bash # Gotta have bash
       bat # Cat but better
+      btop # Like htop but so much better looking
       cava # Move to audio
       cmake # Necessary
       coreutils # Necessary
       cowsay # My machine cannot run without this
       direnv # Need to implement this sometime
       emacs # The best text editor
-      #emacsPgtkNativeComp # The better best text editor
       emacs-all-the-icons-fonts # Fonts for Emacs
       exa # ls but better
       fd # Find but better
@@ -48,6 +46,7 @@ in {
       neofetch # Everyone loves neofetch
       neovim # The second-best editor. For when Emacs doesn't work
       nix-linter # Lint Nix files
+      nixfmt # Format Nix files
       nodejs # Some programs need it
       nvd # Package version diff tool for Nix
       nvtop # Top, but for nvidia
@@ -75,6 +74,7 @@ in {
       wget # For downloading web pages and stuff
       xorg.xev # Good for scripts
       youtube-dl # For downloading videos
+      zeal # Documentation browser
       zsh # The better shell
     ];
 
@@ -89,16 +89,16 @@ in {
 
       magit = "emacsclient -c -e '(magit-status)'";
       elfeed = "emacsclient -c -e '(elfeed)'";
-      
+
       rm = "trash";
-      
+
       ta = "tmux attach -t";
       tn = "tmux new-session -s";
       tl = "tmux list-sessions";
-      
+
       vim = "emacsclient -c";
       vi = "emacsclient -c";
-      
+
       purge = "doas sync; echo 3 | doas tee /proc/sys/vm/drop_caches";
     };
 

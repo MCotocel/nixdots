@@ -32,11 +32,6 @@
     dataDir = "/home/matei";
   };
 
-  boot.plymouth = { # Cool startup splash screen
-    enable = false;
-    theme = "spinfinity";
-  };
-
   services.logind.lidSwitch = "suspend"; # Power settings
   services.logind.lidSwitchDocked = "ignore"; # Quick access while plugged in
   services.logind.lidSwitchExternalPower = "ignore"; # Quick access while plugged in
@@ -51,7 +46,6 @@
       KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"
     '';
 
-  programs.steam.enable = true; # I like my games
   services.gvfs.enable = true; # For the Gnome apps
   services.locate.enable = true; # Locating files quickly
   programs.weylus.enable = false; # Sometimes use my tablet with this

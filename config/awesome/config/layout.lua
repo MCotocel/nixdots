@@ -43,7 +43,6 @@ local layout_popup = awful.popup {
         widget = wibox.container.background,
     },
     placement = awful.placement.centered,
-    screen = mouse.screen;
     ontop = true,
     visible = false,
 }
