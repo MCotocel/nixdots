@@ -349,6 +349,10 @@
   :config
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
+;; Kmonad support
+(use-package kbd-mode
+  :straight (kbd-mode :type git :host github :repo "kmonad/kbd-mode" :branch "master"))
+
 (use-package all-the-icons)
 
 (use-package doom-modeline

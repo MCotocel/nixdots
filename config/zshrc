@@ -1,27 +1,3 @@
-########## Aliases ##########
-
-#alias ls='exa'
-#alias la='exa -a'
-#alias ll='exa -la'
-#alias lt='exa -lT'
-#alias lat='exa -laT'
-#
-#alias magit='emacsclient -c -e "(magit-status)"'
-#alias elfeed='emacsclient -c -e "(elfeed)"'
-#
-#alias rm='trash'
-#
-#alias ta='tmux attach -t'
-#alias tn='tmux new-session -s'
-#alias tl='tmux list-sessions'
-#
-#alias vim='emacsclient -c'
-#alias vi='emacsclient -c'
-#
-#alias cpuslow='echo powersave | doas tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor'
-#alias cpufast='echo performance | doas tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor'
-#alias purge='doas sync; echo 3 | doas tee /proc/sys/vm/drop_caches'
-
 ######### Completion ##########
 
 bindkey '^[[A' up-line-or-search    # Search up through history

@@ -13,6 +13,7 @@
   };
 
   environment.systemPackages = with pkgs; [ # Some games
+    brutal
     cataclysm-dda-git
     dwarf-fortress
     dwarf-fortress-packages.themes.vettlingr
@@ -25,9 +26,11 @@
     osu-lazer
     protonup
     retroarchFull
+    rpcs3
     steamcmd
     superTuxKart
     xorg.xf86inputjoystick
+    yuzu
   ];
 
   programs.gamemode = {

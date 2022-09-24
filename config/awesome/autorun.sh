@@ -1,5 +1,5 @@
 # Xinput
-xinput set-button-map $(xinput | grep "Logitech MX Master 3" | head -n 1 | sed -e 's/.*id=//g' -e 's/\[.*$//') 1 2 3 4 5 6 7 12 13 0 0 0 0 0 0
+watch -n 3 xinput set-button-map $(xinput | grep "Logitech MX Master 3" | head -n 1 | sed -e 's/.*id=//g' -e 's/\[.*$//') 1 2 3 4 5 6 7 12 13 0 0 0 0 0 0 &
 
 # Monitors
 xrandr --output DP-2 --output HDMI-0 --primary --mode 2560x1440 --right-of DP-2
@@ -16,7 +16,7 @@ picom &
 # Monitor displays
 if ! ps aux | grep autorandr | grep -v grep;
 then
-    watch -n 3 autorandr -c &
+    watch -n 1 autorandr -c &
 fi
 
 # Gestures

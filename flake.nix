@@ -11,11 +11,12 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable"; # Living on the edge
     nur.url = "github:nix-community/nur"; # Nix User Repository for packages not in nixpkgs
 
-    deemix-gui.url = "path:./derivations/deemix-gui"; # Music downloader
-    upscayl.url = "path:./derivations/upscayl"; # Image upscaler
+    deemix-gui.url = "path:/etc/nixos/derivations/deemix-gui"; # Music downloader
+    upscayl.url = "path:/etc/nixos/derivations/upscayl"; # Image upscaler
+    brutal.url = "path:/etc/nixos/derivations/brutal"; # Doom, modded
   };
 
-  outputs = { self, nixpkgs, home-manager, nur, f2k, upscayl, deemix-gui, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, nur, f2k, upscayl, deemix-gui, brutal, ... }@inputs: {
 
     nixosConfigurations = let lib = nixpkgs.lib;
 
@@ -30,6 +31,7 @@
             nixpkgs.overlays = [
               (_: _: { upscayl = upscayl.packages.x86_64-linux.upscayl; }) # I spent 90 minutes searching up how to do this, I felt like a genius after finally figuring out. I went up to a friend, slapped his back, and screamed "I'm a fucking genius"
               (_: _: { deemix-gui = deemix-gui.packages.x86_64-linux.deemix-gui; }) # I currently have Spotify premium, but if I'm ever not able to afford it, I've got this. Plus it's nice to own it.
+              (_: _: { brutal = brutal.packages.x86_64-linux.brutal; })
               nur.overlay
               (self: super: {
                 ncmpcpp = super.ncmpcpp.override { visualizerSupport = true; };

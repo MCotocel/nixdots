@@ -52,6 +52,7 @@
     matcha-gtk-theme # A cool GTK theme
     mesa # The graphics thing
     networkmanagerapplet # When I want to quickly connect to a Wi-Fi network
+    nicotine-plus # Soulseek client
     nitrogen # Used to use it for setting my wallpaper
     noto-fonts # Fonts
     noto-fonts-cjk-sans # For CJK languages

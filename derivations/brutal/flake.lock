@@ -1,0 +1,38 @@
+{
+  "nodes": {
+    "brutal": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-CBx04DvgO0wuq840RpvUmvyFM8ExHDqC0l/AArCbWWs=",
+        "type": "file",
+        "url": "https://www.moddb.com/downloads/mirror/95667/122/b01b809c5b56bf230a184a6ac954332d/?referer=https:%2f%2fwww.moddb.com%2fmods%2fbrutal-doom%2fdownloads"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://www.moddb.com/downloads/mirror/95667/122/b01b809c5b56bf230a184a6ac954332d/?referer=https:%2f%2fwww.moddb.com%2fmods%2fbrutal-doom%2fdownloads"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1663879234,
+        "narHash": "sha256-zCe2EVY+Jt3I7gBgMSkuGesZ57vyt/WwIUwshiwDErk=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "a8a557e233c30b60225fa5af41cc56f8409e4afb",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "root": {
+      "inputs": {
+        "brutal": "brutal",
+        "nixpkgs": "nixpkgs"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
