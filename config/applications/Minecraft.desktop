@@ -2,5 +2,5 @@
 Type=Application
 Terminal=false
 Icon=minecraft
-Exec=minecraft-launcher
+Exec=gamemoderun minecraft-launcher
 Name=Minecraft

@@ -4,7 +4,7 @@
   # Time
   time.timeZone = "Asia/Dubai"; # Don't dox me guys
 
-  # Bootloader for EFI
+  # Bootloader
   boot.loader = {
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;

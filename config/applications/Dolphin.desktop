@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
 Terminal=false
-Icon=doom
-Exec=brutal
-Name=Brutal Doom
+Icon=dolphin-emu
+Exec=dolphin-emu
+Name=Dolphin

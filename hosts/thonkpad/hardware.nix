@@ -5,8 +5,8 @@
       initrd = {
           availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "uas" "sd_mod" "sdhci_pci" ];
       };
-      kernelModules = [ "kvm-intel" ]; # For KVM
-      kernelParams = [ "intel_iommu=on" ]; # Forgot what this does
+      kernelModules = [ "kvm-intel" ]; # For VFIO
+      kernelParams = [ "intel_iommu=on" ]; # Also for VFIO
       extraModulePackages = [ config.boot.kernelPackages.rtl8821ce ]; # Drivers
       kernelPackages = pkgs.linuxPackages_xanmod_latest; # Kernel package
   };
@@ -15,6 +15,7 @@
     enableAllFirmware = true; # Firmware stuff
     enableRedistributableFirmware = true; # More firmware stuff
     opengl.enable = true; # OpenGL stuff
+    cpu.intel.updateMicrocode = true;
     nvidia = {
       package = config.boot.kernelPackages.nvidiaPackages.stable; # For my stupid GPU
       prime.nvidiaBusId = "PCI:1:0:0"; # Also for my stupid GPU
@@ -54,5 +55,6 @@
   
   environment.systemPackages = with pkgs; [ # Better kernel
     linuxPackages_xanmod.r8168
+    linuxKernel.packages.linux_xanmod.hid-nintendo
   ];
 }

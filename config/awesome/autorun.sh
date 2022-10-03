@@ -2,8 +2,10 @@
 watch -n 3 xinput set-button-map $(xinput | grep "Logitech MX Master 3" | head -n 1 | sed -e 's/.*id=//g' -e 's/\[.*$//') 1 2 3 4 5 6 7 12 13 0 0 0 0 0 0 &
 
 # Monitors
-xrandr --output DP-2 --output HDMI-0 --primary --mode 2560x1440 --right-of DP-2
-
+xrandr --output DP-2 --mode 1920x1080 --pos 0x360 --rotate normal 
+xrandr --output DP-0.1 --mode 2560x1440 --pos 1920x0 --rotate normal
+#xrandr --output HDMI-0 --mode 1920x1080 --pos 4480x0 --rotate left
+#
 # Xresources
 xrdb -merge ~/.Xresources
 
@@ -13,11 +15,11 @@ xsetroot -cursor_name arrow
 # Compositor
 picom &
 
-# Monitor displays
-if ! ps aux | grep autorandr | grep -v grep;
-then
-    watch -n 1 autorandr -c &
-fi
+## Monitor displays
+#if ! ps aux | grep autorandr | grep -v grep;
+#then
+#    watch -n 1 autorandr -c &
+#fi
 
 # Gestures
 rm ~/.config/touchegg/.*
@@ -50,9 +52,9 @@ then
 fi
 if ! pidof mpd-mpris;
 then
-    mpd-mpris
+    mpd-mpris &
 fi
 if ! pidof mpd-discord-rpc;
 then
-    mpd-discord-rpc
+    mpd-discord-rpc &
 fi

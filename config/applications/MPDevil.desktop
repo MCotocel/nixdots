@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Terminal=false
+Icon=mpdevil
+Exec=mpdevil
+Name=MPDevil

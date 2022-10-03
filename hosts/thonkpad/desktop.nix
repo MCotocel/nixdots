@@ -10,7 +10,7 @@
 
   environment.systemPackages = with pkgs; [
     acpi # Battery and stuff
-    appimage-run # To run appimages
+    appimage-run # To run appimages when I need to
     arandr # Xrandr GUI
     aseprite # Pixel art is cool
     autorandr # Auto xrandr!
@@ -20,13 +20,13 @@
     brightnessctl # Controlling brightness
     calibre # Converting my books for my Kindle
     capitaine-cursors # Nice cursors
-    davinci-resolve # Video editing
+    #davinci-resolve # Video editing
     deemix-gui # Music downloading
     discocss # Customizing Discord CSS
     discord # Chat app
     dnd-tools # I play D&D so this is useful
     eww # Widgets for when I can't get the AwesomeWM ones working
-    filezilla # FTP app
+    filezilla # FTP program
     firefox # Main web browser
     firejail # When you want some extra security
     fractal # Matrix client
@@ -53,7 +53,6 @@
     mesa # The graphics thing
     networkmanagerapplet # When I want to quickly connect to a Wi-Fi network
     nicotine-plus # Soulseek client
-    nitrogen # Used to use it for setting my wallpaper
     noto-fonts # Fonts
     noto-fonts-cjk-sans # For CJK languages
     noto-fonts-extra # Fonts for languages
@@ -103,6 +102,7 @@
     xscreensaver # Nice screensavers
     xsecurelock # Simple lock screen
     zathura # For reading my downloaded PDFs
+    zotero # Citation and stuff
   ];
 
   # Touchegg

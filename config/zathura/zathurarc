@@ -65,3 +65,5 @@ set recolor-reverse-video true
 set recolor-keephue false
 set recolor-lightcolor "#181e23"
 set recolor-darkcolor "#ffffff"
+
+set selection-clipboard clipboard

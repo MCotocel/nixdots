@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Terminal=false
+Icon=minetest
+Exec=gamemoderun minetest
+Name=Minetest

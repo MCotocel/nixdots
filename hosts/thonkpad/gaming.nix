@@ -12,25 +12,33 @@
     ];
   };
 
+  services.joycond.enable = true;
+
   environment.systemPackages = with pkgs; [ # Some games
-    brutal
+    brutality
     cataclysm-dda-git
+    citra
+    dolphin-emu-beta
     dwarf-fortress
     dwarf-fortress-packages.themes.vettlingr
+    grapejuice
     gzdoom
     lutris
     mangohud
     minecraft
+    minetest
     nethack
     optifine
-    osu-lazer
+    #osu-lazer
+    pcsx2
     protonup
     retroarchFull
     rpcs3
+    steam-rom-manager
     steamcmd
     superTuxKart
     xorg.xf86inputjoystick
-    yuzu
+    yuzu-mainline
   ];
 
   programs.gamemode = {

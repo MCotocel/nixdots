@@ -9,27 +9,27 @@ in {
       bash # Gotta have bash
       bat # Cat but better
       btop # Like htop but so much better looking
-      cava # Move to audio
+      cava # I like the pretty visualisations
       cmake # Necessary
       coreutils # Necessary
-      cowsay # My machine cannot run without this
-      direnv # Need to implement this sometime
+      cowsay # My machine cannot run without this, it's true
+      direnv # Need to implement this into my workflow sometime
       emacs # The best text editor
       emacs-all-the-icons-fonts # Fonts for Emacs
       exa # ls but better
       fd # Find but better
       feh # Image viewer for the terminal
-      ffmpeg # I deal with a lot of videos, okay?
-      file # No more asking yourself what file it is
+      ffmpeg # I deal with a lot of videos
+      file # No more asking yourself what file it is, now you can just open a terminal, navigate to the directory, and run a command instead of looking at the file extension
       fzf # Fuzzy finder, pretty useful
       gcc # Necessary
       gh # Github's CLI tool
       git # Use it every day
       gource # Nice for visualising repo history
-      gnumake # Make command
+      gnumake # Make.
       handbrake # Again, I deal with videos
       htop # Why is my laptop so hot? Oh yeah I'm compiling 20 programs while running two games
-      ifuse # Also for connecting my phone
+      ifuse # For connecting my phone
       imagemagick # Really useful for scripts
       ispell # Spell checking
       isync # For mail
@@ -40,17 +40,19 @@ in {
       lua # Big fan of AwesomeWM
       lynis # Security audits. Although passwordless doas probably undermines all of it
       manix # Nix help
-      mesa-demos # Checking if my GPU works
+      mesa-demos # Checking if my GPU works (It does (Thanks Nvidia))
       mu # For mail
       ncdu # What the hell is taking up so much disk space? Oh.
       neofetch # Everyone loves neofetch
       neovim # The second-best editor. For when Emacs doesn't work
       nix-linter # Lint Nix files
       nixfmt # Format Nix files
+      nixos-generators # Generate NixOS outputs from configurations
       nodejs # Some programs need it
       nvd # Package version diff tool for Nix
-      nvtop # Top, but for nvidia
+      nvtop # Top, but for Nvidia
       onefetch # Neofetch but for git repos
+      openai-whisper # Speech to text
       openimagedenoise # Denoising images
       openjdk # Java
       pciutils # I love diagnosing my system
@@ -61,6 +63,7 @@ in {
       ripgrep # Grep but better
       shellcheck # Checking my crappy shell code
       speedtest-cli # Testing my internet speed from the terminal
+      smartmontools # Monitor the health of hard drives
       sqlite # Databases and stuff
       sublime4 # A cool text editor
       tmux # A terminal multiplexer
@@ -73,7 +76,7 @@ in {
       vscode # For emergencies
       wget # For downloading web pages and stuff
       xorg.xev # Good for scripts
-      youtube-dl # For downloading videos
+      yt-dlp # For downloading videos
       zeal # Documentation browser
       zsh # The better shell
     ];

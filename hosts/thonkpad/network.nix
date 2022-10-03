@@ -4,7 +4,6 @@
   # Network settings.
   networking = {
     hostName = "thonkpad"; # Hostname
-    useDHCP = false; # Deprecated, so set explicitly to false
     wireless.enable = false; # Using networkmanager instead
     networkmanager.enable = true; # Enable networkmanager
     firewall.enable = false; # Stay out, hackers
@@ -12,6 +11,10 @@
       22
       88
       1701
+    ];
+    firewall.allowedUDPPorts = [
+      2234
+      4445
     ];
   };
 

@@ -31,6 +31,7 @@
     easyeffects # Audio effects
     audacity # Ecsiditing audio
     lmms # Making music
+    mediainfo # Are my FLACs FLACs
     mpc_cli # MPD cli client
     mpd # MPD
     mpd-discord-rpc # Discord rich presence
@@ -40,12 +41,13 @@
     ncmpcpp # Mopidy front end
     pamixer # CLI mixer
     pavucontrol # GUI mixer
+    picard # Music tagger
     playerctl # Song control
     pulseaudio # For some apps
     pulsemixer # TUI mixer
     python310Packages.deemix # I like offline MP3s
     scdl # For when I need to download from soundcloud
-    spotify # I love music
+    #spotify # I love music
     vlc # GUI video player
   ];
 }

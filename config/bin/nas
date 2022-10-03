@@ -13,40 +13,24 @@ function help() {
 Usage: nas [OPTION] [OPTION]
 
 Options:
-    help           show this text
+    help         show this text
 
-    nix            nix operations
-      pull         copy configs to home directory
-      push         copy configs to /etc/nixos
-      sync         pull config from git repo, then commit and push
-      rebuild      rebuild configuration for host
-      full         push configs to /etc/nixos, sync, then rebuild
-      rollback     rollback to previous generation
-      update       update flake
-      clean        clean and garabge collect store
+    sync         pull config from git repo, then commit and push
+    rebuild      rebuild configuration for host
+    vm           build a vm
+    full         sync and rebuild configuration
+    rollback     rollback to previous generation
+    update       update flake
+    clean        clean and garabge collect store
 
-      search       search packages available
-      install      install a package
-      uninstall    remove a package
-      list         list packages installed
+    search       search packages available
+    install      install a package
+    uninstall    remove a package
+    list         list packages installed
 EOF
 }
 
-# Nix
-function nix-pull() {
-  echo "Pulling config from /etc/nixos..."
-  rm -rf $HOME/nixdots
-  cp -R /etc/nixos/ $HOME/nixdots
-}
-
-function nix-push() {
-  echo "Pushing config to /etc/nixos..."
-  $priv rm -rf /etc/.nixos-bak
-  $priv mv /etc/nixos /etc/.nixos-bak
-  $priv cp -R $HOME/nixdots/ /etc/nixos
-}
-
-function nix-sync() {
+function sync() {
   echo "Syncing nix config"
   cd $dots
   git pull
@@ -56,27 +40,32 @@ function nix-sync() {
   git push
 }
 
-function nix-rebuild() {
+function rebuild() {
   echo "Rebuilding config"
-  $priv nixos-rebuild --flake /etc/nixos --impure switch
+  $priv nixos-rebuild --flake ~/nixdots --impure switch
 }
 
-function nix-full() {
-    nix-sync
-    nix-rebuild
+function vm() {
+  echo "Creating VM"
+  $priv nixos-rebuild --flake ~/nixdots --impure build-vm
 }
 
-function nix-rollback() {
+function full() {
+  nix-sync
+  nix-rebuild
+}
+
+function rollback() {
   echo "Rolling back"
   $priv nixos-rebuild --rollback switch
 }
 
-function nix-update() {
+function update() {
   echo "Updating flake"
   $priv nix flake update /etc/nixos
 }
 
-function nix-clean() {
+function clean() {
   echo "Cleaning system"
   $priv nix-store --gc
   $priv nix-collect-garbage
@@ -85,37 +74,36 @@ function nix-clean() {
   nix-collect-garbage -d
 }
 
-function nix-search() {
-  nix search nixpkgs ${@:3:9999}
+function search() {
+  nix search nixpkgs "${@:3:9999}"
 }
 
-function nix-install() {
+function install() {
   nix profile install nixpkgs#$3
 }
 
-function nix-uninstall() {
+function uninstall() {
   nix profile remove nixpkgs#$3
 }
 
-function nix-list() {
+function list() {
   nix profile list
 }
 
 case "$1" in
     nix)
       case "$2" in
-        pull)      nix-pull ;;
-        push)      nix-push ;;
-        sync)      nix-sync ;;
-        rebuild)   nix-rebuild ;;
-        full)   nix-full ;;
-        rollback)  nix-rollback ;;
-        update)    nix-update ;;
-        clean)     nix-clean ;;
-        search)    nix-search $@ ;;
-        install)   nix-install $@ ;;
-        uninstall) nix-uninstall $@ ;;
-        list)      nix-list $@ ;;
+        sync)      sync ;;
+        rebuild)   rebuild ;;
+        vm)        vm ;;
+        full)      full ;;
+        rollback)  rollback ;;
+        update)    update ;;
+        clean)     clean ;;
+        search)    search $@ ;;
+        install)   install $@ ;;
+        uninstall) uninstall $@ ;;
+        list)      list $@ ;;
         '')      help ;;
         help)    help ;;
         *)       help ;;
