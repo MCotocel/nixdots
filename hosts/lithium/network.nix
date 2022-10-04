@@ -3,7 +3,7 @@
 {
   # Network settings.
   networking = {
-    hostName = "thonkpad"; # Hostname
+    hostName = "lithium"; # Hostname
     wireless.enable = false; # Using networkmanager instead
     networkmanager.enable = true; # Enable networkmanager
     firewall.enable = false; # Stay out, hackers

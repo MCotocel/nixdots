@@ -1,8 +1,8 @@
 #+title: Hosts
 
-All hosts are named after whatever I want them to. Usually related to the product name.
+All (1) hosts are named after elements.
 
-* Thonkpad
+* Lithium
 
 - Lenovo Legion 5 (Not a Thinkpad sadly)
 - Runs NixOS

@@ -75,15 +75,15 @@ function clean() {
 }
 
 function search() {
-  nix search nixpkgs "${@:3:9999}"
+  nix search nixpkgs "${@:2:9999}"
 }
 
 function install() {
-  nix profile install nixpkgs#$3
+  nix profile install nixpkgs#"${@:2:9999}"
 }
 
 function uninstall() {
-  nix profile remove nixpkgs#$3
+  nix profile remove nixpkgs#"${@:2:9999}"
 }
 
 function list() {
@@ -91,24 +91,18 @@ function list() {
 }
 
 case "$1" in
-    nix)
-      case "$2" in
-        sync)      sync ;;
-        rebuild)   rebuild ;;
-        vm)        vm ;;
-        full)      full ;;
-        rollback)  rollback ;;
-        update)    update ;;
-        clean)     clean ;;
-        search)    search $@ ;;
-        install)   install $@ ;;
-        uninstall) uninstall $@ ;;
-        list)      list $@ ;;
-        '')      help ;;
-        help)    help ;;
-        *)       help ;;
-      esac ;;
-    '')      help ;;
-    help)    help ;;
-    *)       help ;;
+  sync)      sync ;;
+  rebuild)   rebuild ;;
+  vm)        vm ;;
+  full)      full ;;
+  rollback)  rollback ;;
+  update)    update ;;
+  clean)     clean ;;
+  search)    search $@ ;;
+  install)   install $@ ;;
+  uninstall) uninstall $@ ;;
+  list)      list $@ ;;
+  '')      help ;;
+  help)    help ;;
+  *)       help ;;
 esac

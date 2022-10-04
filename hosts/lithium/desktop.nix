@@ -17,6 +17,7 @@
     baobab # For checking what's taking up so much disk space
     bleachbit # For removing the files taking up so much disk space
     blender # Occasional tinkering with 3D models
+    bottles # Wine prefix manager
     brightnessctl # Controlling brightness
     calibre # Converting my books for my Kindle
     capitaine-cursors # Nice cursors

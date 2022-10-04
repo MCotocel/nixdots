@@ -1,4 +1,4 @@
-#+title: Thonkpad
+#+title: Lithium
 
 Thinkpad E580
 
