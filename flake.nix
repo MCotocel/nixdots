@@ -14,9 +14,9 @@
     nur.url = "github:nix-community/nur"; # Nix User Repository for packages not in nixpkgs
     nixos-generators.url = "github:nix-community/nixos-generators";
 
-    deemix-gui.url = "path:/etc/nixos/derivations/deemix-gui"; # Music downloader
-    upscayl.url = "path:/etc/nixos/derivations/upscayl"; # Image upscaler
-    brutality.url = "path:/etc/nixos/derivations/brutality"; # Doom, modded
+    deemix-gui.url = "path:./derivations/deemix-gui"; # Music downloader
+    upscayl.url = "path:./derivations/upscayl"; # Image upscaler
+    brutality.url = "path:./derivations/brutality"; # Doom, modded
   };
 
   outputs = { self, nixpkgs, home-manager, nur, f2k, nixos-generators, upscayl, deemix-gui, brutality, ... }@inputs: {
