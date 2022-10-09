@@ -25,6 +25,13 @@
 
     in {
 
+      sodium = (lib.makeOverridable lib.nixosSystem) {
+        system = "aarch64-linux";
+        modules = [
+	  ./hosts/sodium/configuration.nix
+ 	];
+      };
+
       lithium = (lib.makeOverridable lib.nixosSystem) {
         system = "x86_64-linux"; # What did you expect?
         modules = [
