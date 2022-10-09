@@ -2,5 +2,5 @@
 Type=Application
 Terminal=false
 Icon=nvim-qt
-Exec=wezterm start neovim
+Exec=wezterm start nvim
 Name=Neovim

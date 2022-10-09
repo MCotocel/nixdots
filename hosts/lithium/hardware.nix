@@ -11,6 +11,15 @@
       kernelPackages = pkgs.linuxPackages_xanmod_latest; # Kernel package
   };
 
+  # Bootloader
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+  };
+
+
+  time.hardwareClockInLocalTime = true; # For Windows
+
   hardware = {
     enableAllFirmware = true; # Firmware stuff
     enableRedistributableFirmware = true; # More firmware stuff

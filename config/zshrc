@@ -31,8 +31,6 @@ export TERM=xterm-256color # Set term variable
 export QT_QPA_PLATFORMTHEME=qt5ct
 export XDG_CONFIG_HOME=~/.config
 export PATH="$HOME/.bin/:$PATH"   # Add user binaries and scripts to path
-export MANGOHUD=1 # For mangohud
-export MANGOHUD_DLSYM=1 # For mangohud
 
 HISTFILE=~/.zsh_history
 HISTSIZE=1000

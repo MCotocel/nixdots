@@ -1,0 +1,38 @@
+{
+  "nodes": {
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1664847737,
+        "narHash": "sha256-Wxl0CtRH3Vo8+qEZ/PbCcx+9D8wEEi56tJPmROum2ss=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "de80d1d04ee691279e1302a1128c082bbda3ab01",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "root": {
+      "inputs": {
+        "nixpkgs": "nixpkgs",
+        "upscayl": "upscayl"
+      }
+    },
+    "upscayl": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-KYPE4YO5PWNd1B+Y7+YQ8mm176naj0CWMhyZa5J97Zw=",
+        "type": "file",
+        "url": "https://github.com/upscayl/upscayl/releases/download/v1.5.0/Upscayl-1.5.0.AppImage"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/upscayl/upscayl/releases/download/v1.5.0/Upscayl-1.5.0.AppImage"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

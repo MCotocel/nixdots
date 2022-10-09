@@ -4,12 +4,6 @@
   # Time
   time.timeZone = "Asia/Dubai"; # Don't dox me guys
 
-  # Bootloader
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
-  };
-
   # Security
   security.sudo.enable = false; # Not a fan
   security.doas = {

@@ -14,6 +14,7 @@ in {
       coreutils # Necessary
       cowsay # My machine cannot run without this, it's true
       direnv # Need to implement this into my workflow sometime
+      distrobox # Run another distro under NixOS
       emacs # The best text editor
       emacs-all-the-icons-fonts # Fonts for Emacs
       exa # ls but better

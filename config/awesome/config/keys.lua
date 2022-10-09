@@ -222,7 +222,7 @@ awful.key({modkey, "Shift"}, "r", function() awful.spawn.with_shell("emacsclient
 }),
 
 -- Take screenshot
-awful.key({modkey, "Shift"}, "s", function() awful.spawn.with_shell("~/.bin/rofi-screenshot") end, {
+awful.key({modkey, "Shift"}, "s", function() awful.spawn.with_shell("flameshot gui") end, {
     description = "Take screenshot",
     group = "Applications and menus"
 }),
@@ -236,12 +236,6 @@ awful.key({modkey, "Shift"}, "i", function() awful.spawn.with_shell("~/.bin/rofi
 
 -- Power menu
 awful.key({modkey}, "Escape", function() awful.spawn.with_shell("~/.bin/rofi-power") end, {
-    description = "Power menu",
-    group = "Applications and menus"
-}),
-
--- Lock screen
-awful.key({}, "XF86Sleep", function() awful.spawn.with_shell("~/.bin/lock") end, {
     description = "Power menu",
     group = "Applications and menus"
 }),

@@ -20,8 +20,7 @@
     bottles # Wine prefix manager
     brightnessctl # Controlling brightness
     calibre # Converting my books for my Kindle
-    capitaine-cursors # Nice cursors
-    #davinci-resolve # Video editing
+    cinnamon.nemo # File manager
     deemix-gui # Music downloading
     discocss # Customizing Discord CSS
     discord # Chat app
@@ -30,33 +29,29 @@
     filezilla # FTP program
     firefox # Main web browser
     firejail # When you want some extra security
+    flameshot # Screenshot tool
     fractal # Matrix client
     gimp # Photo editor
     giph # For taking videos
     gnome.file-roller # Unarchiver
     gnome.gnome-calendar # A calendar because I am a very busy person with no time at all
     gnome.gnome-disk-utility # Formatting disks. I think I use fdisk more though
-    gnome.nautilus # File manager
     gnome.seahorse # Viewing keychain
     google-chrome
     googleearth-pro # When I want to explore the neighbourhood without going outside into a sandstorm
     gwe # Nvidia settings thingy
     i3lock-color # For locking my device
     inkscape # Occasionally used
+    kdenlive # Video editor
     kid3 # I download lots of music
     krita # Sometimes used for posters and stuff
     libinput # I think this is for my trackpad
     libnotify # For sending notifications
     libreoffice # Office suite for Linux
     lm_sensors # Time to clean my fans out
-    maim # Selecting an area for screenshots is useful
-    matcha-gtk-theme # A cool GTK theme
     mesa # The graphics thing
     networkmanagerapplet # When I want to quickly connect to a Wi-Fi network
     nicotine-plus # Soulseek client
-    noto-fonts # Fonts
-    noto-fonts-cjk-sans # For CJK languages
-    noto-fonts-extra # Fonts for languages
     nyxt # An interesting browser, similar to qutebrowser
     obs-studio # For recording my desktop
     obs-studio-plugins.obs-pipewire-audio-capture # For recording audio
@@ -65,7 +60,7 @@
     openssl # For certs
     p7zip # Unzipping stuff
     pandoc # Converting stuff
-    papirus-icon-theme # Best icon theme
+    pasystray # Control audio
     picom # A cool compositor
     pmutils # Power management utils I guess
     poppler_utils # PDF stuff
@@ -74,7 +69,6 @@
     qutebrowser # Secondary browser, controlled through my keyboard mostly
     river # Seems like a cool compostior for Wayland
     rofi # Used whenever I want to open an app
-    scrot # Also for screenshots
     solaar # For my Logitech mouse
     spicetify-cli # I used to rice spotify
     swaybg # For setting the background on wayland
@@ -84,8 +78,6 @@
     texlive.combined.scheme-full # LaTeX package
     thunderbird # Email
     tor # Privacy yeah
-    twemoji-color-font # Emoji
-    twitter-color-emoji # Also emoji
     unrar # Extract rar fils
     upscayl
     usbutils # For my USB sticks
@@ -115,7 +107,10 @@
     layout = "us"; # Set keyboard layout
     autoRepeatDelay = 225; # Keyboard repeat rate
     autoRepeatInterval = 33; 
-    libinput.enable = true; # Enable libinput for trackpad
+    libinput = {
+      enable = true; # Enable libinput for trackpad
+      touchpad.naturalScrolling = true;
+    };
     displayManager.startx.enable = true;
     videoDrivers = [ "nvidia" ]; # Didn't have much of a choice
     desktopManager = {
@@ -148,6 +143,9 @@
       monospace = [ "Iosevka Nerd Font" ]; # Best monospace font
     };
     fonts = with pkgs; [
+      noto-fonts # Fonts
+      noto-fonts-cjk-sans # For CJK languages
+      noto-fonts-extra # Fonts for languages
       (nerdfonts.override { fonts = [ "Iosevka" ]; }) # Nerdfonts for those cool ligatures and icons
     ];
   };

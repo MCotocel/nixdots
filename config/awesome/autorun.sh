@@ -34,9 +34,17 @@ if ! ps aux | grep blueman-applet | grep -v grep;
 then
     blueman-applet &
 fi
+if ! ps aux | grep pasystray | grep -v grep;
+then
+    pasystray &
+fi
 if ! ps aux | grep solaar | grep -v grep;
 then
     doas solaar -w hide &
+fi
+if ! ps aux | grep flameshot | grep -v grep;
+then
+    flameshot &
 fi
  
 # Emacs daemon

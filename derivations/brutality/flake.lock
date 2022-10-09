@@ -1,0 +1,51 @@
+{
+  "nodes": {
+    "brutality": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-1Y5zVYXKZfaJpjrcxGHmHn7OrrW9RweTgdiGRVVK1BI=",
+        "type": "file",
+        "url": "https://codeload.github.com/pa1nki113r/Project_Brutality/zip/refs/heads/master"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://codeload.github.com/pa1nki113r/Project_Brutality/zip/refs/heads/master"
+      }
+    },
+    "glory": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-z2Ubch2KhoFjDLpf5thLnZOiWnhdxyrDtovp0adU+5k=",
+        "type": "file",
+        "url": "https://brutalrepository.pl/index.php/downloads/project-brutality/others?catid=5&id=7&m=0&task=download.send"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://brutalrepository.pl/index.php/downloads/project-brutality/others?catid=5&id=7&m=0&task=download.send"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1664847737,
+        "narHash": "sha256-Wxl0CtRH3Vo8+qEZ/PbCcx+9D8wEEi56tJPmROum2ss=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "de80d1d04ee691279e1302a1128c082bbda3ab01",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "root": {
+      "inputs": {
+        "brutality": "brutality",
+        "glory": "glory",
+        "nixpkgs": "nixpkgs"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

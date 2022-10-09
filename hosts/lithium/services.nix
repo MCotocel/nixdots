@@ -9,6 +9,8 @@
   onShutdown = "shutdown";
   };
 
+  virtualisation.docker.enable = true;
+
   services.printing = { # I need to print stuff off sometimes
   enable = true;
   drivers = [ pkgs.hplip ];
@@ -47,6 +49,7 @@
     '';
 
     services.gvfs.enable = true; # For the Gnome apps
+    services.tumbler.enable = true;
     services.locate.enable = true; # Locating files quickly
     programs.weylus.enable = false; # Sometimes use my tablet with this
 

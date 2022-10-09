@@ -15,18 +15,14 @@ Usage: nas [OPTION] [OPTION]
 Options:
     help         show this text
 
-    sync         pull config from git repo, then commit and push
-    rebuild      rebuild configuration for host
-    vm           build a vm
-    full         sync and rebuild configuration
-    rollback     rollback to previous generation
-    update       update flake
     clean        clean and garabge collect store
-
+    full         sync and rebuild configuration
+    rebuild      rebuild configuration for host
+    rollback     rollback to previous generation
     search       search packages available
-    install      install a package
-    uninstall    remove a package
-    list         list packages installed
+    sync         pull config from git repo, then commit and push
+    update       update flake
+    vm           build a vm
 EOF
 }
 
@@ -42,12 +38,12 @@ function sync() {
 
 function rebuild() {
   echo "Rebuilding config"
-  $priv nixos-rebuild --flake ~/nixdots --impure switch
+  $priv nixos-rebuild --flake ~/nixdots"$2" --impure switch
 }
 
 function vm() {
   echo "Creating VM"
-  $priv nixos-rebuild --flake ~/nixdots --impure build-vm
+  $priv nixos-rebuild --flake ~/nixdots"$2" --impure build-vm
 }
 
 function full() {
@@ -62,32 +58,22 @@ function rollback() {
 
 function update() {
   echo "Updating flake"
-  $priv nix flake update /etc/nixos
+  $priv nix flake update ~/nixdots
 }
 
 function clean() {
-  echo "Cleaning system"
+  echo "Clearing store"
   $priv nix-store --gc
-  $priv nix-collect-garbage
+  echo "Removing old generations"
   $priv nix-env --delete-generations old
+  echo "Collecting system garbage"
   $priv nix-collect-garbage -d
+  echo "Collecting system garbage"
   nix-collect-garbage -d
 }
 
 function search() {
   nix search nixpkgs "${@:2:9999}"
-}
-
-function install() {
-  nix profile install nixpkgs#"${@:2:9999}"
-}
-
-function uninstall() {
-  nix profile remove nixpkgs#"${@:2:9999}"
-}
-
-function list() {
-  nix profile list
 }
 
 case "$1" in
@@ -99,9 +85,6 @@ case "$1" in
   update)    update ;;
   clean)     clean ;;
   search)    search $@ ;;
-  install)   install $@ ;;
-  uninstall) uninstall $@ ;;
-  list)      list $@ ;;
   '')      help ;;
   help)    help ;;
   *)       help ;;

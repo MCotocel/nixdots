@@ -17,11 +17,10 @@
     ".mbsyncrc".source                      = ../../config/mbsyncrc;
     ".Xresources".source                    = ../../config/xresources;
     ".zshrc".source                         = ../../config/zshrc;
-    ".gtkrc-2.0".source                     = ../../config/gtk/gtk2;
-    ".config/gtk-3.0/settings.ini".source   = ../../config/gtk/gtk3;
     ".config/touchegg/touchegg.conf".source = ../../config/touchegg/touchegg.conf;
 
-    ".config/autorandr/postswitch".source = ../../config/autorandr/postswitch;
+    #".config/autorandr/postswitch".source = ../../config/autorandr/postswitch;
+    ".config/gzdoom/gzdoom.ini".source    = ../../config/gzdoom/gzdoom.ini;
     
     ".config/awesome".source      = ../../config/awesome;
     ".config/bspwm".source        = ../../config/bspwm;
@@ -51,5 +50,17 @@
     # Vim
     ".config/nvim/init.vim".source = ../../config/nvim/init.vim;
     ".config/nvim/colors".source   = ../../config/nvim/colors;
+  };
+
+  gtk = {
+    enable = true;
+    cursorTheme.package = pkgs.capitaine-cursors;
+    cursorTheme.name = "Breeze Light";
+    font.package = pkgs.source-sans-pro;
+    font.name = "Source Sans Pro Regular";
+    iconTheme.package = pkgs.papirus-icon-theme;
+    iconTheme.name = "Papirus-Dark";
+    theme.package = pkgs.matcha-gtk-theme;
+    theme.name = "Matcha-dark-azul";
   };
 }

@@ -21,7 +21,7 @@
     dolphin-emu-beta
     dwarf-fortress
     dwarf-fortress-packages.themes.vettlingr
-    grapejuice
+    #grapejuice
     gzdoom
     lutris
     mangohud
@@ -29,7 +29,7 @@
     minetest
     nethack
     optifine
-    #osu-lazer
+    osu-lazer
     pcsx2
     protonup
     retroarchFull
