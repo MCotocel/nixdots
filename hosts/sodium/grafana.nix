@@ -11,7 +11,7 @@
           database = "telegraf";
           username = "telegraf";
           password = "telegraf";
-          urls = ["http://localhost:8086"];
+          urls = ["http://lithium:8086"];
         };
       };
       inputs = {
@@ -67,7 +67,7 @@
 
   # Grafana
   services.grafana = { # For displaying
-    enable = true;
+    enable = false;
     port = 3000;
     domain = "localhost";
     protocol = "http";
