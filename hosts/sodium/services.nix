@@ -7,4 +7,7 @@
     user = "matei";
     dataDir = "/home/matei";
   };
+
+  services.transmission.enable = true;
+  services.transmission.openFirewall = true;
 }

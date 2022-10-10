@@ -5,6 +5,8 @@
     [
       ./hardware.nix
       ./code.nix
+      ./services.nix
+      ./grafana.nix
       ../shared.nix
     ];
 
