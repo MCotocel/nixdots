@@ -74,7 +74,8 @@
   services.grafana = { # For displaying
     enable = true;
     port = 3000;
-    domain = "localhost";
+    domain = "0.0.0.0";
+    addr = "0.0.0.0";
     protocol = "http";
     security.adminPassword = "1234";
   };

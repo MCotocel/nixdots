@@ -29,7 +29,7 @@
   };
 
   services.syncthing = { # Syncing files
-  enable = false;
+  enable = true;
   user = "matei";
   dataDir = "/home/matei";
   };

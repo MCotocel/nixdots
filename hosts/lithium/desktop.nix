@@ -26,6 +26,7 @@
     discord # Chat app
     dnd-tools # I play D&D so this is useful
     eww # Widgets for when I can't get the AwesomeWM ones working
+    expressvpn # Good VPN
     filezilla # FTP program
     firefox # Main web browser
     firejail # When you want some extra security
