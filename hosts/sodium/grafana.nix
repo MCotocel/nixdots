@@ -31,16 +31,16 @@
             "squashfs"
           ];
         };
-        ping = {
-          urls = [
-            "google.com"
-            "outlook.com"
-            "cloudflare.com"
-            "store.steampowered.com"
-          ];
-          binary = "/run/wrappers/bin/ping";
-          #ping_interval = 5;
-        };
+        #ping = {
+        #  urls = [
+        #    "google.com"
+        #    "outlook.com"
+        #    "cloudflare.com"
+        #    "store.steampowered.com"
+        #  ];
+        #  binary = "/run/wrappers/bin/ping";
+        #  #ping_interval = 5;
+        #};
         exec = {
           commands = [ "/run/current-system/sw/bin/speedtest --json" ];
           name_override = "speedtest";

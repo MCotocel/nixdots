@@ -115,8 +115,8 @@
     displayManager.startx.enable = true;
     videoDrivers = [ "nvidia" ]; # Didn't have much of a choice
     desktopManager = {
-      plasma5 = {
-        enable = false;
+      xfce = {
+        enable = true;
       };
     };
     windowManager = {

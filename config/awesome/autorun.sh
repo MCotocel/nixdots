@@ -1,8 +1,6 @@
 # Xinput
 watch -n 3 xinput set-button-map $(xinput | grep "Logitech MX Master 3" | head -n 1 | sed -e 's/.*id=//g' -e 's/\[.*$//') 1 2 3 4 5 6 7 12 13 0 0 0 0 0 0 &
 
-# Monitors
-
 # Xresources
 xrdb -merge ~/.Xresources
 
@@ -11,6 +9,9 @@ xsetroot -cursor_name arrow
 
 # Compositor
 picom &
+
+# Audio equaliser
+easyeffects --gapplication-service &
 
 ## Monitor displays
 if ! ps aux | grep autorandr | grep -v grep;
