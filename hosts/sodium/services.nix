@@ -25,4 +25,6 @@
   services.lidarr = {
     enable = true;
   };
+
+  services.adguardhome.enable = true;
 }
