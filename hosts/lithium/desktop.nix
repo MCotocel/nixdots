@@ -21,7 +21,7 @@
     brightnessctl # Controlling brightness
     calibre # Converting my books for my Kindle
     cinnamon.nemo # File manager
-    #deemix-gui # Music downloading
+    deemix-gui # Music downloading
     discocss # Customizing Discord CSS
     discord # Chat app
     dnd-tools # I play D&D so this is useful
@@ -67,7 +67,7 @@
     poppler_utils # PDF stuff
     qbittorrent # For downloading certain things
     qemu # Woo VMs
-    qutebrowser # Secondary browser, controlled through my keyboard mostly
+    #qutebrowser # Secondary browser, controlled through my keyboard mostly
     river # Seems like a cool compostior for Wayland
     rofi # Used whenever I want to open an app
     solaar # For my Logitech mouse
@@ -80,7 +80,7 @@
     thunderbird # Email
     tor # Privacy yeah
     unrar # Extract rar fils
-    #upscayl
+    upscayl
     usbutils # For my USB sticks
     virt-manager # For managing my virtual machines
     wayfire # It's fun to mess around with
@@ -115,8 +115,8 @@
     displayManager.startx.enable = true;
     videoDrivers = [ "nvidia" ]; # Didn't have much of a choice
     desktopManager = {
-      xfce = {
-        enable = true;
+      plasma5 = {
+        enable = false;
       };
     };
     windowManager = {

@@ -15,7 +15,7 @@
   services.joycond.enable = true;
 
   environment.systemPackages = with pkgs; [ # Some games
-    #brutality
+    brutality
     cataclysm-dda-git
     citra
     dolphin-emu-beta

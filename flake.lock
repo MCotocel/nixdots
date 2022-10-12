@@ -18,6 +18,35 @@
         "type": "github"
       }
     },
+    "brutality": {
+      "inputs": {
+        "brutality": "brutality_2",
+        "glory": "glory",
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1,
+        "narHash": "sha256-dUzGiJUDb7UTdNHmIypTih8FFWVr/PbGes6vNIWW3LU=",
+        "path": "./derivations/brutality",
+        "type": "path"
+      },
+      "original": {
+        "path": "./derivations/brutality",
+        "type": "path"
+      }
+    },
+    "brutality_2": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-1Y5zVYXKZfaJpjrcxGHmHn7OrrW9RweTgdiGRVVK1BI=",
+        "type": "file",
+        "url": "https://codeload.github.com/pa1nki113r/Project_Brutality/zip/refs/heads/master"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://codeload.github.com/pa1nki113r/Project_Brutality/zip/refs/heads/master"
+      }
+    },
     "crane": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -41,10 +70,38 @@
         "type": "github"
       }
     },
+    "deemix-gui": {
+      "inputs": {
+        "deemix-gui": "deemix-gui_2",
+        "nixpkgs": "nixpkgs_3"
+      },
+      "locked": {
+        "lastModified": 1,
+        "narHash": "sha256-jBAVt4bnhXfMXyoTjpujHAas2YKIwDv0w/MnYLt9uBw=",
+        "path": "./derivations/deemix-gui",
+        "type": "path"
+      },
+      "original": {
+        "path": "./derivations/deemix-gui",
+        "type": "path"
+      }
+    },
+    "deemix-gui_2": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-ug6vAYI2BcaiHv+NzhZs6995w8IgpNLCORkCEXZ8duw=",
+        "type": "file",
+        "url": "https://download.deemix.app/gui/linux-x64-latest.AppImage?filename=deemix-gui.AppImage"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://download.deemix.app/gui/linux-x64-latest.AppImage?filename=deemix-gui.AppImage"
+      }
+    },
     "f2k": {
       "inputs": {
         "crane": "crane",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs_4",
         "nixpkgs-fmt": "nixpkgs-fmt",
         "river-src": "river-src",
         "wezterm-src": "wezterm-src"
@@ -130,9 +187,21 @@
         "type": "github"
       }
     },
+    "glory": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-z2Ubch2KhoFjDLpf5thLnZOiWnhdxyrDtovp0adU+5k=",
+        "type": "file",
+        "url": "https://brutalrepository.pl/index.php/downloads/project-brutality/others?catid=5&id=7&m=0&task=download.send"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://brutalrepository.pl/index.php/downloads/project-brutality/others?catid=5&id=7&m=0&task=download.send"
+      }
+    },
     "home-manager": {
       "inputs": {
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_5",
         "utils": "utils"
       },
       "locked": {
@@ -167,7 +236,7 @@
     "nixos-generators": {
       "inputs": {
         "nixlib": "nixlib",
-        "nixpkgs": "nixpkgs_4"
+        "nixpkgs": "nixpkgs_6"
       },
       "locked": {
         "lastModified": 1660727616,
@@ -224,6 +293,34 @@
     },
     "nixpkgs_2": {
       "locked": {
+        "lastModified": 1664847737,
+        "narHash": "sha256-Wxl0CtRH3Vo8+qEZ/PbCcx+9D8wEEi56tJPmROum2ss=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "de80d1d04ee691279e1302a1128c082bbda3ab01",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
+        "lastModified": 1664847737,
+        "narHash": "sha256-Wxl0CtRH3Vo8+qEZ/PbCcx+9D8wEEi56tJPmROum2ss=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "de80d1d04ee691279e1302a1128c082bbda3ab01",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs_4": {
+      "locked": {
         "lastModified": 1665546480,
         "narHash": "sha256-6GvCp+YErVNVrqZEM9EZWbUNln3Zyylss5nR1I2Y++4=",
         "owner": "NixOS",
@@ -238,7 +335,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
+    "nixpkgs_5": {
       "locked": {
         "lastModified": 1662996720,
         "narHash": "sha256-XvLQ3SuXnDMJMpM1sv1ifPjBuRytiDYhB12H/BNTjgY=",
@@ -254,7 +351,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_4": {
+    "nixpkgs_6": {
       "locked": {
         "lastModified": 1637186689,
         "narHash": "sha256-NU7BhgnwA/3ibmCeSzFK6xGi+Bari9mPfn+4cBmyEjw=",
@@ -270,7 +367,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_5": {
+    "nixpkgs_7": {
       "locked": {
         "lastModified": 1665349835,
         "narHash": "sha256-UK4urM3iN80UXQ7EaOappDzcisYIuEURFRoGQ/yPkug=",
@@ -284,6 +381,20 @@
         "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
+      }
+    },
+    "nixpkgs_8": {
+      "locked": {
+        "lastModified": 1664847737,
+        "narHash": "sha256-Wxl0CtRH3Vo8+qEZ/PbCcx+9D8wEEi56tJPmROum2ss=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "de80d1d04ee691279e1302a1128c082bbda3ab01",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
       }
     },
     "nur": {
@@ -322,11 +433,14 @@
     "root": {
       "inputs": {
         "agenix": "agenix",
+        "brutality": "brutality",
+        "deemix-gui": "deemix-gui",
         "f2k": "f2k",
         "home-manager": "home-manager",
         "nixos-generators": "nixos-generators",
-        "nixpkgs": "nixpkgs_5",
-        "nur": "nur"
+        "nixpkgs": "nixpkgs_7",
+        "nur": "nur",
+        "upscayl": "upscayl"
       }
     },
     "rust-analyzer-src": {
@@ -344,6 +458,34 @@
         "ref": "nightly",
         "repo": "rust-analyzer",
         "type": "github"
+      }
+    },
+    "upscayl": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_8",
+        "upscayl": "upscayl_2"
+      },
+      "locked": {
+        "lastModified": 1,
+        "narHash": "sha256-GLJPZa1FAG8JltrT/rdYH3EFdrHL0kFUPvpMpL0GQr0=",
+        "path": "./derivations/upscayl",
+        "type": "path"
+      },
+      "original": {
+        "path": "./derivations/upscayl",
+        "type": "path"
+      }
+    },
+    "upscayl_2": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-KYPE4YO5PWNd1B+Y7+YQ8mm176naj0CWMhyZa5J97Zw=",
+        "type": "file",
+        "url": "https://github.com/upscayl/upscayl/releases/download/v1.5.0/Upscayl-1.5.0.AppImage"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/upscayl/upscayl/releases/download/v1.5.0/Upscayl-1.5.0.AppImage"
       }
     },
     "utils": {
