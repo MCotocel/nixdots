@@ -14,10 +14,10 @@
   networking.hostName = "potassium";
   networking.networkmanager.enable = true;
   networking.interfaces.wlan0.ipv4.addresses = [ {
-    address = "192.168.168.102";
+    address = "192.168.168.112";
     prefixLength = 24;
   } ];
-  networking.defaultGateway = "192.168.168.102";
+  networking.defaultGateway = "192.168.168.112";
 
 
   users.users.matei = {
