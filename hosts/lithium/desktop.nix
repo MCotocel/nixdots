@@ -21,7 +21,7 @@
     brightnessctl # Controlling brightness
     calibre # Converting my books for my Kindle
     cinnamon.nemo # File manager
-    deemix-gui # Music downloading
+    #deemix-gui # Music downloading
     discocss # Customizing Discord CSS
     discord # Chat app
     dnd-tools # I play D&D so this is useful
@@ -80,7 +80,7 @@
     thunderbird # Email
     tor # Privacy yeah
     unrar # Extract rar fils
-    upscayl
+    #upscayl
     usbutils # For my USB sticks
     virt-manager # For managing my virtual machines
     wayfire # It's fun to mess around with
