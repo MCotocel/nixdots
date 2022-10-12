@@ -28,6 +28,8 @@
       sodium = (lib.makeOverridable lib.nixosSystem) {
         system = "aarch64-linux";
         modules = [
+	  home-manager.nixosModules.home-manager
+          { home-manager.users.matei = import ./hosts/sodium/home.nix; }
 	  ./hosts/sodium/configuration.nix
  	];
       };
