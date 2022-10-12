@@ -26,10 +26,10 @@
   networking.hostName = "sodium";
   networking.networkmanager.enable = true;
   networking.interfaces.wlan0.ipv4.addresses = [ {
-    address = "192.168.168.101";
+    address = "192.168.168.111";
     prefixLength = 24;
   } ];
-  networking.defaultGateway = "192.168.168.101";
+  networking.defaultGateway = "192.168.168.111";
 
   users.users.matei = {
      isNormalUser = true;
