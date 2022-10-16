@@ -8,14 +8,12 @@
   security.sudo.enable = false; # Not a fan
   security.doas = {
     enable = true;
-    extraRules = [
-      {
-        groups = [ "wheel" ];
-        noPass = false;
-        keepEnv = true;
-        persist = true;
-      }
-    ];
+    extraRules = [{
+      groups = [ "wheel" ];
+      noPass = false;
+      keepEnv = true;
+      persist = true;
+    }];
     extraConfig = ''
       permit nopass :wheel as root cmd nix
       permit nopass :wheel as root cmd nix-collect-garbage
@@ -24,24 +22,19 @@
       permit nopass :wheel as root cmd nixos-rebuild
       permit nopass :wheel as root cmd reboot
       permit nopass :wheel as root cmd shutdown
-      permit nopass :wheel as root cmd solaar
       permit nopass :wheel as root cmd sync
       permit nopass :wheel as root cmd tee
     '';
   };
 
   # Locales
-  i18n = {
-    defaultLocale = "en_GB.UTF-8";
-  };
+  i18n = { defaultLocale = "en_GB.UTF-8"; };
 
   # Nix and NixOS config
   nix = {
-    settings = {
-      show-trace = true;
-    };
+    settings = { show-trace = true; };
     package = pkgs.nixUnstable;
-    extraOptions = ''experimental-features = nix-command flakes''; # I love flakes
+    extraOptions = "experimental-features = nix-command flakes"; # I love flakes
     nixPath = [
       "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
       "nixos-config=/etc/nixos/configuration.nix"

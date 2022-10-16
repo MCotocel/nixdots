@@ -15,10 +15,11 @@
   ];
 
   users.groups = { uinput = {}; };
+  users.groups = { plugdev = {}; };
 
   users.users.matei = { # That's me
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" "libvirtd" "input" "uinput" "docker" ];
+    extraGroups = [ "wheel" "video" "libvirtd" "input" "uinput" "docker" "plugdev" ];
     shell = pkgs.zsh;
     initialPassword = "1234"; # I always change this don't worry
   };

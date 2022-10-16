@@ -42,7 +42,9 @@
 
       purge = "doas sync; echo 3 | doas tee /proc/sys/vm/drop_caches";
 
-      kmonad-active = "echo -e \"Internal $(grep Base-layer ~/.kmonad-internal | tail -1 | sed 's/Base-layer:\ //')\nCooler Master $(grep Base-layer ~/.kmonad-coolermaster | tail -1 | sed 's/Base-layer:\ //')\"";
+      kmonad-active = ''
+        echo -e "Internal $(grep Base-layer ~/.kmonad-internal | tail -1 | sed 's/Base-layer: //')
+        Cooler Master $(grep Base-layer ~/.kmonad-coolermaster | tail -1 | sed 's/Base-layer: //')"'';
     };
 
     variables = { # Some variables cause variables are cool

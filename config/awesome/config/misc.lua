@@ -60,7 +60,7 @@ bling.module.flash_focus.disable()
 
 -- Window switcher
 bling.widget.window_switcher.enable {
-    type = "thumbnaila",
+    type = "thumbnail",
     hide_window_switcher_key = "Escape",
     minimize_key = "m",
     unminimize_key = "M",

@@ -41,7 +41,7 @@ then
 fi
 if ! ps aux | grep solaar | grep -v grep;
 then
-    doas solaar -w hide &
+    solaar -w hide &
 fi
 if ! ps aux | grep flameshot | grep -v grep;
 then

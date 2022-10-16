@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
 Terminal=false
-Icon=bottles
+Icon=com.usebottles.bottles
 Exec=bottles
 Name=Bottles
