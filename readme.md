@@ -10,7 +10,7 @@ Disclamer: You probably shouldn't blindly copy these dotfiles, I doubt I'm doing
 
 - Get the latest minimal NixOS ISO. I get it from [here](https://channels.nixos.org/). You may want a slightly more stable ISO.
 - Boot into the installer, setup, and mount the disks
-  - Depending on which host you want to set up, you'll have to follow different instructions, each in `./hosts/<host>/readme.org`
+  - Depending on which host you want to set up, you'll have to follow different instructions, each in `./hosts/<host>/readme.md`
 - Get a nix shell with `git` and `nix flake` set up: `nix-shell -p git nixFlakes`
 - Clone these dotfiles to `/etc/nixos`: `git clone https://github.com/mcotocel/nixdots /mnt/etc/nixos`
   - At this point, it would be smart to edit the `hardware.nix` file to suit your hardware, and additionally add or remove things you need or don't need
@@ -21,10 +21,18 @@ Disclamer: You probably shouldn't blindly copy these dotfiles, I doubt I'm doing
 
 ## Why NixOS?
 
-
 - Declarative packages and configuration management
 - Lots of packages
 - Rollbacks of configurations (When you mess something up, like the kernel)
   - Cool story, some time back my disk wouldn't mount because I forgot to update the Intel microcode, and the rollbacks saved my ass
 - Reliablity
 - Reproducible environments
+
+## Some notes
+
+This isn't a fancy configuration intended to be easily modified by other people. I've got some hardcoded user paths that you need to change if you want to change the username, some configurations that make sense for me. You'll probably need to modify this manually to suite your needs, but it works for me.
+
+## Screenshots
+
+![Emacs](./assets/emacs.png)
+![Desktop](./assets/desktop.png)
