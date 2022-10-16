@@ -1,7 +1,8 @@
 { config, pkgs, ... }:
 
-let kmonad = import ../../derivations/kmonad.nix;
-in {
+#let kmonad = import ../../derivations/kmonad.nix;
+#in {
+{
   environment = {
     systemPackages = with pkgs; [
       arduino # I mess around with it occasionally
@@ -13,6 +14,7 @@ in {
       cmake # Necessary
       coreutils # Necessary
       cowsay # My machine cannot run without this, it's true
+      deadnix # Check for unused nix code
       direnv # Need to implement this into my workflow sometime
       distrobox # Run another distro under NixOS
       emacs # The best text editor
@@ -35,7 +37,7 @@ in {
       ispell # Spell checking
       isync # For mail
       jq # For when you have to deal with json
-      kmonad # Remapping keys
+      #kmonad # Remapping keys
       libimobiledevice # For connecting my phone
       lshw # Diagnostic time!
       lua # Big fan of AwesomeWM
@@ -105,7 +107,6 @@ in {
 
       purge = "doas sync; echo 3 | doas tee /proc/sys/vm/drop_caches";
 
-      kmonad-active = "echo -e \"Internal $(grep Base-layer ~/.kmonad-internal | tail -1 | sed 's/Base-layer:\ //')\nCooler Master $(grep Base-layer ~/.kmonad-coolermaster | tail -1 | sed 's/Base-layer:\ //')\"";
     };
 
     variables = { # Some variables cause variables are cool

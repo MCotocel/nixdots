@@ -7,7 +7,7 @@
       };
       kernelModules = [ "kvm-intel" ]; # For VFIO
       kernelParams = [ "intel_iommu=on" ]; # Also for VFIO
-      extraModulePackages = [ config.boot.kernelPackages.rtl8821ce ]; # Drivers
+#      extraModulePackages = [ config.boot.kernelPackages.rtl8821ce ]; # Drivers
       kernelPackages = pkgs.linuxPackages_xanmod_latest; # Kernel package
   };
 

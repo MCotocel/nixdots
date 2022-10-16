@@ -13,7 +13,6 @@
     ".bin".source                           = ../../config/bin;
     ".local/share/applications".source      = ../../config/applications;
     ".config/discocss/custom.css".source    = ../../config/discocss/custom.css;
-    ".config/qutebrowser/config.py".source  = ../../config/qutebrowser/config.py;
     ".mbsyncrc".source                      = ../../config/mbsyncrc;
     ".Xresources".source                    = ../../config/xresources;
     ".zshrc".source                         = ../../config/zshrc;

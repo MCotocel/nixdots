@@ -1,4 +1,4 @@
-res=$(echo -en "Reload|Screen|Lock|Logout|Shutdown|Reboot" | rofi -sep "|" -dmenu -i -p 'Power Options' -theme-str 'window { height: 25%; width: 15%;}') # Make selection prompt
+res=$(echo -en "Reload|Screen|Lock|Suspend|Logout|Shutdown|Reboot" | rofi -sep "|" -dmenu -i -p 'Power Options' -theme-str 'window { height: 25%; width: 15%;}') # Make selection prompt
 
 if [ $res = "Reload" ]; then
 
@@ -15,6 +15,11 @@ elif [ $res = "Lock" ]; then
 
     ~/.bin/sys-notify 'Locking screen' low
     ~/.bin/lock
+
+elif [ $res = "Suspend" ]; then
+
+    ~/.bin/sys-notify 'Suspending' low
+    systemctl suspend
 
 elif [ $res = "Logout" ]; then
 

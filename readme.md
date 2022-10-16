@@ -10,14 +10,14 @@ Disclamer: You probably shouldn't blindly copy these dotfiles, I doubt I'm doing
 
 - Get the latest minimal NixOS ISO. I get it from [here](https://channels.nixos.org/). You may want a slightly more stable ISO.
 - Boot into the installer, setup, and mount the disks
-  - Depending on which host you want to set up, you'll have to follow different instructions, each in =./hosts/<host>/readme.org=
-- Get a nix shell with `git` and `nix flake` set up: =nix-shell -p git nixFlakes=
-- Clone these dotfiles to =/etc/nixos=: =git clone https://github.com/mcotocel/nixdots /mnt/etc/nixos=
-  - At this point, it would be smart to edit the =hardware-configuration.nix= file to suit your hardware, and additionally add or remove things you need or don't need
-- Install NixOS using the flake: =nixos-install --root /mnt --flake /mnt/etc/nixos#host --impure=.
-  - Host is the host you want to install. A list of hosts is in =./hosts=
+  - Depending on which host you want to set up, you'll have to follow different instructions, each in `./hosts/<host>/readme.org`
+- Get a nix shell with `git` and `nix flake` set up: `nix-shell -p git nixFlakes`
+- Clone these dotfiles to `/etc/nixos`: `git clone https://github.com/mcotocel/nixdots /mnt/etc/nixos`
+  - At this point, it would be smart to edit the `hardware.nix` file to suit your hardware, and additionally add or remove things you need or don't need
+- Install NixOS using the flake: `nixos-install --root /mnt --flake /mnt/etc/nixos#host --impure`
+  - Host is the host you want to install. A list of hosts is in `./hosts`
 - Reboot and change the user password. Unless you want to use root the whole time, which is stupid
-- Log in as the normal user and run =cp -R /etc/nixos ~/= to pull the config to your home folder
+- Log in as the normal user and run `cp -R /etc/nixos ~/nixdots` to pull the config to your home folder
 
 ## Why NixOS?
 

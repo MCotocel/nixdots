@@ -8,6 +8,8 @@
   # Everything is bad without it
   programs.dconf.enable = true;
 
+  services.expressvpn.enable = true;
+
   environment.systemPackages = with pkgs; [
     acpi # Battery and stuff
     appimage-run # To run appimages when I need to
@@ -67,7 +69,6 @@
     poppler_utils # PDF stuff
     qbittorrent # For downloading certain things
     qemu # Woo VMs
-    #qutebrowser # Secondary browser, controlled through my keyboard mostly
     river # Seems like a cool compostior for Wayland
     rofi # Used whenever I want to open an app
     solaar # For my Logitech mouse

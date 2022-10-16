@@ -2,15 +2,32 @@
 
 {
   # Time
-  time.timeZone = "Asia/Dubai"; # Don't dox me guys
+  time.timeZone = "Asia/Dubai";
 
   # Security
   security.sudo.enable = false; # Not a fan
   security.doas = {
     enable = true;
     extraRules = [
-      { groups = [ "wheel" ]; noPass = true; keepEnv = true; } # Dangerous? Probably.
+      {
+        groups = [ "wheel" ];
+        noPass = false;
+        keepEnv = true;
+        persist = true;
+      }
     ];
+    extraConfig = ''
+      permit nopass :wheel as root cmd nix
+      permit nopass :wheel as root cmd nix-collect-garbage
+      permit nopass :wheel as root cmd nix-env
+      permit nopass :wheel as root cmd nix-store
+      permit nopass :wheel as root cmd nixos-rebuild
+      permit nopass :wheel as root cmd reboot
+      permit nopass :wheel as root cmd shutdown
+      permit nopass :wheel as root cmd solaar
+      permit nopass :wheel as root cmd sync
+      permit nopass :wheel as root cmd tee
+    '';
   };
 
   # Locales
@@ -20,8 +37,16 @@
 
   # Nix and NixOS config
   nix = {
+    settings = {
+      show-trace = true;
+    };
     package = pkgs.nixUnstable;
     extraOptions = ''experimental-features = nix-command flakes''; # I love flakes
+    nixPath = [
+      "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
+      "nixos-config=/etc/nixos/configuration.nix"
+      "/nix/var/nix/profiles/per-user/root/channels"
+    ];
   };
 
   nixpkgs.config = {

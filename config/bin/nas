@@ -38,12 +38,12 @@ function sync() {
 
 function rebuild() {
   echo "Rebuilding config"
-  $priv nixos-rebuild --flake ~/nixdots"$2" --impure switch
+  $priv nixos-rebuild --flake ~/nixdots#"$2" --impure switch
 }
 
 function vm() {
   echo "Creating VM"
-  $priv nixos-rebuild --flake ~/nixdots"$2" --impure build-vm
+  $priv nixos-rebuild --flake ~/nixdots#"$2" --impure build-vm
 }
 
 function full() {

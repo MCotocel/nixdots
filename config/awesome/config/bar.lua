@@ -337,16 +337,6 @@ awful.screen.connect_for_each_screen(function(s)
      {"All apps", function() awful.spawn.with_shell("sleep 0.2; rofi -show drun -display-drun 'App Launcher' -disable-history") end},
     }
 
-    local powermenu = {
-     {"Reload", function() awesome.restart() end},
-     {"Lock", function() awful.spawn.with_shell("~/.bin/lock") end},
-     {"Logout", function() awesome.quit() end},
-     {"Suspend", function() awful.spawn.with_shell("echo mem | doas tee /sys/power/state") end},
-     {"Hibernate", function() awful.spawn.with_shell("echo disk | doas tee /sys/power/state") end},
-     {"Shutdown", function() awful.spawn.with_shell("shutdown -h now") end},
-     {"Reboot", function() awful.spawn.with_shell("reboot") end},
-    }
-
     local miscmenu = {
      {"Take screenshot", function() awful.spawn.with_shell("sleep 0.2; ~/.bin/rofi-screenshot") end},
      {"Image to text", function() awful.spawn.with_shell("sleep 0.2; ~/.bin/rofi-imgtext") end},
@@ -362,7 +352,6 @@ awful.screen.connect_for_each_screen(function(s)
 
     local mainmenu = awful.menu({items = {
         {"Apps", appmenu},
-        {"Power options", powermenu},
         {"Misc", miscmenu},
     }})
 
