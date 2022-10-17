@@ -32,7 +32,9 @@
 
   # Nix and NixOS config
   nix = {
-    settings = { show-trace = true; };
+    settings = {
+      show-trace = true;
+    };
     package = pkgs.nixUnstable;
     extraOptions = "experimental-features = nix-command flakes"; # I love flakes
     nixPath = [

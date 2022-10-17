@@ -25,7 +25,6 @@
     network.listenAddress = "any";
   };
 
-
   environment.systemPackages = with pkgs; [
     alsa-utils # Utlities for also
     easyeffects # Audio effects

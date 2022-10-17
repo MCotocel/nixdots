@@ -1,6 +1,0 @@
-[Desktop Entry]
-Type=Application
-Terminal=false
-Icon=utilities-system-monitor
-Exec=wezterm start nvtop
-Name=NVTop

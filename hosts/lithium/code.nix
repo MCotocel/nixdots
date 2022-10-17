@@ -49,11 +49,11 @@
       neofetch # Everyone loves neofetch
       neovim # The second-best editor. For when Emacs doesn't work
       nix-linter # Lint Nix files
+      nix-tree # Check dependencies
       nixfmt # Format Nix files
       nixos-generators # Generate NixOS outputs from configurations
       nodejs # Some programs need it
       nvd # Package version diff tool for Nix
-      nvtop # Top, but for Nvidia
       onefetch # Neofetch but for git repos
       openai-whisper # Speech to text
       openimagedenoise # Denoising images

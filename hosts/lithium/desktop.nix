@@ -55,11 +55,9 @@
     mesa # The graphics thing
     networkmanagerapplet # When I want to quickly connect to a Wi-Fi network
     nicotine-plus # Soulseek client
-    nyxt # An interesting browser, similar to qutebrowser
     obs-studio # For recording my desktop
     obs-studio-plugins.obs-pipewire-audio-capture # For recording audio
     obsidian # I use this for all of my notes
-    openbox # Neat floating window manager, I occasionally dabble in it
     openssl # For certs
     p7zip # Unzipping stuff
     pandoc # Converting stuff
@@ -69,12 +67,9 @@
     poppler_utils # PDF stuff
     qbittorrent # For downloading certain things
     qemu # Woo VMs
-    river # Seems like a cool compostior for Wayland
     rofi # Used whenever I want to open an app
     solaar # For my Logitech mouse
     spicetify-cli # I used to rice spotify
-    swaybg # For setting the background on wayland
-    sxhkd # Sometimes use this for other WMs
     teams # Very clunky but I need it
     tesseract # Images to text. Very cool
     texlive.combined.scheme-full # LaTeX package
@@ -131,9 +126,6 @@
           luadbi-mysql
           luaposix
         ];
-      };
-      bspwm = {
-        enable = false;
       };
     };
   };
