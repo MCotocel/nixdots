@@ -2,7 +2,6 @@
 [general]
 
 autosens = 1
-
 sensitivity = 30
 
 bars = 0
@@ -17,18 +16,21 @@ source = auto
 [output]
 
 method = ncurses
-
 channels = stereo
 
 [smoothing]
 
 integral = 90
-
 monstercat = 0
 waves = 1
-
 gravity = 200
 
+[color]
+gradient = 1
+gradient_count = 3
+gradient_color_1 = '#ffffff'
+gradient_color_2 = '#e9e9e9'
+gradient_color_3 = '#d4d4d4'
 
 [eq]
 

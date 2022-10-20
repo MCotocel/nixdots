@@ -49,13 +49,13 @@
               nixpkgs.overlays = [
                 (_: _: {
                   upscayl = upscayl.packages.x86_64-linux.upscayl;
-                }) # I spent 90 minutes searching up how to do this, I felt like a genius after finally figuring out. I went up to a friend, slapped his back, and screamed "I'm a genius"
+                }) # I spent 90 minutes searching up how to do this, I felt like a genius after finally figuring out. I went up to a friend, slapped his back, and screamed "I'm a genius".
                 (_: _: {
                   deemix-gui = deemix-gui.packages.x86_64-linux.deemix-gui;
-                }) # I currently have Spotify premium, but if I'm ever not able to afford it, I've got this. Plus it's nice to own it.
+                }) # I currently have Spotify premium, but if I'm ever not able to afford it, I've got this. Plus it's nice to own the music.
                 (_: _: {
                   brutality = brutality.packages.x86_64-linux.brutality;
-                })
+                }) # Honestly makes Doom a pretty good game that feels modern.
                 nur.overlay
                 (self: super: {
                   ncmpcpp =

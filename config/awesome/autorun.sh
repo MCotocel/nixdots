@@ -14,10 +14,10 @@ picom &
 easyeffects --gapplication-service &
 
 ## Monitor displays
-if ! ps aux | grep autorandr | grep -v grep;
-then
-    watch -n 1 autorandr -c &
-fi
+#if ! ps aux | grep autorandr | grep -v grep;
+#then
+#    watch -n 1 autorandr -c &
+#fi
 
 # Gestures
 rm ~/.config/touchegg/.*
