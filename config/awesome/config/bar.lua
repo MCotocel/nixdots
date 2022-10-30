@@ -193,7 +193,6 @@ awful.screen.connect_for_each_screen(function(s)
     -- Menu
     local appmenu = {
      {"Music", function() awful.spawn.with_shell("spotify") end},
-     {"Files", function() awful.spawn.with_shell("nemo") end},
      {"Editor", function() awful.spawn.with_shell("emacsclient -c") end},
      {"Browser", function() awful.spawn.with_shell("firefox") end},
      {"Terminal", function() awful.spawn.with_shell("wezterm") end},
@@ -211,6 +210,7 @@ awful.screen.connect_for_each_screen(function(s)
     mainmenu = awful.menu({items = {
         {"Apps", appmenu},
         {"Misc", miscmenu},
+        {"File manager", function() awful.spawn.with_shell("nemo") end},
         {"Detect monitors", function() awful.spawn.with_shell("autorandr -c; echo 'awesome.restart()' | awesome-client") end},
         {"View hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end},
         {"Power menu", function() awful.spawn.with_shell("sleep 0.2; ~/.bin/rofi-power") end},

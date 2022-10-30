@@ -100,7 +100,7 @@ theme.menu_height = dpi(30)
 theme.menu_width = dpi(200)
 theme.menu_font = "Iosevka 11"
 theme.menu_bg_focus = "#1f252a"
-theme.menu_submenu = ""
+theme.menu_submenu = "    "
 theme.menu_submenu_icon = nil
 
 theme.ghost = "~/.config/awesome/icons/pfp_trans.png"
