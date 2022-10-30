@@ -3,7 +3,6 @@ res=$(echo -en "Reload|Screen|Lock|Suspend|Logout|Shutdown|Reboot" | rofi -sep "
 if [ $res = "Reload" ]; then
 
     ~/.bin/sys-notify 'Reloading config' low
-    sleep 1
     echo 'awesome.restart()' | awesome-client
 
 elif [ $res = "Screen" ]; then
@@ -25,7 +24,7 @@ elif [ $res = "Logout" ]; then
 
     ~/.bin/sys-notify 'Logging out' low
     sleep 1
-    echo 'awesome.quit()' | awesome-client
+    pkill -KILL -u $(whoami)
 
 elif [ $res = "Shutdown" ]; then # If selection is shutdown
 

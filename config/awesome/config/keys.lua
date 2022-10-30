@@ -222,7 +222,7 @@ awful.key({modkey, "Shift"}, "r", function() awful.spawn.with_shell("emacsclient
 }),
 
 -- Take screenshot
-awful.key({modkey, "Shift"}, "s", function() awful.spawn.with_shell("flameshot gui") end, {
+awful.key({modkey, "Shift"}, "s", function() awful.spawn.with_shell("flameshot &; flameshot gui") end, {
     description = "Take screenshot",
     group = "Applications and menus"
 }),
@@ -332,6 +332,14 @@ root.buttons(awful.util.table.join(
     awful.button({ }, 13, function() awful.tag.viewnext() end),
     awful.button({ }, 12, function() awful.tag.viewprev() end)
 ))
+
+awful.mouse.append_global_mousebindings({
+    awful.button({ }, 3, function() mainmenu:toggle() end),
+    awful.button({ }, 4, awful.tag.viewnext),
+    awful.button({ }, 5, awful.tag.viewprev),
+    awful.button({ }, 13, function() awful.tag.viewnext() end),
+    awful.button({ }, 12, function() awful.tag.viewprev() end)
+})
 
 awful.keyboard.append_global_keybindings({
     awful.key {

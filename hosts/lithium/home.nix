@@ -56,7 +56,7 @@
   gtk = {
     enable = true;
     cursorTheme.package = pkgs.capitaine-cursors;
-    cursorTheme.name = "Breeze Light";
+    cursorTheme.name = "Breeze_Snow";
     font.package = pkgs.source-sans-pro;
     font.name = "Source Sans Pro Regular";
     iconTheme.package = pkgs.papirus-icon-theme;

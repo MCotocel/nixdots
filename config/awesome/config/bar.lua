@@ -18,7 +18,7 @@ local bling = require("modules.bling")
 awful.screen.connect_for_each_screen(function(s)
 
     -- Set tags and default layout
-    awful.tag({"", "", "", "", "", "", "", "", ""}, s, awful.layout.suit.fair)
+    awful.tag({"", "", "", "", "", "", "", "", ""}, s, awful.layout.suit.fair)
 
     -- Show currently used layout
     local layoutbox = awful.widget.layoutbox(s)
@@ -41,7 +41,7 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.container.margin
         },
         bg = beautiful.bg_systray,
-        shape = gears.shape.rectangle,
+        shape = gears.shape.rounded_rect,
         widget = wibox.container.background
     }
 
@@ -61,17 +61,17 @@ awful.screen.connect_for_each_screen(function(s)
         screen = s,
         filter = awful.widget.taglist.filter.all,
         style = {
-            shape = gears.shape.rect
+            shape = gears.shape.rounded_rect
         },
         layout = {
-            spacing = dpi(5),
+            spacing = dpi(1),
             spacing_widget = {
                 color = beautiful.bg_diff,
                 widget = wibox.widget.separator
             },
             layout = wibox.layout.fixed.horizontal
         },
-        shape = gears.shape.rectangle,
+        shape = gears.shape.rounded_rect,
         widget_template = {
             {
                 {
@@ -92,34 +92,20 @@ awful.screen.connect_for_each_screen(function(s)
                     },
                     layout = wibox.layout.fixed.horizontal,
                 },
-                left = dpi(5),
-                right = dpi(5),
+                left = dpi(8),
+                right = dpi(8),
                 widget = wibox.container.margin
             },
             id = 'background_role',
             widget = wibox.container.background,
-            create_callback = function(self, c3, index, objects)
-                self:connect_signal('mouse::enter', function()
-                    if #c3:clients() > 0 then
-                        awesome.emit_signal("bling::tag_preview::update", c3)
-                        awesome.emit_signal("bling::tag_preview::visibility", s, true)
-                    end
-                end)
-                self:connect_signal('mouse::leave', function()
-                    awesome.emit_signal("bling::tag_preview::visibility", s, false)
-                    if self.has_backup then self.bg = self.backup end
-                end)
-            end,
-            update_callback = function(self, c3, index, objects)
-            end,
         },
         buttons = taglist_buttons
     }
 
     local taglist_container = {
         taglist,
-        left = dpi(3),
-        right = dpi(3),
+        left = dpi(1),
+        right = dpi(1),
         bg = beautiful.bg_systray,
         widget = wibox.container.margin
     }
@@ -134,72 +120,11 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.container.margin
         },
         bg = beautiful.bg_systray,
-        shape = gears.shape.rectangle,
+        shape = gears.shape.rounded_rect,
         widget = wibox.container.background
     }
 
-    local tasklist_buttons = gears.table.join(
-        awful.button({}, 1, function(c)
-            if c == client.focus then
-                c.minimized = true
-            else
-                c:emit_signal("request::activate", "tasklist", {raise = true})
-        end end),
-        awful.button({}, 3, function() awful.menu.client_list({theme = {width = 250}}) end),
-        awful.button({}, 2, function() awful.client.focus.byidx(1) end))
-
-    local tasklist = awful.widget.tasklist {
-        screen = s,
-        filter = awful.widget.tasklist.filter.currenttags,
-        buttons = tasklist_buttons,
-        widget_template = {
-            {
-                {
-                    id = 'clienticon',
-                    widget = awful.widget.clienticon,
-                },
-                margins = dpi(5),
-                widget = wibox.container.margin
-            },
-            nil,
-            create_callback = function(self, c, index, objects)
-                self:get_children_by_id('clienticon')[1].client = c
-                self:connect_signal('mouse::enter', function()
-                        awesome.emit_signal("bling::task_preview::visibility", s,
-                                            true, c)
-                    end)
-                    self:connect_signal('mouse::leave', function()
-                        awesome.emit_signal("bling::task_preview::visibility", s,
-                                            false, c)
-                    end)
-            end,
-            layout = wibox.layout.align.vertical,
-        },
-    }
-
-    local tasklist_container = {
-        tasklist,
-        left = dpi(5),
-        right = dpi(5),
-        bg = beautiful.bg_systray,
-        widget = wibox.container.margin
-    }
-
-    local final_tasklist = wibox.widget {
-        {
-            tasklist_container,
-            top = dpi(5),
-            bottom = dpi(5),
-            left = dpi(5),
-            right = dpi(5),
-            layout = wibox.container.margin
-        },
-        bg = beautiful.bg_systray,
-        shape = gears.shape.rectangle,
-        widget = wibox.container.background
-    }
-
-    -- Add nice background to systray
+    -- Add a nice background to the system tray
 
     local systray = wibox.widget.systray()
     systray:set_base_size(beautiful.systray_icon_size)
@@ -224,7 +149,7 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.container.margin
         },
         bg = beautiful.bg_systray,
-        shape = gears.shape.rectangle,
+        shape = gears.shape.rounded_rect,
         widget = wibox.container.background
     }
 
@@ -249,7 +174,7 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.container.margin
         },
         bg = beautiful.bg_systray,
-        shape = gears.shape.rectangle,
+        shape = gears.shape.rounded_rect,
         widget = wibox.container.background
     }
 
@@ -265,72 +190,10 @@ awful.screen.connect_for_each_screen(function(s)
         margins = dpi(10)
     }
 
-    -- Battery
-    local battery = awful.widget.watch('bash -c "echo -n Bat: `cat /sys/class/power_supply/BAT0/capacity`%"', 15)
-
-    local battery_container = {
-        battery,
-        left = dpi(8),
-        right = dpi(8),
-        bg = beautiful.bg_systray,
-        widget = wibox.container.margin
-    }
-
-    local final_battery = wibox.widget {
-        {
-            battery_container,
-            top = dpi(6),
-            bottom = dpi(6),
-            left = dpi(3),
-            right = dpi(3),
-            layout = wibox.container.margin
-        },
-        bg = beautiful.bg_systray,
-        shape = gears.shape.rectangle,
-        widget = wibox.container.background
-    }
-
-    local battery_tooltip = awful.tooltip
-    {
-        objects = { battery },
-        timer_function = function()
-            return io.popen('bash -c "echo; acpi -b"'):read("*a")
-        end,
-        timeout = 2,
-        bg = beautiful.bg_diff,
-        align = "top",
-        margins = dpi(10)
-    }
-
-    -- Volume
-    local volume = awful.widget.watch('bash -c \" echo -n Vol: `pamixer --get-volume`"', 0.1)
-
-    local volume_container = {
-        volume,
-        left = dpi(8),
-        right = dpi(8),
-        bg = beautiful.bg_systray,
-        widget = wibox.container.margin
-    }
-
-    local final_volume = wibox.widget {
-        {
-            volume_container,
-            top = dpi(6),
-            bottom = dpi(6),
-            left = dpi(3),
-            right = dpi(3),
-            layout = wibox.container.margin
-        },
-        bg = beautiful.bg_systray,
-        shape = gears.shape.rectangle,
-        widget = wibox.container.background
-    }
-
     -- Menu
     local appmenu = {
-     {"Music", function() awful.spawn.with_shell("wezterm start ncmpcpp") end},
-     {"Files", function() awful.spawn.with_shell("wezterm start ranger") end},
+     {"Music", function() awful.spawn.with_shell("spotify") end},
+     {"Files", function() awful.spawn.with_shell("nemo") end},
      {"Editor", function() awful.spawn.with_shell("emacsclient -c") end},
      {"Browser", function() awful.spawn.with_shell("firefox") end},
      {"Terminal", function() awful.spawn.with_shell("wezterm") end},
@@ -341,18 +204,16 @@ awful.screen.connect_for_each_screen(function(s)
      {"Take screenshot", function() awful.spawn.with_shell("sleep 0.2; ~/.bin/rofi-screenshot") end},
      {"Image to text", function() awful.spawn.with_shell("sleep 0.2; ~/.bin/rofi-imgtext") end},
      {"Shorten url", function() awful.spawn.with_shell("sleep 0.2; ~/.bin/rofi-urlshorten") end},
-     {"Play music", function() awful.spawn.with_shell("sleep 0.2; ~/.bin/rofi-music") end},
-     {"View hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end},
      {"View desktop", function() awful.tag.viewnone() end},
      {"Tab client", function() bling.module.tabbed.pick_with_dmenu() end},
-     {"Reload", awesome.restart},
-     {"Lock screen", function() awful.spawn.with_shell("~/.bin/lock") end},
-     {"Power menu", function() awful.spawn.with_shell("sleep 0.2; ~/.bin/rofi-power") end},
     }
 
-    local mainmenu = awful.menu({items = {
+    mainmenu = awful.menu({items = {
         {"Apps", appmenu},
         {"Misc", miscmenu},
+        {"Detect monitors", function() awful.spawn.with_shell("autorandr -c; echo 'awesome.restart()' | awesome-client") end},
+        {"View hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end},
+        {"Power menu", function() awful.spawn.with_shell("sleep 0.2; ~/.bin/rofi-power") end},
     }})
 
     local launcher = awful.widget.launcher({image = beautiful.awesome_icon, menu = mainmenu})
@@ -375,7 +236,7 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.container.margin
         },
         bg = beautiful.bg_systray,
-        shape = gears.shape.rectangle,
+        shape = gears.shape.rounded_rect,
         widget = wibox.container.background
     }
 
@@ -397,20 +258,17 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
             wibox.container.margin(final_launcher, dpi(3), dpi(3), dpi(3), dpi(3)),
-            wibox.container.margin(final_taglist, dpi(3), dpi(3), dpi(3), dpi(3)),
         },
         {
             layout = wibox.layout.fixed.horizontal,
             {
-                wibox.container.margin(final_tasklist, dpi(3), dpi(3), dpi(3), dpi(3)),
+                wibox.container.margin(final_taglist, dpi(3), dpi(3), dpi(3), dpi(3)),
                 widget = wibox.container.background
             }
         },
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             wibox.container.margin(final_clock, dpi(3), dpi(3), dpi(3), dpi(3)),
-            wibox.container.margin(final_volume, dpi(3), dpi(3), dpi(3), dpi(3)),
-            wibox.container.margin(final_battery, dpi(3), dpi(3), dpi(3), dpi(3)),
             wibox.container.margin(final_systray, dpi(3), dpi(3), dpi(3), dpi(3)),
             wibox.container.margin(final_layoutbox, dpi(3), dpi(3), dpi(3), dpi(3))
         },

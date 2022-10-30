@@ -33,8 +33,8 @@ theme.fg_minimize = "#C780FF"
 -- Gap and borders
 theme.useless_gap = dpi(10)
 theme.gap_single_client = true
-theme.border_width = dpi(0)
-theme.border_color_normal = "#181e23"
+theme.border_width = dpi(4)
+theme.border_color_normal = "#1f252a"
 theme.border_color_active = "#1f252a"
 theme.border_color_marked = "#80d1ff"
 
@@ -45,7 +45,7 @@ theme.taglist_bg_empty = "#1f252a"
 theme.taglist_bg_occupied = "#1f252a"
 theme.taglist_bg_urgent = "#1f252a"
 theme.taglist_fg = "#80d1ff"
-theme.taglist_fg_empty = "#d5d5d5"
+theme.taglist_fg_empty = "#1f252a"
 theme.taglist_fg_occupied = "#97D59B"
 
 -- Tasklist
@@ -88,8 +88,9 @@ theme.titlebar_maximized_button_normal_active = gfs.get_configuration_dir() .. "
 theme.titlebar_maximized_button_focus_active  = gfs.get_configuration_dir() .. "quiet/titlebar/maximize.png"
 
 -- Edge snap
-theme.snap_bg = "#181e23"
-theme.snap_border_width = dpi(3)
+theme.snap_bg = "#1f252acc"
+theme.snap_border_width = dpi(10000)
+theme.snap_shape = gears.shape.rectangle
 
 -- Icon theme
 theme.icon_theme = "Papirus-Dark"
@@ -97,7 +98,7 @@ theme.icon_theme = "Papirus-Dark"
 -- Menu
 theme.menu_height = dpi(30)
 theme.menu_width = dpi(200)
-theme.menu_font = "Iosevka 12"
+theme.menu_font = "Iosevka 11"
 theme.menu_bg_focus = "#1f252a"
 theme.menu_submenu = ""
 theme.menu_submenu_icon = nil
@@ -160,7 +161,7 @@ theme.window_switcher_icon_width = 40 -- Thw width of one icon
 
 -- Hotkey popup
 
-theme.hotkeys_font = "Iosevka 14"
+theme.hotkeys_font = "Iosevka 11"
 theme.hotkeys_description_font = "Iosevka 9"
 theme.hotkeys_modifiers_fg = "#80D1FF"
 theme.hotkeys_border_width = 0

@@ -31,6 +31,20 @@ awful.rules.rules = {
     }
 }
 
+-- Snippet from https://github.com/Vermoot
+-- Centres window in parent window
+client.connect_signal("manage", function (c)
+   if c.floating then
+      if c.transient_for == nil then
+         awful.placement.centered(c)
+      else
+         awful.placement.centered(c, {parent = c.transient_for})
+      end
+         awful.placement.no_offscreen(c)
+   end
+end)
+
+-- Fullscreen instead of maximise
 client.connect_signal("property::maximized", function(c)
     c.maximized = false
     c.fullscreen = true

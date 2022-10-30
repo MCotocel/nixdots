@@ -8,7 +8,7 @@
   # Everything is bad without it
   programs.dconf.enable = true;
 
-  services.expressvpn.enable = true;
+  #services.expressvpn.enable = true;
 
   environment.systemPackages = with pkgs; [
     acpi # Battery and stuff
@@ -22,13 +22,13 @@
     bottles # Wine prefix manager
     brightnessctl # Controlling brightness
     calibre # Converting my books for my Kindle
+    cbatticon # Systray battery
     cinnamon.nemo # File manager
     deemix-gui # Music downloading
     discocss # Customizing Discord CSS
     discord # Chat app
     dnd-tools # I play D&D so this is useful
     eww # Widgets for when I can't get the AwesomeWM ones working
-    expressvpn # Good VPN
     filezilla # FTP program
     firefox # Main web browser
     firejail # When you want some extra security
@@ -42,6 +42,7 @@
     gnome.seahorse # Viewing keychain
     google-chrome
     googleearth-pro # When I want to explore the neighbourhood without going outside into a sandstorm
+    gthumb # Image manager
     gwe # Nvidia settings thingy
     i3lock-color # For locking my device
     inkscape # Occasionally used
@@ -52,6 +53,7 @@
     libnotify # For sending notifications
     libreoffice # Office suite for Linux
     lm_sensors # Time to clean my fans out
+    maim # Select stuff
     mesa # The graphics thing
     networkmanagerapplet # When I want to quickly connect to a Wi-Fi network
     nicotine-plus # Soulseek client
@@ -109,6 +111,10 @@
       touchpad.naturalScrolling = true;
     };
     displayManager.startx.enable = true;
+    #displayManager.sddm = {
+    #  enable = true;
+    #  theme = "~/nixdots/config/sddm-sugar/";
+    #};
     videoDrivers = [ "nvidia" ]; # Didn't have much of a choice
     desktopManager = {
       plasma5 = {

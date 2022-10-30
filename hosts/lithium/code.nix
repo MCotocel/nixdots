@@ -48,6 +48,7 @@
       ncdu # What the hell is taking up so much disk space? Oh.
       neofetch # Everyone loves neofetch
       neovim # The second-best editor. For when Emacs doesn't work
+      nix-index # Locate nix packages
       nix-linter # Lint Nix files
       nix-tree # Check dependencies
       nixfmt # Format Nix files
