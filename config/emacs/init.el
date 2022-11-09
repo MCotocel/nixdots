@@ -587,6 +587,12 @@
     org-startup-with-inline-images t)
 (set-face-attribute 'org-headline-done nil :strike-through t)
 
+(use-package org-roam
+   :config
+   (setq org-roam-directory (file-truename "~/Desktop/Folder/ORG"))
+   (setq find-file-visit-truename t)
+   (org-roam-db-autosync-mode))
+
 (defun edit-file-root ()
   "Use tramp to edit the current buffer as root."
   (interactive)

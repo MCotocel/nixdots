@@ -17,6 +17,7 @@
   environment.systemPackages = with pkgs; [ # Some games
     brutality
     cataclysm-dda-git
+    cemu
     citra
     dolphin-emu-beta
     dwarf-fortress

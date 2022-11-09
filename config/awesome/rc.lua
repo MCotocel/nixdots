@@ -55,7 +55,7 @@ require("config.rules")
 require("config.misc")
 
 -- Battery warning
-require("config.battery-warning")
+-- require("config.battery-warning")
 
 -- Layout switcher
 require("config.layout")

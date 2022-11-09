@@ -53,6 +53,7 @@
     libnotify # For sending notifications
     libreoffice # Office suite for Linux
     lm_sensors # Time to clean my fans out
+    lxtask # Lightweight task manager
     maim # Select stuff
     mesa # The graphics thing
     networkmanagerapplet # When I want to quickly connect to a Wi-Fi network

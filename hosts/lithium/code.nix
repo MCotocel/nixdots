@@ -12,6 +12,7 @@
       btop # Like htop but so much better looking
       cava # I like the pretty visualisations
       cmake # Necessary
+      comma # Wrapper for nix-shell and nix-index
       coreutils # Necessary
       cowsay # My machine cannot run without this, it's true
       deadnix # Check for unused nix code

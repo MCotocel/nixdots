@@ -5,7 +5,7 @@
       initrd = {
           availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "uas" "sd_mod" "sdhci_pci" ];
       };
-      kernelModules = [ "kvm-intel" ]; # For VFIO
+      kernelModules = [ "kvm-intel" "fuse" ]; # For VFIO
       kernelParams = [ "intel_iommu=on" ]; # Also for VFIO
 #      extraModulePackages = [ config.boot.kernelPackages.rtl8821ce ]; # Drivers
       kernelPackages = pkgs.linuxPackages_xanmod_latest; # Kernel package

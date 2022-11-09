@@ -28,6 +28,13 @@ awful.rules.rules = {
             placement = awful.placement.no_overlap + awful.placement.no_offscreen,
             titlebars_enabled = true
         }
+    },
+    {
+       rule = { class = "lxtask" },
+       properties = {
+          floating = true,
+          titlebars_enabled = false
+       }
     }
 }
 
