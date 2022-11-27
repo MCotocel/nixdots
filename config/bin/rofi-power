@@ -13,7 +13,8 @@ elif [ $res = "Screen" ]; then
 elif [ $res = "Lock" ]; then
 
     ~/.bin/sys-notify 'Locking screen' low
-    ~/.bin/lock
+    ~/.bin/lock &
+    xset dpms force off
 
 elif [ $res = "Suspend" ]; then
 

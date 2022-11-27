@@ -2,5 +2,5 @@
 Type=Application
 Terminal=false
 Icon=rpcs3
-Exec=rpcs3
+Exec=gamemoderun rpcs3
 Name=RPCS3

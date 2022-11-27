@@ -28,12 +28,13 @@
     discocss # Customizing Discord CSS
     discord # Chat app
     dnd-tools # I play D&D so this is useful
+    eiskaltdcpp # DCPP client
     eww # Widgets for when I can't get the AwesomeWM ones working
     filezilla # FTP program
     firefox # Main web browser
     firejail # When you want some extra security
     flameshot # Screenshot tool
-    fractal # Matrix client
+    fractal-next # Matrix client
     gimp # Photo editor
     giph # For taking videos
     gnome.file-roller # Unarchiver
@@ -44,6 +45,7 @@
     googleearth-pro # When I want to explore the neighbourhood without going outside into a sandstorm
     gthumb # Image manager
     gwe # Nvidia settings thingy
+    hexchat # IRC client
     i3lock-color # For locking my device
     inkscape # Occasionally used
     kdenlive # Video editor
@@ -71,6 +73,7 @@
     qbittorrent # For downloading certain things
     qemu # Woo VMs
     rofi # Used whenever I want to open an app
+    shotwell # iPhone image importer
     solaar # For my Logitech mouse
     spicetify-cli # I used to rice spotify
     teams # Very clunky but I need it
@@ -138,6 +141,7 @@
   };
 
   fonts = {
+    fontDir.enable = true;
     enableDefaultFonts = true;
     fontconfig.defaultFonts = {
       emoji = [ "Twitter Color Emoji" ]; # My emoji font
@@ -147,6 +151,7 @@
       noto-fonts # Fonts
       noto-fonts-cjk-sans # For CJK languages
       noto-fonts-extra # Fonts for languages
+      twitter-color-emoji # Emoji
       (nerdfonts.override { fonts = [ "Iosevka" ]; }) # Nerdfonts for those cool ligatures and icons
     ];
   };
