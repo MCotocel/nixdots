@@ -59,7 +59,7 @@ theme.titlebar_bg_focus = "#181e23"
 theme.titlebar_bg_normal = "#181e23"
 
 theme.titlebar_fg_focus = "#d5d5d5"
-theme.titlebar_fg_normal = "#181e23"
+theme.titlebar_fg_normal = "#d5d5d5"
 
 theme.titlebar_close_button_normal = gfs.get_configuration_dir() .. "quiet/titlebar/inactive.png"
 theme.titlebar_close_button_focus  = gfs.get_configuration_dir() .. "quiet/titlebar/close.png"

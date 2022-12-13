@@ -30,9 +30,6 @@ client.connect_signal("request::titlebars", function(c)
     awful.titlebar(c, {position = 'top', size = dpi(35)}):setup{
         {
            {
-                 --wibox.container.margin(awful.titlebar.widget.maximizedbutton(c), dpi(3), dpi(3), dpi(7), dpi(7)),
-                 --wibox.container.margin(awful.titlebar.widget.minimizebutton(c), dpi(3), dpi(3), dpi(7), dpi(7)),
-                 --wibox.container.margin(awful.titlebar.widget.closebutton(c), dpi(3), dpi(3), dpi(7), dpi(7)),
                  awful.titlebar.widget.closebutton(c),
                  awful.titlebar.widget.minimizebutton(c),
                  awful.titlebar.widget.maximizedbutton(c),
@@ -41,20 +38,15 @@ client.connect_signal("request::titlebars", function(c)
               margins = dpi(8),
               widget = wibox.container.margin
            },
-            {
-               {
-                  align = 'center',
-                  widget = awful.titlebar.widget.titlewidget(c),
-               },
-               buttons = buttons,
-               layout = wibox.layout.flex.horizontal
-            },
-            {
-               awful.titlebar.widget.iconwidget(c),
-               margins = dpi(8),
-               buttons = buttons,
-               widget = wibox.container.margin,
-            },
+           {
+              layout = wibox.layout.flex.horizontal
+           },
+           {
+              awful.titlebar.widget.titlewidget(c),
+              margins = dpi(10),
+              buttons = buttons,
+              widget = wibox.container.margin,
+           },
         layout = wibox.layout.align.horizontal
     }
 end)
