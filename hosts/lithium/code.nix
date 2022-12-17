@@ -64,6 +64,7 @@
       ps_mem # (Why is Emacs using so much RAM?)
       python311 # I know Python better than I know most languages
       ranger # Terminal file manager
+      rnix-lsp # LSP server for Nix
       ruby # That one language
       ripgrep # Grep but better
       shellcheck # Checking my crappy shell code

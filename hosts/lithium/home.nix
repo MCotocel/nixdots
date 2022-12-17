@@ -19,7 +19,6 @@
     ".config/touchegg/touchegg.conf".source =
       ../../config/touchegg/touchegg.conf;
 
-    #".config/autorandr/postswitch".source = ../../config/autorandr/postswitch;
     ".config/gzdoom/gzdoom.ini".source = ../../config/gzdoom/gzdoom.ini;
 
     ".config/awesome".source = ../../config/awesome;

@@ -54,6 +54,7 @@
     libinput # I think this is for my trackpad
     libnotify # For sending notifications
     libreoffice # Office suite for Linux
+    linuxConsoleTools # For vibrating controller for notifications
     lm_sensors # Time to clean my fans out
     lxtask # Lightweight task manager
     maim # Select stuff

@@ -311,6 +311,8 @@
 (setq dashboard-center-content t
   dashboard-show-shortcuts nil
   dashboard-startup-banner "~/.config/emacs/banner.png"
+  dashboard-image-banner-max-height 512
+  dashboard-image-banner-max-width 512
   dashboard-set-heading-icons t
   dashboard-set-file-icons t
   dashboard-set-navigator t)
@@ -338,11 +340,11 @@
   :defer t)
 
 (use-package smartparens
-  :config (smartparens-global-mode)
+  :init (smartparens-global-mode)
   (show-smartparens-mode))
 
 (use-package highlight-indent-guides
-  :config (highlight-indent-guides-mode))
+  :init (highlight-indent-guides-mode))
 (setq highlight-indent-guides-method 'character)
 
 (use-package rainbow-delimiters
@@ -431,6 +433,7 @@
          (go-mode . lsp)
          (text-mode . lsp)
          (org-mode . lsp)
+         (nix-mode . lsp)
          (lsp-mode . lsp-enable-which-key-integration))
   :commands lsp
   :config
@@ -457,10 +460,16 @@
 (use-package json-mode)
 (use-package lua-mode)
 (use-package nix-mode)
-(use-package lsp-jedi
-  :hook (python-mode . lsp-jedi))
+(use-package lsp-pyright
+  :ensure t
+  :hook (python-mode . (lambda ()
+                          (require 'lsp-pyright)
+                          (lsp))))  ; or lsp-deferred
 
 (use-package lsp-ivy)
+
+(use-package 'tree-sitter)
+(use-package 'tree-sitter-langs)
 
 (use-package company
     :config (global-company-mode)

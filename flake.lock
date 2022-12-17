@@ -90,7 +90,7 @@
     "deemix-gui_2": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-ug6vAYI2BcaiHv+NzhZs6995w8IgpNLCORkCEXZ8duw=",
+        "narHash": "sha256-jdjq9+iIYp+bxzVusc+H9DTtMqgQrKUZXpwV9VRccxk=",
         "type": "file",
         "url": "https://download.deemix.app/gui/linux-x64-latest.AppImage?filename=deemix-gui.AppImage"
       },
@@ -296,11 +296,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1670681895,
-        "narHash": "sha256-kZH9DSU36W4fn1z81a/24JCGkU517TcY50VE0RFJ9k4=",
+        "lastModified": 1670949640,
+        "narHash": "sha256-stdKLsuJtyo38LHyF4+GfFn8OBZdUDaw2nmnAGef2kk=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "f82f0ec1b70b2879c3f3d9a1015a05c73a90a17c",
+        "rev": "9949ac47709d2e2fb5dea19dbba4698b8d584f43",
         "type": "github"
       },
       "original": {
@@ -310,11 +310,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1670681895,
-        "narHash": "sha256-kZH9DSU36W4fn1z81a/24JCGkU517TcY50VE0RFJ9k4=",
+        "lastModified": 1671160997,
+        "narHash": "sha256-fcPZMRjAkUhrfXwoq2RPejfhtPnQ+aI5CTr4x8d0JPs=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "f82f0ec1b70b2879c3f3d9a1015a05c73a90a17c",
+        "rev": "4172cdda7e56a48065475fb98c57b03b83c1fde4",
         "type": "github"
       },
       "original": {
@@ -388,11 +388,11 @@
     },
     "nixpkgs_8": {
       "locked": {
-        "lastModified": 1670681895,
-        "narHash": "sha256-kZH9DSU36W4fn1z81a/24JCGkU517TcY50VE0RFJ9k4=",
+        "lastModified": 1670949640,
+        "narHash": "sha256-stdKLsuJtyo38LHyF4+GfFn8OBZdUDaw2nmnAGef2kk=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "f82f0ec1b70b2879c3f3d9a1015a05c73a90a17c",
+        "rev": "9949ac47709d2e2fb5dea19dbba4698b8d584f43",
         "type": "github"
       },
       "original": {

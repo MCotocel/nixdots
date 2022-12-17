@@ -1,0 +1,1 @@
+yes "$(seq 0 5)" | fftest /dev/input/event24 & sleep 0.15; kill $!
