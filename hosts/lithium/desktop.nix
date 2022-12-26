@@ -4,11 +4,16 @@
 
   # For saving passwords and stuff
   services.gnome.gnome-keyring.enable = true;
+  security.pam.services.login.enableGnomeKeyring = true;
 
   # Everything is bad without it
   programs.dconf.enable = true;
 
-  #services.expressvpn.enable = true;
+  # Mail
+  services.gnome.evolution-data-server.enable = true;
+  services.gnome.gnome-settings-daemon.enable = true;
+  services.gnome.evolution-data-server.plugins = [ pkgs.evolution-ews ];
+  programs.evolution.enable = true;
 
   environment.systemPackages = with pkgs; [
     acpi # Battery and stuff
@@ -54,6 +59,7 @@
     libinput # I think this is for my trackpad
     libnotify # For sending notifications
     libreoffice # Office suite for Linux
+    libsecret # Storing passwords
     linuxConsoleTools # For vibrating controller for notifications
     lm_sensors # Time to clean my fans out
     lxtask # Lightweight task manager
@@ -80,7 +86,6 @@
     teams # Very clunky but I need it
     tesseract # Images to text. Very cool
     texlive.combined.scheme-full # LaTeX package
-    thunderbird # Email
     tor # Privacy yeah
     unrar # Extract rar fils
     upscayl

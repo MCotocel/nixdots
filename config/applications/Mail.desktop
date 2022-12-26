@@ -2,5 +2,5 @@
 Type=Application
 Terminal=false
 Icon=internet-mail
-Exec=thunderbird
+Exec=evolution
 Name=Mail

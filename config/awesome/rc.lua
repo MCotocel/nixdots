@@ -3,6 +3,7 @@ pcall(require, "luarocks.loader")
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
+local wibox = require("wibox")
 require("awful.autofocus")
 
 -- Theme handling library
@@ -54,12 +55,8 @@ require("config.rules")
 -- Misc config
 require("config.misc")
 
--- Battery warning
--- require("config.battery-warning")
-
 -- Layout switcher
 require("config.layout")
 
 -- Keybindings
 require("config.keys")
-

@@ -25,15 +25,15 @@ theme.bg_systray = "#1f252a"
 theme.bg_diff = "#1f252a"
 
 -- Foregrounds
-theme.fg_normal = "#D5D5D5"
-theme.fg_focus = "#80d1ff"
-theme.fg_urgent = "#ff8080"
+theme.fg_normal = "#d5d5d5"
+theme.fg_focus = "#d5d5d5"
+theme.fg_urgent = "#1f252a"
 theme.fg_minimize = "#C780FF"
 
 -- Gap and borders
 theme.useless_gap = dpi(10)
 theme.gap_single_client = true
-theme.border_width = dpi(4)
+theme.border_width = dpi(0)
 theme.border_color_normal = "#1f252a"
 theme.border_color_active = "#1f252a"
 theme.border_color_marked = "#80d1ff"
@@ -44,7 +44,7 @@ theme.taglist_bg_focus = "#1f252a"
 theme.taglist_bg_empty = "#1f252a"
 theme.taglist_bg_occupied = "#1f252a"
 theme.taglist_bg_urgent = "#1f252a"
-theme.taglist_fg = "#80d1ff"
+theme.taglist_fg_focus = "#80d1ff"
 theme.taglist_fg_empty = "#1f252a"
 theme.taglist_fg_occupied = "#97D59B"
 

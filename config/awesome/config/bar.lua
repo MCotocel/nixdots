@@ -41,7 +41,7 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.container.margin
         },
         bg = beautiful.bg_systray,
-        shape = gears.shape.rounded_rect,
+        shape = gears.shape.rectangle,
         widget = wibox.container.background
     }
 
@@ -61,7 +61,7 @@ awful.screen.connect_for_each_screen(function(s)
         screen = s,
         filter = awful.widget.taglist.filter.all,
         style = {
-            shape = gears.shape.rounded_rect
+            shape = gears.shape.rectangle
         },
         layout = {
             spacing = dpi(1),
@@ -71,7 +71,7 @@ awful.screen.connect_for_each_screen(function(s)
             },
             layout = wibox.layout.fixed.horizontal
         },
-        shape = gears.shape.rounded_rect,
+        shape = gears.shape.rectangle,
         widget_template = {
             {
                 {
@@ -120,7 +120,7 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.container.margin
         },
         bg = beautiful.bg_systray,
-        shape = gears.shape.rounded_rect,
+        shape = gears.shape.rectangle,
         widget = wibox.container.background
     }
 
@@ -149,7 +149,7 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.container.margin
         },
         bg = beautiful.bg_systray,
-        shape = gears.shape.rounded_rect,
+        shape = gears.shape.rectangle,
         widget = wibox.container.background
     }
 
@@ -174,7 +174,7 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.container.margin
         },
         bg = beautiful.bg_systray,
-        shape = gears.shape.rounded_rect,
+        shape = gears.shape.rectangle,
         widget = wibox.container.background
     }
 
@@ -236,7 +236,7 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.container.margin
         },
         bg = beautiful.bg_systray,
-        shape = gears.shape.rounded_rect,
+        shape = gears.shape.rectangle,
         widget = wibox.container.background
     }
 

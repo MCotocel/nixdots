@@ -10,6 +10,9 @@ xrdb -merge ~/.Xresources
 # Cursor
 xsetroot -cursor_name arrow
 
+# Lockscreen
+xscreensaver --no-splash &
+
 # Compositor
 picom &
 

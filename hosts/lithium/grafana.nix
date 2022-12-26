@@ -73,11 +73,11 @@
   # Grafana
   services.grafana = { # For displaying
     enable = true;
-    port = 3000;
-    domain = "0.0.0.0";
-    addr = "0.0.0.0";
-    protocol = "http";
-    security.adminPassword = "1234";
+    settings.server.port = 3000;
+    settings.server.domain = "0.0.0.0";
+    settings.server.addr = "0.0.0.0";
+    settings.server.protocol = "http";
+    settings.security.admin_password = "1234";
   };
 
   # Influxdb
