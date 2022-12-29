@@ -5,6 +5,7 @@
   # For saving passwords and stuff
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.login.enableGnomeKeyring = true;
+  programs.seahorse.enable = true;
 
   # Everything is bad without it
   programs.dconf.enable = true;
@@ -45,7 +46,6 @@
     gnome.file-roller # Unarchiver
     gnome.gnome-calendar # A calendar because I am a very busy person with no time at all
     gnome.gnome-disk-utility # Formatting disks. I think I use fdisk more though
-    gnome.seahorse # Viewing keychain
     google-chrome
     googleearth-pro # When I want to explore the neighbourhood without going outside into a sandstorm
     gthumb # Image manager

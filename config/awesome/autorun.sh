@@ -56,18 +56,18 @@ fi
 emacs --daemon
 
 # MPD
-if ! pidof mpd;
-then
-    mpd
-fi
-if ! pidof mpd-mpris;
-then
-    mpd-mpris &
-fi
-if ! pidof mpd-discord-rpc;
-then
-    mpd-discord-rpc &
-fi
+#if ! pidof mpd;
+#then
+#    mpd
+#fi
+#if ! pidof mpd-mpris;
+#then
+#    mpd-mpris &
+#fi
+#if ! pidof mpd-discord-rpc;
+#then
+#    mpd-discord-rpc &
+#fi
 
 # Vibration on notification
 dbus-monitor "interface='org.freedesktop.Notifications'" | grep --line-buffered "string" | grep --line-buffered -e method -e ":" -e '""' -e urgency -e notify -v | grep --line-buffered '.*(?=string)|(?<=string).*' -oPi | grep --line-buffered -v '^\s*$' | xargs -I '{}' ~/.bin/vibrate {} &
