@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Terminal=false
+Icon=flameshot
+Exec=flameshot
+Name=Flameshot

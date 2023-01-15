@@ -39,6 +39,7 @@
     ".local/share/applications/Files.desktop".source = ../../config/applications/Files.desktop;
     ".local/share/applications/Filezilla.desktop".source = ../../config/applications/Filezilla.desktop;
     ".local/share/applications/Firefox.desktop".source = ../../config/applications/Firefox.desktop;
+    ".local/share/applications/Flameshot.desktop".source = ../../config/applications/Flameshot.desktop;
     ".local/share/applications/Fractal.desktop".source = ../../config/applications/Fractal.desktop;
     ".local/share/applications/GIMP.desktop".source = ../../config/applications/GIMP.desktop;
     ".local/share/applications/Google-Earth.desktop".source = ../../config/applications/Google-Earth.desktop;
@@ -46,6 +47,7 @@
     ".local/share/applications/GThumb.desktop".source = ../../config/applications/GThumb.desktop;
     ".local/share/applications/GZDoom.desktop".source = ../../config/applications/GZDoom.desktop;
     ".local/share/applications/Handbrake.desktop".source = ../../config/applications/Handbrake.desktop;
+    ".local/share/applications/Hexchat.desktop".source = ../../config/applications/Hexchat.desktop;
     ".local/share/applications/HTop.desktop".source = ../../config/applications/HTop.desktop;
     ".local/share/applications/Impress.desktop".source = ../../config/applications/Impress.desktop;
     ".local/share/applications/Inkscape.desktop".source = ../../config/applications/Inkscape.desktop;
@@ -95,6 +97,7 @@
     ".local/share/applications/Zathura.desktop".source = ../../config/applications/Zathura.desktop;
     ".local/share/applications/Zeal.desktop".source = ../../config/applications/Zeal.desktop;
     ".local/share/applications/Zotero.desktop".source = ../../config/applications/Zotero.desktop;
+    ".local/share/applications/Zynaddsubfx.desktop".source = ../../config/applications/Zynaddsubfx.desktop;
     
     ".config/discocss/custom.css".source = ../../config/discocss/custom.css;
     ".mbsyncrc".source = ../../config/mbsyncrc;
