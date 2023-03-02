@@ -51,6 +51,7 @@
     gthumb # Image manager
     gwe # Nvidia settings thingy
     hexchat # IRC client
+    hyperion # Ambient lighting
     i3lock-color # For locking my device
     inkscape # Occasionally used
     kdenlive # Video editor
@@ -83,7 +84,7 @@
     shotwell # iPhone image importer
     solaar # For my Logitech mouse
     spicetify-cli # I used to rice spotify
-    teams # Very clunky but I need it
+    teams-for-linux # Very clunky but I need it
     tesseract # Images to text. Very cool
     texlive.combined.scheme-full # LaTeX package
     tor # Privacy yeah

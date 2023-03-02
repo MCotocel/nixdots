@@ -20,8 +20,8 @@
     cemu
     citra
     dolphin-emu-beta
-    dwarf-fortress
-    dwarf-fortress-packages.themes.vettlingr
+    #dwarf-fortress
+    #dwarf-fortress-packages.themes.vettlingr
     #grapejuice
     gzdoom
     lutris

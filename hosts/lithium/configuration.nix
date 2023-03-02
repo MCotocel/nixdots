@@ -19,7 +19,7 @@
 
   users.users.matei = { # That's me
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" "libvirtd" "input" "uinput" "docker" "plugdev" "fuse" ];
+    extraGroups = [ "wheel" "video" "libvirtd" "input" "uinput" "docker" "plugdev" "fuse" "dialout" ];
     shell = pkgs.zsh;
     initialPassword = "1234"; # I always change this don't worry
   };

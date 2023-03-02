@@ -6,7 +6,7 @@ local naughty = require("naughty")
 local dpi = require("beautiful.xresources").apply_dpi
 
 -- Fonts
-theme.font = "Iosevka Nerd Font 11"
+theme.font = "Iosevka NF 11"
 
 -- Bar
 theme.wibar_border_width = dpi(5)
@@ -98,7 +98,7 @@ theme.icon_theme = "Papirus-Dark"
 -- Menu
 theme.menu_height = dpi(30)
 theme.menu_width = dpi(200)
-theme.menu_font = "Iosevka 11"
+theme.menu_font = "Iosevka NF 11"
 theme.menu_bg_focus = "#1f252a"
 theme.menu_submenu = "    "
 theme.menu_submenu_icon = nil
@@ -155,14 +155,14 @@ theme.thumbnail_scale = false -- If set to true, the thumbnails fit policy will 
 theme.window_switcher_name_margins = 10 -- The margin of one clients title to the rest of the widget
 theme.window_switcher_name_valign = "center" -- How to vertically align one clients title
 theme.window_switcher_name_forced_width = 200 -- The width of one title
-theme.window_switcher_name_font = "Iosevka 11" -- The font of all titles
+theme.window_switcher_name_font = "Iosevka NF 11" -- The font of all titles
 theme.window_switcher_icon_valign = "center" -- How to vertially align the one icon
 theme.window_switcher_icon_width = 40 -- Thw width of one icon
 
 -- Hotkey popup
 
-theme.hotkeys_font = "Iosevka 11"
-theme.hotkeys_description_font = "Iosevka 9"
+theme.hotkeys_font = "Iosevka NF 11"
+theme.hotkeys_description_font = "Iosevka NF 9"
 theme.hotkeys_modifiers_fg = "#80D1FF"
 theme.hotkeys_border_width = 0
 theme.hotkeys_group_margin = dpi(10)
@@ -173,7 +173,7 @@ local global_shape = function(cr, width, height)
     gears.shape.rounded_rect(cr, width, height, 0)
 end
 
-theme.notification_font = "Iosevka 11"
+theme.notification_font = "Iosevka NF 11"
 theme.notification_bg = "#181e23"
 theme.notification_fg = "#D5D5D5"
 theme.notification_shape = global_shape

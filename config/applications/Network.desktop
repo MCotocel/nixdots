@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Terminal=false
+Icon=org.gnome.NetworkDisplays
+Exec=nm-connection-editor
+Name=Network Manager

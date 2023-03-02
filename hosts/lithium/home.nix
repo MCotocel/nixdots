@@ -65,6 +65,7 @@
     ".local/share/applications/NCMPCPP.desktop".source = ../../config/applications/NCMPCPP.desktop;
     ".local/share/applications/Neovim.desktop".source = ../../config/applications/Neovim.desktop;
     ".local/share/applications/Nethack.desktop".source = ../../config/applications/Nethack.desktop;
+    ".local/share/applications/Network.desktop".source = ../../config/applications/Network.desktop;
     ".local/share/applications/Nvidia-Settings.desktop".source = ../../config/applications/Nvidia-Settings.desktop;
     ".local/share/applications/OBS.desktop".source = ../../config/applications/OBS.desktop;
     ".local/share/applications/Obsidian.desktop".source = ../../config/applications/Obsidian.desktop;
@@ -78,6 +79,7 @@
     ".local/share/applications/Retroarch.desktop".source = ../../config/applications/Retroarch.desktop;
     ".local/share/applications/Roblox.desktop".source = ../../config/applications/Roblox.desktop;
     ".local/share/applications/RPCS3.desktop".source = ../../config/applications/RPCS3.desktop;
+    ".local/share/applications/Shotwell.desktop".source = ../../config/applications/Shotwell.desktop;
     ".local/share/applications/Solaar.desktop".source = ../../config/applications/Solaar.desktop;
     ".local/share/applications/Soulseek.desktop".source = ../../config/applications/Soulseek.desktop;
     ".local/share/applications/Spotify.desktop".source = ../../config/applications/Spotify.desktop;
