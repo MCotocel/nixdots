@@ -51,7 +51,7 @@
     gthumb # Image manager
     gwe # Nvidia settings thingy
     hexchat # IRC client
-    hyperion # Ambient lighting
+    hyperion-ng # Ambient lighting
     i3lock-color # For locking my device
     inkscape # Occasionally used
     kdenlive # Video editor

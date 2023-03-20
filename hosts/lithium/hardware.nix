@@ -63,7 +63,7 @@
 
   
   environment.systemPackages = with pkgs; [ # Better kernel
-    linuxPackages_xanmod.r8168
+    #linuxPackages_xanmod.r8168
     linuxKernel.packages.linux_xanmod.hid-nintendo
   ];
 }
