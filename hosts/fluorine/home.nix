@@ -22,5 +22,8 @@
     # Vim
     ".config/nvim/init.vim".source = ../../config/nvim/init.vim;
     ".config/nvim/colors".source   = ../../config/nvim/colors;
+
+    # Retroarch xorg
+    ".xinitrc".source   = ../../config/retro_xinitrc;
   };
 }

@@ -68,15 +68,6 @@
           ];
         };
 
-        potassium = (lib.makeOverridable lib.nixosSystem) {
-          system = "x86_64-linux";
-          modules = [
-            home-manager.nixosModules.home-manager
-            { home-manager.users.matei = import ./hosts/potassium/home.nix; }
-            ./hosts/potassium/configuration.nix
-          ];
-        };
-
         fluorine = (lib.makeOverridable lib.nixosSystem) {
           system = "x86_64-linux";
           modules = [

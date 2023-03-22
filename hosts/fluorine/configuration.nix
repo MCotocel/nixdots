@@ -6,6 +6,7 @@
       ./hardware.nix
       ./code.nix
       ./services.nix
+      ./gaming.nix
       ./grafana.nix
 #      ./home.nix
       ../shared.nix
