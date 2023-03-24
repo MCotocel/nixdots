@@ -73,7 +73,7 @@
           modules = [
             home-manager.nixosModules.home-manager
             { home-manager.users.matei = import ./hosts/fluorine/home.nix; }
-            ./hosts/fluroine/configuration.nix
+            ./hosts/fluorine/configuration.nix
           ];
         };
 

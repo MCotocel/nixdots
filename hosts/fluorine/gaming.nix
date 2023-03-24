@@ -15,4 +15,12 @@
   environment.systemPackages = with pkgs; [ # Some games
     retroarchFull
   ];
+
+  services.xserver = {
+    enable = true;
+    layout = "us";
+    displayManager.startx.enable = true;
+  };
+
+  services.getty.autologinUser = "matei";
 }

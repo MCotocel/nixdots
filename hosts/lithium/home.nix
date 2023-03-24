@@ -16,6 +16,7 @@
     ".local/share/applications/Aseprite.desktop".source = ../../config/applications/Aseprite.desktop;
     ".local/share/applications/Audacity.desktop".source = ../../config/applications/Audacity.desktop;
     ".local/share/applications/Baobab.desktop".source = ../../config/applications/Baobab.desktop;
+    ".local/share/applications/Bitwarden.desktop".source = ../../config/applications/Bitwarden.desktop;
     ".local/share/applications/Bleachbit.desktop".source = ../../config/applications/Bleachbit.desktop;
     ".local/share/applications/Blender.desktop".source = ../../config/applications/Blender.desktop;
     ".local/share/applications/Blueman.desktop".source = ../../config/applications/Blueman.desktop;

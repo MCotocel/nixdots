@@ -24,6 +24,6 @@
     ".config/nvim/colors".source   = ../../config/nvim/colors;
 
     # Retroarch xorg
-    ".xinitrc".source   = ../../config/retro_xinitrc;
+    ".xinitrc".source   = ../../config/retro/retro_xinitrc;
   };
 }
