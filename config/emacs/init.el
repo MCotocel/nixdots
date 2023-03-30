@@ -422,8 +422,7 @@
 
 (use-package lsp-mode
   :init
-  :hook ((lua-mode . lsp)
-         (python-mode . lsp)
+  :hook ((python-mode . lsp)
          (sh-mode . lsp)
          (css-mode . lsp)
          (html-mode . lsp)

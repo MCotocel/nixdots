@@ -18,7 +18,7 @@ local bling = require("modules.bling")
 awful.screen.connect_for_each_screen(function(s)
 
     -- Set tags and default layout
-    awful.tag({"", "", "", "", "", "", "", "", ""}, s, awful.layout.suit.fair)
+    awful.tag({"◼", "◼", "◼", "◼", "◼", "◼", "◼", "◼", "◼"}, s, awful.layout.suit.fair)
 
     -- Show currently used layout
     local layoutbox = awful.widget.layoutbox(s)
@@ -92,8 +92,8 @@ awful.screen.connect_for_each_screen(function(s)
                     },
                     layout = wibox.layout.fixed.horizontal,
                 },
-                left = dpi(8),
-                right = dpi(8),
+                left = dpi(5),
+                right = dpi(5),
                 widget = wibox.container.margin
             },
             id = 'background_role',

@@ -34,8 +34,9 @@ client.connect_signal("request::titlebars", function(c)
                  awful.titlebar.widget.minimizebutton(c),
                  awful.titlebar.widget.maximizedbutton(c),
                  layout = wibox.layout.fixed.horizontal,
+                 spacing = dpi(5),
             },
-              margins = dpi(8),
+              margins = dpi(12),
               widget = wibox.container.margin
            },
            {

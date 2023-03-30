@@ -38,7 +38,7 @@ SAVEHIST=1000
 
 ########## Prompt ##########
 
-export PS1="%F{blue}%~%f %(?.%F{green}λ%f.%F{red}λ%f) " # Alternatives for prompt icon: ◯, •, ❯, ∮, λ, Δ, 
+export PS1="%F{blue}%~%f " # Alternatives for prompt icon: ◯, •, ❯, ∮, λ, Δ, 
 
 ########## ZLE ##########
 #
