@@ -51,6 +51,12 @@ if ! ps aux | grep flameshot | grep -v grep;
 then
     flameshot &
 fi
+
+# Monitor adjustment
+if ! ps aux | grep autorandr | grep -v grep;
+then
+    watch -n 1 autorandr -c &
+fi
  
 # Emacs daemon
 emacs --daemon
@@ -70,4 +76,7 @@ emacs --daemon
 #fi
 
 # Ambient lighting
-hyperiond &
+if ! ps aux | grep hyperiond | grep -v grep;
+then
+    hyperiond &
+fi

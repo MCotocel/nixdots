@@ -1,4 +1,4 @@
-{ config, pkgs, system, ... }:
+{ config, lib, pkgs, system, ... }:
 
 {
 
@@ -9,6 +9,9 @@
 
   # Everything is bad without it
   programs.dconf.enable = true;
+
+  # Phone and desktop integration
+  programs.kdeconnect.enable = true;
 
   # Mail
   services.gnome.evolution-data-server.enable = true;
@@ -123,16 +126,7 @@
       touchpad.naturalScrolling = true;
     };
     displayManager.startx.enable = true;
-    #displayManager.sddm = {
-    #  enable = true;
-    #  theme = "~/nixdots/config/sddm-sugar/";
-    #};
     videoDrivers = [ "nvidia" ]; # Didn't have much of a choice
-    desktopManager = {
-      plasma5 = {
-        enable = false;
-      };
-    };
     windowManager = {
       awesome = { # Best window manager
         enable = true;
@@ -164,8 +158,8 @@
     ];
   };
 
-  qt5.platformTheme = "gtk2";
-  qt5.style = "gtk2";
+  qt.platformTheme = "gtk2";
+  qt.style = "gtk2";
 
   environment.gnome.excludePackages = [ # Exclude all the stuff I don't need
     pkgs.gnome.file-roller

@@ -5,9 +5,8 @@
       initrd = {
           availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "uas" "sd_mod" "sdhci_pci" ];
       };
-      kernelModules = [ "kvm-intel" "fuse" ]; # For VFIO
-      kernelParams = [ "intel_iommu=on" ]; # Also for VFIO
-#      extraModulePackages = [ config.boot.kernelPackages.rtl8821ce ]; # Drivers
+      kernelModules = [ "kvm-intel" "fuse" ]; # Some modules
+      kernelParams = [ "intel_iommu=on" ];
       kernelPackages = pkgs.linuxPackages_xanmod_latest; # Kernel package
   };
 
@@ -27,15 +26,10 @@
     cpu.intel.updateMicrocode = true;
     nvidia = {
       package = config.boot.kernelPackages.nvidiaPackages.stable; # For my stupid GPU
-      prime.nvidiaBusId = "PCI:1:0:0"; # Also for my stupid GPU
-      prime.intelBusId = "PCI:0:2:0"; # For Intel
-      modesetting.enable = true;
-      prime.offload.enable = lib.mkForce false;
-      powerManagement.enable = lib.mkForce false;
     };
   };
 
-  services.thermald.enable = lib.mkDefault false; # Keep temps in check
+  services.thermald.enable = true; # Keep temps in check
   services.fstrim.enable = false; # I have an SSD
   services.tlp = {
     enable = true;

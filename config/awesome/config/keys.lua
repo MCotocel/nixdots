@@ -36,13 +36,6 @@ awful.key({modkey}, "b", function()
     description = 'Toggle Wibar', group = "AwesomeWM"
 }),
 
--- Toggle dashboard
-awful.key({modkey}, "w", function()
-      for s in screen do s.dashboard.visible = not s.dashboard.visible end
-    end, {
-    description = 'Toggle dashboard', group = "AwesomeWM"
-}),
-
 -- Expose
 awful.key({modkey}, "e", revelation, {
     description = 'Expose', group = "AwesomeWM"
@@ -303,6 +296,14 @@ awful.key({}, "XF86MonBrightnessUp", function()
       description = "Brightness up",
       group = "Various functions"
 }),
+
+awful.key({ modkey }, "n", function () 
+    if not nbox.visible then
+        nbox.visible = true
+    else
+        nbox.visible = false
+    end
+end, {description = "toggle notification center", group = "custom"}),
 
 -- Brightness down
 awful.key({}, "XF86MonBrightnessDown", function()

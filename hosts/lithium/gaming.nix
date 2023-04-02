@@ -7,8 +7,10 @@
     driSupport = true;
     driSupport32Bit = true;
     extraPackages = with pkgs; [
-      rocm-opencl-icd
-      rocm-opencl-runtime
+      intel-media-driver
+      vaapiIntel
+      vaapiVdpau
+      libvdpau-va-gl
     ];
   };
 
@@ -58,6 +60,5 @@
     dedicatedServer.openFirewall = true; # Source Dedicated Server
   };
   
-  services.power-profiles-daemon.enable = false; # Power profiles
   services.upower.enable = true; # UPower
 }

@@ -52,6 +52,7 @@
     ".local/share/applications/HTop.desktop".source = ../../config/applications/HTop.desktop;
     ".local/share/applications/Impress.desktop".source = ../../config/applications/Impress.desktop;
     ".local/share/applications/Inkscape.desktop".source = ../../config/applications/Inkscape.desktop;
+    ".local/share/applications/KDEConnect.desktop".source = ../../config/applications/KDEConnect.desktop;
     ".local/share/applications/KDenLive.desktop".source = ../../config/applications/KDenLive.desktop;
     ".local/share/applications/Keychain.desktop".source = ../../config/applications/Keychain.desktop;
     ".local/share/applications/Kid3.desktop".source = ../../config/applications/Kid3.desktop;
@@ -104,6 +105,8 @@
     
     ".config/discocss/custom.css".source = ../../config/discocss/custom.css;
     ".mbsyncrc".source = ../../config/mbsyncrc;
+    ".xinitrc".source = ../../config/xinitrc;
+    ".xsession".source = ../../config/xinitrc;
     ".Xresources".source = ../../config/xresources;
     ".zshrc".source = ../../config/zshrc;
     ".config/touchegg/touchegg.conf".source =

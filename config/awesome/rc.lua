@@ -52,11 +52,14 @@ require("config.titlebar")
 -- Rules config
 require("config.rules")
 
--- Misc config
-require("config.misc")
-
 -- Layout switcher
 require("config.layout")
 
 -- Keybindings
 require("config.keys")
+
+-- Misc config
+require("config.misc")
+
+-- Notification center
+--local notification_center = require("config.notification_center")

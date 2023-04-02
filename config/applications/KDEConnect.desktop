@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Terminal=false
+Icon=kdeconnect
+Exec=kdeconnect-app
+Name=KDEConnect
