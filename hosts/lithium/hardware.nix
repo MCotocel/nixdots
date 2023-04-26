@@ -30,7 +30,7 @@
   };
 
   services.thermald.enable = true; # Keep temps in check
-  services.fstrim.enable = false; # I have an SSD
+  services.fstrim.enable = true; # I have an SSD
   services.tlp = {
     enable = true;
     settings = {

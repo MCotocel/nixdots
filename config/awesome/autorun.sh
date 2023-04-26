@@ -53,10 +53,10 @@ then
 fi
 
 # Monitor adjustment
-if ! ps aux | grep autorandr | grep -v grep;
-then
-    watch -n 1 autorandr -c &
-fi
+#if ! ps aux | grep autorandr | grep -v grep;
+#then
+#    watch -n 1 autorandr -c &
+#fi
  
 # Emacs daemon
 emacs --daemon

@@ -427,11 +427,8 @@
          (css-mode . lsp)
          (html-mode . lsp)
          (json-mode . lsp)
-         (markdown-mode . lsp)
          (latex-mode . lsp)
          (go-mode . lsp)
-         (text-mode . lsp)
-         (org-mode . lsp)
          (nix-mode . lsp)
          (lsp-mode . lsp-enable-which-key-integration))
   :commands lsp
@@ -448,8 +445,6 @@
       lsp-eldoc-enable-hover t
       lsp-log-io nil
       lsp-enable-file-watchers nil))
-
-(use-package lsp-grammarly)
 
 (use-package lsp-ui :commands lsp-ui-mode)
 

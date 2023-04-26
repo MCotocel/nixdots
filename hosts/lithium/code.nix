@@ -61,7 +61,7 @@
       openjdk # Java
       pciutils # I love diagnosing my system
       ps_mem # (Why is Emacs using so much RAM?)
-      python311 # I know Python better than I know most languages
+      python311Full # I know Python better than I know most languages
       ranger # Terminal file manager
       rnix-lsp # LSP server for Nix
       ruby # That one language

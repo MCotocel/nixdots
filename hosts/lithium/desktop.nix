@@ -85,6 +85,7 @@
     qbittorrent # For downloading certain things
     qemu # Woo VMs
     rofi # Used whenever I want to open an app
+    screenkey # Shows keys pressed
     shotwell # iPhone image importer
     solaar # For my Logitech mouse
     spicetify-cli # I used to rice spotify

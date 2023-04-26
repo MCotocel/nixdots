@@ -46,6 +46,9 @@ modkey = "Mod4"
 -- Bar config
 require("config.bar")
 
+-- Dashboard
+require("config.dashboard")
+
 -- Titlebar config
 require("config.titlebar")
 
@@ -61,5 +64,3 @@ require("config.keys")
 -- Misc config
 require("config.misc")
 
--- Notification center
---local notification_center = require("config.notification_center")

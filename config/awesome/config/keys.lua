@@ -1,12 +1,13 @@
 local awful = require("awful")
 local gears = require("gears")
-require("awful.autofocus")
 
 local hotkeys_popup = require("awful.hotkeys_popup")
 
 local bling = require("modules.bling")
 local machi = require("modules.layout-machi")
 local revelation = require("modules.awesome-revelation")
+
+require("awful.autofocus")
 
 awful.keyboard.append_global_keybindings({
 
@@ -34,6 +35,11 @@ awful.key({modkey}, "b", function()
       for s in screen do s.wibar.visible = not s.wibar.visible end
     end, {
     description = 'Toggle Wibar', group = "AwesomeWM"
+}),
+
+-- Toggle dashboard
+awful.key({modkey}, "i", function() dashboard_toggle() end, {
+    description = 'Toggle dashboard', group = "AwesomeWM"
 }),
 
 -- Expose
@@ -296,14 +302,6 @@ awful.key({}, "XF86MonBrightnessUp", function()
       description = "Brightness up",
       group = "Various functions"
 }),
-
-awful.key({ modkey }, "n", function () 
-    if not nbox.visible then
-        nbox.visible = true
-    else
-        nbox.visible = false
-    end
-end, {description = "toggle notification center", group = "custom"}),
 
 -- Brightness down
 awful.key({}, "XF86MonBrightnessDown", function()
