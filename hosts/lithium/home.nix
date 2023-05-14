@@ -29,7 +29,6 @@
     ".local/share/applications/Chrome.desktop".source = ../../config/applications/Chrome.desktop;
     ".local/share/applications/Citra.desktop".source = ../../config/applications/Citra.desktop;
     ".local/share/applications/DCPP.desktop".source = ../../config/applications/DCPP.desktop;
-    ".local/share/applications/Deemix-GUI.desktop".source = ../../config/applications/Deemix-GUI.desktop;
     ".local/share/applications/Discord.desktop".source = ../../config/applications/Discord.desktop;
     ".local/share/applications/Disks.desktop".source = ../../config/applications/Disks.desktop;
     ".local/share/applications/Dolphin.desktop".source = ../../config/applications/Dolphin.desktop;
@@ -89,9 +88,7 @@
     ".local/share/applications/SRM.desktop".source = ../../config/applications/SRM.desktop;
     ".local/share/applications/Super-Tux-Kart.desktop".source = ../../config/applications/Super-Tux-Kart.desktop;
     ".local/share/applications/Teams.desktop".source = ../../config/applications/Teams.desktop;
-    ".local/share/applications/Upscayl.desktop".source = ../../config/applications/Upscayl.desktop;
     ".local/share/applications/Virt-manager.desktop".source = ../../config/applications/Virt-manager.desktop;
-    ".local/share/applications/VSCode.desktop".source = ../../config/applications/VSCode.desktop;
     ".local/share/applications/VLC.desktop".source = ../../config/applications/VLC.desktop;
     ".local/share/applications/Wezterm.desktop".source = ../../config/applications/Wezterm.desktop;
     ".local/share/applications/Winetricks.desktop".source = ../../config/applications/Winetricks.desktop;

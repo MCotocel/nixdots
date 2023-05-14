@@ -8,8 +8,8 @@
     "I have no idea what the hell I'm doing"; # It's true! I have a better feel for Nix and NixOS than before though.
 
   inputs = {
-    agenix.url =
-      "github:ryantm/agenix"; # Secret management, I should probably set this up sometime. Logins and files I don't really want shared are the only thing stopping a reinstall of NixOS from being fully painless.
+    #agenix.url =
+      #"github:ryantm/agenix"; # Secret management, I should probably set this up sometime. Logins and files I don't really want shared are the only thing stopping a reinstall of NixOS from being fully painless.
     f2k.url =
       "github:fortuneteller2k/nixpkgs-f2k"; # F2K's packages. I use this for awesome-git, and I'm also planning to switch picom to a fork to use the animations.
     home-manager.url =
@@ -19,13 +19,10 @@
       "github:nix-community/nur"; # Nix User Repository for packages not in nixpkgs
     nixos-generators.url = "github:nix-community/nixos-generators";
 
-    deemix-gui.url = "path:./derivations/deemix-gui"; # Music downloader
-    upscayl.url = "path:./derivations/upscayl"; # Image upscaler
     brutality.url = "path:./derivations/brutality"; # Doom, modded
   };
 
-  outputs = { self, nixpkgs, home-manager, nur, f2k, nixos-generators, upscayl
-    , deemix-gui, brutality, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, nur, f2k, nixos-generators, brutality, ... }@inputs: {
 
       nixosConfigurations = let lib = nixpkgs.lib;
 
@@ -48,12 +45,6 @@
             {
               nixpkgs.overlays = [
                 nur.overlay
-                (_: _: {
-                  upscayl = upscayl.packages.x86_64-linux.upscayl;
-                }) # I spent 90 minutes searching up how to do this, I felt like a genius after finally figuring out. I went up to a friend, slapped his back, and screamed "I'm a genius".
-                (_: _: {
-                  deemix-gui = deemix-gui.packages.x86_64-linux.deemix-gui;
-                }) # I currently have Spotify premium, but if I'm ever not able to afford it, I've got this. Plus it's nice to own the music.
                 (_: _: {
                   brutality = brutality.packages.x86_64-linux.brutality;
                 }) # Honestly makes Doom a pretty good game that feels modern.

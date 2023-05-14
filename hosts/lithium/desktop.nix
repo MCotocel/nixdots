@@ -34,10 +34,8 @@
     calibre # Converting my books for my Kindle
     cbatticon # Systray battery
     cinnamon.nemo # File manager
-    deemix-gui # Music downloading
     discocss # Customizing Discord CSS
     discord # Chat app
-    dnd-tools # I play D&D so this is useful
     eiskaltdcpp # DCPP client
     eww # Widgets for when I can't get the AwesomeWM ones working
     filezilla # FTP program
@@ -94,7 +92,6 @@
     texlive.combined.scheme-full # LaTeX package
     tor # Privacy yeah
     unrar # Extract rar fils
-    upscayl
     usbutils # For my USB sticks
     virt-manager # For managing my virtual machines
     wayfire # It's fun to mess around with

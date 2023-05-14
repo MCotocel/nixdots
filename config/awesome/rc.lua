@@ -47,7 +47,7 @@ modkey = "Mod4"
 require("config.bar")
 
 -- Dashboard
-require("config.dashboard")
+--require("config.dashboard")
 
 -- Titlebar config
 require("config.titlebar")

@@ -249,7 +249,7 @@ awful.key({modkey}, "/", hotkeys_popup.show_help, {
 
 -- Volume up
 awful.key({}, "XF86AudioRaiseVolume", function()
-      awful.spawn.with_shell("pamixer --increase 5")
+      awful.spawn.with_shell("pactl -- set-sink-volume @DEFAULT_SINK@ +5dB")
       end, {
       description = "Volume up",
       group = "Various functions"
@@ -257,7 +257,7 @@ awful.key({}, "XF86AudioRaiseVolume", function()
 
 -- Volume down
 awful.key({}, "XF86AudioLowerVolume", function()
-      awful.spawn.with_shell("pamixer --decrease 5")
+      awful.spawn.with_shell("pactl -- set-sink-volume @DEFAULT_SINK@ -5dB")
       end, {
       description = "Volume down",
       group = "Various functions"

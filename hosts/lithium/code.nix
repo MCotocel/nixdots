@@ -78,7 +78,6 @@
       unzip # For unzipping archives
       usbmuxd # Yet again, for connecting my phone
       vim # The original (not quite)
-      vscode # For emergencies
       wget # For downloading web pages and stuff
       xorg.xev # Good for scripts
       yt-dlp # For downloading videos

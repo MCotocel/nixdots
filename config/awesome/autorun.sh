@@ -76,7 +76,7 @@ emacs --daemon
 #fi
 
 # Ambient lighting
-if ! ps aux | grep hyperiond | grep -v grep;
-then
-    hyperiond &
-fi
+#if ! ps aux | grep hyperiond | grep -v grep;
+#then
+#    hyperiond &
+#fi

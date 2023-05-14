@@ -1,6 +1,0 @@
-[Desktop Entry]
-Type=Application
-Terminal=false
-Icon=org.gnome.Music
-Exec=deemix-gui
-Name=Deemix GUI

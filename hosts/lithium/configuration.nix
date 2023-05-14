@@ -1,4 +1,4 @@
-{ config, pkgs, options, upscayl, ... }:
+{ config, pkgs, options, ... }:
 
 {
 
@@ -26,7 +26,6 @@
 
   boot = {
     binfmt.emulatedSystems = [ "aarch64-linux" ]; # For my Raspberry Pi
-    cleanTmpDir = true;
   };
 
   nix.settings = {

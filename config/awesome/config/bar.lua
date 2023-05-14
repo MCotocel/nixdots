@@ -184,7 +184,7 @@ awful.screen.connect_for_each_screen(function(s)
         timer_function = function()
             return io.popen("bash -c \"echo -n `date '+%a, %b %d'`\""):read("*a")
         end,
-        timeout = 2,
+        timeout = 5,
         bg = beautiful.bg_diff,
         align = "top",
         margins = dpi(10)
