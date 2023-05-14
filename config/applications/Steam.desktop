@@ -2,5 +2,5 @@
 Type=Application
 Terminal=false
 Icon=steam
-Exec=gamemoderun steam
+Exec=nvidia-offload gamemoderun steam
 Name=Steam
