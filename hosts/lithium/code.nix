@@ -1,7 +1,5 @@
 { config, pkgs, ... }:
 
-#let kmonad = import ../../derivations/kmonad.nix;
-#in {
 {
   environment = {
     systemPackages = with pkgs; [
@@ -38,7 +36,6 @@
       ispell # Spell checking
       isync # For mail
       jq # For when you have to deal with json
-      #kmonad # Remapping keys
       libimobiledevice # For connecting my phone
       lshw # Diagnostic time!
       lua # Big fan of AwesomeWM
@@ -64,13 +61,11 @@
       python311Full # I know Python better than I know most languages
       ranger # Terminal file manager
       rnix-lsp # LSP server for Nix
-      ruby # That one language
       ripgrep # Grep but better
       shellcheck # Checking my crappy shell code
       speedtest-cli # Testing my internet speed from the terminal
       smartmontools # Monitor the health of hard drives
       sqlite # Databases and stuff
-      sublime4 # A cool text editor
       tmux # A terminal multiplexer
       tokei # Counting lines of code
       trash-cli # Trash instead of delete

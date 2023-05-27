@@ -106,8 +106,7 @@
     ".xsession".source = ../../config/xinitrc;
     ".Xresources".source = ../../config/xresources;
     ".zshrc".source = ../../config/zshrc;
-    ".config/touchegg/touchegg.conf".source =
-      ../../config/touchegg/touchegg.conf;
+    ".config/touchegg/touchegg.conf".source = ../../config/touchegg/touchegg.conf;
 
     ".config/gzdoom/gzdoom.ini".source = ../../config/gzdoom/gzdoom.ini;
 
@@ -133,8 +132,7 @@
     # Emacs
     ".config/emacs/init.el".source = ../../config/emacs/init.el;
     ".config/emacs/style.css".source = ../../config/emacs/style.css;
-    ".config/emacs/doom-quiet-dark-theme.el".source =
-      ../../config/emacs/doom-quiet-dark-theme.el;
+    ".config/emacs/doom-quiet-dark-theme.el".source = ../../config/emacs/doom-quiet-dark-theme.el;
     ".config/emacs/banner.png".source = ../../config/emacs/banner.png;
 
     # Vim

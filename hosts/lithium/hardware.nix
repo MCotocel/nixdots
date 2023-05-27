@@ -28,18 +28,18 @@
     cpu.intel.updateMicrocode = true;
     nvidia = {
       modesetting.enable = true;
-      powerManagement = { enable = true; finegrained = true; }; 
-      prime = { 
-         intelBusId = "PCI:0:2:0"; 
-         nvidiaBusId = "PCI:1:0:0"; 
+      #powerManagement = { enable = true; finegrained = true; }; 
+      #prime = { 
+      #   intelBusId = "PCI:0:2:0"; 
+      #   nvidiaBusId = "PCI:1:0:0"; 
   
-         offload = { 
-           enable = true; 
-           enableOffloadCmd = true; 
-         }; 
+      #   offload = { 
+      #     enable = true; 
+      #     enableOffloadCmd = true; 
+      #   }; 
   
-         reverseSync.enable = true; 
-       }; 
+      #   reverseSync.enable = true; 
+      # }; 
     };
   };
 

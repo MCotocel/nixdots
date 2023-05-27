@@ -37,9 +37,9 @@ awful.key({modkey}, "b", function()
     description = 'Toggle Wibar', group = "AwesomeWM"
 }),
 
--- Toggle dashboard
-awful.key({modkey}, "i", function() dashboard_toggle() end, {
-    description = 'Toggle dashboard', group = "AwesomeWM"
+-- Toggle desk lights
+awful.key({modkey}, "i", function() awful.spawn.with_shell("curl '192.168.168.133/win&T=2'") end, {
+    description = 'Toggle desk lights', group = "AwesomeWM"
 }),
 
 -- Expose
@@ -297,7 +297,7 @@ awful.key({}, "XF86AudioPlay", function()
 
 -- Brightness up
 awful.key({}, "XF86MonBrightnessUp", function()
-      awful.spawn.with_shell("brightnessctl s +3%")
+      awful.spawn.with_shell("brightnessctl s 3%+")
       end, {
       description = "Brightness up",
       group = "Various functions"

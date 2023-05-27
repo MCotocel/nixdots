@@ -2,7 +2,7 @@
 autorandr -c
 
 # Xinput
-watch -n 3 xinput set-button-map $(xinput | grep "Logitech MX Master 3" | head -n 1 | sed -e 's/.*id=//g' -e 's/\[.*$//') 1 2 3 4 5 6 7 12 13 0 0 0 0 0 0 &
+watch -n 3 xinput set-button-map $(xinput | grep "Logitech Wireless Device PID:4082" | head -n 1 | sed -e 's/.*id=//g' -e 's/\[.*$//') 1 2 3 4 5 6 7 12 13 0 0 0 0 0 0 &
 
 # Xresources
 xrdb -merge ~/.Xresources
@@ -52,31 +52,11 @@ then
     flameshot &
 fi
 
-# Monitor adjustment
-#if ! ps aux | grep autorandr | grep -v grep;
-#then
-#    watch -n 1 autorandr -c &
-#fi
- 
-# Emacs daemon
+# Kmonad
+if ! ps aux | grep kmonad | grep -v grep;
+then
+    kmonad ~/.config/kmonad/coolermaster.kbd &
+fi
+
+# Emacs
 emacs --daemon
-
-# MPD
-#if ! pidof mpd;
-#then
-#    mpd
-#fi
-#if ! pidof mpd-mpris;
-#then
-#    mpd-mpris &
-#fi
-#if ! pidof mpd-discord-rpc;
-#then
-#    mpd-discord-rpc &
-#fi
-
-# Ambient lighting
-#if ! ps aux | grep hyperiond | grep -v grep;
-#then
-#    hyperiond &
-#fi

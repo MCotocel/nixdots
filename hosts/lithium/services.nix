@@ -50,6 +50,9 @@
     KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"
     # Access hidraw devices
     KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0660", GROUP="plugdev"
+    # Allow video group to change brightness
+    ACTION=="add", PROGRAM+="/run/current-system/sw/bin/chgrp video /sys/class/backlight/nvidia_wmi_ec_backlight/brightness"
+    ACTION=="add", PROGRAM+="/run/current-system/sw/bin/chmod g+rw /sys/class/backlight/nvidia_wmi_ec_backlight/brightness"
   '';
 
   services.gvfs.enable = true; # For the Gnome apps

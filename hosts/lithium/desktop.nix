@@ -2,6 +2,9 @@
 
 {
 
+  # We're using caps lock for something else
+  services.xserver.xkbOptions = "caps:none";
+
   # For saving passwords and stuff
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.login.enableGnomeKeyring = true;
@@ -30,7 +33,7 @@
     bleachbit # For removing the files taking up so much disk space
     blender # Occasional tinkering with 3D models
     bottles # Wine prefix manager
-    brightnessctl # Controlling brightness
+    brightnessctl # Brightness
     calibre # Converting my books for my Kindle
     cbatticon # Systray battery
     cinnamon.nemo # File manager
@@ -41,6 +44,7 @@
     filezilla # FTP program
     firefox # Main web browser
     firejail # When you want some extra security
+    ffmpegthumbnailer # Video thumbnails
     flameshot # Screenshot tool
     fractal-next # Matrix client
     gimp # Photo editor
@@ -58,6 +62,7 @@
     inkscape # Occasionally used
     kdenlive # Video editor
     kid3 # I download lots of music
+    kmonad # Remapping
     krita # Sometimes used for posters and stuff
     libinput # I think this is for my trackpad
     libnotify # For sending notifications
@@ -80,6 +85,7 @@
     picom # A cool compositor
     pmutils # Power management utils I guess
     poppler_utils # PDF stuff
+    powertop # View battery usage
     qbittorrent # For downloading certain things
     qemu # Woo VMs
     rofi # Used whenever I want to open an app
@@ -94,7 +100,6 @@
     unrar # Extract rar fils
     usbutils # For my USB sticks
     virt-manager # For managing my virtual machines
-    wayfire # It's fun to mess around with
     wayland # The cooler X
     wezterm # Best terminal
     wineWowPackages.stable # Who needs windows?
@@ -139,6 +144,8 @@
       };
     };
   };
+
+  programs.hyprland.enable = true; # Wayland yippee!
 
   fonts = {
     fontDir.enable = true;

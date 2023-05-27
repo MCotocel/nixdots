@@ -31,36 +31,6 @@
             "squashfs"
           ];
         };
-        ping = {
-          urls = [
-            "google.com"
-            "outlook.com"
-            "cloudflare.com"
-            "store.steampowered.com"
-          ];
-          binary = "/run/wrappers/bin/ping";
-          #ping_interval = 5;
-        };
-        exec = {
-          commands = [ "/run/current-system/sw/bin/speedtest --json" ];
-          name_override = "speedtest";
-          timeout = "1m";
-          interval = "5m";
-          data_format = "json";
-          json_string_fields = [
-            "interface_externalIp"
-            "server_name"
-            "server_location"
-            "server_host"
-            "server_ip"
-            "result_url"
-          ];
-        };
-        filecount = {
-          directories = [ "/home/matei/Desktop/Folder/Brain" ];
-          name = "*.md";
-          recursive = true;
-        };
         mem = {};
         net = {};
         processes = {};
