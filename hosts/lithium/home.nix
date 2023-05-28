@@ -92,6 +92,7 @@
     ".local/share/applications/VLC.desktop".source = ../../config/applications/VLC.desktop;
     ".local/share/applications/Wezterm.desktop".source = ../../config/applications/Wezterm.desktop;
     ".local/share/applications/Winetricks.desktop".source = ../../config/applications/Winetricks.desktop;
+    ".local/share/applications/Wireshark.desktop".source = ../../config/applications/Wireshark.desktop;
     ".local/share/applications/Writer.desktop".source = ../../config/applications/Writer.desktop;
     ".local/share/applications/XScreensaver.desktop".source = ../../config/applications/XScreensaver.desktop;
     ".local/share/applications/Yuzu.desktop".source = ../../config/applications/Yuzu.desktop;

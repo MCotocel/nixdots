@@ -50,6 +50,7 @@
       nix-tree # Check dependencies
       nixfmt # Format Nix files
       nixos-generators # Generate NixOS outputs from configurations
+      nmap # For network debugging
       nodejs # Some programs need it
       nvd # Package version diff tool for Nix
       onefetch # Neofetch but for git repos
@@ -125,4 +126,9 @@
 
   programs.thefuck.enable = true;
   programs.thefuck.alias = "oh"; # Let's make it a bit more... yeah
+
+  programs.wireshark = {
+    enable = true; # It's for network debugging I swear
+    package = pkgs.wireshark;
+  };
 }

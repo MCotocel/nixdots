@@ -24,6 +24,7 @@
       permit nopass :wheel as root cmd shutdown
       permit nopass :wheel as root cmd sync
       permit nopass :wheel as root cmd tee
+      permit nopass :wheel as root cmd nmap
     '';
   };
 

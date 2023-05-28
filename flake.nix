@@ -20,15 +20,6 @@
 
       nixosConfigurations = {
 
-        sodium = nixpkgs.lib.nixosSystem { # This is a Raspberry Pi 4 I use for assorted projects
-          system = "aarch64-linux"; # Naturally
-          modules = [
-            home-manager.nixosModules.home-manager
-            { home-manager.users.matei = import ./hosts/sodium/home.nix; }
-            ./hosts/sodium/configuration.nix
-          ];
-        };
-
         lithium = nixpkgs.lib.nixosSystem { # This is my main system, a Lenovo Legion 5. I'm thinking of switching to an X1 Carbon because I already have a steam deck for gaming and the battery life on the Legion is dreadful
           system = "x86_64-linux"; # What did you expect?
           modules = [
@@ -44,15 +35,6 @@
             { home-manager.users.matei = import ./hosts/lithium/home.nix; }
             kmonad.nixosModules.default # Remapping
             ./hosts/lithium/configuration.nix
-          ];
-        };
-
-        fluorine = nixpkgs.lib.nixosSystem { # This is a cheap Intel Z83 mini PC I got gifted. I don't use it for anything specific
-          system = "x86_64-linux";
-          modules = [
-            home-manager.nixosModules.home-manager
-            { home-manager.users.matei = import ./hosts/fluorine/home.nix; }
-            ./hosts/fluorine/configuration.nix
           ];
         };
 

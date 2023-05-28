@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Terminal=false
+Icon=wireshark
+Exec=wireshark
+Name=Wireshark

@@ -34,8 +34,8 @@
 
 (defalias
     ;; Space cadet shift
-    lsc (tap-hold 100 \( lsft)
-    rsc (tap-hold 100 \) rsft)
+    lsc (tap-hold 30 \( lsft)
+    rsc (tap-hold 30 \) rsft)
 )
 
 ;; Switch to different layers layout
