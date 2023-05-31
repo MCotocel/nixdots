@@ -28,7 +28,9 @@
               nixpkgs.overlays = [
                 nur.overlay
                 (_: _: { brutality = brutality.packages.x86_64-linux.brutality; }) # Honestly makes Doom a pretty good game that feels modern.
-                (self: super: { ncmpcpp = super.ncmpcpp.override { visualizerSupport = true; }; }) # Visualiser support for NCMPCPP (it looks cool)
+                (self: super: {
+                  ncmpcpp = super.ncmpcpp.override { visualizerSupport = true; }; # Visualiser support for NCMPCPP (it looks cool)
+                })
                 f2k.overlays.default
                 (import self.inputs.emacs)
               ];
