@@ -10,7 +10,7 @@
         name = "Matei Cotocel";
         email = "mcotocel@outlook.com";
       };
-      credential.helper = "git-credential-libsecret";
+      credential.helper = "${pkgs.gitAndTools.gitFull}/bin/git-credential-libsecret";
     };
   };
 
