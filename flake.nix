@@ -24,9 +24,9 @@
         lithium = nixpkgs.lib.nixosSystem { # This is my main system, a Lenovo Legion 5. I'm thinking of switching to an X1 Carbon because I already have a steam deck for gaming and the battery life on the Legion is dreadful
           system = "x86_64-linux"; # What did you expect?
           modules = [
+            nur.nixosModules.nur
             {
               nixpkgs.overlays = [
-                nur.overlay
                 (_: _: { brutality = brutality.packages.x86_64-linux.brutality; }) # Honestly makes Doom a pretty good game that feels modern.
                 (self: super: {
                   ncmpcpp = super.ncmpcpp.override { visualizerSupport = true; }; # Visualiser support for NCMPCPP (it looks cool)
