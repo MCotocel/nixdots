@@ -1,6 +1,16 @@
 { config, pkgs, ... }:
 
 {
+
+  programs.git = {
+    enable = true;
+    config = {
+      credential.helper = "${
+          pkgs.git.override { withLibsecret = true; }
+        }/bin/git-credential-libsecret";
+    };
+  };
+
   environment = {
     systemPackages = with pkgs; [
       arduino # I mess around with it occasionally
@@ -26,7 +36,6 @@
       fzf # Fuzzy finder, pretty useful
       gcc # Necessary
       gh # Github's CLI tool
-      git # Use it every day
       gource # Nice for visualising repo history
       gnumake # Make.
       handbrake # Again, I deal with videos

@@ -367,8 +367,8 @@
     doom-modeline-icon t))
 
 (doom-modeline-def-modeline 'main
-    '(bar bar " " modals buffer-info-simple remote-host "  " bar bar " " major-mode workspace-name " " bar bar)
-    '(bar bar " " matches process checker lsp debug vcs " " bar bar))
+    '(bar " " modals buffer-info-simple remote-host "  " bar " " major-mode workspace-name " " bar)
+    '(bar " " matches process checker lsp debug vcs " " bar))
 
 (custom-set-faces
  '(mode-line ((t (:family "Iosevka Nerd Font" :height 120)))))
