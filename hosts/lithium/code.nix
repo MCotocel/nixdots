@@ -11,7 +11,7 @@
       };
       credential.helper = "${
           pkgs.git.override { withLibsecret = true; }
-        }/nix/store/25v1rxsg1qs0a08n9fgpz95n6p7kxcmp-git-2.40.1/bin/git-credential-libsecret";
+        }/bin/git-credential-libsecret";
     };
   };
 
