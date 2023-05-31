@@ -5,6 +5,10 @@
   programs.git = {
     enable = true;
     config = {
+      user = {
+        name = "Matei Cotocel";
+        email = "mcotocel@outlook.com";
+      };
       credential.helper = "${
           pkgs.git.override { withLibsecret = true; }
         }/bin/git-credential-libsecret";
