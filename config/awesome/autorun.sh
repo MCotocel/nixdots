@@ -1,9 +1,6 @@
 # Autorandr
 autorandr -c
 
-# Xinput
-watch -n 3 xinput set-button-map $(xinput | grep "Logitech Wireless Device PID:4082" | head -n 1 | sed -e 's/.*id=//g' -e 's/\[.*$//') 1 2 3 4 5 6 7 12 13 0 0 0 0 0 0 &
-
 # Xresources
 xrdb -merge ~/.Xresources
 
@@ -51,6 +48,9 @@ if ! ps aux | grep flameshot | grep -v grep;
 then
     flameshot &
 fi
+
+# Xinput
+watch -n 3 xinput set-button-map $(xinput | grep "Logitech Wireless Device PID:4082" | head -n 1 | sed -e 's/.*id=//g' -e 's/\[.*$//') 1 2 3 4 5 6 7 12 13 0 0 0 0 0 0 &
 
 # Kmonad
 if ! ps aux | grep kmonad | grep -v grep;

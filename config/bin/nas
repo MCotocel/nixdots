@@ -28,7 +28,7 @@ EOF
 
 function sync() {
   echo "Syncing nix config"
-  cd $dots
+  cd "${dots}" || exit
   git pull
   git add .
   git diff --cached
@@ -78,13 +78,13 @@ function search() {
 
 case "$1" in
   sync)      sync ;;
-  rebuild)   rebuild ;;
-  vm)        vm ;;
+  rebuild)   rebuild "${@}";;
+  vm)        vm "${@}" ;;
   full)      full ;;
   rollback)  rollback ;;
   update)    update ;;
   clean)     clean ;;
-  search)    search $@ ;;
+  search)    search "${@}" ;;
   '')      help ;;
   help)    help ;;
   *)       help ;;

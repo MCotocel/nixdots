@@ -9,6 +9,7 @@
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.login.enableGnomeKeyring = true;
   programs.seahorse.enable = true;
+  programs.gnupg.agent.enableSSHSupport = true;
 
   # Everything is bad without it
   programs.dconf.enable = true;
