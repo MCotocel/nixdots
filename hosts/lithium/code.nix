@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nur, ... }:
 
 {
 
@@ -10,7 +10,9 @@
         name = "Matei Cotocel";
         email = "mcotocel@outlook.com";
       };
-      credential.helper = "${pkgs.gitAndTools.gitFull}/bin/git-credential-libsecret";
+      credential.helper = "libsecret";
+        #credentialStore = "secretservice";
+        #helper = "${nur.repos.utybo.git-credential-manager}/bin/git-credential-manager-core";
     };
   };
 
