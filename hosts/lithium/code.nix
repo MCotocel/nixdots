@@ -4,6 +4,7 @@
 
   programs.git = {
     enable = true;
+    package = pkgs.gitFull;
     config = {
       user = {
         name = "Matei Cotocel";
