@@ -48,13 +48,6 @@
   (load bootstrap-file nil 'nomessage))
 (setq package-enable-at-startup nil)
 
-;; Automatically update packages
-(use-package auto-package-update
-   :config
-   (setq auto-package-update-delete-old-versions t
-         auto-package-update-interval 4)
-   (auto-package-update-maybe))
-
 ;; Git settings
 (when (equal ""
              (shell-command-to-string "git config user.name"))
@@ -72,34 +65,45 @@
 
 ;; Font settings
 (add-to-list 'default-frame-alist '(font . "Iosevka Nerd Font-12")) ;; I like Iosevka, it's a nice font
-(set-fontset-font t 'symbol "Twitter Color Emoji") ;; This changes the emoji font
+(set-fontset-font t 'emoji (font-spec :family "Twitter Color Emoji") nil 'prepend) ;; Some decent looking emojis
+(use-package ligature
+  :config
+  ;; Enable the "www" ligature in every possible major mode
+  (ligature-set-ligatures 't '("www"))
+  ;; Enable traditional ligature support in eww-mode, if the
+  ;; `variable-pitch' face supports it
+  (ligature-set-ligatures 'eww-mode '("ff" "fi" "ffi"))
+  ;; Enable (use-package ligature
+  :load-path "path-to-ligature-repo"
+  :config
+  ;; Enable all Iosevka ligatures in programming modes
+  (ligature-set-ligatures 'prog-mode '("<---" "<--"  "<<-" "<-" "->" "-->" "--->" "<->" "<-->" "<--->" "<---->" "<!--"
+                                       "<==" "<===" "<=" "=>" "=>>" "==>" "===>" ">=" "<=>" "<==>" "<===>" "<====>" "<!---"
+                                       "<~~" "<~" "~>" "~~>" "::" ":::" "==" "!=" "===" "!=="
+                                       ":=" ":-" ":+" "<*" "<*>" "*>" "<|" "<|>" "|>" "+:" "-:" "=:" "<******>" "++" "+++"))
+  ;; Enables ligature checks globally in all buffers. You can also do it
+  ;; per mode with `ligature-mode'.
+  (global-ligature-mode t))
 
 ;; Change some text to symbols
 (defun org/prettify-set ()
     (interactive)
     (setq prettify-symbols-alist
-        '(("#+begin_src" . "")
-          ("#+end_src" . "")
-          ("#+begin_example" . "")
-          ("#+end_example" . "")
-          ("#+results:" . "")
-          ("#+begin_quote" . "❝")
-          ("#+end_quote" . "❞")
-          ("[ ]" . "☐")
-          ("[-]" . "◯")
-          ("[X]" . "☑"))))
+        '(("#+begin_src" . "")
+          ("#+end_src" . "")
+          ("#+begin_example" . "")
+          ("#+end_example" . "")
+          ("#+results:" . "")
+          ("#+begin_quote" . "")
+          ("#+end_quote" . "")
+          ("[ ]" . "")
+          ("[-]" . "")
+          ("[X]" . ""))))
   (add-hook 'org-mode-hook 'org/prettify-set)
 (defun prog/prettify-set ()
     (interactive)
     (setq prettify-symbols-alist
-        '(("lambda" . "λ")
-          ("->" . "→")
-          ("<-" . "←")
-          ("<=" . "≤")
-          (">=" . "≥")
-          ("!=" . "≠")
-          ("~=" . "≃")
-          ("=~" . "≃"))))
+        '(("lambda" . "λ"))))
   (add-hook 'prog-mode-hook 'prog/prettify-set)
 (global-prettify-symbols-mode)
 
@@ -200,10 +204,6 @@
     "pg" 'projectile-grep
     "pm" 'projectile-commander
     "pc" 'projectile-compile-project
-    ;; Obsidian
-    "of" 'obsidian-jump
-    "on" 'obsidian-capture
-    "ol" 'obsidian-insert-wikilink
     ;; Workspaces
     "ws" 'persp-switch
     "wd" 'persp-kill
@@ -215,6 +215,9 @@
     "hf" 'describe-function
     "hs" 'describe-symbol
     "hm" 'describe-mode
+    ;; Emojis
+    "ei" 'emoji-insert
+    "es" 'emoji-search
     ;; Magit
     "gi" 'magit-init
     "gc" 'magit-commit
@@ -242,7 +245,6 @@
 (define-key evil-normal-state-map (kbd "M-t") 'neotree-toggle)
 (define-key evil-normal-state-map (kbd "M-m") 'minimap-mode)
 (define-key evil-normal-state-map (kbd "<C-return>") 'shr-browse-url)
-(define-key evil-normal-state-map (kbd "<C-return>") 'obsidian-follow-link-at-point)
 (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
 
 (define-key evil-normal-state-map (kbd "C-=") 'text-scale-increase)
@@ -310,15 +312,13 @@
 
 (setq dashboard-center-content t
   dashboard-show-shortcuts nil
-  dashboard-startup-banner "~/.config/emacs/banner.png"
-  dashboard-image-banner-max-height 512
-  dashboard-image-banner-max-width 512
+  dashboard-startup-banner "~/.config/emacs/banner.txt"
   dashboard-set-heading-icons t
   dashboard-set-file-icons t
-  dashboard-set-navigator t)
-(setq dashboard-items 'nil)
-(setq dashboard-init-info (format "Startup took around %ss" (round (string-to-number (emacs-init-time)))))
-(setq dashboard-set-footer 'nil)
+  dashboard-set-navigator t
+  dashboard-items 'nil
+  dashboard-init-info (format "Startup took around %ss" (round (string-to-number (emacs-init-time))))
+  dashboard-set-footer 'nil)
 
 (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
 
@@ -333,8 +333,8 @@
            (define-key evil-normal-state-local-map (kbd "p") 'neotree-previous-line)
            (define-key evil-normal-state-local-map (kbd "A") 'neotree-stretch-toggle)
            (define-key evil-normal-state-local-map (kbd "H") 'neotree-hidden-file-toggle)))
-(setq neo-window-fixed-size nil)
-(setq neo-smart-open t)
+(setq neo-window-fixed-size nil
+      neo-smart-open t)
 
 (use-package magit
   :defer t)
@@ -556,11 +556,6 @@
        :picker (gts-prompt-picker)
        :engines (gts-google-engine)
        :render (gts-buffer-render)))
-
-(use-package obsidian)
-
-(obsidian-specify-path "~/Desktop/Folder/BRAINBACK")
-(global-obsidian-mode t)
 
 (use-package org-contrib)
 

@@ -135,6 +135,7 @@
     ".config/emacs/style.css".source = ../../config/emacs/style.css;
     ".config/emacs/doom-quiet-dark-theme.el".source = ../../config/emacs/doom-quiet-dark-theme.el;
     ".config/emacs/banner.png".source = ../../config/emacs/banner.png;
+    ".config/emacs/banner.txt".source = ../../config/emacs/banner.txt;
 
     # Vim
     ".config/nvim/init.vim".source = ../../config/nvim/init.vim;
