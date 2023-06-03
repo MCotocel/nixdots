@@ -30,8 +30,8 @@
   (package-refresh-contents)
   (package-install 'use-package))
 (require 'use-package)
-(setq use-package-always-ensure t) ;; Always make sure that packages are installed
-(setq straight-use-package-by-default t) ;; Use straight for every use-package declaration
+(setq use-package-always-ensure t ;; Always make sure that packages are installed
+      straight-use-package-by-default t) ;; Use straight for every use-package declaration
 
 ;; Bootstrap straight
 (defvar bootstrap-version)
@@ -60,6 +60,7 @@
 (tool-bar-mode -1) ;; Disable the tool bar, it's plain ugly
 (setq inhibit-splash-screen nil ;; I have a nicer one
       inhibit-startup-echo-area-message t ;; Make the startup a little cleaner
+      server-client-instructions nil ;; Hide the client message
       inhibit-startup-message t) ;; No messages on startup
 (setq ring-bell-function 'ignore) ;; Disable the bell
 
@@ -68,21 +69,14 @@
 (set-fontset-font t 'emoji (font-spec :family "Twitter Color Emoji") nil 'prepend) ;; Some decent looking emojis
 (use-package ligature
   :config
-  ;; Enable the "www" ligature in every possible major mode
   (ligature-set-ligatures 't '("www"))
-  ;; Enable traditional ligature support in eww-mode, if the
-  ;; `variable-pitch' face supports it
   (ligature-set-ligatures 'eww-mode '("ff" "fi" "ffi"))
-  ;; Enable (use-package ligature
-  :load-path "path-to-ligature-repo"
   :config
-  ;; Enable all Iosevka ligatures in programming modes
+  ;; Iosevka ligatures
   (ligature-set-ligatures 'prog-mode '("<---" "<--"  "<<-" "<-" "->" "-->" "--->" "<->" "<-->" "<--->" "<---->" "<!--"
                                        "<==" "<===" "<=" "=>" "=>>" "==>" "===>" ">=" "<=>" "<==>" "<===>" "<====>" "<!---"
                                        "<~~" "<~" "~>" "~~>" "::" ":::" "==" "!=" "===" "!=="
                                        ":=" ":-" ":+" "<*" "<*>" "*>" "<|" "<|>" "|>" "+:" "-:" "=:" "<******>" "++" "+++"))
-  ;; Enables ligature checks globally in all buffers. You can also do it
-  ;; per mode with `ligature-mode'.
   (global-ligature-mode t))
 
 ;; Change some text to symbols
@@ -103,7 +97,8 @@
 (defun prog/prettify-set ()
     (interactive)
     (setq prettify-symbols-alist
-        '(("lambda" . "λ"))))
+        '(("delta" . "Δ")
+          ("lambda" . "λ"))))
   (add-hook 'prog-mode-hook 'prog/prettify-set)
 (global-prettify-symbols-mode)
 
@@ -112,12 +107,12 @@
 (setq display-line-numbers-type 'relative) ;; Set it to relative, it makes for easier maths
 (dolist (mode '(org-mode-hook
   term-mode-hook
+  dashboard-mode-hook
   eshell-mode-hook
   neotree-mode-hook
   elfeed-show-mode-hook
   doc-view-mode-hook
   xwidget-webkit-mode-hook
-  neotree-mode-hook
   woman-mode-hook))
 (add-hook mode (lambda () (display-line-numbers-mode 0)))) ;; Some modes are better with no line numbers
 
@@ -136,6 +131,7 @@
 (setq custom-file "~/.config/emacs/etc/custom.el") ;; For saved customizations
 (setq create-lockfiles nil) ;; Disable lockfiles
 (save-place-mode) ;; Save location
+(add-function :after after-focus-change-function (lambda () (save-some-buffers t))) ;; Save buffer when focus is lost
 (global-visual-line-mode) ;; Wrap lines
 (global-auto-revert-mode) ;; Revert buffers
 (recentf-mode) ;; Recent files
@@ -147,7 +143,7 @@
 (setq indent-line-function 'insert-tab) ;; Convert tabs to spaces
 
 ;; Vim keybinds
-(use-package evil ;; Let's install a proper text editor
+(use-package evil ;; Let's install a proper text editor on top of this OS
   :init
   (setq evil-want-integration t)
   (setq evil-want-keybinding nil)
@@ -197,6 +193,7 @@
     "bw" 'quit-window
     "bb" 'consult-buffer
     "bx" 'switch-to-scratch
+    "be" 'emacs-everywhere-finish
     ;; Projectile
     "pa" 'projectile-add-known-project
     "pf" 'consult-projectile
@@ -273,7 +270,7 @@
       evil-want-Y-yank-to-eol t
       evil-cross-lines t)
 
-;; In case I forgot some keybinds
+;; In case I forget some keybinds
 (use-package which-key
   :config (which-key-mode)
   (which-key-setup-side-window-bottom)
@@ -321,6 +318,8 @@
   dashboard-set-footer 'nil)
 
 (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
+(add-hook 'neo-after-create-hook (lambda (&optional dummy) (setq mode-line-format nil)))
+(add-hook 'dashboard-after-initialize-hook (lambda (&optional dummy) (setq mode-line-format nil)))
 
 (use-package neotree)
 (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
@@ -329,11 +328,12 @@
            (define-key evil-normal-state-local-map (kbd "SPC") 'neotree-quick-look)
            (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)
            (define-key evil-normal-state-local-map (kbd "g") 'neotree-refresh)
-           (define-key evil-normal-state-local-map (kbd "n") 'neotree-next-line)
-           (define-key evil-normal-state-local-map (kbd "p") 'neotree-previous-line)
            (define-key evil-normal-state-local-map (kbd "A") 'neotree-stretch-toggle)
            (define-key evil-normal-state-local-map (kbd "H") 'neotree-hidden-file-toggle)))
 (setq neo-window-fixed-size nil
+      neo-window-width 35
+      neo-hide-cursor t
+      projectile-switch-project-action 'neotree-projectile-action
       neo-smart-open t)
 
 (use-package magit
@@ -344,7 +344,7 @@
   (show-smartparens-mode))
 
 (use-package highlight-indent-guides
-  :init (highlight-indent-guides-mode))
+  :init (highlight-indent-guides-mode t))
 (setq highlight-indent-guides-method 'character)
 
 (use-package rainbow-delimiters
@@ -360,24 +360,14 @@
 (use-package doom-modeline
   :init
   (doom-modeline-mode 1)
-  (setq doom-modeline-height 40
-    doom-modeline-bar-width 3
+  (setq doom-modeline-height 35
+    doom-modeline-bar-width 2
     doom-modeline-buffer-encoding 'nondefault
     doom-modeline-major-mode-icon t
     doom-modeline-icon t))
 
-(doom-modeline-def-modeline 'main
-    '(bar " " modals buffer-info-simple remote-host "  " bar " " major-mode workspace-name " " bar)
-    '(bar " " matches process checker lsp debug vcs " " bar))
-
 (custom-set-faces
  '(mode-line ((t (:family "Iosevka Nerd Font" :height 120)))))
-
-(use-package hide-mode-line
-  :hook
-  (special-mode . hide-mode-line-mode)
-  (term-mode . hide-mode-line-mode)
-  (neotree-mode . hide-mode-line-mode))
 
 (use-package minimap
   :config
@@ -404,19 +394,8 @@
 
 (use-package elfeed)
 (setq elfeed-feeds
-       '(("http://nixers.net/syndication.php?fid=12,15&limit=25" tech)
-         ("http://christine.website/blog.rss" tech)
-         ("http://ag91.github.io/rss.xml" tech)
-         ("http://protesilaos.com/codelog.xml" tech)
-         ("http://sachachua.com/blog/category/emacs/feed" tech)
-         ("http://lepisma.xyz/atom.xml" tech)
-         ("http://vermaden.wordpress.com/feed/" tech)
-         ("http://pragmaticemacs.com/feed" tech)
-         ("http://bitcannon.net/index.xml" tech)
-         ("http://writepermission.com/rss.xml" tech)
-         ("http://unixsheikh.com/feed.rss" tech)
-         ("http://karl-voit.at/feeds/lazyblorg-all.atom_1.0.links-only.xml" tech)
-         ("http://www.reddit.com/r/terminal_porn.rss" tech)))
+       '(("https://planet.emacslife.com/atom.xml" emacs)
+         ("https://kotaku.com/rss" gaming)))
 (evil-define-key 'normal elfeed-search-mode-map (kbd "r") 'elfeed-search-untag-all-unread)
 (evil-define-key 'normal elfeed-search-mode-map (kbd "u") 'elfeed-update)
 
@@ -428,7 +407,6 @@
          (html-mode . lsp)
          (json-mode . lsp)
          (latex-mode . lsp)
-         (go-mode . lsp)
          (nix-mode . lsp)
          (lsp-mode . lsp-enable-which-key-integration))
   :commands lsp
@@ -450,7 +428,6 @@
 
 (setq lsp-enable-symbol-highlighting nil)
 
-(use-package go-mode)
 (use-package json-mode)
 (use-package lua-mode)
 (use-package nix-mode)
@@ -458,74 +435,52 @@
   :ensure t
   :hook (python-mode . (lambda ()
                           (require 'lsp-pyright)
-                          (lsp))))  ; or lsp-deferred
+                          (lsp))))
 
-(use-package lsp-ivy)
+(use-package tree-sitter)
+(use-package tree-sitter-langs)
+(global-tree-sitter-mode)
+(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
 
-(setq treesit-language-source-alist
-   '((bash "https://github.com/tree-sitter/tree-sitter-bash")
-     (cmake "https://github.com/uyha/tree-sitter-cmake")
-     (css "https://github.com/tree-sitter/tree-sitter-css")
-     (elisp "https://github.com/Wilfred/tree-sitter-elisp")
-     (go "https://github.com/tree-sitter/tree-sitter-go")
-     (html "https://github.com/tree-sitter/tree-sitter-html")
-     (javascript "https://github.com/tree-sitter/tree-sitter-javascript" "master" "src")
-     (json "https://github.com/tree-sitter/tree-sitter-json")
-     (make "https://github.com/alemuller/tree-sitter-make")
-     (markdown "https://github.com/ikatyang/tree-sitter-markdown")
-     (python "https://github.com/tree-sitter/tree-sitter-python")
-     (toml "https://github.com/tree-sitter/tree-sitter-toml")
-     (tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
-     (typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
-     (yaml "https://github.com/ikatyang/tree-sitter-yaml")))
+(use-package corfu
+  :config
+  (setq corfu-cycle t
+    corfu-auto t
+    corfu-auto-delay 0
+    corfu-auto-prefix 1
+    corfu-preselect 'first
+    corfu-preview-current t
+    corfu-count 5
+    corfu-max-width 40
+    corfu-min-width 40
+    corfu-bar-width 1
+    corfu-scroll-margin 5)
+  :bind
+    (:map corfu-map
+        ("TAB" . corfu-next)
+        ("S-TAB" . corfu-previous)
+        ("<escape>" . corfu-reset)
+        ("<right>" . corfu-complete))
+  :init
+  (global-corfu-mode))
 
-(mapc #'treesit-install-language-grammar (mapcar #'car treesit-language-source-alist))
+(load-file "~/.config/emacs/straight/repos/corfu/extensions/corfu-popupinfo.el")
+(corfu-popupinfo-mode)
+(setq corfu-popupinfo-delay 0)
 
-(use-package company
-    :config (global-company-mode)
-    :bind (:map company-active-map
-                ("<tab>" . company-select-next)))
+(use-package kind-icon
+  :ensure t
+  :after corfu
+  :custom
+  (kind-icon-default-face 'corfu-default)
+  :config
+  (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter))
 
-  (use-package company-statistics
-    :hook (company-mode . company-statistics-mode))
+(use-package yasnippet
+  :hook (prog-mode . yas-global-mode))
 
-  (use-package company-quickhelp
-    :hook (company-mode . company-quickhelp-mode))
-
-  (setq-default company-backends '(company-capf
-                                   company-yasnippet
-                                   company-keywords
-                                   compny-files
-                                   company-ispell))
-
-  (setq company-idle-delay 0.1
-        company-minimum-prefix-length 1
-        company-selection-wrap-around t
-        company-require-match 'never
-        company-dabbrev-downcase nil
-        company-dabbrev-ignore-case t
-        company-dabbrev-other-buffers nil
-        company-tooltip-limit 5
-        company-tooltip-margin 3
-        company-tooltip-align-annotations t
-        company-tooltip-minimum-width 50)
-
-(setq company-format-margin-function #'company-dot-icons-margin)
-
-  (setq company-frontends
-      '(company-pseudo-tooltip-frontend
-        company-preview-frontend
-        company-echo-metadata-frontend))
-
-  (use-package yasnippet
-    :hook (prog-mode . yas-global-mode))
-
-  (use-package yasnippet-snippets
-    :defer t)
-
-  (custom-set-faces
-   '(company-tooltip ((t (:background "#1f252a" :foreground "#d5d5d5"))))
-   '(company-tooltip-selection ((t (:background "#181e23" :foreground "#d5d5d5")))))
+(use-package yasnippet-snippets
+  :defer t)
 
 (use-package realgud)
 
@@ -601,11 +556,10 @@
     org-startup-with-inline-images t)
 (set-face-attribute 'org-headline-done nil :strike-through t)
 
-(use-package org-roam
-   :config
-   (setq org-roam-directory (file-truename "~/Desktop/Folder/ORG"))
-   (setq find-file-visit-truename t)
-   (org-roam-db-autosync-mode))
+(use-package emacs-everywhere) ;; Why would you leave Emacs?
+
+(use-package all-the-icons-dired
+  :hook dired-mode all-the-icons-dired)
 
 (defun edit-file-root ()
   "Use tramp to edit the current buffer as root."
@@ -619,15 +573,6 @@
   "Switch to the scratch buffer."
   (interactive)
   (switch-to-buffer "*scratch*"))
-
-(add-hook 'org-agenda-mode-hook
-            (lambda ()
-              (local-set-key (kbd "q") 'org-agenda-exit)))
-
-(use-package deft)
-(setq deft-use-filename-as-title t)
-(setq deft-recursive t)
-(setq markdown-enable-wiki-links t)
 
 (provide 'init)
 ;; Local Variables:

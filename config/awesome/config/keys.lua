@@ -214,6 +214,12 @@ awful.key({modkey, "Shift"}, "e", function() awful.spawn.with_shell("emacsclient
     group = "Applications and menus"
 }),
 
+-- Edit with emacs
+awful.key({modkey, "Control"}, "e", function() awful.spawn.with_shell("emacsclient --eval \"(emacs-everywhere)\"") end, {
+    description = "Open emacs",
+    group = "Applications and menus"
+}),
+
 -- Open feed reader
 awful.key({modkey, "Shift"}, "r", function() awful.spawn.with_shell("emacsclient -c -e '(elfeed)'") end, {
     description = "Open feed reader",

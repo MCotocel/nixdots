@@ -110,8 +110,10 @@
     xclip # Copying stuff to my clipboard
     xdotool # Used for scrips
     xorg.xinit # So I can do startx when I log in
+    xorg.xprop # For emacs-everywhere
     xscreensaver # Nice screensavers
     xsecurelock # Simple lock screen
+    xorg.xwininfo # For emacs-everywhere
     zathura # For reading my downloaded PDFs
     zotero # Citation and stuff
   ];
