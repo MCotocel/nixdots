@@ -23,6 +23,9 @@ then
     touchegg &
 fi
 
+# Gnome keyring daemon
+gnome-keyring-daemon -r 
+
 # Applets
 if ! ps aux | grep nm-applet | grep -v grep;
 then
