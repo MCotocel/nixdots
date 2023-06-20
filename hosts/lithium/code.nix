@@ -50,6 +50,7 @@
       isync # For mail
       jq # For when you have to deal with json
       libimobiledevice # For connecting my phone
+      libsecret # For passwords
       lshw # Diagnostic time!
       lua # Big fan of AwesomeWM
       lynis # Security audits. Although passwordless doas probably undermines all of it
