@@ -22,8 +22,7 @@
     emacs.url = "github:nix-community/emacs-overlay/master"; # The bleeding edge
   };
 
-  outputs = { self, nixpkgs, home-manager, nur, f2k, nixos-generators,
-    , kmonad, emacs, ... }: {
+  outputs = { self, nixpkgs, home-manager, nur, f2k, nixos-generators, kmonad, emacs, ... }: {
 
       nixosConfigurations = {
 

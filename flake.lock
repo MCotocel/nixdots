@@ -1,34 +1,5 @@
 {
   "nodes": {
-    "brutality": {
-      "inputs": {
-        "brutality": "brutality_2",
-        "glory": "glory",
-        "nixpkgs": "nixpkgs"
-      },
-      "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-noJK8phZ015aw3gopIvxUUNxs6Eu34Y27bf+9cxJQUM=",
-        "path": "./derivations/brutality",
-        "type": "path"
-      },
-      "original": {
-        "path": "./derivations/brutality",
-        "type": "path"
-      }
-    },
-    "brutality_2": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-hzRT11DQrpFnHX3FHZde8BJGGLfg5Cy1u6tU9KyNEIo=",
-        "type": "file",
-        "url": "https://codeload.github.com/pa1nki113r/Project_Brutality/zip/refs/heads/master"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://codeload.github.com/pa1nki113r/Project_Brutality/zip/refs/heads/master"
-      }
-    },
     "crane": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -56,7 +27,7 @@
     "emacs": {
       "inputs": {
         "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable"
       },
       "locked": {
@@ -77,7 +48,7 @@
     "emacs_2": {
       "inputs": {
         "flake-utils": "flake-utils_3",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_2",
         "nixpkgs-stable": "nixpkgs-stable_2"
       },
       "locked": {
@@ -98,7 +69,7 @@
       "inputs": {
         "crane": "crane",
         "emacs": "emacs_2",
-        "nixpkgs": "nixpkgs_4",
+        "nixpkgs": "nixpkgs_3",
         "nixpkgs-fmt": "nixpkgs-fmt"
       },
       "locked": {
@@ -223,21 +194,9 @@
         "type": "github"
       }
     },
-    "glory": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-sqYW6HwqPEAEtBKnaBbBueQ43pVNTN+a1hK2uMm7wW0=",
-        "type": "file",
-        "url": "http://brutalrepository.pl/index.php/downloads/project-brutality/others?catid=5&id=7&m=0&task=download.send"
-      },
-      "original": {
-        "type": "file",
-        "url": "http://brutalrepository.pl/index.php/downloads/project-brutality/others?catid=5&id=7&m=0&task=download.send"
-      }
-    },
     "home-manager": {
       "inputs": {
-        "nixpkgs": "nixpkgs_5"
+        "nixpkgs": "nixpkgs_4"
       },
       "locked": {
         "lastModified": 1687041769,
@@ -255,7 +214,7 @@
     },
     "kmonad": {
       "inputs": {
-        "nixpkgs": "nixpkgs_6"
+        "nixpkgs": "nixpkgs_5"
       },
       "locked": {
         "dir": "nix",
@@ -291,7 +250,7 @@
     "nixos-generators": {
       "inputs": {
         "nixlib": "nixlib",
-        "nixpkgs": "nixpkgs_7"
+        "nixpkgs": "nixpkgs_6"
       },
       "locked": {
         "lastModified": 1686924781,
@@ -309,16 +268,18 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1687011986,
-        "narHash": "sha256-ZNSi/wBw12d7LO8YcZ4aehIlPp4lgSkKbrHaoF80IKI=",
+        "lastModified": 1686960236,
+        "narHash": "sha256-AYCC9rXNLpUWzD9hm+askOfpliLEC9kwAo7ITJc4HIw=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "2c09e8eb8717e240ef9c5727c1cc9186db9fb309",
+        "rev": "04af42f3b31dba0ef742d254456dc4c14eedac86",
         "type": "github"
       },
       "original": {
-        "id": "nixpkgs",
-        "type": "indirect"
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
       }
     },
     "nixpkgs-fmt": {
@@ -378,22 +339,6 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1686960236,
-        "narHash": "sha256-AYCC9rXNLpUWzD9hm+askOfpliLEC9kwAo7ITJc4HIw=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "04af42f3b31dba0ef742d254456dc4c14eedac86",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_3": {
-      "locked": {
         "lastModified": 1686869522,
         "narHash": "sha256-tbJ9B8WLCTnVP/LwESRlg0dII6Zyg2LmUU/mB9Lu98E=",
         "owner": "NixOS",
@@ -408,7 +353,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_4": {
+    "nixpkgs_3": {
       "locked": {
         "lastModified": 1687055983,
         "narHash": "sha256-GRy+MSnUwn7Zeq3q3+i6HRXMtYbcCDa3RvapOZGCBl0=",
@@ -424,7 +369,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_5": {
+    "nixpkgs_4": {
       "locked": {
         "lastModified": 1686501370,
         "narHash": "sha256-G0WuM9fqTPRc2URKP9Lgi5nhZMqsfHGrdEbrLvAPJcg=",
@@ -440,7 +385,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_6": {
+    "nixpkgs_5": {
       "locked": {
         "lastModified": 1653326962,
         "narHash": "sha256-W8feCYqKTsMre4nAEpv5Kx1PVFC+hao/LwqtB2Wci/8=",
@@ -456,7 +401,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_7": {
+    "nixpkgs_6": {
       "locked": {
         "lastModified": 1685894048,
         "narHash": "sha256-QKqv1QS+22k9oxncj1AnAxeqS5jGnQiUW3Jq3B+dI1w=",
@@ -472,7 +417,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_8": {
+    "nixpkgs_7": {
       "locked": {
         "lastModified": 1686960236,
         "narHash": "sha256-AYCC9rXNLpUWzD9hm+askOfpliLEC9kwAo7ITJc4HIw=",
@@ -505,13 +450,12 @@
     },
     "root": {
       "inputs": {
-        "brutality": "brutality",
         "emacs": "emacs",
         "f2k": "f2k",
         "home-manager": "home-manager",
         "kmonad": "kmonad",
         "nixos-generators": "nixos-generators",
-        "nixpkgs": "nixpkgs_8",
+        "nixpkgs": "nixpkgs_7",
         "nur": "nur"
       }
     },
