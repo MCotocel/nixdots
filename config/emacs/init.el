@@ -340,11 +340,11 @@
   :defer t)
 
 (use-package smartparens
-  :init (smartparens-global-mode)
-  (show-smartparens-mode))
+  :init (smartparens-global-mode))
 
 (use-package highlight-indent-guides
-  :init (highlight-indent-guides-mode t))
+  :init (highlight-indent-guides-mode))
+(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 (setq highlight-indent-guides-method 'character)
 
 (use-package rainbow-delimiters

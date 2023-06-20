@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
 Terminal=false
-Icon=nvidia
-Exec=gwe
-Name=Green With Envy
+Icon=chess
+Exec=scid
+Name=Chess

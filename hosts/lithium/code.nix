@@ -42,7 +42,6 @@
       gh # Github's CLI tool
       gource # Nice for visualising repo history
       gnumake # Make.
-      handbrake # Again, I deal with videos
       htop # Why is my laptop so hot? Oh yeah I'm compiling 20 programs while running two games
       ifuse # For connecting my phone
       imagemagick # Really useful for scripts

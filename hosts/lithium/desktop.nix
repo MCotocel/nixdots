@@ -56,7 +56,6 @@
     google-chrome
     googleearth-pro # When I want to explore the neighbourhood without going outside into a sandstorm
     gthumb # Image manager
-    gwe # Nvidia settings thingy
     hexchat # IRC client
     hyperion-ng # Ambient lighting
     i3lock-color # For locking my device
@@ -68,7 +67,6 @@
     libinput # I think this is for my trackpad
     libnotify # For sending notifications
     libreoffice # Office suite for Linux
-    #libsecret # Storing passwords
     linuxConsoleTools # For vibrating controller for notifications
     lm_sensors # Time to clean my fans out
     lxtask # Lightweight task manager
@@ -81,6 +79,7 @@
     obsidian # I use this for all of my notes
     openssl # For certs
     p7zip # Unzipping stuff
+    pan # Newsreader
     pandoc # Converting stuff
     pasystray # Control audio
     picom # A cool compositor
@@ -90,10 +89,12 @@
     qbittorrent # For downloading certain things
     qemu # Woo VMs
     rofi # Used whenever I want to open an app
+    scid # Chess GUI
     screenkey # Shows keys pressed
     shotwell # iPhone image importer
     solaar # For my Logitech mouse
     spicetify-cli # I used to rice spotify
+    stockfish # Chess engine
     teams-for-linux # Very clunky but I need it
     tesseract # Images to text. Very cool
     texlive.combined.scheme-full # LaTeX package
@@ -162,6 +163,7 @@
       noto-fonts-cjk-sans # For CJK languages
       noto-fonts-extra # Fonts for languages
       twitter-color-emoji # Emoji
+      montserrat # A very nice sans serif font
       (nerdfonts.override { fonts = [ "Iosevka" ]; }) # Nerdfonts for those cool ligatures and icons
     ];
   };

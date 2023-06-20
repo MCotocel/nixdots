@@ -26,27 +26,13 @@
 ;; )
 
 (defalias
-    lay #((cmd-button "~/.bin/sys-notify 'Layout picker activated\nQ - QWERTY\nS - Shift Lock' normal") (layer-switch layers))
-
-    qwe #((cmd-button "~/.bin/sys-notify 'Layout switched to QWERTY' normal") (layer-switch qwerty))
-    sft #((cmd-button "~/.bin/sys-notify 'Layout switched to Shift Lock' normal") (layer-switch shift))
+    vim (layer-toggle vim)
 )
 
 (defalias
     ;; Space cadet shift
-    lsc (tap-hold 30 \( lsft)
-    rsc (tap-hold 30 \) rsft)
-)
-
-;; Switch to different layers layout
-(deflayer layers
-  _    _    _    _    _    _    _    _    _    _    _    _    _         _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _     
-  _    @qwe _    _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  @lay _    @sft _    _    _    _    _    _    _    _    _    _              
-  _    _    _    _    _    _    _    _    _    _    _    _                   
-  _    _    _                   _              _    _    _    _              _      
-                                                                        _    _    _
+    lsc (tap-hold 70 \( lsft)
+    rsc (tap-hold 70 \) rsft)
 )
 
 ;; QWERTY layout
@@ -54,17 +40,17 @@
   esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12        ssrq slck pause 
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc  ins  home pgup    
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \     del  end  pgdn
-  @lay a    s    d    f    g    h    j    k    l    ;    '    ret            
+  @vim a    s    d    f    g    h    j    k    l    ;    '    ret            
   @lsc z    x    c    v    b    n    m    ,    .    /    @rsc                 up 
   lctl lmet lalt                spc            ralt rmet cmp  rctl       left down right
 )
 
-;; Shift layout
-(deflayer shift
+;; Vim keys layout
+(deflayer vim
   esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12        ssrq slck pause 
-  grv  !    @    #    $    %    ^    &    *    \(   \)   \_   +    bspc       ins  home pgup    
-  tab  Q    W    E    R    T    Y    U    I    O    P    [    ]    |     del  end  pgdn
-  @lay A    S    D    F    G    H    J    K    L    :    "    ret            
-  @lsc Z    X    C    V    B    N    M    <    >    ?    @rsc                 up 
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc  ins  home pgup    
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \     del  end  pgdn
+  @vim a    s    d    f    g    left down up   right ;    '    ret            
+  @lsc z    x    c    v    b    n    m    ,    .    /    @rsc                 up 
   lctl lmet lalt                spc            ralt rmet cmp  rctl       left down right
 )

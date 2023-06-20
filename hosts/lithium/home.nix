@@ -26,6 +26,7 @@
     ".local/share/applications/Calibre.desktop".source = ../../config/applications/Calibre.desktop;
     ".local/share/applications/CDDA.desktop".source = ../../config/applications/CDDA.desktop;
     ".local/share/applications/Cava.desktop".source = ../../config/applications/Cava.desktop;
+    ".local/share/applications/Chess.desktop".source = ../../config/applications/Chess.desktop;
     ".local/share/applications/Chrome.desktop".source = ../../config/applications/Chrome.desktop;
     ".local/share/applications/Citra.desktop".source = ../../config/applications/Citra.desktop;
     ".local/share/applications/DCPP.desktop".source = ../../config/applications/DCPP.desktop;
@@ -43,10 +44,8 @@
     ".local/share/applications/Fractal.desktop".source = ../../config/applications/Fractal.desktop;
     ".local/share/applications/GIMP.desktop".source = ../../config/applications/GIMP.desktop;
     ".local/share/applications/Google-Earth.desktop".source = ../../config/applications/Google-Earth.desktop;
-    ".local/share/applications/GWE.desktop".source = ../../config/applications/GWE.desktop;
     ".local/share/applications/GThumb.desktop".source = ../../config/applications/GThumb.desktop;
     ".local/share/applications/GZDoom.desktop".source = ../../config/applications/GZDoom.desktop;
-    ".local/share/applications/Handbrake.desktop".source = ../../config/applications/Handbrake.desktop;
     ".local/share/applications/Hexchat.desktop".source = ../../config/applications/Hexchat.desktop;
     ".local/share/applications/HTop.desktop".source = ../../config/applications/HTop.desktop;
     ".local/share/applications/Impress.desktop".source = ../../config/applications/Impress.desktop;
@@ -71,10 +70,10 @@
     ".local/share/applications/OBS.desktop".source = ../../config/applications/OBS.desktop;
     ".local/share/applications/Obsidian.desktop".source = ../../config/applications/Obsidian.desktop;
     ".local/share/applications/Osu.desktop".source = ../../config/applications/Osu.desktop;
+    ".local/share/applications/Pan.desktop".source = ../../config/applications/Pan.desktop;
     ".local/share/applications/Pavucontrol.desktop".source = ../../config/applications/Pavucontrol.desktop;
     ".local/share/applications/PCSX2.desktop".source = ../../config/applications/PCSX2.desktop;
     ".local/share/applications/Picard.desktop".source = ../../config/applications/Picard.desktop;
-    ".local/share/applications/Project-Brutality.desktop".source = ../../config/applications/Project-Brutality.desktop;
     ".local/share/applications/QBittorrent.desktop".source = ../../config/applications/QBittorrent.desktop;
     ".local/share/applications/Ranger.desktop".source = ../../config/applications/Ranger.desktop;
     ".local/share/applications/Retroarch.desktop".source = ../../config/applications/Retroarch.desktop;

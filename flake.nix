@@ -17,14 +17,12 @@
       "github:nix-community/nur"; # Nix User Repository for packages not in nixpkgs
     nixos-generators.url =
       "github:nix-community/nixos-generators"; # For creating ISOs when I need to reinstall NixOS on a machine
-    brutality.url =
-      "path:./derivations/brutality"; # Doom, modded with one of my favourite mods
     kmonad.url =
       "github:kmonad/kmonad?dir=nix"; # Some keys on my keyboard don't work anymore, so I need to create layers to use them
     emacs.url = "github:nix-community/emacs-overlay/master"; # The bleeding edge
   };
 
-  outputs = { self, nixpkgs, home-manager, nur, f2k, nixos-generators, brutality
+  outputs = { self, nixpkgs, home-manager, nur, f2k, nixos-generators,
     , kmonad, emacs, ... }: {
 
       nixosConfigurations = {
@@ -35,9 +33,6 @@
             modules = [
               {
                 nixpkgs.overlays = [
-                  (_: _: {
-                    brutality = brutality.packages.x86_64-linux.brutality;
-                  }) # Honestly makes Doom a pretty good game that feels modern.
                   (self: super: {
                     ncmpcpp = super.ncmpcpp.override {
                       visualizerSupport = true;
@@ -47,8 +42,8 @@
                   (import self.inputs.emacs)
                   (self: super: {
                     emacs-unstable = super.emacs-unstable.override {
-                      withXwidgets = true;
-                      withGTK3 = true;
+                      withXwidgets = true; # Mostly for the browser
+                      withGTK3 = true; # Makes the menus look better
                     };
                   })
                 ];

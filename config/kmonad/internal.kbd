@@ -27,42 +27,13 @@
 ;; )
 
 (defalias
-    lay #((cmd-button "~/.bin/sys-notify 'Layout picker activated\nQ - QWERTY\nW - Window Manager\nS - Shift Lock\nC - Colemak\nN - Navigation' normal") (layer-switch layers))
-
-    col #((cmd-button "~/.bin/sys-notify 'Layout switched to Colemak' normal") (layer-switch colemak))
-    nav #((cmd-button "~/.bin/sys-notify 'Layout switched to Navigation\nWS - Page up and down\nAD - Home and end\nHJKL - Arrow keys' normal") (layer-switch nav))
-    qwe #((cmd-button "~/.bin/sys-notify 'Layout switched to QWERTY' normal") (layer-switch qwerty))
-    sft #((cmd-button "~/.bin/sys-notify 'Layout switched to Shift Lock' normal") (layer-switch shift))
-    wm #((cmd-button "~/.bin/sys-notify 'Layout switched to Window Manager\n1-9 - Tags\nQ - Close window\nE - Expose\nHJKL - Navigate windows\nReturn - Terminal\nSpace - App launcher' normal") (layer-switch wm))
-
-    mu (cmd-button "xdotool mousemove_relative -- 0 -10")
-    md (cmd-button "xdotool mousemove_relative -- 0 10")
-    ml (cmd-button "xdotool mousemove_relative -- -10 0")
-    mr (cmd-button "xdotool mousemove_relative -- 10 0")
-
-    ;; Move around desktop
-    nxt M-right ;; Next desktop
-    prv M-left ;; Previous desktop
-
-    ;; Do stuff to windows
-    cls M-S-q ;; Close window
-    trm M-Enter ;; Open terminal
-    rfi M-Space ;; Open rofi
-
-    ;; Space cadet shift
-    lsc (tap-hold 100 \( lsft)
-    rsc (tap-hold 100 \) rsft)
+    vim (layer-toggle vim)
 )
 
-;; Switch to different layers layout
-(deflayer layers
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _         _    _    _    _
-  _    @qwe @wm  _    _    _    _    _    _    _    _    _    _    _         _    _    _    _
-  @lay _    @sft _    _    _    _    _    _    _    _    _    _              _    _    _  
-  _    _    _    @col _    _    @nav _    _    _    _    _                   _    _    _    _
-  _    _    _    _              _              _    _                 _      _    _    
-                                                                 _    _    _
+(defalias
+    ;; Space cadet shift
+    lsc (tap-hold 70 \( lsft)
+    rsc (tap-hold 70 \) rsft)
 )
 
 ;; QWERTY layout
@@ -70,52 +41,19 @@
   esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  ins  ssrq del  home end  pgup pgdn
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc      nlck kp/  kp*  kp- 
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \         kp7  kp8  kp9  kp+
-  @lay a    s    d    f    g    h    j    k    l    ;    '    ret            kp4  kp5  kp6
+  @vim a    s    d    f    g    h    j    k    l    ;    '    ret            kp4  kp5  kp6
   @lsc z    x    c    v    b    n    m    ,    .    /    @rsc                kp1  kp2  kp3  kprt
   lctl cmp  lmet lalt      spc       ralt rctl                        up     kp0  kp.
                                                                  left down right
 )
 
-;; Shift layout
-(deflayer shift
-  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  ins  ssrq del  home end  pgup pgdn
-  grv  !    @    #    $    %    ^    &    *    \(   \)   \_   +    bspc      nlck kp/  kp*  kp- 
-  tab  Q    W    E    R    T    Y    U    I    O    P    {    }    |         kp7  kp8  kp9  kp+
-  @lay A    S    D    F    G    H    J    K    L    :    "    ret            kp4  kp5  kp6
-  @lsc Z    X    C    V    B    N    M    <    >    ?    @rsc                kp1  kp2  kp3  kprt
-  lctl cmp  lmet lalt      spc       ralt rctl                        up     kp0  kp.
-                                                                 left down right
-)
-
-;; Colemak layout
-(deflayer colemak
+;; Vim layout
+(deflayer vim
   esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  ins  ssrq del  home end  pgup pgdn
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc      nlck kp/  kp*  kp- 
-  tab  q    w    f    p    g    j    l    u    y    ;    [    ]    \         kp7  kp8  kp9  kp+
-  @lay a    r    s    t    d    h    n    e    i    o    '    ret            kp4  kp5  kp6
-  @lsc z    x    c    v    b    k    m    ,    .    /    @rsc                kp1  kp2  kp3  kprt
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \         kp7  kp8  kp9  kp+
+  @vim a    s    d    f    g    left down up   right ;    '    ret            kp4  kp5  kp6
+  @lsc z    x    c    v    b    n    m    ,    .    /    @rsc                kp1  kp2  kp3  kprt
   lctl cmp  lmet lalt      spc       ralt rctl                        up     kp0  kp.
                                                                  left down right
-)
-
-;; Window manager navigation layout
-(deflayer wm
-  esc  _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    M-1  M-2  M-3  M-4  M-5  M-6  M-7  M-8  M-9  _    _    _    _         _    _    _    _
-  _    @cls _    M-e  _    _    _    _    _    _    _    _    _    _         _    _    _    _
-  @lay _    _    _    _    _    M-h  M-j  M-k  M-l  _    _    @trm           _    _    _  
-  _    _    _    _    _    _    _    _    _    _    _    _                   _    _    _    _
-  _    _    _    _              @rfi           _    _                 _      _    _    
-                                                                 @prv _    @nxt
-)
-
-;; Vim navigation layout
-(deflayer nav
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _         _    _    _    _
-  _    _    pgup _    _    _    _    _    _    _    _    _    _    _         _    _    _    _
-  @lay home pgdn end  _    _    left down up   rght _    _    _              _    _    _  
-  _    _    _    _    _    _    _    _    _    _    _    _                   _    _    _    _
-  _    _    _    _              _              _    _                 _      _    _    
-                                                                 _    _    _
 )
