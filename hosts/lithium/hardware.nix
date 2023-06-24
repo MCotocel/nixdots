@@ -4,6 +4,7 @@
   boot = {
       initrd = {
           availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "uas" "sd_mod" "sdhci_pci" ];
+          kernelModules = [ "i915" ];
       };
       kernelModules = [ "kvm-intel" "fuse" ]; # Some modules
       kernelParams = [ "intel_iommu=on" ];
@@ -25,22 +26,12 @@
     enableAllFirmware = true; # Firmware stuff
     enableRedistributableFirmware = true; # More firmware stuff
     opengl.enable = true; # OpenGL stuff
+    opengl.extraPackages = with pkgs; [
+      vaapiIntel
+      libvdpau-va-gl
+      intel-media-driver
+    ];
     cpu.intel.updateMicrocode = true;
-    nvidia = {
-      modesetting.enable = true;
-      #powerManagement = { enable = true; finegrained = true; }; 
-      #prime = { 
-      #   intelBusId = "PCI:0:2:0"; 
-      #   nvidiaBusId = "PCI:1:0:0"; 
-  
-      #   offload = { 
-      #     enable = true; 
-      #     enableOffloadCmd = true; 
-      #   }; 
-  
-      #   reverseSync.enable = true; 
-      # }; 
-    };
   };
 
   services.thermald.enable = true; # Keep temps in check
@@ -51,8 +42,6 @@
     settings = {
       CPU_SCALING_GOVERNOR_ON_BAT="powersave";
       CPU_SCALING_GOVERNOR_ON_AC="performance";
-      CPU_MAX_PERF_ON_AC=100;
-      CPU_MAX_PERF_ON_BAT=20;
     };
   };
 
@@ -66,10 +55,6 @@
       fsType = "vfat";
     };
 
-  swapDevices = # Swap drive
-    [ { device = "/dev/disk/by-label/swap"; } ];
-
-  
   environment.systemPackages = with pkgs; [ # Better kernel
     #linuxPackages_xanmod.r8168
     linuxKernel.packages.linux_xanmod.hid-nintendo

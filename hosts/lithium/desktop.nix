@@ -23,6 +23,13 @@
   services.gnome.evolution-data-server.plugins = [ pkgs.evolution-ews ];
   programs.evolution.enable = true;
 
+  # Fingerprint
+  services.fprintd = {
+    enable = true;
+    tod.enable = true;
+    tod.driver = pkgs.libfprint-2-tod1-vfs0090;
+  };
+
   environment.systemPackages = with pkgs; [
     acpi # Battery and stuff
     appimage-run # To run appimages when I need to
@@ -62,7 +69,6 @@
     inkscape # Occasionally used
     kdenlive # Video editor
     kid3 # I download lots of music
-    kmonad # Remapping
     krita # Sometimes used for posters and stuff
     libinput # I think this is for my trackpad
     libnotify # For sending notifications
@@ -133,7 +139,7 @@
       touchpad.naturalScrolling = true;
     };
     displayManager.startx.enable = true;
-    videoDrivers = [ "nvidia" ]; # Didn't have much of a choice
+    #videoDrivers = [ "nvidia" ]; # Didn't have much of a choice
     windowManager = {
       awesome = { # Best window manager
         enable = true;
