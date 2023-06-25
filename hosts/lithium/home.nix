@@ -15,11 +15,12 @@
     ".local/share/applications/Arduino.desktop".source = ../../config/applications/Arduino.desktop;
     ".local/share/applications/Aseprite.desktop".source = ../../config/applications/Aseprite.desktop;
     ".local/share/applications/Audacity.desktop".source = ../../config/applications/Audacity.desktop;
+    ".local/share/applications/Audio.desktop".source = ../../config/applications/Audio.desktop;
     ".local/share/applications/Baobab.desktop".source = ../../config/applications/Baobab.desktop;
     ".local/share/applications/Bitwarden.desktop".source = ../../config/applications/Bitwarden.desktop;
     ".local/share/applications/Bleachbit.desktop".source = ../../config/applications/Bleachbit.desktop;
     ".local/share/applications/Blender.desktop".source = ../../config/applications/Blender.desktop;
-    ".local/share/applications/Blueman.desktop".source = ../../config/applications/Blueman.desktop;
+    ".local/share/applications/Bluetooth.desktop".source = ../../config/applications/Bluetooth.desktop;
     ".local/share/applications/Bottles.desktop".source = ../../config/applications/Bottles.desktop;
     ".local/share/applications/Calc.desktop".source = ../../config/applications/Calc.desktop;
     ".local/share/applications/Calendar.desktop".source = ../../config/applications/Calendar.desktop;
@@ -30,7 +31,6 @@
     ".local/share/applications/Chrome.desktop".source = ../../config/applications/Chrome.desktop;
     ".local/share/applications/Citra.desktop".source = ../../config/applications/Citra.desktop;
     ".local/share/applications/DCPP.desktop".source = ../../config/applications/DCPP.desktop;
-    ".local/share/applications/Discord.desktop".source = ../../config/applications/Discord.desktop;
     ".local/share/applications/Disks.desktop".source = ../../config/applications/Disks.desktop;
     ".local/share/applications/Dolphin.desktop".source = ../../config/applications/Dolphin.desktop;
     ".local/share/applications/EasyEffects.desktop".source = ../../config/applications/EasyEffects.desktop;
@@ -71,7 +71,6 @@
     ".local/share/applications/Obsidian.desktop".source = ../../config/applications/Obsidian.desktop;
     ".local/share/applications/Osu.desktop".source = ../../config/applications/Osu.desktop;
     ".local/share/applications/Pan.desktop".source = ../../config/applications/Pan.desktop;
-    ".local/share/applications/Pavucontrol.desktop".source = ../../config/applications/Pavucontrol.desktop;
     ".local/share/applications/PCSX2.desktop".source = ../../config/applications/PCSX2.desktop;
     ".local/share/applications/Picard.desktop".source = ../../config/applications/Picard.desktop;
     ".local/share/applications/QBittorrent.desktop".source = ../../config/applications/QBittorrent.desktop;

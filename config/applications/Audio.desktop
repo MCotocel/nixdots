@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
 Terminal=false
-Icon=discord
-Exec=discocss
-Name=Discord
+Icon=kmix
+Exec=pavucontrol
+Name=Audio

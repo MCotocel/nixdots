@@ -45,8 +45,6 @@
     calibre # Converting my books for my Kindle
     cbatticon # Systray battery
     cinnamon.nemo # File manager
-    discocss # Customizing Discord CSS
-    discord # Chat app
     eiskaltdcpp # DCPP client
     eww # Widgets for when I can't get the AwesomeWM ones working
     filezilla # FTP program
@@ -121,6 +119,12 @@
     xscreensaver # Nice screensavers
     xsecurelock # Simple lock screen
     xorg.xwininfo # For emacs-everywhere
+    yubikey-agent
+    yubikey-manager
+    yubikey-manager-qt
+    yubikey-personalization
+    yubikey-personalization-gui
+    yubikey-touch-detector
     zathura # For reading my downloaded PDFs
     zotero # Citation and stuff
   ];
