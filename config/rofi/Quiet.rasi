@@ -3,7 +3,7 @@ configuration {
 }
 
 * {
-    ac: #384149;
+    ac: #1f252a;
     bg: #181e23;
     fg: #d5d5d5;
     background-color: @bg;
@@ -13,6 +13,8 @@ window {
     padding: 20px;
     width: 30%;
     height: 40%;
+    border: 3px;
+    border-color: @ac;
 }
 
 prompt {

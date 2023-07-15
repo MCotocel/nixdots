@@ -1,7 +1,7 @@
 @theme "./Quiet.rasi"
 configuration {
     icon-theme: "Papirus";
-    modi: "window,drun,run,keys";
+    modi: "drun,run,keys";
     drun {
         parse-system: false;
     }

@@ -1,0 +1,23 @@
+volume="$(awk -F"[][]" '/Left:/ { print $2 }' <(amixer sget Master) | sed 's/%//g')"
+
+icon() {
+
+if [ "$volume" -gt "70" ]; then
+	icon="󰕾"
+elif [ "$volume" -gt "40" ]; then
+	icon="󰖀"
+elif [ "$volume" -gt "0" ]; then
+	icon="󰕿"
+else
+	icon="󰖁"
+fi
+echo "$icon"
+}
+
+percent() {
+echo $volume
+}
+
+[ "$1" = "icon" ] && icon && exit
+[ "$1" = "percent" ] && percent && exit
+exit

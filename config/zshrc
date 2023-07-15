@@ -41,17 +41,6 @@ SAVEHIST=1000
 export PS1="%F{blue}%~%f " # Alternatives for prompt icon: ◯, •, ❯, ∮, λ, Δ, 
 
 ########## ZLE ##########
-#
-#autoload -U edit-command-line && zle -N edit-command-line # Load edit current command
-#
-#bindkey '^@' edit-command-line  # Bind edit current command
-#bindkey "[C" forward-word  # Bind forward one word
-#bindkey "[D" backward-word # Bind backward one word
-#bindkey '^A' beginning-of-line  # Bind beginning of line
-#bindkey '^E' end-of-line        # Bind end of line
-#bindkey '^H' backward-kill-word # Bind delete word backwards
-#bindkey '^L' clear-screen       # Bind clear screen
-#bindkey '^U' backward-kill-line # Bind delete line
 
 export LESS_TERMCAP_mb=$'\e[1;32m'
 export LESS_TERMCAP_md=$'\e[1;32m'

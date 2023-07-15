@@ -22,7 +22,7 @@
     emacs.url = "github:nix-community/emacs-overlay/master"; # The bleeding edge
   };
 
-  outputs = { self, nixpkgs, home-manager, nur, f2k, nixos-generators, emacs, ... }: {
+  outputs = { self, nixpkgs, home-manager, nur, f2k, nixos-generators, emacs, kmonad, ... }: {
 
       nixosConfigurations = {
 
@@ -49,6 +49,7 @@
               }
               home-manager.nixosModules.home-manager
               { home-manager.users.matei = import ./hosts/lithium/home.nix; }
+              kmonad.nixosModules.default # For remapping keyboard keys
               ./hosts/lithium/configuration.nix
             ];
           };

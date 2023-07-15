@@ -7,11 +7,26 @@
           kernelModules = [ "i915" ];
       };
       kernelModules = [ "kvm-intel" "fuse" ]; # Some modules
-      kernelParams = [ "intel_iommu=on" ];
+      kernelParams = [
+        "intel_iommu=on"
+        "quiet"
+        "splash"
+        "boot.shell_on_fail"
+        "i915.fastboot=1"
+        "loglevel=3"
+        "rd.systemd.show_status=false"
+        "rd.udev.log_level=3"
+        "udev.log_level=3"
+      ];
       kernelPackages = pkgs.linuxPackages_xanmod_latest; # Kernel package
       tmp.useTmpfs = true; # Keep tmp files where they belong
       tmp.cleanOnBoot = true;
       supportedFilesystems = [ "ntfs "];
+      consoleLogLevel = 0;
+      initrd.verbose = false;
+      plymouth = {
+        enable = true;
+      };
   };
 
   # Bootloader
@@ -55,8 +70,14 @@
       fsType = "vfat";
     };
 
-  environment.systemPackages = with pkgs; [ # Better kernel
-    #linuxPackages_xanmod.r8168
-    linuxKernel.packages.linux_xanmod.hid-nintendo
+  environment.systemPackages = with pkgs; [
+    acpi # Battery and stuff
+    brightnessctl # Brightness
+    libinput # I think this is for my trackpad
+    lm_sensors # Time to clean my fans out
+    pmutils # Power management utils I guess
+    powertop # View battery usage
   ];
+
+  services.fwupd.enable = true;
 }

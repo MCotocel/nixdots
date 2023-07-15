@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
 function main() {
-  echo 'local naughty = require("naughty") naughty.destroy_all_notifications()' | awesome-client
-  notify-send 'System Notification' "${1}" -u "${2}"
+  notify-send -a 'System Notification' "${1}" -u "${2}"
 }
 
 main "${@}"

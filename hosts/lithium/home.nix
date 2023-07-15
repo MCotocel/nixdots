@@ -43,6 +43,7 @@
     ".local/share/applications/Flameshot.desktop".source = ../../config/applications/Flameshot.desktop;
     ".local/share/applications/Fractal.desktop".source = ../../config/applications/Fractal.desktop;
     ".local/share/applications/GIMP.desktop".source = ../../config/applications/GIMP.desktop;
+    ".local/share/applications/Godot.desktop".source = ../../config/applications/Godot.desktop;
     ".local/share/applications/Google-Earth.desktop".source = ../../config/applications/Google-Earth.desktop;
     ".local/share/applications/GThumb.desktop".source = ../../config/applications/GThumb.desktop;
     ".local/share/applications/GZDoom.desktop".source = ../../config/applications/GZDoom.desktop;
@@ -74,6 +75,7 @@
     ".local/share/applications/PCSX2.desktop".source = ../../config/applications/PCSX2.desktop;
     ".local/share/applications/Picard.desktop".source = ../../config/applications/Picard.desktop;
     ".local/share/applications/QBittorrent.desktop".source = ../../config/applications/QBittorrent.desktop;
+    ".local/share/applications/QPWGraph.desktop".source = ../../config/applications/QPWGraph.desktop;
     ".local/share/applications/Ranger.desktop".source = ../../config/applications/Ranger.desktop;
     ".local/share/applications/Retroarch.desktop".source = ../../config/applications/Retroarch.desktop;
     ".local/share/applications/Roblox.desktop".source = ../../config/applications/Roblox.desktop;
@@ -113,6 +115,8 @@
     ".config/bspwm".source = ../../config/bspwm;
     ".config/btop".source = ../../config/btop;
     ".config/cava".source = ../../config/cava;
+    ".config/eww".source = ../../config/eww;
+    ".config/hypr".source = ../../config/hypr;
     ".config/kmonad".source = ../../config/kmonad;
     ".config/mpd".source = ../../config/mpd;
     ".config/ncmpcpp".source = ../../config/ncmpcpp;
@@ -138,6 +142,12 @@
     # Vim
     ".config/nvim/init.vim".source = ../../config/nvim/init.vim;
     ".config/nvim/colors".source = ../../config/nvim/colors;
+
+    # GTKLock
+    ".config/gtklock.css".source = ../../config/gtklock.css;
+
+    # Dunst
+    ".config/dunstrc".source = ../../config/dunstrc;
   };
 
   gtk = {
@@ -148,7 +158,18 @@
     font.name = "Source Sans Pro Regular";
     iconTheme.package = pkgs.papirus-icon-theme;
     iconTheme.name = "Papirus-Dark";
-    theme.package = pkgs.matcha-gtk-theme;
-    theme.name = "Matcha-dark-azul";
+    theme.package = (pkgs.orchis-theme.override { tweaks = [ "black" "compact" ]; });
+    theme.name = "Orchis-Grey-Dark-Compact";
+    gtk3.extraConfig = {
+      Settings = ''
+          gtk-application-prefer-dark-theme=1
+        '';
+    };
+
+    gtk4.extraConfig = {
+      Settings = ''
+          gtk-application-prefer-dark-theme=1
+        '';
+    };
   };
 }

@@ -5,6 +5,15 @@
   # We're using caps lock for something else
   services.xserver.xkbOptions = "caps:none";
 
+  # Lockscreen
+  security.pam.services.gtklock = {
+    text = ''
+        auth sufficient pam_unix.so try_first_pass likeauth nullok
+        auth sufficient	pam_fprintd.so
+        auth include login
+      '';
+  };
+
   # For saving passwords and stuff
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.login.enableGnomeKeyring = true;
@@ -31,7 +40,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    acpi # Battery and stuff
     appimage-run # To run appimages when I need to
     arandr # Xrandr GUI
     aseprite # Pixel art is cool
@@ -41,12 +49,12 @@
     bleachbit # For removing the files taking up so much disk space
     blender # Occasional tinkering with 3D models
     bottles # Wine prefix manager
-    brightnessctl # Brightness
     calibre # Converting my books for my Kindle
     cbatticon # Systray battery
     cinnamon.nemo # File manager
+    dunst # For notifications
     eiskaltdcpp # DCPP client
-    eww # Widgets for when I can't get the AwesomeWM ones working
+    eww-wayland # Widgets for Hyprland
     filezilla # FTP program
     firefox # Main web browser
     firejail # When you want some extra security
@@ -61,18 +69,19 @@
     google-chrome
     googleearth-pro # When I want to explore the neighbourhood without going outside into a sandstorm
     gthumb # Image manager
+    gtklock # GTK lock screen for wayland
+    gtk3
+    hicolor-icon-theme
     hexchat # IRC client
     hyperion-ng # Ambient lighting
     i3lock-color # For locking my device
     inkscape # Occasionally used
     kdenlive # Video editor
     kid3 # I download lots of music
+    kmonad # For keyboard remapping
     krita # Sometimes used for posters and stuff
-    libinput # I think this is for my trackpad
     libnotify # For sending notifications
     libreoffice # Office suite for Linux
-    linuxConsoleTools # For vibrating controller for notifications
-    lm_sensors # Time to clean my fans out
     lxtask # Lightweight task manager
     maim # Select stuff
     mesa # The graphics thing
@@ -87,18 +96,18 @@
     pandoc # Converting stuff
     pasystray # Control audio
     picom # A cool compositor
-    pmutils # Power management utils I guess
     poppler_utils # PDF stuff
-    powertop # View battery usage
     qbittorrent # For downloading certain things
     qemu # Woo VMs
-    rofi # Used whenever I want to open an app
+    qpwgraph # Pipewire graph manager
+    rofi-wayland # Used whenever I want to open an app
     scid # Chess GUI
     screenkey # Shows keys pressed
     shotwell # iPhone image importer
     solaar # For my Logitech mouse
     spicetify-cli # I used to rice spotify
     stockfish # Chess engine
+    swaybg # Set the background
     teams-for-linux # Very clunky but I need it
     tesseract # Images to text. Very cool
     texlive.combined.scheme-full # LaTeX package
@@ -142,8 +151,8 @@
       enable = true; # Enable libinput for trackpad
       touchpad.naturalScrolling = true;
     };
-    displayManager.startx.enable = true;
-    #videoDrivers = [ "nvidia" ]; # Didn't have much of a choice
+    #displayManager.startx.enable = true;
+    displayManager.gdm.enable = true;
     windowManager = {
       awesome = { # Best window manager
         enable = true;

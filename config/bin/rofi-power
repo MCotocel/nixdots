@@ -3,7 +3,7 @@ res=$(echo -en "Reload|Screen|Lock|Suspend|Logout|Shutdown|Reboot" | rofi -sep "
 if [ $res = "Reload" ]; then
 
     ~/.bin/sys-notify 'Reloading config' low
-    echo 'awesome.restart()' | awesome-client
+    hyprctl reload
 
 elif [ $res = "Screen" ]; then
 
@@ -14,7 +14,6 @@ elif [ $res = "Lock" ]; then
 
     ~/.bin/sys-notify 'Locking screen' low
     ~/.bin/lock &
-    xset dpms force off
 
 elif [ $res = "Suspend" ]; then
 

@@ -41,6 +41,7 @@
       fzf # Fuzzy finder, pretty useful
       gcc # Necessary
       gh # Github's CLI tool
+      godot # Game engine
       gource # Nice for visualising repo history
       gnumake # Make.
       htop # Why is my laptop so hot? Oh yeah I'm compiling 20 programs while running two games

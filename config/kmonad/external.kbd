@@ -1,0 +1,42 @@
+(defcfg
+  input (device-file "/dev/input/by-id/usb-0416_Gaming_Keyboard-event-kbd")
+  output (uinput-sink "Internal keyboard")
+  fallthrough false
+  allow-cmd true
+)
+
+(defsrc
+  esc  1    2    3    4    5    6    7    8    9    0    -    =    bspc   
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \      
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret         
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft             
+  lctl lmet lalt           spc            ralt cmp rctl             
+)
+
+(defalias
+    vim (layer-toggle vim)
+)
+
+(defalias
+    ;; Space cadet shift
+    lsc (tap-hold 70 \( lsft)
+    rsc (tap-hold 70 \) rsft)
+)
+
+;; QWERTY layout
+(deflayer qwerty
+  esc  1    2    3    4    5    6    7    8    9    0    -    =    bspc   
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \      
+  @vim a    s    d    f    g    h    j    k    l    ;    '    ret         
+  @lsc z    x    c    v    b    n    m    ,    .    /    @rsc
+  lctl lmet lalt           spc            ralt cmp rctl             
+)
+
+;; Vim layout
+(deflayer vim
+  esc  1    2    3    4    5    6    7    8    9    0    -    =    bspc   
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \      
+  @vim a    s    d    f    g    left down up right   ;    '    ret         
+  @lsc z    x    c    v    b    n    m    ,    .    /    @rsc
+  lctl lmet lalt           spc            ralt cmp rctl             
+)

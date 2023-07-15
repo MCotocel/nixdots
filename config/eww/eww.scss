@@ -1,0 +1,256 @@
+/* Created   by https://github.com/rxyhn 
+   Designed  by https://github.com/rxyhn
+   Maintaned by https://github.com/rxyhn
+*/
+
+// Global
+*{
+  all: unset;
+}
+
+// Variable Color's
+$background: #181e23;
+$foreground: #d5d5d5;
+
+$black: #1f252a;
+$gray: #565F89;
+$red: #FF8080;
+$green: #97D59B;
+$yellow: #FFFE80;
+$blue: #ACE1FF;
+$magenta: #C780FF;
+$cyan: #80FFE4;
+$white: $foreground;
+
+// EWW BAR
+.eww_bar{
+  background-color: $background;
+  padding: .3rem;
+}
+
+// Power
+.power_icon{
+    color: $red;
+    font-family: "Iosevka Nerd Font";
+    font-size: 2em;
+    padding: 5px;
+    padding-right: 3px;
+    padding-bottom: 0px;
+}
+
+// Launcher
+.launcher_icon{
+    color: $blue;
+    font-family: "Iosevka Nerd Font";
+    font-size: 2em;
+    padding: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+}
+
+// Workspaces
+.works {
+    font-family: "Iosevka Nerd Font";
+    padding: 5px;
+    padding-left: 7px;
+    background-color: $black;
+    border-radius: 5px;
+}
+
+.0 , .01, .02, .03, .04, .05, .06,
+.011, .022, .033, .044, .055, .066{
+  margin: .55rem 0 .55rem 0;
+}
+
+/* Unoccupied */
+.0 {
+color: $gray;
+}
+
+/* Occupied */
+.01, .02, .03, .04, .05, .06 {
+  color: $gray;
+}
+
+/* Focused */
+.011,
+.022,
+.033,
+.044,
+.055,
+.066 {
+  color: $foreground;
+}
+
+.0:nth-child(1),
+.0:nth-child(3){
+  font-size: 1.5em;
+}
+.0:nth-child(2){
+  font-size: 1.4em;
+}
+.0:nth-child(4),
+.0:nth-child(5){
+  font-size: 1.6em;
+}
+.0:nth-child(6){
+  font-size: 1.7em;
+}
+.01,
+.011,
+.03,
+.033{
+  font-size: 1.5em;
+}
+.02,
+.022{
+  font-size: 1.4em;
+}
+.04,
+.05,
+.044,
+.055{
+  font-size: 1.6em;
+}
+.06,
+.066{
+  font-size: 1.7em;
+}
+
+// Control Panel
+.control {
+padding: .5rem;
+font-family: Iosevka Nerd Font;
+font-size: 1.6em;
+background-color: $black;
+border-radius: 5px;
+}
+.top {
+padding-right: 0.3rem;
+font-family: Iosevka Nerd Font;
+background-color: $black;
+border-radius: 5px;
+}
+.middle {
+padding: .5rem;
+font-family: Iosevka Nerd Font;
+font-size: 2em;
+background-color: $black;
+border-radius: 5px;
+}
+.bat{
+  font-family: Iosevka Nerd Font;
+  font-size: 1.2em;
+  padding: 0.4rem;
+  color: $blue;
+}
+.wifi-icon{
+  font-family: Iosevka Nerd Font;
+  font-size: 1em;
+  padding-right: 0.6rem;
+  color: $magenta;
+}
+.volume{
+  font-family: Iosevka Nerd Font;
+  font-size: 1.1em;
+  padding-right: 0.3rem;
+  color: $green;
+}
+scale trough {
+  all: unset;
+  background-color: $background;
+  border-radius: 5px;
+  min-height: 80px;
+  min-width: 10px;
+  margin: .3rem 0 .3rem 0;
+}
+.bribar trough highlight {
+  background-color: $yellow;
+  border-radius: 5px;
+}
+.volbar trough highlight {
+  background-color: $green;
+  border-radius: 5px;
+}
+
+// Clock
+.time {
+  font-family: Iosevka Nerd Font;
+  font-weight: bold;
+  font-size: 1.2em;
+  background-color: $black;
+  color: $white;
+  border-radius: 5px;
+  padding: .7rem 0 .5rem 0;
+  margin: .5rem 0 .5rem 0;
+}
+
+// Calendar
+.cal-box {
+  background-color: $black;
+  font-family: Iosevka Nerd Font;
+  font-size: 1em;
+  font-weight: bold;
+
+  .cal-inner-box {
+      padding: 1rem 1rem .2rem;
+
+      .cal {
+          &.highlight {
+              padding: 10rem;
+          }
+
+          padding: .8rem .25rem 0rem;
+          margin-left: 10px;
+      }
+  }
+}
+
+calendar:selected {
+  color: $blue;
+}
+
+calendar.header {
+color: $blue;
+font-weight: bold;
+}
+
+calendar.button {
+color: $magenta;
+}
+
+calendar.highlight {
+color: $magenta;
+font-weight: bold;
+}
+
+calendar:indeterminate {
+color: $background;
+}
+
+// Powermenu
+.powermenu {
+  font-family: Iosevka Nerd Font;
+  font-size: 1.4em;
+  font-weight: bold;
+}
+.button-bspres, .button-reb, .button-lock,
+.button-quit, .button-off{
+  padding: .5rem .2rem .3rem .2rem;
+}
+.button-off{
+  margin-bottom: .5rem;
+  color: $red;
+}
+.button-bspres{
+  color: $green;
+}
+.button-reb{
+  color: $yellow
+}
+.button-quit{
+  color: $magenta;
+}
+.button-lock{
+  color: $blue;
+}
