@@ -143,8 +143,10 @@
     ".config/nvim/init.vim".source = ../../config/nvim/init.vim;
     ".config/nvim/colors".source = ../../config/nvim/colors;
 
-    # GTKLock
+    # GTK
     ".config/gtklock.css".source = ../../config/gtklock.css;
+    ".config/gtk-3.0/gtk.css".source = ../../config/gtk3.css;
+    ".config/gtk-4.0/gtk.css".source = ../../config/gtk4.css;
 
     # Dunst
     ".config/dunstrc".source = ../../config/dunstrc;
@@ -158,8 +160,9 @@
     font.name = "Source Sans Pro Regular";
     iconTheme.package = pkgs.papirus-icon-theme;
     iconTheme.name = "Papirus-Dark";
-    theme.package = (pkgs.orchis-theme.override { tweaks = [ "black" "compact" ]; });
-    theme.name = "Orchis-Grey-Dark-Compact";
+    #theme.package = (pkgs.orchis-theme.override { tweaks = [ "black" "compact" ]; });
+    theme.package = pkgs.adw-gtk3;
+    theme.name = "adw-gtk3";
     gtk3.extraConfig = {
       Settings = ''
           gtk-application-prefer-dark-theme=1

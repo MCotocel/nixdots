@@ -1,5 +1,3 @@
-(defvar eww "eww -c ~/eww")
-
 (defwidget power []
 	(box :orientation "v" 
   	    (button :class "power_icon" 
