@@ -68,6 +68,7 @@
     gnome.gnome-disk-utility # Formatting disks. I think I use fdisk more though
     google-chrome
     googleearth-pro # When I want to explore the neighbourhood without going outside into a sandstorm
+    grim # Wayland screenshots
     gthumb # Image manager
     gtklock # GTK lock screen for wayland
     gtk3
@@ -104,6 +105,7 @@
     scid # Chess GUI
     screenkey # Shows keys pressed
     shotwell # iPhone image importer
+    slurp # Selection for screenshots
     solaar # For my Logitech mouse
     spicetify-cli # I used to rice spotify
     stockfish # Chess engine
@@ -119,6 +121,7 @@
     wezterm # Best terminal
     wineWowPackages.stable # Who needs windows?
     winetricks # Who needs a CLI?
+    wl-clipboard
     wmctrl # Moving windows around in scripts
     wpa_supplicant # Connecting to networks
     xclip # Copying stuff to my clipboard

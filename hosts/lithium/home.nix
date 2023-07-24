@@ -46,6 +46,7 @@
     ".local/share/applications/Godot.desktop".source = ../../config/applications/Godot.desktop;
     ".local/share/applications/Google-Earth.desktop".source = ../../config/applications/Google-Earth.desktop;
     ".local/share/applications/GThumb.desktop".source = ../../config/applications/GThumb.desktop;
+    ".local/share/applications/Guitarix.desktop".source = ../../config/applications/Guitarix.desktop;
     ".local/share/applications/GZDoom.desktop".source = ../../config/applications/GZDoom.desktop;
     ".local/share/applications/Hexchat.desktop".source = ../../config/applications/Hexchat.desktop;
     ".local/share/applications/HTop.desktop".source = ../../config/applications/HTop.desktop;

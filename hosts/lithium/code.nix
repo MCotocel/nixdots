@@ -88,7 +88,6 @@
       tree-sitter # Better highlighting
       ueberzug # Images in terminal (again for some reason)
       unzip # For unzipping archives
-      usbmuxd # Yet again, for connecting my phone
       vim # The original (not quite)
       wget # For downloading web pages and stuff
       xorg.xev # Good for scripts

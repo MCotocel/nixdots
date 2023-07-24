@@ -3,18 +3,18 @@ sel=$(echo "Screen|Selection" | rofi -sep "|" -dmenu -i -p 'Screenshot' -theme-s
 if [[ $sel = "Screen" ]]; then
 
     sleep 0.5
-    maim ~/Pictures/Screenshots/TEMP.png
-    xclip -selection clipboard -t image/png -i ~/Pictures/Screenshots/TEMP.png
-    notify-send "Screenshot" "Screenshot taken!" -i ~/Pictures/Screenshots/TEMP.png
-    mv ~/Pictures/Screenshots/TEMP.png ~/Pictures/Screenshots/$(date +%d:%H:%M:%S).png
+    grim ~/Pictures/screenshot-temp.png
+    wl-copy > ~/Pictures/screenshot-temp.png
+    notify-send "Screenshot" "Screenshot taken!" -i ~/Pictures/screenshot-temp.png
+    mv ~/Pictures/screenshot-temp.png ~/Pictures/screenshot-$(date +%F-%H-%M-%S).png
     
 elif [[ $sel = "Selection" ]]; then # If selection is selection
 
     sleep 0.5
-    maim -s ~/Pictures/Screenshots/TEMP.png
-    xclip -selection clipboard -t image/png -i ~/Pictures/Screenshots/TEMP.png
-    notify-send "Screenshot" "Screenshot taken!" -i ~/Pictures/Screenshots/TEMP.png
-    mv ~/Pictures/Screenshots/TEMP.png ~/Pictures/Screenshots/$(date +%d:%H:%M:%S).png
+    slurp | grim -g - ~/Pictures/screenshot-temp.png
+    wl-copy > ~/Pictures/screenshot-temp.png
+    notify-send "Screenshot" "Screenshot taken!" -i ~/Pictures/screenshot-temp.png
+    mv ~/Pictures/screenshot-temp.png ~/Pictures/screenshot-$(date +%F-%H-%M-%S).png
 
 fi
 

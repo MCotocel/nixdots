@@ -19,7 +19,10 @@
   hardware.bluetooth.enable = true; # Bluetooth cause why not
   services.blueman.enable = true; # Bluetooth GUI
 
-  services.usbmuxd.enable = true;
+  services.usbmuxd = {
+    enable = true;
+    package = pkgs.usbmuxd2;
+  };
 
   services.clamav = { # Antivirus for those weakling Windows users
     daemon.enable = false;

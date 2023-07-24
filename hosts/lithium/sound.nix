@@ -27,8 +27,9 @@
 
   environment.systemPackages = with pkgs; [
     alsa-utils # Utlities for also
-    easyeffects # Audio effects
     audacity # Ecsiditing audio
+    easyeffects # Audio effects
+    guitarix # Digital guitar amp stuff
     lmms # Making music
     mediainfo # Are my FLACs FLACs
     mpc_cli # MPD cli client
