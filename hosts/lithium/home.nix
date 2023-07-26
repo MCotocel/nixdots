@@ -87,7 +87,6 @@
     ".local/share/applications/Spotify.desktop".source = ../../config/applications/Spotify.desktop;
     ".local/share/applications/Steam.desktop".source = ../../config/applications/Steam.desktop;
     ".local/share/applications/SRM.desktop".source = ../../config/applications/SRM.desktop;
-    ".local/share/applications/Super-Tux-Kart.desktop".source = ../../config/applications/Super-Tux-Kart.desktop;
     ".local/share/applications/Teams.desktop".source = ../../config/applications/Teams.desktop;
     ".local/share/applications/Virt-manager.desktop".source = ../../config/applications/Virt-manager.desktop;
     ".local/share/applications/VLC.desktop".source = ../../config/applications/VLC.desktop;

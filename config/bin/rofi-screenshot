@@ -1,20 +1,19 @@
-sel=$(echo "Screen|Selection" | rofi -sep "|" -dmenu -i -p 'Screenshot' -theme-str 'window { height: 15%; width: 15%;}')
+sel=$(echo "Screen|Selection copy|Selection save" | rofi -sep "|" -dmenu -i -p 'Screenshot' -theme-str 'window { height: 15%; width: 15%;}')
  
 if [[ $sel = "Screen" ]]; then
 
     sleep 0.5
-    grim ~/Pictures/screenshot-temp.png
-    wl-copy > ~/Pictures/screenshot-temp.png
-    notify-send "Screenshot" "Screenshot taken!" -i ~/Pictures/screenshot-temp.png
-    mv ~/Pictures/screenshot-temp.png ~/Pictures/screenshot-$(date +%F-%H-%M-%S).png
+    grimshot save screen
     
-elif [[ $sel = "Selection" ]]; then # If selection is selection
+elif [[ $sel = "Selection copy" ]]; then # If selection is selection
 
     sleep 0.5
-    slurp | grim -g - ~/Pictures/screenshot-temp.png
-    wl-copy > ~/Pictures/screenshot-temp.png
-    notify-send "Screenshot" "Screenshot taken!" -i ~/Pictures/screenshot-temp.png
-    mv ~/Pictures/screenshot-temp.png ~/Pictures/screenshot-$(date +%F-%H-%M-%S).png
+    grimshot copy area
+
+elif [[ $sel = "Selection save" ]]; then # If selection is selection
+
+    sleep 0.5
+    grimshot save area
 
 fi
 

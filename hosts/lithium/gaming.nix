@@ -18,29 +18,16 @@
 
   environment.systemPackages = with pkgs; [ # Some games
     cataclysm-dda-git
-    cemu
-    citra
-    dolphin-emu-beta
-    #dwarf-fortress
-    #dwarf-fortress-packages.themes.vettlingr
-    #grapejuice
-    gzdoom
-    lutris
     mangohud
     minecraft
     minetest
     nethack
     optifine
     osu-lazer
-    pcsx2
     protonup
-    retroarchFull
-    rpcs3
     steam-rom-manager
     steamcmd
-    superTuxKart
     xorg.xf86inputjoystick
-    yuzu-mainline
   ];
 
   programs.gamemode = {

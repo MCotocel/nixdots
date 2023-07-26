@@ -68,7 +68,6 @@
     gnome.gnome-disk-utility # Formatting disks. I think I use fdisk more though
     google-chrome
     googleearth-pro # When I want to explore the neighbourhood without going outside into a sandstorm
-    grim # Wayland screenshots
     gthumb # Image manager
     gtklock # GTK lock screen for wayland
     gtk3
@@ -105,10 +104,10 @@
     scid # Chess GUI
     screenkey # Shows keys pressed
     shotwell # iPhone image importer
-    slurp # Selection for screenshots
     solaar # For my Logitech mouse
     spicetify-cli # I used to rice spotify
     stockfish # Chess engine
+    sway-contrib.grimshot # Screenshots
     swaybg # Set the background
     teams-for-linux # Very clunky but I need it
     tesseract # Images to text. Very cool

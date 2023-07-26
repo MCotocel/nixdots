@@ -394,8 +394,7 @@
 
 (use-package elfeed)
 (setq elfeed-feeds
-       '(("https://planet.emacslife.com/atom.xml" emacs)
-         ("https://kotaku.com/rss" gaming)))
+       '(("https://morss.it/https://kotaku.com/rss" gaming)))
 (evil-define-key 'normal elfeed-search-mode-map (kbd "r") 'elfeed-search-untag-all-unread)
 (evil-define-key 'normal elfeed-search-mode-map (kbd "u") 'elfeed-update)
 
