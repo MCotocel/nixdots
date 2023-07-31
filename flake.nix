@@ -27,7 +27,7 @@
       nixosConfigurations = {
 
         lithium =
-          nixpkgs.lib.nixosSystem { # This is my main system, a Lenovo Legion 5. I'm thinking of switching to an X1 Carbon because I already have a steam deck for gaming and the battery life on the Legion is dreadful
+          nixpkgs.lib.nixosSystem { # This is my main system, an X1 Carbon Gen 8. I've switched to this from my older Lenovo Legion 5.
             system = "x86_64-linux"; # What did you expect?
             modules = [
               {
@@ -51,6 +51,29 @@
               { home-manager.users.matei = import ./hosts/lithium/home.nix; }
               kmonad.nixosModules.default # For remapping keyboard keys
               ./hosts/lithium/configuration.nix
+            ];
+          };
+
+        sodium =
+          nixpkgs.lib.nixosSystem { # This is my system for gaming, a Lenovo Legion 5. I used to use this before the X1 Carbon as my main system, and I'm not quite sure if I should sell it or keep it
+            system = "x86_64-linux";
+            modules = [
+              {
+                nixpkgs.overlays = [
+                  f2k.overlays.default
+                  (import self.inputs.emacs)
+                  (self: super: {
+                    emacs-unstable = super.emacs-unstable.override {
+                      withXwidgets = true; # Mostly for the browser
+                      withGTK3 = true; # Makes the menus look better
+                    };
+                  })
+                ];
+              }
+              home-manager.nixosModules.home-manager
+              { home-manager.users.matei = import ./hosts/sodium/home.nix; }
+              kmonad.nixosModules.default # For remapping keyboard keys
+              ./hosts/sodium/configuration.nix
             ];
           };
 

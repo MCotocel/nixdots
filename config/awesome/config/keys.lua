@@ -3,10 +3,6 @@ local gears = require("gears")
 
 local hotkeys_popup = require("awful.hotkeys_popup")
 
-local bling = require("modules.bling")
-local machi = require("modules.layout-machi")
-local revelation = require("modules.awesome-revelation")
-
 require("awful.autofocus")
 
 awful.keyboard.append_global_keybindings({
@@ -16,18 +12,6 @@ awful.keyboard.append_global_keybindings({
 -- Toggle titlebar
 awful.key({modkey}, '`', function() awful.titlebar.toggle(client.focus) end, {
     description = "Toggle title bar", group = "AwesomeWM"
-}),
-
--- Edit the current layout
-awful.key({modkey}, "'", function() machi.default_editor.start_interactive() end, {
-    description = "Edit the current layout",
-    group = "Machi"
-}),
-
--- Switch windows in Machi layout
-awful.key({modkey}, ".", function() machi.switcher.start(client.focus) end, {
-    description = "Switch windows in Machi layout",
-    group = "Machi"
 }),
 
 -- Toggle Wibar
@@ -40,39 +24,6 @@ awful.key({modkey}, "b", function()
 -- Toggle desk lights
 awful.key({modkey}, "i", function() awful.spawn.with_shell("curl '192.168.168.133/win&T=2'") end, {
     description = 'Toggle desk lights', group = "AwesomeWM"
-}),
-
--- Expose
-awful.key({modkey}, "e", revelation, {
-    description = 'Expose', group = "AwesomeWM"
-}),
-
---- Bling ---
-
--- Add client to tabbed layout
-awful.key({modkey}, 't', function() bling.module.tabbed.pick_with_dmenu() end, {
-   description = 'Add client to tabbed layout', group = "Bling"
-}),
-
--- Add client to tabbed layout
-awful.key({modkey, "Shift"}, 't', function() bling.module.tabbed.pop() end, {
-   description = 'Add client to tabbed layout', group = "Bling"
-}),
-
-
--- Switch through tabbed clients
-awful.key({"Mod1"}, 'Tab', function() bling.module.tabbed.iter() end, {
-   description = 'Switch through tabbed clients', group = "Bling"
-}),
-
--- Switch through windows
-awful.key({modkey}, 'Tab', function() awesome.emit_signal("bling::window_switcher::turn_on") end, {
-   description = 'Switch through windows', group = "Bling"
-}),
-
--- Flash current client
-awful.key({modkey}, 'f', function() bling.module.flash_focus.flashfocus(client.focus) end, {
-   description = 'Flash current client', group = "Bling"
 }),
 
 --- Tags ---

@@ -13,7 +13,6 @@ local dpi = require("beautiful.xresources").apply_dpi
 
 -- Declarative object management
 local hotkeys_popup = require("awful.hotkeys_popup")
-local bling = require("modules.bling")
 
 awful.screen.connect_for_each_screen(function(s)
 
@@ -204,7 +203,6 @@ awful.screen.connect_for_each_screen(function(s)
      {"Image to text", function() awful.spawn.with_shell("sleep 0.2; ~/.bin/rofi-imgtext") end},
      {"Shorten url", function() awful.spawn.with_shell("sleep 0.2; ~/.bin/rofi-urlshorten") end},
      {"View desktop", function() awful.tag.viewnone() end},
-     {"Tab client", function() bling.module.tabbed.pick_with_dmenu() end},
     }
 
     mainmenu = awful.menu({items = {

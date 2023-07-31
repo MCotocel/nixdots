@@ -134,13 +134,25 @@
 ;;							Window Section's							 ;;	
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Bar Windows ;;
-(defwindow bar
+(defwindow bar-internal
 	:geometry (geometry :x "0"
 						:y "0"
                         :anchor "center left"
 						:height "100%" 
 						:width "50px")
 	:monitor 0
+    :exclusive true
+    :stacking "fg"
+(bar))
+
+
+(defwindow bar-external
+	:geometry (geometry :x "0"
+						:y "0"
+                        :anchor "center left"
+						:height "100%" 
+						:width "50px")
+	:monitor 1
     :exclusive true
     :stacking "fg"
 (bar))

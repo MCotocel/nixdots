@@ -10,9 +10,6 @@ local wibox = require("wibox")
 local dpi = require("beautiful.xresources").apply_dpi
 local gears = require("gears")
 
--- Bling
-local bling = require("modules.bling")
-
 -- Hotkey help for other apps
 require("awful.hotkeys_popup.keys")
 

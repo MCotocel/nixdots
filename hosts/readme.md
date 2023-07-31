@@ -1,8 +1,11 @@
-All hosts are named after elements.
-
 # Lithium
 
 - Lenovo X1 Carbon Gen 8
 - Runs NixOS
-- Main (Linux) machine
-- Quite capable for what I need, used for pretty much everything
+- Main machine
+
+# Sodium
+
+- Lenovo Legion 5
+- Runs NixOS
+- Used mostly for gaming and dabbling with AI

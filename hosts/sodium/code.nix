@@ -18,79 +18,35 @@
 
   environment = {
     systemPackages = with pkgs; [
-      arduino # I mess around with it occasionally
-      aria # For downloading stuff
       bash # Gotta have bash
       bat # Cat but better
-      btop # Like htop but so much better looking
-      cava # I like the pretty visualisations
-      cmake # Necessary
-      comma # Wrapper for nix-shell and nix-index
-      coreutils # Necessary
-      deadnix # Check for unused nix code
-      direnv # Need to implement this into my workflow sometime
-      distrobox # Run another distro under NixOS
       emacs-unstable # The best text editor
       emacs-all-the-icons-fonts # Fonts for Emacs
       exa # ls but better
-      fd # Find but better
-      feh # Image viewer for the terminal
-      ffmpeg # I deal with a lot of videos
-      file # No more asking yourself what file it is, now you can just open a terminal, navigate to the directory, and run a command instead of looking at the file extension
-      fzf # Fuzzy finder, pretty useful
-      gcc # Necessary
-      godot # Game engine
-      gource # Nice for visualising repo history
-      gnumake # Make.
       htop # Why is my laptop so hot? Oh yeah I'm compiling 20 programs while running two games
       ifuse # For connecting my phone
       imagemagick # Really useful for scripts
-      ispell # Spell checking
-      isync # For mail
-      jq # For when you have to deal with json
       libimobiledevice # For connecting my phone
       libsecret # For passwords
       lshw # Diagnostic time!
-      lua # Big fan of AwesomeWM
       lynis # Security audits. Although passwordless doas probably undermines all of it
-      manix # Nix help
       mesa-demos # Checking if my GPU works (It does (Thanks Nvidia))
-      mu # For mail
       ncdu # What the hell is taking up so much disk space? Oh.
       neofetch # Everyone loves neofetch
       neovim # The second-best editor. For when Emacs doesn't work
       nix-index # Locate nix packages
       nix-tree # Check dependencies
-      nixfmt # Format Nix files
-      nixos-generators # Generate NixOS outputs from configurations
-      nmap # For network debugging
-      nodejs # Some programs need it
-      nvd # Package version diff tool for Nix
-      onefetch # Neofetch but for git repos
       openai-whisper # Speech to text
-      openimagedenoise # Denoising images
       openjdk # Java
       pciutils # I love diagnosing my system
       ps_mem # (Why is Emacs using so much RAM?)
-      python311Full # I know Python better than I know most languages
-      ranger # Terminal file manager
-      rnix-lsp # LSP server for Nix
-      ripgrep # Grep but better
-      shellcheck # Checking my crappy shell code
       speedtest-cli # Testing my internet speed from the terminal
       smartmontools # Monitor the health of hard drives
-      sqlite # Databases and stuff
       tmux # A terminal multiplexer
-      tokei # Counting lines of code
       trash-cli # Trash instead of delete
       tree-sitter # Better highlighting
-      ueberzug # Images in terminal (again for some reason)
-      unzip # For unzipping archives
       vim # The original (not quite)
-      wget # For downloading web pages and stuff
       xorg.xev # Good for scripts
-      yt-dlp # For downloading videos
-      zeal # Documentation browser
       zsh # The better shell
     ];
 
@@ -139,9 +95,4 @@
 
   programs.thefuck.enable = true;
   programs.thefuck.alias = "oh"; # Let's make it a bit more... yeah
-
-  programs.wireshark = {
-    enable = true; # It's for network debugging I swear
-    package = pkgs.wireshark;
-  };
 }
