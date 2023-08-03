@@ -8,4 +8,4 @@
 
 - Lenovo Legion 5
 - Runs NixOS
-- Used mostly for gaming and dabbling with AI
+- Used mostly for gaming and dabbling with LLMs

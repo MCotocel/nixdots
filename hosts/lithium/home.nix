@@ -18,7 +18,6 @@
     ".local/share/applications/Audio.desktop".source = ../../config/applications/Audio.desktop;
     ".local/share/applications/Baobab.desktop".source = ../../config/applications/Baobab.desktop;
     ".local/share/applications/Bitwarden.desktop".source = ../../config/applications/Bitwarden.desktop;
-    ".local/share/applications/Bleachbit.desktop".source = ../../config/applications/Bleachbit.desktop;
     ".local/share/applications/Blender.desktop".source = ../../config/applications/Blender.desktop;
     ".local/share/applications/Bluetooth.desktop".source = ../../config/applications/Bluetooth.desktop;
     ".local/share/applications/Bottles.desktop".source = ../../config/applications/Bottles.desktop;
@@ -109,12 +108,10 @@
     ".config/eww".source = ../../config/eww;
     ".config/hypr".source = ../../config/hypr;
     ".config/kmonad".source = ../../config/kmonad;
-    ".config/mpd".source = ../../config/mpd;
     ".config/ncmpcpp".source = ../../config/ncmpcpp;
     ".config/neofetch".source = ../../config/neofetch;
     ".config/picom".source = ../../config/picom;
     ".config/rofi".source = ../../config/rofi;
-    ".config/sxhkd".source = ../../config/sxhkd;
     ".config/wezterm".source = ../../config/wezterm;
     ".config/zathura".source = ../../config/zathura;
 
@@ -151,7 +148,6 @@
     font.name = "Source Sans Pro Regular";
     iconTheme.package = pkgs.papirus-icon-theme;
     iconTheme.name = "Papirus-Dark";
-    #theme.package = (pkgs.orchis-theme.override { tweaks = [ "black" "compact" ]; });
     theme.package = pkgs.adw-gtk3;
     theme.name = "adw-gtk3";
     gtk3.extraConfig = {

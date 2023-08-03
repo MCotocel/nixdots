@@ -18,6 +18,7 @@
 
   environment.systemPackages = with pkgs; [ # Some games
     cataclysm-dda-git
+    gzdoom
     mangohud
     minecraft
     minetest

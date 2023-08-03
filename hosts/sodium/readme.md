@@ -6,7 +6,7 @@ UEFI enabled, with no swap partition
 
 ### Windows
 
-If dual-booting, make sure to shrink the Windows partition from Windows in order to provide space for Linux
+If dual-booting on the same drive, make sure to shrink the Windows partition from Windows in order to provide space for Linux
 
 ### Disks
 

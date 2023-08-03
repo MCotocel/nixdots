@@ -1,4 +1,4 @@
-sel=$(echo "Screen|Selection copy|Selection save" | rofi -sep "|" -dmenu -i -p 'Screenshot' -theme-str 'window { height: 15%; width: 15%;}')
+sel=$(echo "Screen|Sel. copy|Seln. save" | rofi -sep "|" -dmenu -i -p 'Screenshot' -theme-str 'window { height: 15%; width: 15%;}')
  
 if [[ $sel = "Screen" ]]; then
 

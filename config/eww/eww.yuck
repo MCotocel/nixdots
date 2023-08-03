@@ -99,9 +99,10 @@
 (power)
 (launcher)))
 
-;; Bottom Widgets ;;
+;; Middle Widgets ;;
 (defwidget middle []
-	(box	:orientation "v" 
+	(box	:orientation "v"
+    :valign "center"
     :class "middle"
 (workspaces)))
 
@@ -151,7 +152,7 @@
 						:y "0"
                         :anchor "center left"
 						:height "100%" 
-						:width "50px")
+						:width "30px")
 	:monitor 1
     :exclusive true
     :stacking "fg"
