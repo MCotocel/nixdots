@@ -40,7 +40,7 @@
                   f2k.overlays.default
                   (import self.inputs.emacs)
                   (self: super: {
-                    emacs-unstable = super.emacs-unstable.override {
+                    emacs-pgtk = super.emacs-pgtk.override {
                       withXwidgets = true; # Mostly for the browser
                       withGTK3 = true; # Makes the menus look better
                     };

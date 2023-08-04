@@ -30,7 +30,7 @@
       deadnix # Check for unused nix code
       direnv # Need to implement this into my workflow sometime
       distrobox # Run another distro under NixOS
-      emacs-unstable # The best text editor
+      emacs-pgtk # The best text editor
       emacs-all-the-icons-fonts # Fonts for Emacs
       exa # ls but better
       fd # Find but better

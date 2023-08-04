@@ -91,10 +91,6 @@
     ".local/share/applications/Zotero.desktop".source = ../../config/applications/Zotero.desktop;
     ".local/share/applications/Zynaddsubfx.desktop".source = ../../config/applications/Zynaddsubfx.desktop;
     
-    ".config/discocss/custom.css".source = ../../config/discocss/custom.css;
-    ".mbsyncrc".source = ../../config/mbsyncrc;
-    ".xinitrc".source = ../../config/xinitrc;
-    ".xsession".source = ../../config/xinitrc;
     ".Xresources".source = ../../config/xresources;
     ".zshrc".source = ../../config/zshrc;
     ".config/touchegg/touchegg.conf".source = ../../config/touchegg/touchegg.conf;
@@ -102,7 +98,6 @@
     ".config/gzdoom/gzdoom.ini".source = ../../config/gzdoom/gzdoom.ini;
 
     ".config/awesome".source = ../../config/awesome;
-    ".config/bspwm".source = ../../config/bspwm;
     ".config/btop".source = ../../config/btop;
     ".config/cava".source = ../../config/cava;
     ".config/eww".source = ../../config/eww;

@@ -151,7 +151,6 @@
       enable = true; # Enable libinput for trackpad
       touchpad.naturalScrolling = true;
     };
-    #displayManager.startx.enable = true;
     displayManager.gdm.enable = true;
     windowManager = {
       awesome = { # Best window manager
@@ -200,7 +199,6 @@
     pkgs.gnome.gnome-color-manager
     pkgs.gnome.gnome-contacts
     pkgs.gnome.gnome-dictionary
-    pkgs.gnome.gnome-documents
     pkgs.gnome.gnome-font-viewer
     pkgs.gnome.gnome-logs
     pkgs.gnome.gnome-maps
