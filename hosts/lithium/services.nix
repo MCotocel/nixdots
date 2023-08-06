@@ -24,15 +24,6 @@
     package = pkgs.usbmuxd2;
   };
 
-  services.clamav = { # Antivirus for those weakling Windows users
-    daemon.enable = false;
-    updater = {
-      enable = false;
-      frequency = 24;
-      interval = "hourly";
-    };
-  };
-
   services.syncthing = { # Syncing files
     enable = false;
     user = "matei";
@@ -61,10 +52,4 @@
   services.gvfs.enable = true; # For the Gnome apps
   services.tumbler.enable = true;
   services.locate.enable = true; # Locating files quickly
-  programs.weylus.enable = false; # Sometimes use my tablet with this
-
-  services.unclutter = { # Decluttering stuff
-    enable = false;
-    timeout = 3;
-  };
 }

@@ -3,22 +3,6 @@
 ;;;; It's pretty messy, not the greatest, but it works for me
 ;;;; Code:
 
-;; A few settings
-(setq-default
-  delete-by-moving-to-trash t ;; Move to trash instead of deleting
-  require-final-newline t ;; Auto create a newline at end of file
-  custom-safe-themes t ;; Don't ask if theme is safe
-  warning-minimum-level :emergency ;; Emacs, honestly, if there's an error in my configuration, I'll find out soon enough
-  disabled-command-function nil ;; Yes I want to use that command
-  vc-follow-symlinks) ;; Follow those symlinks!
-
-(defalias 'yes-or-no-p 'y-or-n-p) ;; Y or N instead of yes or no
-
-;; Scroll settings
-(setq scroll-margin 1
-  scroll-step 1
-  scroll-conservatively 10000)
-
 ;; Set up Melpa and use-package
 (require 'package)
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
@@ -48,6 +32,77 @@
   (load bootstrap-file nil 'nomessage))
 (setq package-enable-at-startup nil)
 
+;; Set up org early to avoid any issues
+(use-package org)
+
+(require 'ox-latex)
+(require 'ox-publish)
+
+(setq org-export-backends '(latex md html))
+
+(setq org-publish-use-timestamps-flag nil
+      org-export-with-timestamps nil
+      org-export-with-toc nil
+      org-export-time-stamp-file nil
+      org-export-with-broken-links t
+      org-export-with-section-numbers nil
+      org-html-validation-link nil
+      org-src-fontify-natively t)
+
+(add-to-list 'org-latex-packages-alist '("" "minted"))
+(setq org-latex-src-block-backend 'minted)
+
+(setq org-latex-pdf-process
+      '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+
+(setq org-html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"./style.css\"/>"
+  org-html-doctype "html5")
+
+(use-package htmlize)
+
+(setq org-hide-emphasis-markers t
+    org-image-actual-width '(300)
+    org-agenda-start-on-weekday 0
+    org-src-tab-acts-natively t
+    org-startup-with-inline-images t)
+(set-face-attribute 'org-headline-done nil :strike-through t)
+
+(use-package org-roam
+  :custom
+  (org-roam-directory (file-truename "~/Desktop/Folder/Vault/"))
+  :config
+  (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
+  (org-roam-db-autosync-mode)
+  (require 'org-roam-protocol))
+
+(use-package org-roam-ui
+  :straight
+    (:host github :repo "org-roam/org-roam-ui" :branch "main" :files ("*.el" "out"))
+    :after org-roam
+    :config
+    (setq org-roam-ui-sync-theme t
+          org-roam-ui-follow t
+          org-roam-ui-update-on-save t
+          org-roam-ui-open-on-start t))
+
+;; A few settings
+(setq-default
+  delete-by-moving-to-trash t ;; Move to trash instead of deleting
+  require-final-newline t ;; Auto create a newline at end of file
+  custom-safe-themes t ;; Don't ask if theme is safe
+  warning-minimum-level :emergency ;; Emacs, honestly, if there's an error in my configuration, I'll find out soon enough
+  disabled-command-function nil ;; Yes I want to use that command
+  vc-follow-symlinks) ;; Follow those symlinks!
+
+(defalias 'yes-or-no-p 'y-or-n-p) ;; Y or N instead of yes or no
+
+;; Scroll settings
+(setq scroll-margin 1
+  scroll-step 1
+  scroll-conservatively 10000)
+
 ;; Git settings
 (when (equal ""
              (shell-command-to-string "git config user.name"))
@@ -63,44 +118,6 @@
       server-client-instructions nil ;; Hide the client message
       inhibit-startup-message t) ;; No messages on startup
 (setq ring-bell-function 'ignore) ;; Disable the bell
-
-;; Font settings
-(add-to-list 'default-frame-alist '(font . "Iosevka Nerd Font-12")) ;; I like Iosevka, it's a nice font
-(set-fontset-font t 'emoji (font-spec :family "Twitter Color Emoji") nil 'prepend) ;; Some decent looking emojis
-(use-package ligature
-  :config
-  (ligature-set-ligatures 't '("www"))
-  (ligature-set-ligatures 'eww-mode '("ff" "fi" "ffi"))
-  :config
-  ;; Iosevka ligatures
-  (ligature-set-ligatures 'prog-mode '("<---" "<--"  "<<-" "<-" "->" "-->" "--->" "<->" "<-->" "<--->" "<---->" "<!--"
-                                       "<==" "<===" "<=" "=>" "=>>" "==>" "===>" ">=" "<=>" "<==>" "<===>" "<====>" "<!---"
-                                       "<~~" "<~" "~>" "~~>" "::" ":::" "==" "!=" "===" "!=="
-                                       ":=" ":-" ":+" "<*" "<*>" "*>" "<|" "<|>" "|>" "+:" "-:" "=:" "<******>" "++" "+++"))
-  (global-ligature-mode t))
-
-;; Change some text to symbols
-(defun org/prettify-set ()
-    (interactive)
-    (setq prettify-symbols-alist
-        '(("#+begin_src" . "")
-          ("#+end_src" . "")
-          ("#+begin_example" . "")
-          ("#+end_example" . "")
-          ("#+results:" . "")
-          ("#+begin_quote" . "")
-          ("#+end_quote" . "")
-          ("[ ]" . "")
-          ("[-]" . "")
-          ("[X]" . ""))))
-  (add-hook 'org-mode-hook 'org/prettify-set)
-(defun prog/prettify-set ()
-    (interactive)
-    (setq prettify-symbols-alist
-        '(("delta" . "Δ")
-          ("lambda" . "λ"))))
-  (add-hook 'prog-mode-hook 'prog/prettify-set)
-(global-prettify-symbols-mode)
 
 ;; Line numbers
 (global-display-line-numbers-mode)
@@ -155,12 +172,6 @@
   :config
   (evil-collection-init))
 
-(use-package evil-org
-  :after org
-  :config
-  (require 'evil-org-agenda)
-  (evil-org-agenda-set-keys))
-
 ;; Leader keys are so much better
 (use-package evil-leader
   :config
@@ -201,6 +212,11 @@
     "pg" 'projectile-grep
     "pm" 'projectile-commander
     "pc" 'projectile-compile-project
+    ;; Org
+    "orf" 'org-roam-node-find
+    "org" 'org-roam-ui-open
+    "ori" 'org-roam-node-insert
+    "ort" 'org-roam-tag-add
     ;; Workspaces
     "ws" 'persp-switch
     "wd" 'persp-kill
@@ -431,7 +447,6 @@
 (use-package lua-mode)
 (use-package nix-mode)
 (use-package lsp-pyright
-  :ensure t
   :hook (python-mode . (lambda ()
                           (require 'lsp-pyright)
                           (lsp))))
@@ -468,7 +483,6 @@
 (setq corfu-popupinfo-delay 0)
 
 (use-package kind-icon
-  :ensure t
   :after corfu
   :custom
   (kind-icon-default-face 'corfu-default)
@@ -484,7 +498,6 @@
 (use-package realgud)
 
 (use-package flycheck
-  :ensure t
   :init (global-flycheck-mode))
 
 (use-package projectile
@@ -511,49 +524,43 @@
        :engines (gts-google-engine)
        :render (gts-buffer-render)))
 
-(use-package org-contrib)
+;; Font settings
+(add-to-list 'default-frame-alist '(font . "Iosevka Nerd Font-12")) ;; I like Iosevka, it's a nice font
+(set-fontset-font t 'emoji (font-spec :family "Twitter Color Emoji") nil 'prepend) ;; Some decent looking emojis
+(use-package ligature
+  :config
+  (ligature-set-ligatures 't '("www"))
+  (ligature-set-ligatures 'eww-mode '("ff" "fi" "ffi"))
+  :config
+  ;; Iosevka ligatures
+  (ligature-set-ligatures 'prog-mode '("<---" "<--"  "<<-" "<-" "->" "-->" "--->" "<->" "<-->" "<--->" "<---->" "<!--"
+                                       "<==" "<===" "<=" "=>" "=>>" "==>" "===>" ">=" "<=>" "<==>" "<===>" "<====>" "<!---"
+                                       "<~~" "<~" "~>" "~~>" "::" ":::" "==" "!=" "===" "!=="
+                                       ":=" ":-" ":+" "<*" "<*>" "*>" "<|" "<|>" "|>" "+:" "-:" "=:" "<******>" "++" "+++"))
+  (global-ligature-mode t))
 
-(use-package org-download)
-
-(setq org-export-backends '(latex md html man))
-
-(require 'org)
-(require 'ox-latex)
-(require 'ox-man)
-(require 'ox-publish)
-
-(setq org-publish-use-timestamps-flag nil
-    org-export-with-toc nil
-    org-export-with-broken-links t)
-
-(add-to-list 'org-latex-packages-alist '("" "minted"))
-(setq org-latex-src-block-backend 'minted)
-
-(use-package htmlize)
-
-(setq org-latex-pdf-process
-      '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
-
-(setq org-src-fontify-natively t)
-
-(setq org-export-with-section-numbers nil)
-
-(setq org-html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"./style.css\"/>"
-  org-html-doctype "html5")
-
-(use-package org-bullets
-  :after org
-  :hook
-  (org-mode . (lambda () (org-bullets-mode 1))))
-
-(setq org-hide-emphasis-markers t
-    org-image-actual-width '(300)
-    org-agenda-start-on-weekday 0
-    org-src-tab-acts-natively t
-    org-startup-with-inline-images t)
-(set-face-attribute 'org-headline-done nil :strike-through t)
+;; Change some text to symbols
+(defun org/prettify-set ()
+    (interactive)
+    (setq prettify-symbols-alist
+        '(("#+begin_src" . "")
+          ("#+end_src" . "")
+          ("#+begin_example" . "")
+          ("#+end_example" . "")
+          ("#+results:" . "")
+          ("#+begin_quote" . "")
+          ("#+end_quote" . "")
+          ("[ ]" . "")
+          ("[-]" . "")
+          ("[X]" . ""))))
+  (add-hook 'org-mode-hook 'org/prettify-set)
+(defun prog/prettify-set ()
+    (interactive)
+    (setq prettify-symbols-alist
+        '(("delta" . "Δ")
+          ("lambda" . "λ"))))
+  (add-hook 'prog-mode-hook 'prog/prettify-set)
+(global-prettify-symbols-mode)
 
 (use-package emacs-everywhere) ;; Why would you leave Emacs?
 
@@ -572,6 +579,17 @@
   "Switch to the scratch buffer."
   (interactive)
   (switch-to-buffer "*scratch*"))
+
+(defun publish-dir-org ()
+  "Publish all org files in a directory"
+  (interactive)
+  (save-excursion
+    (mapc
+     (lambda (file)
+       (with-current-buffer
+       (find-file-noselect file)
+     (org-html-export-to-html)))
+       (file-expand-wildcards  "*.org"))))
 
 (provide 'init)
 ;; Local Variables:

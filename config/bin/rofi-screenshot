@@ -3,7 +3,7 @@ sel=$(echo "Screen|Sel. copy|Sel. save" | rofi -sep "|" -dmenu -i -p 'Screenshot
 if [[ $sel = "Screen" ]]; then
 
     sleep 0.5
-    grimshot save screen
+    grimshot save output
     
 elif [[ $sel = "Sel. copy" ]]; then # If selection is selection
 

@@ -61,7 +61,6 @@
     flameshot # Screenshot tool
     fractal-next # Matrix client
     gimp # Photo editor
-    giph # For taking videos
     gnome.file-roller # Unarchiver
     gnome.gnome-calendar # A calendar because I am a very busy person with no time at all
     gnome.gnome-disk-utility # Formatting disks. I think I use fdisk more though
@@ -85,6 +84,7 @@
     mesa # The graphics thing
     networkmanagerapplet # When I want to quickly connect to a Wi-Fi network
     nicotine-plus # Soulseek client
+    nyxt # Browser
     obs-studio # For recording my desktop
     obs-studio-plugins.obs-pipewire-audio-capture # For recording audio
     obsidian # I use this for all of my notes
