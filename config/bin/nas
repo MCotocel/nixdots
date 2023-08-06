@@ -68,7 +68,7 @@ function clean() {
   $priv nix-env --delete-generations old
   echo "Collecting system garbage"
   $priv nix-collect-garbage -d
-  echo "Collecting system garbage"
+  echo "Collecting user garbage"
   nix-collect-garbage -d
 }
 

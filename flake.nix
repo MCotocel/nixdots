@@ -58,6 +58,16 @@
             ];
           };
 
+        fluorine =
+          nixpkgs.lib.nixosSystem { # This is a very low-power server, a Raspberry Pi 4. It's mostly for messing around with at the moment
+            system = "aarch64-linux";
+            modules = [
+              home-manager.nixosModules.home-manager
+              { home-manager.users.matei = import ./hosts/fluorine/home.nix; }
+              ./hosts/fluorine/configuration.nix
+            ];
+          };
+
       };
     };
 }
