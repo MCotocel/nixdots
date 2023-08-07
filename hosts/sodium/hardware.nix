@@ -34,17 +34,6 @@
     cpu.intel.updateMicrocode = true;
   };
 
-  services.thermald.enable = true; # Keep temps in check
-  services.fstrim.enable = true; # I have an SSD
-  powerManagement.powertop.enable = true; # Battery and stuff
-  services.tlp = {
-    enable = true;
-    settings = {
-      CPU_SCALING_GOVERNOR_ON_BAT="powersave";
-      CPU_SCALING_GOVERNOR_ON_AC="performance";
-    };
-  };
-
   fileSystems."/" = # Main disk
     { device = "/dev/disk/by-label/nixos";
       fsType = "ext4";
