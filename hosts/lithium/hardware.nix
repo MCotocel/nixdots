@@ -2,16 +2,30 @@
 
 {
   boot = {
-      initrd = {
-          availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "uas" "sd_mod" "sdhci_pci" ];
-          kernelModules = [ "i915" ];
-      };
-      kernelModules = [ "kvm-intel" "fuse" ]; # Some modules
-      kernelParams = [ "intel_iommu=on" ];
-      kernelPackages = pkgs.linuxPackages_xanmod_latest; # Kernel package
-      tmp.useTmpfs = true; # Keep tmp files where they belong
-      tmp.cleanOnBoot = true;
-      supportedFilesystems = [ "ntfs "];
+    initrd = {
+      availableKernelModules =
+        [ "xhci_pci" "ahci" "nvme" "usb_storage" "uas" "sd_mod" "sdhci_pci" ];
+      kernelModules = [ "i915" ];
+    };
+    kernelModules = [ "kvm-intel" "fuse" ]; # Some modules
+    kernelParams = [
+      "intel_iommu=on"
+      "quiet"
+      "splash"
+      "boot.shell_on_fail"
+      "i915.fastboot=1"
+      "loglevel=3"
+      "rd.systemd.show_status=false"
+      "rd.udev.log_level=3"
+      "udev.log_level=3"
+    ];
+    kernelPackages = pkgs.linuxPackages_xanmod_latest; # Kernel package
+    tmp.useTmpfs = true; # Keep tmp files where they belong
+    tmp.cleanOnBoot = true;
+    supportedFilesystems = [ "ntfs " ];
+    consoleLogLevel = 0;
+    initrd.verbose = false;
+    plymouth = { enable = true; };
   };
 
   # Bootloader
@@ -40,18 +54,21 @@
   services.tlp = {
     enable = true;
     settings = {
-      CPU_SCALING_GOVERNOR_ON_BAT="powersave";
-      CPU_SCALING_GOVERNOR_ON_AC="performance";
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+      CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      STOP_CHARGE_THRESH_BAT0 = "80";
     };
   };
 
   fileSystems."/" = # Main disk
-    { device = "/dev/disk/by-label/nixos";
+    {
+      device = "/dev/disk/by-label/nixos";
       fsType = "ext4";
     };
 
   fileSystems."/boot" = # Boot drive
-    { device = "/dev/disk/by-label/boot";
+    {
+      device = "/dev/disk/by-label/boot";
       fsType = "vfat";
     };
 

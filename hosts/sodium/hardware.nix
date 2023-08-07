@@ -2,16 +2,18 @@
 
 {
   boot = {
-      initrd = {
-          availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "uas" "sd_mod" "sdhci_pci" ];
-          kernelModules = [ "i915" ];
-      };
-      kernelModules = [ "kvm-intel" "fuse" ]; # Some modules
-      kernelParams = [ "intel_iommu=on" ];
-      kernelPackages = pkgs.linuxPackages_xanmod_latest; # Kernel package
-      tmp.useTmpfs = true; # Keep tmp files where they belong
-      tmp.cleanOnBoot = true;
-      supportedFilesystems = [ "ntfs "];
+    initrd = {
+      availableKernelModules =
+        [ "xhci_pci" "ahci" "nvme" "usb_storage" "uas" "sd_mod" "sdhci_pci" ];
+      kernelModules = [ "i915" ];
+    };
+    kernelModules = [ "kvm-intel" "fuse" ]; # Some modules
+    kernelParams = [ "intel_iommu=on" ];
+    kernelPackages = pkgs.linuxPackages_xanmod_latest; # Kernel package
+    tmp.useTmpfs = true; # Keep tmp files where they belong
+    tmp.cleanOnBoot = true;
+    supportedFilesystems = [ "ntfs " ];
+    plymouth = { enable = true; };
   };
 
   # Bootloader
@@ -35,12 +37,14 @@
   };
 
   fileSystems."/" = # Main disk
-    { device = "/dev/disk/by-label/nixos";
+    {
+      device = "/dev/disk/by-label/nixos";
       fsType = "ext4";
     };
 
   fileSystems."/boot" = # Boot drive
-    { device = "/dev/disk/by-label/boot";
+    {
+      device = "/dev/disk/by-label/boot";
       fsType = "vfat";
     };
 
