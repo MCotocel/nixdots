@@ -3,7 +3,7 @@
 {
   # Network settings.
   networking = {
-    hostName = "lithium"; # Hostname
+    hostName = "sodium"; # Hostname
     networkmanager.enable = true; # Enable networkmanager
     firewall.enable = true; # Stay out, hackers
     firewall.allowedTCPPorts = [
