@@ -2,6 +2,6 @@
 
 {
   networking.firewall.enable = false;
-  networking.hostName = "sodium";
+  networking.hostName = "fluorine";
   networking.networkmanager.enable = true;
 }

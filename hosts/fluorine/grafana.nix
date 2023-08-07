@@ -11,7 +11,7 @@
           database = "telegraf";
           username = "telegraf";
           password = "telegraf";
-          urls = ["http://100.103.128.102:8086"];
+          urls = ["http://lithium:8086"];
         };
       };
       inputs = {

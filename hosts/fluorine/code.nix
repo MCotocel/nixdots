@@ -32,6 +32,7 @@
       sqlite # Databases and stuff
       trash-cli # Trash instead of delete
       unzip # For unzipping archives
+      vim # For editing text
       wget # For downloading web pages and stuff
       zsh # The better shell
     ];
@@ -45,9 +46,6 @@
 
       cat = "bat";
 
-      magit = "emacsclient -c -e '(magit-status)'";
-      elfeed = "emacsclient -c -e '(elfeed)'";
-
       rm = "trash";
 
       ta = "tmux attach -t";
@@ -59,8 +57,8 @@
     };
 
     variables = { # Some variables cause variables are cool
-      EDITOR = "nvim";
-      VISUAL = "nvim";
+      EDITOR = "vim";
+      VISUAL = "vim";
       BAT_THEME = "base16";
       XDG_CONFIG_HOME = "~/.config";
       PATH = "$HOME/.bin/:$PATH";
