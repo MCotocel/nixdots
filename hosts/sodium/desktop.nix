@@ -90,7 +90,6 @@
         start = ''exec steam -gamepadui'';
       }
     ];
-    displayManager.gdm.enable = true;
     displayManager.autoLogin.enable = true;
     displayManager.autoLogin.user = "matei";
   };
