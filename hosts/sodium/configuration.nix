@@ -10,7 +10,6 @@
     ./hardware.nix
     ./network.nix
     ./services.nix
-    ./sound.nix
     ../shared.nix
   ];
 
