@@ -91,8 +91,8 @@
       }
     ];
     displayManager.gdm.enable = true;
-    autologin.enable = true;
-    autologin.user = "matei";
+    displayManager.autologin.enable = true;
+    displayManager.autologin.user = "matei";
   };
 
   fonts = {
@@ -136,18 +136,4 @@
     pkgs.gnome.simple-scan
     pkgs.gnome.totem
   ];
-
-  # My eyes must be preserved
-  services.redshift = {
-    enable = true;
-    extraOptions = [
-      "-l 24:54"
-    ];
-  };
-
-  location = {
-    provider = "manual";
-    longitude = 54.0;
-    latitude = 24.0;
-  };
 }

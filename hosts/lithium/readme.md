@@ -13,7 +13,7 @@ If dual-booting on the same drive, make sure to shrink the Windows partition fro
 `<disk>` is your disk. For example, on my device it's `sda`
 
 ```sh
-parted /dev/<disk#> -- mkpart primary 512MiB -8GiB  # Root partition
+parted /dev/<disk#> -- mkpart primary 512MiB 100%  # Root partition
 parted /dev/<disk#> -- mkpart ESP fat32 1MiB 512MiB # Boot partition
 parted /dev/<disk> -- set 2 esp on
 ```

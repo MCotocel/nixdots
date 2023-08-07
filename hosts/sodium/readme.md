@@ -13,7 +13,7 @@ If dual-booting on the same drive, make sure to shrink the Windows partition fro
 `<disk>` is your disk. For example, on my device it's `sda`
 
 ```sh
-parted /dev/<disk#> -- mkpart primary 512MiB -8GiB  # Root partition
+parted /dev/<disk#> -- mkpart primary 512MiB 100%  # Root partition
 parted /dev/<disk#> -- mkpart ESP fat32 1MiB 512MiB # Boot partition
 parted /dev/<disk> -- set 2 esp on
 ```
@@ -39,5 +39,5 @@ mount /dev/disk/by-label/boot /mnt/boot
 
 - Get a shell with dependencies: `nix-shell -p git nixFlakes`
 - Clone dotfiles: `git clone https://github.com/mcotocel/nixdots /mnt/etc/nixos`
-- Install NixOS: `nixos-install --root /mnt --flake /mnt/etc/nixos#lithium --impure`
+- Install NixOS: `nixos-install --root /mnt --flake /mnt/etc/nixos#sodium --impure`
 - Clone the config to your home: `cp -R /etc/nixos ~/nixdots`
