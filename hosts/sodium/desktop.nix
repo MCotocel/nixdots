@@ -91,8 +91,8 @@
       }
     ];
     displayManager.gdm.enable = true;
-    displayManager.autologin.enable = true;
-    displayManager.autologin.user = "matei";
+    displayManager.autoLogin.enable = true;
+    displayManager.autoLogin.user = "matei";
   };
 
   fonts = {
