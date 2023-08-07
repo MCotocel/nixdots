@@ -82,7 +82,7 @@
       touchpad.naturalScrolling = true;
     };
     desktopManager.gnome.enable = true;
-    displayManger.defaultSession = "steam-auto";
+    displayManager.defaultSession = "steam-auto";
     displayManager.session = [
       {
         manage = "desktop";
