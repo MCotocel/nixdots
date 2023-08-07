@@ -125,7 +125,6 @@
     pkgs.gnome.gnome-color-manager
     pkgs.gnome.gnome-contacts
     pkgs.gnome.gnome-dictionary
-    pkgs.gnome.gnome-documents
     pkgs.gnome.gnome-font-viewer
     pkgs.gnome.gnome-logs
     pkgs.gnome.gnome-maps
