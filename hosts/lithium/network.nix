@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   # Network settings.
@@ -34,6 +34,8 @@
     enable = true;
     nssmdns = true;
   };
+
+  systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
 
   #services.dnscrypt-proxy2 = {
   #  enable = true;

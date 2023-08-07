@@ -40,13 +40,11 @@
     cbatticon # Systray battery
     cinnamon.nemo # File manager
     dunst # For notifications
-    eww-wayland # Widgets for Hyprland
     ffmpegthumbnailer # Video thumbnails
     firefox # Main web browser
     gnome.file-roller # Unarchiver
     gnome.gnome-disk-utility # Formatting disks. I think I use fdisk more though
     google-chrome
-    gtklock # GTK lock screen for wayland
     hyperion-ng # Ambient lighting
     kmonad # For keyboard remapping
     libnotify # For sending notifications
@@ -56,7 +54,6 @@
     obs-studio-plugins.obs-pipewire-audio-capture # For recording audio
     qbittorrent # For downloading certain things
     qpwgraph # Pipewire graph manager
-    rofi-wayland # Used whenever I want to open an app
     shotwell # iPhone image importer
     solaar # For my Logitech mouse
     spicetify-cli # I used to rice spotify
@@ -64,7 +61,6 @@
     swaybg # Set the background
     unrar # Extract rar fils
     unzip # For unzipping archives
-    wayland # The cooler X
     wezterm # Best terminal
     wineWowPackages.stable # Who needs windows?
     winetricks # Who needs a CLI?
@@ -77,7 +73,7 @@
 
   # X11
   services.xserver = {
-    enable = false;
+    enable = true;
     layout = "us"; # Set keyboard layout
     autoRepeatDelay = 225; # Keyboard repeat rate
     autoRepeatInterval = 33; 
@@ -85,23 +81,19 @@
       enable = true; # Enable libinput for trackpad
       touchpad.naturalScrolling = true;
     };
+    desktopManager.gnome.enable = true;
+    displayManger.defaultSession = "steam-auto";
+    displayManager.session = [
+      {
+        manage = "desktop";
+        name = "steam-auto";
+        start = ''exec steam -gamepadui'';
+      }
+    ];
     displayManager.gdm.enable = true;
-    windowManager = {
-      awesome = { # Best window manager
-        enable = false;
-        package = pkgs.awesome-git; # We want the developer version
-        luaModules = with pkgs.lua52Packages; [
-          lgi
-          ldbus
-          luarocks-nix
-          luadbi-mysql
-          luaposix
-        ];
-      };
-    };
+    autologin.enable = true;
+    autologin.user = "matei";
   };
-
-  programs.hyprland.enable = true; # Wayland yippee!
 
   fonts = {
     fontDir.enable = true;

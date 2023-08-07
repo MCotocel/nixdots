@@ -8,6 +8,10 @@
 
   home.stateVersion = "21.11"; # Version
 
+  imports = [
+    (import ../../config/dunst { inherit config; })
+  ];
+
   home.file = { # Files and stuff
     "Pictures/Wallpaper".source = ../../config/wallpaper;
     ".bin".source = ../../config/bin;
@@ -20,7 +24,6 @@
     ".config/gzdoom/gzdoom.ini".source = ../../config/gzdoom/gzdoom.ini;
 
     ".config/awesome".source = ../../config/awesome;
-    ".config/btop".source = ../../config/btop;
     ".config/cava".source = ../../config/cava;
     ".config/eww".source = ../../config/eww;
     ".config/hypr".source = ../../config/hypr;
@@ -52,9 +55,6 @@
     ".config/gtklock.css".source = ../../config/gtklock.css;
     ".config/gtk-3.0/gtk.css".source = ../../config/gtk3.css;
     ".config/gtk-4.0/gtk.css".source = ../../config/gtk4.css;
-
-    # Dunst
-    ".config/dunstrc".source = ../../config/dunstrc;
   };
 
   gtk = {

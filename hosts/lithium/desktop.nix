@@ -171,12 +171,12 @@
 
   fonts = {
     fontDir.enable = true;
-    enableDefaultFonts = true;
+    enableDefaultPackages = true;
     fontconfig.defaultFonts = {
       emoji = [ "Twitter Color Emoji" ]; # My emoji font
       monospace = [ "Iosevka Nerd Font" ]; # Best monospace font
     };
-    fonts = with pkgs; [
+    packages = with pkgs; [
       noto-fonts # Fonts
       noto-fonts-cjk-sans # For CJK languages
       noto-fonts-extra # Fonts for languages

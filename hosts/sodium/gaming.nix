@@ -1,5 +1,4 @@
 { config, pkgs, ... }:
-
 {
   # Hardware acceleration
   hardware.opengl = { # OpenGL for better performance
