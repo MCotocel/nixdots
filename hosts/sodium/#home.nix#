@@ -19,11 +19,9 @@
     
     ".Xresources".source = ../../config/xresources;
     ".zshrc".source = ../../config/zshrc;
-    ".config/touchegg/touchegg.conf".source = ../../config/touchegg/touchegg.conf;
 
     ".config/gzdoom/gzdoom.ini".source = ../../config/gzdoom/gzdoom.ini;
 
-    ".config/awesome".source = ../../config/awesome;
     ".config/cava".source = ../../config/cava;
     ".config/eww".source = ../../config/eww;
     ".config/hypr".source = ../../config/hypr;
