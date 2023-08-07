@@ -2,13 +2,13 @@
 
 UEFI enabled, with no swap partition
 
-## Setup
+# Setup
 
-### Windows
+## Windows
 
 If dual-booting on the same drive, make sure to shrink the Windows partition from Windows in order to provide space for Linux
 
-### Disks
+## Disks
 
 `<disk>` is your disk. For example, on my device it's `sda`
 
@@ -34,3 +34,10 @@ mount /dev/disk/by-label/nixos /mnt
 mkdir /mnt/boot
 mount /dev/disk/by-label/boot /mnt/boot
 ```
+
+## Installing
+
+- Get a shell with dependencies: `nix-shell -p git nixFlakes`
+- Clone dotfiles: `git clone https://github.com/mcotocel/nixdots /mnt/etc/nixos`
+- Install NixOS: `nixos-install --root /mnt --flake /mnt/etc/nixos#lithium --impure`
+- Clone the config to your home: `cp -R /etc/nixos ~/nixdots`
