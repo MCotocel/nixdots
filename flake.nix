@@ -54,6 +54,13 @@
               home-manager.nixosModules.home-manager
               { home-manager.users.matei = import ./hosts/sodium/home.nix; }
               kmonad.nixosModules.default
+              {
+                nixpkgs.overlays = [
+                  (import self.inputs.emacs)
+                  (import ./overlays/emacs-unstable.nix)
+                  (import ./overlays/ncmpcpp.nix)
+                ];
+              }
               ./hosts/sodium/configuration.nix
             ];
           };
