@@ -5,8 +5,8 @@
   networking = {
     hostName = "lithium"; # Hostname
     networkmanager.enable = true; # Enable networkmanager
-    #networkmanager.dns = "none";
-    #nameservers = [ "127.0.0.1" "::1" ];
+    nameservers = [ "1.1.1.1" "9.9.9.9" ];
+    networkmanager.dns = "none";
     firewall.enable = true; # Stay out, hackers
     firewall.allowedTCPPorts = [
       22

@@ -48,6 +48,15 @@ $white: $foreground;
     padding-top: 0px;
 }
 
+// Workspace
+.workspace-entry.occupied {
+	color: #97D59B
+}
+
+.workspace-entry.current {
+	color: #ACE1FF
+}
+
 // Control Panel
 .control {
 padding: .5rem;

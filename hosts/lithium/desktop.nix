@@ -102,6 +102,7 @@
     scid # Chess GUI
     screenkey # Shows keys pressed
     shotwell # iPhone image importer
+    socat # Pipes and sturf
     solaar # For my Logitech mouse
     spicetify-cli # I used to rice spotify
     stockfish # Chess engine
@@ -153,7 +154,7 @@
     };
     displayManager.gdm.enable = true;
     windowManager = {
-      awesome = { # Best window manager
+      awesome = {
         enable = false;
         package = pkgs.awesome-git; # We want the developer version
         luaModules = with pkgs.lua52Packages; [
@@ -166,8 +167,6 @@
       };
     };
   };
-
-  programs.hyprland.enable = true; # Wayland yippee!
 
   fonts = {
     fontDir.enable = true;

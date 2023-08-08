@@ -9,7 +9,7 @@
 #define green1    #BEF8C1
 #define yellow0   #FFFE80
 #define yellow1   #FCFBA6
-#define blue0     #4061CF
+#define blue0     #0C2745
 #define blue1     #ACE1FF
 #define magenta0  #C780FF
 #define magenta1  #D8A8FF

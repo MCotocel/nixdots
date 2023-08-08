@@ -34,6 +34,11 @@
     efi.canTouchEfiVariables = true;
   };
 
+  # Usbmuxd tends to hang on shutdown, so let's lower the timeout
+  systemd.extraConfig = ''
+    DefaultTimeoutStopSec=5s
+  '';
+
   time.hardwareClockInLocalTime = true; # For Windows
 
   hardware = {

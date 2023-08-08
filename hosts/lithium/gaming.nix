@@ -26,6 +26,7 @@
     optifine
     osu-lazer
     protonup
+    retroarchFull
     steam-rom-manager
     steamcmd
     xorg.xf86inputjoystick

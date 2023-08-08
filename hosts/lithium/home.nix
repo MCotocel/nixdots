@@ -10,6 +10,7 @@
 
   imports = [
     (import ../../config/dunst { inherit config; })
+    (import ../../config/hypr { inherit config; })
   ];
 
   home.file = { # Files and stuff
@@ -26,7 +27,6 @@
     ".config/awesome".source = ../../config/awesome;
     ".config/cava".source = ../../config/cava;
     ".config/eww".source = ../../config/eww;
-    ".config/hypr".source = ../../config/hypr;
     ".config/kmonad".source = ../../config/kmonad;
     ".config/ncmpcpp".source = ../../config/ncmpcpp;
     ".config/neofetch".source = ../../config/neofetch;
