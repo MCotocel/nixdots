@@ -78,39 +78,35 @@ font-size: 2em;
 background-color: $black;
 border-radius: 5px;
 }
+.lay{
+  font-family: Iosevka Nerd Font;
+  font-size: 1.2em;
+  padding: 0.4rem;
+  margin-right: 0.5rem;
+  margin-top: 0.3rem;
+  color: $red;
+}
 .bat{
   font-family: Iosevka Nerd Font;
   font-size: 1.2em;
   padding: 0.4rem;
+  margin-left: 0.2rem;
+  margin-bottom: 0.6rem;
   color: $blue;
 }
 .wifi-icon{
   font-family: Iosevka Nerd Font;
   font-size: 1em;
-  padding-right: 0.6rem;
+  margin-right: 0.6rem;
+  margin-bottom: 0.7rem;
   color: $magenta;
 }
 .volume{
   font-family: Iosevka Nerd Font;
   font-size: 1.1em;
-  padding-right: 0.3rem;
+  margin-right: 0.15em;
+  margin-bottom: 0.6rem;
   color: $green;
-}
-scale trough {
-  all: unset;
-  background-color: $background;
-  border-radius: 5px;
-  min-height: 80px;
-  min-width: 10px;
-  margin: .3rem 0 .3rem 0;
-}
-.bribar trough highlight {
-  background-color: $yellow;
-  border-radius: 5px;
-}
-.volbar trough highlight {
-  background-color: $green;
-  border-radius: 5px;
 }
 
 // Clock
@@ -125,72 +121,9 @@ scale trough {
   margin: .5rem 0 .5rem 0;
 }
 
-// Calendar
-.cal-box {
-  background-color: $black;
-  font-family: Iosevka Nerd Font;
-  font-size: 1em;
-  font-weight: bold;
-
-  .cal-inner-box {
-      padding: 1rem 1rem .2rem;
-
-      .cal {
-          &.highlight {
-              padding: 10rem;
-          }
-
-          padding: .8rem .25rem 0rem;
-          margin-left: 10px;
-      }
-  }
-}
-
-calendar:selected {
-  color: $blue;
-}
-
-calendar.header {
-color: $blue;
-font-weight: bold;
-}
-
-calendar.button {
-color: $magenta;
-}
-
-calendar.highlight {
-color: $magenta;
-font-weight: bold;
-}
-
-calendar:indeterminate {
-color: $background;
-}
-
 // Powermenu
 .powermenu {
   font-family: Iosevka Nerd Font;
   font-size: 1.4em;
   font-weight: bold;
-}
-.button-bspres, .button-reb, .button-lock,
-.button-quit, .button-off{
-  padding: .5rem .2rem .3rem .2rem;
-}
-.button-off{
-  margin-bottom: .5rem;
-  color: $red;
-}
-.button-bspres{
-  color: $green;
-}
-.button-reb{
-  color: $yellow
-}
-.button-quit{
-  color: $magenta;
-}
-.button-lock{
-  color: $blue;
 }

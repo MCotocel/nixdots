@@ -32,13 +32,6 @@
   services.gnome.evolution-data-server.plugins = [ pkgs.evolution-ews ];
   programs.evolution.enable = true;
 
-  # Fingerprint
-  services.fprintd = {
-    enable = true;
-    tod.enable = true;
-    tod.driver = pkgs.libfprint-2-tod1-vfs0090;
-  };
-
   environment.systemPackages = with pkgs; [
     appimage-run # To run appimages when I need to
     arandr # Xrandr GUI
@@ -208,18 +201,4 @@
     pkgs.gnome.simple-scan
     pkgs.gnome.totem
   ];
-
-  # My eyes must be preserved
-  services.redshift = {
-    enable = true;
-    extraOptions = [
-      "-l 24:54"
-    ];
-  };
-
-  location = {
-    provider = "manual";
-    longitude = 54.0;
-    latitude = 24.0;
-  };
 }

@@ -5,7 +5,7 @@
   networking = {
     hostName = "lithium"; # Hostname
     networkmanager.enable = true; # Enable networkmanager
-    nameservers = [ "1.1.1.1" "9.9.9.9" ];
+    nameservers = [ "1.1.1.1" ];
     networkmanager.dns = "none";
     firewall.enable = true; # Stay out, hackers
     firewall.allowedTCPPorts = [
@@ -24,6 +24,7 @@
       2234
       4445
     ];
+    firewall.trustedInterfaces = [ "tailscale0" ];
   };
 
   # SSH
@@ -36,25 +37,4 @@
   };
 
   systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
-
-  #services.dnscrypt-proxy2 = {
-  #  enable = true;
-  #  settings = {
-  #    require_dnssec = true;
-
-  #    sources.public-resolvers = {
-  #      urls = [
-  #        "https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/public-resolvers.md"
-  #        "https://download.dnscrypt.info/resolvers-list/v3/public-resolvers.md"
-  #      ];
-  #      cache_file = "/var/lib/dnscrypt-proxy2/public-resolvers.md";
-  #      minisign_key = "RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3";
-  #    };
-  #  };
-  #};
-
-  #systemd.services.dnscrypt-proxy2.serviceConfig = {
-  #  StateDirectory = "dnscrypt-proxy";
-  #};
-
 }

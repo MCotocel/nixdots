@@ -36,6 +36,11 @@
         processes = {};
         system = {};
         temp = {};
+        filecount = {
+          directories = [ "/home/matei/Desktop/Folder/Vault" ];
+          name = "*.org";
+          recursive = false;
+        };
       };
     };
   };

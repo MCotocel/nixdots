@@ -14,7 +14,9 @@
       exec-once = emacs --daemon
       exec-once = hyprctl setcursor "Breeze_Snow" 24
       exec-once = swaybg -i ~/Pictures/Wallpaper/Rainy\ Street.jpg
-      exec-once = eww -c ~/.config/eww open bar-internal
+      exec = pkill eww
+      exec = eww --daemon
+      exec = eww -c ~/.config/eww open bar-internal
       exec = eww -c ~/.config/eww open bar-external
       exec-once = kmonad ~/.config/kmonad/internal.kbd
       exec = kmonad ~/.config/kmonad/external.kbd

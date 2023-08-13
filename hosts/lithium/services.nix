@@ -1,7 +1,6 @@
 { config, pkgs, kmonad, ... }:
 
 {
-
   virtualisation.libvirtd = { # VMs are cool (and useful)
     enable = true;
     qemu.ovmf.enable = true;

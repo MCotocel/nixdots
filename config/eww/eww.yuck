@@ -26,6 +26,13 @@
     )
   )
 
+;; Layer Widget ;;
+(defwidget lay []
+	(box	:orientation "v"	
+	(label	:class "lay"		
+			:text layer)))
+(defpoll layer			:interval "0.2s"	"scripts/layer icon")
+
 ;; Battery Widgets ;;
 (defwidget bat []
 	(box	:orientation "v"	
@@ -58,6 +65,7 @@
 	(box :orientation "v" 
 		 :space-evenly false  
 		 :class "control"
+(lay)
 (bat)
 (wifi)
 (volume)))

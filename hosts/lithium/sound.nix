@@ -48,6 +48,7 @@
     python310Packages.deemix # I like offline MP3s
     scdl # For when I need to download from soundcloud
     spotify # I love music
+    vcv-rack # I'm not rich enough for modular synths
     vlc # GUI video player
     zyn-fusion # Synthesizer
   ];

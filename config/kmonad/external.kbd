@@ -14,8 +14,10 @@
 )
 
 (defalias
-    vim (layer-toggle vim)
+    lay (layer-toggle lay)
     med (layer-toggle med)
+    fun (around (layer-switch fun) (cmd-button "echo fun >> ~/.config/kmonad/log"))
+    qwe (around (layer-switch qwe) (cmd-button "echo qwe >> ~/.config/kmonad/log"))
 )
 
 (defalias
@@ -25,28 +27,37 @@
 )
 
 ;; QWERTY layout
-(deflayer qwerty
+(deflayer qwe
   esc  1    2    3    4    5    6    7    8    9    0    -    =    bspc   
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \      
-  @vim a    s    d    f    g    h    j    k    l    ;    '    ret         
+  @lay a    s    d    f    g    h    j    k    l    ;    '    ret         
   @lsc z    x    c    v    b    n    m    ,    .    /    @rsc
   lctl lmet lalt           spc            ralt @med rctl             
 )
 
-;; Vim layout
-(deflayer vim
-  grv  1    2    3    4    5    6    7    8    9    0    -    =    del
-  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \      
-  @vim a    s    d    f    g    left down up right  ;    '    ret         
-  @lsc z    x    c    v    b    n    m    ,    .    /    @rsc
-  lctl lmet lalt           spc            ralt @med rctl             
+;; Vim layout with keys to shift to other layouts
+(deflayer lay
+  grv  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX     
+  @lay XX   XX   XX   XX   XX   left down up right  XX   XX   XX
+  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   @fun
+  XX   XX   XX             XX             XX   @med XX            
+)
+
+;; Function key layout
+(deflayer fun
+  XX   f1   f2   f3   XX   XX   XX   XX   ssrq slck pause XX   XX   XX
+  XX   f4   f5   f6   XX   XX   XX   XX   ins  home pgup  XX   XX   XX     
+  XX   f7   f8   f9   XX   XX   XX   XX   del  end  pgdn  XX   XX
+  @qwe f10  f11  f12  XX   XX   XX   XX   XX   XX   XX    XX
+  XX   XX   XX             XX             XX   @med XX            
 )
 
 ;; Media layout
 (deflayer med
-  esc  1    2    3    4    5    6    7    8    9    0    -    =    bspc   
-  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \      
-  @vim a    s    d    f    g    prev vold volu next ;    '    ret         
-  @lsc z    x    c    v    b    n    m    ,    .    /    @rsc
-  lctl lmet lalt           pp             ralt @med rctl             
+  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  XX   XX   XX   XX   XX   XX   prev vold volu next XX   XX   XX
+  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  XX   XX   XX             pp             XX   @med XX
 )

@@ -24,10 +24,12 @@
 
     ".config/gzdoom/gzdoom.ini".source = ../../config/gzdoom/gzdoom.ini;
 
+    ".config/kmonad/external.kbd".source = ../../config/kmonad/external.kbd;
+    ".config/kmonad/internal.kbd".source = ../../config/kmonad/internal.kbd;
+
     ".config/awesome".source = ../../config/awesome;
     ".config/cava".source = ../../config/cava;
     ".config/eww".source = ../../config/eww;
-    ".config/kmonad".source = ../../config/kmonad;
     ".config/ncmpcpp".source = ../../config/ncmpcpp;
     ".config/neofetch".source = ../../config/neofetch;
     ".config/picom".source = ../../config/picom;
