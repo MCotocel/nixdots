@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, emacs, ... }:
 
 {
   programs.home-manager.enable = true; # Enabling home-manager, really useful
@@ -11,6 +11,11 @@
   imports = [
     (import ../../config/dunst { inherit config; })
     (import ../../config/hypr { inherit config; })
+    (import ../../config/ncmpcpp { inherit config; })
+    (import ../../config/rofi { inherit config; inherit pkgs; })
+    (import ../../config/wezterm { inherit config; })
+    (import ../../config/nvim { inherit config; })
+    (import ../../config/zathura { inherit config; })
   ];
 
   home.file = { # Files and stuff
@@ -20,38 +25,21 @@
     
     ".Xresources".source = ../../config/xresources;
     ".zshrc".source = ../../config/zshrc;
-    ".config/touchegg/touchegg.conf".source = ../../config/touchegg/touchegg.conf;
 
     ".config/gzdoom/gzdoom.ini".source = ../../config/gzdoom/gzdoom.ini;
 
     ".config/kmonad/external.kbd".source = ../../config/kmonad/external.kbd;
     ".config/kmonad/internal.kbd".source = ../../config/kmonad/internal.kbd;
 
-    ".config/awesome".source = ../../config/awesome;
     ".config/cava".source = ../../config/cava;
     ".config/eww".source = ../../config/eww;
-    ".config/ncmpcpp".source = ../../config/ncmpcpp;
     ".config/neofetch".source = ../../config/neofetch;
-    ".config/picom".source = ../../config/picom;
-    ".config/rofi".source = ../../config/rofi;
-    ".config/wezterm".source = ../../config/wezterm;
-    ".config/zathura".source = ../../config/zathura;
-
-    # Ranger
-    ".config/ranger/rc.conf".source = ../../config/ranger/rc.conf;
-    ".config/ranger/rifle.conf".source = ../../config/ranger/rifle.conf;
-    ".config/ranger/scope.sh".source = ../../config/ranger/scope.sh;
 
     # Emacs
     ".config/emacs/init.el".source = ../../config/emacs/init.el;
     ".config/emacs/style.css".source = ../../config/emacs/style.css;
     ".config/emacs/doom-quiet-dark-theme.el".source = ../../config/emacs/doom-quiet-dark-theme.el;
-    ".config/emacs/banner.png".source = ../../config/emacs/banner.png;
     ".config/emacs/banner.txt".source = ../../config/emacs/banner.txt;
-
-    # Vim
-    ".config/nvim/init.vim".source = ../../config/nvim/init.vim;
-    ".config/nvim/colors".source = ../../config/nvim/colors;
 
     # GTK
     ".config/gtklock.css".source = ../../config/gtklock.css;

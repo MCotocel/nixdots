@@ -46,6 +46,7 @@
     cinnamon.nemo # File manager
     dunst # For notifications
     eiskaltdcpp # DCPP client
+    emacs-unstable
     eww-wayland # Widgets for Hyprland
     filezilla # FTP program
     firefox # Main web browser
@@ -91,7 +92,6 @@
     qbittorrent # For downloading certain things
     qemu # Woo VMs
     qpwgraph # Pipewire graph manager
-    rofi-wayland # Used whenever I want to open an app
     scid # Chess GUI
     screenkey # Shows keys pressed
     shotwell # iPhone image importer
@@ -109,7 +109,6 @@
     usbutils # For my USB sticks
     virt-manager # For managing my virtual machines
     wayland # The cooler X
-    wezterm # Best terminal
     wineWowPackages.stable # Who needs windows?
     winetricks # Who needs a CLI?
     wl-clipboard

@@ -8,23 +8,31 @@
     "I have no idea what the hell I'm doing"; # It's true! I have a better feel for Nix and NixOS than before though.
 
   inputs = {
-    f2k.url =
-      "github:fortuneteller2k/nixpkgs-f2k"; # F2K's packages. I used to use this for AwesomeWM Git, but I've since moved on to Hyprland
-    home-manager.url =
-      "github:nix-community/home-manager"; # Managing my dotfiles, mostly. I'm the only user, so I don't use it to install packages, instead using the default, system-wide method
     nixpkgs.url =
       "github:NixOS/nixpkgs/nixos-unstable"; # Living on the edge. Sometimes things break, but it's worth it for newer packages most of the time
-    nur.url =
-      "github:nix-community/nur"; # Nix User Repository for packages not in nixpkgs
-    nixos-generators.url =
-      "github:nix-community/nixos-generators"; # For creating ISOs when I need to reinstall NixOS on a machine
-    kmonad.url =
-      "github:kmonad/kmonad?dir=nix"; # I have a 60% now (technically a 61%), so I need to bind some keys with layers
-    emacs.url =
-      "github:nix-community/emacs-overlay/master"; # The bleeding edge of Emacs
+    f2k = {
+      url = "github:fortuneteller2k/nixpkgs-f2k"; # F2K's packages. I used to use this for AwesomeWM Git, but I've since moved on to Hyprland
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    home-manager = {
+      url = "github:nix-community/home-manager"; # Managing my dotfiles, mostly. I'm the only user, so I don't use it to install packages, instead using the default, system-wide method
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators"; # For creating ISOs when I need to reinstall NixOS on a machine
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    kmonad = {
+      url = "github:kmonad/kmonad?dir=nix"; # I have a 60% now (technically a 61%), so I need to bind some keys with layers
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    emacs = {
+      url = "github:nix-community/emacs-overlay/master"; # The bleeding edge of Emacs
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, kmonad, f2k, nur, nixos-generators
+  outputs = { self, nixpkgs, home-manager, kmonad, f2k, nixos-generators
     , emacs }: {
 
       nixosConfigurations = {
@@ -34,7 +42,6 @@
             system = "x86_64-linux"; # What did you expect?
             modules = [
               home-manager.nixosModules.home-manager
-              { home-manager.users.matei = import ./hosts/lithium/home.nix; }
               kmonad.nixosModules.default # For remapping keyboard keys
               ./hosts/lithium/configuration.nix
               {
@@ -44,6 +51,7 @@
                   (import ./overlays/ncmpcpp.nix)
                 ];
               }
+              { home-manager.users.matei = import ./hosts/lithium/home.nix; }
             ];
           };
 

@@ -73,7 +73,9 @@
   :custom
   (org-roam-directory (file-truename "~/Desktop/Folder/Vault/"))
   :config
-  (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
+  (setq org-roam-node-display-template (concat "${
+    "title:*"
+  } " (propertize "${"tags:10"}" 'face 'org-tag)))
   (org-roam-db-autosync-mode)
   (require 'org-roam-protocol))
 

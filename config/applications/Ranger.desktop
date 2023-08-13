@@ -1,6 +1,0 @@
-[Desktop Entry]
-Type=Application
-Terminal=false
-Icon=utilities-terminal
-Exec=wezterm start ranger
-Name=Ranger

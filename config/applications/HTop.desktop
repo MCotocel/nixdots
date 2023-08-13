@@ -1,6 +1,0 @@
-[Desktop Entry]
-Type=Application
-Terminal=false
-Icon=htop
-Exec=wezterm start htop
-Name=HTop
