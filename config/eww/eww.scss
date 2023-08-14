@@ -58,7 +58,7 @@ $white: $foreground;
 
 .lay {
     font-family: Iosevka Nerd Font;
-    font-size: 1.7em;
+    font-size: 1.5em;
     margin-right: 8px;
     margin-top: 5px;
     color: $red;
@@ -66,7 +66,7 @@ $white: $foreground;
 
 .bat {
     font-family: Iosevka Nerd Font;
-    font-size: 1.6em;
+    font-size: 1.5em;
     margin-left: 2px;
     margin-bottom: 2px;
     color: $blue;
@@ -74,15 +74,16 @@ $white: $foreground;
 
 .wifi-icon {
     font-family: Iosevka Nerd Font;
-    font-size: 1.4em;
+    font-size: 1.2em;
     margin-right: 10px;
     color: $magenta;
 }
 
 .volume {
     font-family: Iosevka Nerd Font;
-    font-size: 1.7em;
+    font-size: 1.5em;
     margin-left: 2px;
+    margin-right: 7px;
     margin-bottom: 5px;
     color: $green;
 }
