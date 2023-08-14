@@ -2,7 +2,7 @@
 
 {
   # Sound
-  sound.enable = false; # We want to use pipewire
+  security.rtkit.enable = true;
   services.pipewire = { # Why? Because pipewire is hip and trendy
     enable = true;
     alsa.enable = true;
@@ -11,22 +11,8 @@
     jack.enable = true;
   };
 
-  # Mpd
-  services.mpd = { # Mopidy > mpd
-    enable = false;
-    musicDirectory = "/home/matei/Music";
-    extraConfig = ''
-      audio_output {
-        type "pulse"
-        name "Pulseaudio"
-        server "127.0.0.1" # add this line - MPD must connect to the local sound server
-      }
-    '';
-    network.listenAddress = "any";
-  };
-
   environment.systemPackages = with pkgs; [
-    alsa-utils # Utlities for also
+    alsa-utils # Utlities for alsa
     audacity # Ecsiditing audio
     easyeffects # Audio effects
     guitarix # Digital guitar amp stuff

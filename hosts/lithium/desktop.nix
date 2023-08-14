@@ -46,7 +46,6 @@
     cinnamon.nemo # File manager
     dunst # For notifications
     eiskaltdcpp # DCPP client
-    emacs-unstable
     eww-wayland # Widgets for Hyprland
     filezilla # FTP program
     firefox # Main web browser

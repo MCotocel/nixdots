@@ -1,14 +1,8 @@
 layer="$(tail -n 1 ~/.config/kmonad/log)"
 
-icon() {
-
 if [ "$layer" == "qwe" ]; then
 	icon="󰌌"
 elif [ "$layer" == "fun" ]; then
     icon="󱊶"
 fi
 echo "$icon"
-}
-
-[ "$1" = "icon" ] && icon && exit
-exit

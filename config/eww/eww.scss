@@ -1,14 +1,4 @@
-/* Created   by https://github.com/rxyhn 
-   Designed  by https://github.com/rxyhn
-   Maintaned by https://github.com/rxyhn
-*/
-
-// Global
-*{
-  all: unset;
-}
-
-// Variable Color's
+// Colours
 $background: #181e23;
 $foreground: #d5d5d5;
 
@@ -22,33 +12,22 @@ $magenta: #C780FF;
 $cyan: #80FFE4;
 $white: $foreground;
 
-// EWW BAR
-.eww_bar {
-  background-color: $background;
-  padding: .3rem;
+* {
+    background-color: unset;
+    font-family: "Iosevka Nerd Font";
 }
 
-// Power
+.eww_bar {
+    background-color: $background;
+    padding: 0.7em;
+}
+
 .power_icon {
     color: $red;
-    font-family: "Iosevka Nerd Font";
-    font-size: 2em;
-    padding: 5px;
-    padding-right: 3px;
-    padding-bottom: 0px;
+    font-size: 2.5em;
+    margin-right: 3px;
 }
 
-// Launcher
-.launcher_icon {
-    color: $blue;
-    font-family: "Iosevka Nerd Font";
-    font-size: 2em;
-    padding: 5px;
-    padding-right: 5px;
-    padding-top: 0px;
-}
-
-// Workspace
 .workspace-entry.occupied {
 	color: #97D59B
 }
@@ -57,71 +36,67 @@ $white: $foreground;
 	color: #ACE1FF
 }
 
-// Control Panel
 .control {
-padding: .5rem;
-font-family: Iosevka Nerd Font;
-font-size: 1.6em;
-background-color: $black;
-border-radius: 5px;
+    font-family: Iosevka Nerd Font;
+    font-size: 1.5em;
+    background-color: $black;
+    border-radius: 5px;
 }
+
 .top {
-padding-right: 0.3rem;
-font-family: Iosevka Nerd Font;
-background-color: $black;
-border-radius: 5px;
+    font-family: Iosevka Nerd Font;
+    background-color: $black;
+    border-radius: 5px;
 }
+
 .middle {
-padding: .5rem;
-font-family: Iosevka Nerd Font;
-font-size: 2em;
-background-color: $black;
-border-radius: 5px;
-}
-.lay{
-  font-family: Iosevka Nerd Font;
-  font-size: 1.2em;
-  padding: 0.4rem;
-  margin-right: 0.5rem;
-  margin-top: 0.3rem;
-  color: $red;
-}
-.bat{
-  font-family: Iosevka Nerd Font;
-  font-size: 1.2em;
-  padding: 0.4rem;
-  margin-left: 0.2rem;
-  margin-bottom: 0.6rem;
-  color: $blue;
-}
-.wifi-icon{
-  font-family: Iosevka Nerd Font;
-  font-size: 1em;
-  margin-right: 0.6rem;
-  margin-bottom: 0.7rem;
-  color: $magenta;
-}
-.volume{
-  font-family: Iosevka Nerd Font;
-  font-size: 1.1em;
-  margin-right: 0.15em;
-  margin-bottom: 0.6rem;
-  color: $green;
+    font-family: Iosevka Nerd Font;
+    font-size: 2em;
+    background-color: $black;
+    border-radius: 5px;
 }
 
-// Clock
+.lay {
+    font-family: Iosevka Nerd Font;
+    font-size: 1.7em;
+    margin-right: 8px;
+    margin-top: 5px;
+    color: $red;
+}
+
+.bat {
+    font-family: Iosevka Nerd Font;
+    font-size: 1.6em;
+    margin-left: 2px;
+    margin-bottom: 2px;
+    color: $blue;
+}
+
+.wifi-icon {
+    font-family: Iosevka Nerd Font;
+    font-size: 1.4em;
+    margin-right: 10px;
+    color: $magenta;
+}
+
+.volume {
+    font-family: Iosevka Nerd Font;
+    font-size: 1.7em;
+    margin-left: 2px;
+    margin-bottom: 5px;
+    color: $green;
+}
+
 .time {
-  font-family: Iosevka Nerd Font;
-  font-weight: bold;
-  font-size: 1.2em;
-  background-color: $black;
-  color: $white;
-  border-radius: 5px;
-  padding: .7rem 0 .5rem 0;
-  margin: .5rem 0 .5rem 0;
+    font-family: Iosevka Nerd Font;
+    font-weight: bold;
+    font-size: 1.5em;
+    background-color: $black;
+    color: $white;
+    border-radius: 5px;
+    padding: 0.2em 0 0.2em 0;
 }
 
-// Powermenu
 .powermenu {
   font-family: Iosevka Nerd Font;
   font-size: 1.4em;

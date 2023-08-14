@@ -1,4 +1,4 @@
-{ config, pkgs, emacs, ... }:
+{ config, pkgs, ... }:
 
 {
   programs.home-manager.enable = true; # Enabling home-manager, really useful
@@ -10,6 +10,7 @@
 
   imports = [
     (import ../../config/dunst { inherit config; })
+    (import ../../config/emacs { inherit config; inherit pkgs; })
     (import ../../config/hypr { inherit config; })
     (import ../../config/ncmpcpp { inherit config; })
     (import ../../config/rofi { inherit config; inherit pkgs; })
@@ -36,7 +37,7 @@
     ".config/neofetch".source = ../../config/neofetch;
 
     # Emacs
-    ".config/emacs/init.el".source = ../../config/emacs/init.el;
+    #".config/emacs/init.el".source = ../../config/emacs/init.el;
     ".config/emacs/style.css".source = ../../config/emacs/style.css;
     ".config/emacs/doom-quiet-dark-theme.el".source = ../../config/emacs/doom-quiet-dark-theme.el;
     ".config/emacs/banner.txt".source = ../../config/emacs/banner.txt;

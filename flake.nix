@@ -42,6 +42,7 @@
             system = "x86_64-linux"; # What did you expect?
             modules = [
               home-manager.nixosModules.home-manager
+              { home-manager.users.matei = import ./hosts/lithium/home.nix; }
               kmonad.nixosModules.default # For remapping keyboard keys
               ./hosts/lithium/configuration.nix
               {
@@ -51,7 +52,6 @@
                   (import ./overlays/ncmpcpp.nix)
                 ];
               }
-              { home-manager.users.matei = import ./hosts/lithium/home.nix; }
             ];
           };
 

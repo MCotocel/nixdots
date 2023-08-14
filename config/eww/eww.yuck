@@ -1,175 +1,93 @@
+;; Power menu widget ;;
 (defwidget power []
-	(box :orientation "v" 
-  	    (button :class "power_icon" 
-		   	:onclick "~/.bin/rofi-power; sleep 0.2"  "󰐥")))
+  (box :orientation "v" 
+       (button :class "power_icon" :onclick "~/.bin/rofi-power; sleep 0.2"  "󰐥")))
 
-(defwidget launcher []
-	(box :orientation "v" 
-  	    (button :class "launcher_icon" 
-		   	:onclick "rofi -show drun -display-drun 'App Launcher' -disable-history; sleep 0.2"  "󰍜")))
-
-;; Workspaces Widgets ;;
+;; Workspace widget ;;
 (deflisten workspaces :initial "[]" "bash ./scripts/get-workspaces")
 (deflisten current_workspace :initial "1" "bash ./scripts/get-active-workspace")
 (defwidget workspaces []
   (eventbox :onscroll "bash ./scripts/change-active-workspace {} ${current_workspace}" :class "workspaces-widget"
-    (box :orientation "v"
-      (label :text "${workspaces}${current_workspace}" :visible false)
-      (for workspace in workspaces
-        (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}"
-          (box :class "workspace-entry ${workspace.id == current_workspace ? "current" : ""} ${workspace.windows > 0 ? "occupied" : "empty"}"
-            (label :text "")
-            )
-          )
-        )
-      )
-    )
-  )
+            (box :orientation "v"
+                 (label :text "${workspaces}${current_workspace}" :visible false)
+                 (for workspace in workspaces
+                      (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}"
+                                (box :class "workspace-entry ${workspace.id == current_workspace ? "current" : ""} ${workspace.windows > 0 ? "occupied" : "empty"}"
+                                     (label :text "")))))))
 
-;; Layer Widget ;;
+;; Layer widget ;;
 (defwidget lay []
-	(box	:orientation "v"	
-	(label	:class "lay"		
-			:text layer)))
-(defpoll layer			:interval "0.2s"	"scripts/layer icon")
+  (box :orientation "v"	
+	   (label :class "lay" :text layer)))
+(defpoll layer :interval "0.2s" "scripts/layer")
 
-;; Battery Widgets ;;
+;; Battery widget ;;
 (defwidget bat []
-	(box	:orientation "v"	
-	(label	:class "bat"		
-			:text battery	
-			:tooltip "Battery: ${battery-cappacity}%")))
-(defpoll battery			:interval "1s"	"scripts/battery icon")
-(defpoll battery-cappacity	:interval "1s"	"scripts/battery percent")
+  (box :orientation "v"	
+	   (label :class "bat" :text battery)))
+(defpoll battery :interval "1s" "scripts/battery")
 
-;; Wifi Widgets ;;
+;; Wifi widget ;;
 (defwidget wifi []
-	(box		:orientation "v"  
-				:tooltip wifi-name
-	(button		:onclick "scripts/popup wifi" 
-				:class "wifi-icon" wifi-icon)))
-(defpoll wifi-icon :interval "1s" "scripts/wifi icon")
-(defpoll wifi-name :interval "1s" "scripts/wifi name")
+  (box :orientation "v" :class "wifi-icon" wifi-icon))
+(defpoll wifi-icon :interval "1s" "scripts/wifi")
 
-;; Volume Widgets ;;
+;; Volume widget ;;
 (defwidget volume []
-	(box	:orientation "v"	
-	(label	:class "volume"		
-			:text volume
-			:tooltip "Volume: ${volume-level}%")))
-(defpoll volume			:interval "0.5s"	"scripts/volume icon")
-(defpoll volume-level	:interval "0.5s"	"scripts/volume percent")
+  (box :orientation "v"	
+	   (label :class "volume" :text volume)))
+(defpoll volume	:interval "0.2s" "scripts/volume")
 
-;; Control Panel Widgets ;;	
+;; Control panel widgets ;;	
 (defwidget control []
-	(box :orientation "v" 
-		 :space-evenly false  
-		 :class "control"
-(lay)
-(bat)
-(wifi)
-(volume)))
+  (box :orientation "v" :space-evenly false :class "control"
+       (lay)
+       (bat)
+       (wifi)
+       (volume)))
 
-;; Clock Widgets ;;
+;; Clock widget ;;
 (defwidget time []
-	(box	:orientation "v" 
-			:class "time" 
-			:valign "end"
-	(button	:onclick "scripts/popup calendar"	
-			:class "time-hour" hour)
-	(button	:onclick "scripts/popup calendar"	
-			:class "time-min"  min)))
-(defpoll hour	:interval "1s"	"date '+%H'")
-(defpoll min	:interval "1s"	"date '+%M'")
+  (box :orientation "v" :class "time" :valign "end"
+	   (button :class "time-hour" hour)
+	   (button :class "time-min"  min)))
+(defpoll hour :interval "1s" "date '+%H'")
+(defpoll min :interval "1s" "date '+%M'")
 
-;; Calendar Widgets ;;
-(defwidget cal []
-	(box :class "cal-box" 
-		 :orientation "v"
-	(box :class "cal-inner-box"
-	(calendar :class "cal" 
-			  :day calendar_day 
-			  :month calendar_month 
-			  :year calendar_year))))
-(defpoll calendar_day :interval "10h"
-    "date '+%d'")
-(defpoll calendar_month :interval "10h"
-    "scripts/calendar")
-(defpoll calendar_year :interval "10h"
-    "date '+%Y'")
-
-;; Top Widgets ;;
+;; Top widgets ;;
 (defwidget top []
-	(box	:orientation "v" 
-			:valign "start" 
-            :class "top"
+  (box :orientation "v" :valign "start" :class "top"
+       (power)))
 
-(power)
-(launcher)))
-
-;; Middle Widgets ;;
+;; Middle widgets ;;
 (defwidget middle []
-	(box	:orientation "v"
-    :valign "center"
-    :class "middle"
-(workspaces)))
+  (box :orientation "v" :valign "center" :class "middle"
+       (workspaces)))
 
-;; Bottom Widgets ;;
-(defwidget bottom []
-	(box	:orientation "v"
-
-(time)))
-
-;; End Widgets ;;
+;; End widgets ;;
 (defwidget end []
-	(box :orientation "v" 
-		 :space-evenly "false" 
-		 :valign "end" 
-		 :spacing 5
-(control)
-(bottom)))
+  (box :orientation "v" :space-evenly "false" :valign "end" :spacing 5
+       (control)
+       (time)))
 
-;; Bar Widgets ;;
+;; Bar widgets ;;
 (defwidget bar []
-	(box :class "eww_bar" 
-		 :orientation "v" 
-		 :vexpand "false" 
-		 :hexpand "false"
-(top)
-(middle)
-(end)))
+  (box :class "eww_bar" :orientation "v" :vexpand "false" :hexpand "false"
+       (top)
+       (middle)
+       (end)))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;							Window Section's							 ;;	
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Bar Windows ;;
+;; Bar windows ;;
 (defwindow bar-internal
-	:geometry (geometry :x "0"
-						:y "0"
-                        :anchor "center left"
-						:height "100%" 
-						:width "50px")
+	:geometry (geometry :x "0":y "0" :anchor "center left" :height "100%" :width "50px")
 	:monitor 0
     :exclusive true
     :stacking "fg"
-(bar))
-
+    (bar))
 
 (defwindow bar-external
-	:geometry (geometry :x "0"
-						:y "0"
-                        :anchor "center left"
-						:height "100%" 
-						:width "30px")
+	:geometry (geometry :x "0" :y "0" :anchor "center left" :height "100%" :width "30px")
 	:monitor 1
     :exclusive true
     :stacking "fg"
-(bar))
-
-;; Calendar Windows ;;
-(defwindow calendar
-	:geometry (geometry :x "70px" 
-						:y "65%" 
-						:width "270px" 
-						:height "60px")
-(cal))
+    (bar))
