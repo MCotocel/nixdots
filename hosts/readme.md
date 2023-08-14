@@ -19,3 +19,9 @@
 - Raspberry Pi 4
 - Runs NixOS
 - Used for tinkering with self-hosting
+
+## Chlorine
+
+- Raspberry Pi 3
+- Runs NixOS
+- Used for some more tinkering

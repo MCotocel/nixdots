@@ -83,6 +83,16 @@
             ];
           };
 
+        chlorine =
+          nixpkgs.lib.nixosSystem { # Also a low-power server, a Raspberry pi 3. I haven't found a usecase for it yet
+            system = "aarch64-linux";
+            modules = [
+              home-manager.nixosModules.home-manager
+              { home-manager.users.matei = import ./hosts/chlorine/home.nix; }
+              ./hosts/chlorine/configuration.nix
+            ];
+          };
+
       };
     };
 }
