@@ -11,9 +11,5 @@
   home.file = { # Files and stuff
     ".bin".source = ../../config/bin;
     ".zshrc".source = ../../config/zshrc;
-
-    # Vim
-    ".config/nvim/init.vim".source = ../../config/nvim/init.vim;
-    ".config/nvim/colors".source = ../../config/nvim/colors;
   };
 }
