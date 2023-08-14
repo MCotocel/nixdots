@@ -31,8 +31,5 @@
      password = "1234";
    };
 
-  services.openssh.enable = true;
-
   system.stateVersion = "22.05";
-
 }
