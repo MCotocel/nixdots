@@ -17,4 +17,12 @@
         };
       };
   };
+  fileSystems."/var/lib/private/photoprism" =
+    { device = "/data/photoprism";
+      options = [ "bind" ];
+    };
+  fileSystems."/var/lib/private/photoprism/originals" =
+    { device = "/dev/disk/by-label/fluorine/media";
+      options = [ "bind" ];
+    };
 }
