@@ -35,7 +35,6 @@
 
     ".config/cava".source = ../../config/cava;
     ".config/eww".source = ../../config/eww;
-    ".config/neofetch".source = ../../config/neofetch;
 
     # Emacs
     ".config/emacs/style.css".source = ../../config/emacs/style.css;

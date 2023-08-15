@@ -53,7 +53,6 @@
       lua # Big fan of AwesomeWM
       lynis # Security audits. Although passwordless doas probably undermines all of it
       manix # Nix help
-      mesa-demos # Checking if my GPU works (It does (Thanks Nvidia))
       mu # For mail
       ncdu # What the hell is taking up so much disk space? Oh.
       neofetch # Everyone loves neofetch

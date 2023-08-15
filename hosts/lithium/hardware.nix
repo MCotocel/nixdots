@@ -19,13 +19,11 @@
       "rd.udev.log_level=3"
       "udev.log_level=3"
     ];
-    kernelPackages = pkgs.linuxPackages_xanmod_latest; # Kernel package
     tmp.useTmpfs = true; # Keep tmp files where they belong
     tmp.cleanOnBoot = true;
-    supportedFilesystems = [ "ntfs " ];
+    supportedFilesystems = [ "ntfs" ];
     consoleLogLevel = 0;
     initrd.verbose = false;
-    plymouth = { enable = true; };
   };
 
   # Bootloader

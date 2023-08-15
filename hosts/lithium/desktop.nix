@@ -34,12 +34,9 @@
 
   environment.systemPackages = with pkgs; [
     appimage-run # To run appimages when I need to
-    arandr # Xrandr GUI
     aseprite # Pixel art is cool
-    autorandr # Auto xrandr!
     baobab # For checking what's taking up so much disk space
     bitwarden # Passwords and stuff
-    blender # Occasional tinkering with 3D models
     bottles # Wine prefix manager
     calibre # Converting my books for my Kindle
     cbatticon # Systray battery
@@ -51,7 +48,6 @@
     firefox # Main web browser
     firejail # When you want some extra security
     ffmpegthumbnailer # Video thumbnails
-    flameshot # Screenshot tool
     fractal-next # Matrix client
     gimp # Photo editor
     gnome.file-roller # Unarchiver
@@ -63,8 +59,6 @@
     gtklock-playerctl-module
     gtklock-powerbar-module
     gtklock-userinfo-module
-    gtk3
-    hicolor-icon-theme
     hexchat # IRC client
     hyperion-ng # Ambient lighting
     i3lock-color # For locking my device
@@ -77,13 +71,11 @@
     libreoffice # Office suite for Linux
     lxtask # Lightweight task manager
     maim # Select stuff
-    mesa # The graphics thing
     networkmanagerapplet # When I want to quickly connect to a Wi-Fi network
     nicotine-plus # Soulseek client
     nyxt # Browser
     obs-studio # For recording my desktop
     obs-studio-plugins.obs-pipewire-audio-capture # For recording audio
-    obsidian # I use this for all of my notes
     openssl # For certs
     p7zip # Unzipping stuff
     pan # Newsreader
@@ -103,26 +95,15 @@
     stockfish # Chess engine
     sway-contrib.grimshot # Screenshots
     swaybg # Set the background
-    teams-for-linux # Very clunky but I need it
     tesseract # Images to text. Very cool
     texlive.combined.scheme-full # LaTeX package
-    tor # Privacy yeah
     unrar # Extract rar fils
     usbutils # For my USB sticks
     virt-manager # For managing my virtual machines
     wayland # The cooler X
-    wineWowPackages.stable # Who needs windows?
-    winetricks # Who needs a CLI?
     wl-clipboard
     wmctrl # Moving windows around in scripts
     wpa_supplicant # Connecting to networks
-    xclip # Copying stuff to my clipboard
-    xdotool # Used for scrips
-    xorg.xinit # So I can do startx when I log in
-    xorg.xprop # For emacs-everywhere
-    xscreensaver # Nice screensavers
-    xsecurelock # Simple lock screen
-    xorg.xwininfo # For emacs-everywhere
     yubikey-agent
     yubikey-manager
     yubikey-manager-qt
@@ -138,28 +119,7 @@
 
   # X11
   services.xserver = {
-    enable = true;
-    layout = "us"; # Set keyboard layout
-    autoRepeatDelay = 225; # Keyboard repeat rate
-    autoRepeatInterval = 33; 
-    libinput = {
-      enable = true; # Enable libinput for trackpad
-      touchpad.naturalScrolling = true;
-    };
     displayManager.gdm.enable = true;
-    windowManager = {
-      awesome = {
-        enable = false;
-        package = pkgs.awesome-git; # We want the developer version
-        luaModules = with pkgs.lua52Packages; [
-          lgi
-          ldbus
-          luarocks-nix
-          luadbi-mysql
-          luaposix
-        ];
-      };
-    };
   };
 
   fonts = {

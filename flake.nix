@@ -11,29 +11,34 @@
     nixpkgs.url =
       "github:NixOS/nixpkgs/nixos-unstable"; # Living on the edge. Sometimes things break, but it's worth it for newer packages most of the time
     f2k = {
-      url = "github:fortuneteller2k/nixpkgs-f2k"; # F2K's packages. I used to use this for AwesomeWM Git, but I've since moved on to Hyprland
+      url =
+        "github:fortuneteller2k/nixpkgs-f2k"; # F2K's packages. I used to use this for AwesomeWM Git, but I've since moved on to Hyprland
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
-      url = "github:nix-community/home-manager"; # Managing my dotfiles, mostly. I'm the only user, so I don't use it to install packages, instead using the default, system-wide method
+      url =
+        "github:nix-community/home-manager"; # Managing my dotfiles, mostly. I'm the only user, so I don't use it to install packages, instead using the default, system-wide method
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-generators = {
-      url = "github:nix-community/nixos-generators"; # For creating ISOs when I need to reinstall NixOS on a machine
+      url =
+        "github:nix-community/nixos-generators"; # For creating ISOs when I need to reinstall NixOS on a machine
       inputs.nixpkgs.follows = "nixpkgs";
     };
     kmonad = {
-      url = "github:kmonad/kmonad?dir=nix"; # I have a 60% now (technically a 61%), so I need to bind some keys with layers
+      url =
+        "github:kmonad/kmonad?dir=nix"; # I have a 60% now (technically a 61%), so I need to bind some keys with layers
       inputs.nixpkgs.follows = "nixpkgs";
     };
     emacs = {
-      url = "github:nix-community/emacs-overlay/master"; # The bleeding edge of Emacs
+      url =
+        "github:nix-community/emacs-overlay/master"; # The bleeding edge of Emacs
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, kmonad, f2k, nixos-generators
-    , emacs }: {
+  outputs =
+    { self, nixpkgs, home-manager, kmonad, f2k, nixos-generators, emacs }: {
 
       nixosConfigurations = {
 
@@ -80,6 +85,7 @@
               home-manager.nixosModules.home-manager
               { home-manager.users.matei = import ./hosts/fluorine/home.nix; }
               ./hosts/fluorine/configuration.nix
+              { nixpkgs.overlays = [ (import ./overlays/rpi.nix) ]; }
             ];
           };
 
@@ -90,6 +96,7 @@
               home-manager.nixosModules.home-manager
               { home-manager.users.matei = import ./hosts/chlorine/home.nix; }
               ./hosts/chlorine/configuration.nix
+              { nixpkgs.overlays = [ (import ./overlays/rpi.nix) ]; }
             ];
           };
 

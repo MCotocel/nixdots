@@ -14,8 +14,6 @@
     ];
   };
 
-  services.joycond.enable = true;
-
   environment.systemPackages = with pkgs; [ # Some games
     cataclysm-dda-git
     gzdoom
@@ -24,7 +22,6 @@
     minetest
     nethack
     optifine
-    osu-lazer
     protonup
     retroarchFull
     steam-rom-manager
