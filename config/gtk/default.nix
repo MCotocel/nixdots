@@ -11,11 +11,6 @@
     iconTheme.name = "Papirus-Dark";
     theme.package = pkgs.adw-gtk3;
     theme.name = "adw-gtk3";
-    gtk3.extraConfig = {
-      Settings = ''
-          gtk-application-prefer-dark-theme=1
-        '';
-    };
     gtk3.extraCss = ''
         @define-color accent_color #ace1ff;
         @define-color accent_bg_color #ace1ff;
@@ -96,11 +91,6 @@
         @define-color dark_4 #241f31;
         @define-color dark_5 #000000;
     '';
-    gtk4.extraConfig = {
-      Settings = ''
-          gtk-application-prefer-dark-theme=1
-        '';
-    };
     gtk4.extraCss = ''
         @define-color accent_color #ace1ff;
         @define-color accent_bg_color #ace1ff;
