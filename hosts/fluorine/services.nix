@@ -10,7 +10,8 @@
       };
       photoprism = {
         enable = true;
-        originalsPath = "/home/matei/nas/media";
+        importsPath = "/home/matei/nas/media";
+        originalsPath = "/home/matei/nas/pp";
         settings = {
             PHOTOPRISM_ADMIN_PASSWORD = "1234";
         };
