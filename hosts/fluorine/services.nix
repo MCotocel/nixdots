@@ -1,10 +1,19 @@
 { config, pkgs, ... }:
 
 {
-  services.openssh.enable = true;
-  services.tailscale.enable = true;
-  services.duplicati = {
-    enable = true;
-    interface = "any";
+  services = {
+      openssh.enable = true;
+      tailscale.enable = true;
+      duplicati = {
+        enable = true;
+        interface = "any";
+      };
+      photoprism = {
+        enable = true;
+        settings = {
+            PHOTOPRISM_ORIGINALS_PATH = "/home/matei/nas/media/";
+            PHOTOPRISM_ADMIN_PASSWORD = "1234";
+        };
+      };
   };
 }

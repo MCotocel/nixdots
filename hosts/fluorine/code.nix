@@ -3,16 +3,11 @@
 {
   programs.git = {
     enable = true;
-    package = pkgs.gitFull;
     config = {
       user = {
         name = "Matei Cotocel";
         email = "mcotocel@outlook.com";
       };
-      credential.helper = "${
-          pkgs.git.override { withLibsecret = true; }
-        }/bin/git-credential-libsecret";
-    };
   };
 
   environment = {
