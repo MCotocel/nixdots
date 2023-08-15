@@ -11,7 +11,8 @@
       photoprism = {
         enable = true;
         importPath = "/home/matei/nas/media";
-        originalsPath = "/home/matei/nas/pp";
+        originalsPath = "/var/lib/private/photoprism/originals";
+        address = "0.0.0.0";
         settings = {
             PHOTOPRISM_ADMIN_PASSWORD = "1234";
         };
