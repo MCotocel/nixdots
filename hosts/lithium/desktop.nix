@@ -60,6 +60,9 @@
     google-chrome
     gthumb # Image manager
     gtklock # GTK lock screen for wayland
+    gtklock-playerctl-module
+    gtklock-powerbar-module
+    gtklock-userinfo-module
     gtk3
     hicolor-icon-theme
     hexchat # IRC client

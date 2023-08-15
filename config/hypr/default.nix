@@ -45,8 +45,7 @@
 
       decoration {
           rounding = 5;
-          multisample_edges = true;
-          blur = false
+          multisample_edges = true
           drop_shadow = true
           shadow_ignore_window = true
           shadow_offset "0 8"
