@@ -8,6 +8,7 @@
         name = "Matei Cotocel";
         email = "mcotocel@outlook.com";
       };
+    };
   };
 
   environment = {
