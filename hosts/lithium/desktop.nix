@@ -100,6 +100,7 @@
     unrar # Extract rar fils
     usbutils # For my USB sticks
     virt-manager # For managing my virtual machines
+    vorta # Backup GUI for BorgBackup
     wayland # The cooler X
     wl-clipboard
     wmctrl # Moving windows around in scripts
