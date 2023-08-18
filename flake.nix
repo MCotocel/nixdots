@@ -60,24 +60,6 @@
             ];
           };
 
-        sodium =
-          nixpkgs.lib.nixosSystem { # This is my system for gaming, a Lenovo Legion 5. I used to use this before the X1 Carbon as my main system, and I'm not quite sure if I should sell it or keep it
-            system = "x86_64-linux";
-            modules = [
-              home-manager.nixosModules.home-manager
-              { home-manager.users.matei = import ./hosts/sodium/home.nix; }
-              kmonad.nixosModules.default
-              {
-                nixpkgs.overlays = [
-                  (import self.inputs.emacs)
-                  (import ./overlays/emacs-unstable.nix)
-                  (import ./overlays/ncmpcpp.nix)
-                ];
-              }
-              ./hosts/sodium/configuration.nix
-            ];
-          };
-
         fluorine =
           nixpkgs.lib.nixosSystem { # This is a very low-power server, a Raspberry Pi 4. It's mostly for messing around with at the moment
             system = "aarch64-linux";

@@ -6,12 +6,6 @@
 - Runs NixOS
 - Main machine
 
-## Sodium
-
-- Lenovo Legion 5
-- Runs NixOS
-- Used mostly for gaming and dabbling with LLMs
-
 # Servers
 
 ## Fluorine
