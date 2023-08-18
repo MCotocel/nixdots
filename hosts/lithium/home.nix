@@ -9,10 +9,12 @@
   home.stateVersion = "21.11"; # Version
 
   imports = [
+    (import ../../config/bin { inherit config; })
     (import ../../config/cava { inherit config; })
     (import ../../config/dunst { inherit config; })
     (import ../../config/emacs { inherit config; inherit pkgs; })
     (import ../../config/gtk { inherit config; inherit pkgs; })
+    (import ../../config/gtklock { inherit config; })
     (import ../../config/gzdoom { inherit config; })
     (import ../../config/hypr { inherit config; })
     (import ../../config/ncmpcpp { inherit config; })
@@ -24,7 +26,7 @@
 
   home.file = { # Files and stuff
     "Pictures/Wallpaper".source = ../../config/wallpaper;
-    ".bin".source = ../../config/bin;
+    #".bin".source = ../../config/bin;
     ".local/share/applications".source = ../../config/applications;
     
     ".zshrc".source = ../../config/zshrc;
@@ -33,8 +35,5 @@
     ".config/kmonad/internal.kbd".source = ../../config/kmonad/internal.kbd;
 
     ".config/eww".source = ../../config/eww;
-
-    # GTK
-    ".config/gtklock.css".source = ../../config/gtklock.css;
   };
 }

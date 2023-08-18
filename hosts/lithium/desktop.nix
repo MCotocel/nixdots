@@ -71,6 +71,7 @@
     libreoffice # Office suite for Linux
     lxtask # Lightweight task manager
     maim # Select stuff
+    microsoft-edge # Edge browser for video streaming
     networkmanagerapplet # When I want to quickly connect to a Wi-Fi network
     nicotine-plus # Soulseek client
     nyxt # Browser

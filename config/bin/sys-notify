@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-function main() {
-  notify-send -a 'System Notification' "${1}" -u "${2}"
-}
-
-main "${@}"
