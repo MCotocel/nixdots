@@ -12,6 +12,7 @@
     (import ../../config/bin { inherit config; })
     (import ../../config/cava { inherit config; })
     (import ../../config/dunst { inherit config; })
+    (import ../../config/eww { inherit config; })
     (import ../../config/emacs { inherit config; inherit pkgs; })
     (import ../../config/gtk { inherit config; inherit pkgs; })
     (import ../../config/gtklock { inherit config; })
@@ -27,12 +28,8 @@
 
   home.file = { # Files and stuff
     "Pictures/Wallpaper".source = ../../config/wallpaper;
-    #".bin".source = ../../config/bin;
     ".local/share/applications".source = ../../config/applications;
-    
     ".config/kmonad/external.kbd".source = ../../config/kmonad/external.kbd;
     ".config/kmonad/internal.kbd".source = ../../config/kmonad/internal.kbd;
-
-    ".config/eww".source = ../../config/eww;
   };
 }
