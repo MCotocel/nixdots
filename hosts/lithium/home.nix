@@ -22,6 +22,7 @@
     (import ../../config/rofi { inherit config; inherit pkgs; })
     (import ../../config/wezterm { inherit config; })
     (import ../../config/zathura { inherit config; })
+    (import ../../config/zsh { inherit config; })
   ];
 
   home.file = { # Files and stuff
@@ -29,8 +30,6 @@
     #".bin".source = ../../config/bin;
     ".local/share/applications".source = ../../config/applications;
     
-    ".zshrc".source = ../../config/zshrc;
-
     ".config/kmonad/external.kbd".source = ../../config/kmonad/external.kbd;
     ".config/kmonad/internal.kbd".source = ../../config/kmonad/internal.kbd;
 

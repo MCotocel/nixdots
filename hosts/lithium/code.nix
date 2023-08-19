@@ -88,7 +88,6 @@
       xorg.xev # Good for scripts
       yt-dlp # For downloading videos
       zeal # Documentation browser
-      zsh # The better shell
     ];
 
     shellAliases = { # Loads of aliases
@@ -129,7 +128,6 @@
 
   programs.zsh = { # ZSH is cool too
     enable = true;
-    ohMyZsh.enable = true;
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
   };
