@@ -8,14 +8,14 @@
     bindkey '^[[B' down-line-or-search  # Search down through history
 
     zstyle ':completion:*' menu yes select                      # Tab menu
-    #zstyle ':completion:*' matcher-list 'm:\{a-zA-Z}=\{A-Za-z}'   # Case insensitive matching
+    zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'   # Case insensitive matching
 
     autoload -Uz compinit && compinit # Initialize completion
     zmodload -i zsh/complist          # Initialize completion
 
     export LS_COLORS='di=36:ln=31:so=30:pi=30:ex=1;32:bd=32:cd=32:su=32:sg=32:tw=36:ow=36' # ls command colors for Linux
 
-    #zstyle ':completion:*' list-colors $\{(s.:.)LS_COLORS} # ls colors for completion
+    zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS} # ls colors for completion
 
     ########### Options ##########
 

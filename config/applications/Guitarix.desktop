@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Terminal=false
+Icon=guitarix
+Exec=env WAYLAND_DISPLAY= guitarix
+Name=Guitarix
