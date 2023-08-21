@@ -13,8 +13,8 @@
       inherit (config.lib.formats.rasi) mkLiteral;
     in {
       "*" = {
-        ac = mkLiteral "#1f252a";
-        bg = mkLiteral "#181e23";
+        ac = mkLiteral "#0f1719";
+        bg = mkLiteral "#0c1213";
         fg = mkLiteral "#d5d5d5";
         background-color = mkLiteral "@bg";
       };

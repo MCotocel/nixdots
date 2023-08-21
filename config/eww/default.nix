@@ -3,10 +3,10 @@
 {
   home.file.".config/eww/eww.scss".text = ''
       // Colours
-      $background: #181e23;
+      $background: #0c1213;
       $foreground: #d5d5d5;
       
-      $black: #1f252a;
+      $black: #0f1719;
       $gray: #565F89;
       $red: #FF8080;
       $green: #97D59B;
@@ -23,7 +23,7 @@
       
       .eww_bar {
           background-color: $background;
-          padding: 0.7em;
+          padding: 1em;
       }
       
       .power_icon {

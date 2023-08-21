@@ -475,14 +475,14 @@
       body {
         padding: 50px;
         color: #d5d5d5;
-        background-color: #181e23;
+        background-color: #0c1213;
         font-family: monospace;
         font-size: 16px;
       }
       
       pre, blockquote, src {
-        background: #1f252a;
-        border: 3px solid #1f252a;
+        background: #0f1719;
+        border: 3px solid #0f1719;
         border-left: 3px solid #384149;
         font-family: monospace;
         padding-top: 15px;
@@ -547,23 +547,23 @@
       (def-doom-theme doom-quiet-dark
         "A dark theme partially inspired by Atom One Dark"
       
-        ((bg         '("#181e23"))
+        ((bg         '("#0c1213"))
          (fg         '("#D5D5D5"))
       
          ;; These are off-color variants of bg/fg, used primarily for `solaire-mode',
          ;; but can also be useful as a basis for subtle highlights (e.g. for hl-line
          ;; or region), especially when paired with the `doom-darken', `doom-lighten',
          ;; and `doom-blend' helper functions.
-         (bg-alt     '("#1f252a"))
+         (bg-alt     '("#0f1719"))
          (fg-alt     '("#cacaca"))
       
          ;; These should represent a spectrum from bg to fg, where base0 is a starker
          ;; bg and base8 is a starker fg. For example, if bg is light grey and fg is
          ;; dark grey, base0 should be white and base8 should be black.
-         (base0      '("#181e23"))
-         (base1      '("#181e23"))
-         (base2      '("#181e23"))
-         (base3      '("#181e23"))
+         (base0      '("#0c1213"))
+         (base1      '("#0c1213"))
+         (base2      '("#0c1213"))
+         (base3      '("#0c1213"))
          (base4      '("#384149"))
          (base5      '("#384149"))
          (base6      '("#384149"))
