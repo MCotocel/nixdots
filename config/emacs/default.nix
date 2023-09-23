@@ -1,9 +1,12 @@
 { config, pkgs, ... }: {
   programs.emacs = {
     enable = true;
+    package = pkgs.emacs29;
     extraPackages = epkgs: with epkgs; [
       all-the-icons
       all-the-icons-dired
+      calfw
+      calfw-org
       consult
       consult-projectile
       corfu
@@ -16,6 +19,7 @@
       evil-collection
       evil-leader
       format-all
+      gnuplot
       highlight-indent-guides
       htmlize
       json-mode
@@ -29,9 +33,12 @@
       minimap
       neotree
       nix-mode
+      ob-mermaid
       orderless
       org-roam
       org-roam-ui
+      org-super-agenda
+      org-ql
       perspective
       projectile
       rainbow-delimiters
@@ -55,7 +62,7 @@
 	    (require 'ox-publish)
 	    
 	    (setq org-export-backends '(latex md html))
-	    
+      
 	    (setq org-publish-use-timestamps-flag nil
 	          org-export-with-timestamps nil
 	          org-export-with-toc nil
@@ -64,14 +71,23 @@
 	          org-export-with-section-numbers nil
 	          org-html-validation-link nil
 	          org-src-fontify-natively t)
+
+      (org-babel-do-load-languages
+          'org-babel-load-languages
+          '((mermaid . t)
+            (latex . t)
+            (python . t)
+            (gnuplot . t)))
 	    
 	    (add-to-list 'org-latex-packages-alist '("" "minted"))
 	    (setq org-latex-src-block-backend 'minted)
-	    
+
 	    (setq org-latex-pdf-process
 	          '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
 	            "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
 	            "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+
+      (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
 	    
 	    (setq org-html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"./style.css\"/>"
 	      org-html-doctype "html5")
@@ -85,6 +101,81 @@
 
   	  (setq org-roam-directory (file-truename "~/Desktop/Folder/Vault/"))
   	  (org-roam-db-autosync-mode)
+      (setq org-agenda-files '("~/Desktop/Folder/Vault/20230831103307-agenda.org"))
+      (require 'calfw)
+      (require 'calfw-org)
+      (setq cfw:display-calendar-holidays nil)
+      (setq calendar-week-start-day 1)
+      (cfw:org-create-source "#97D59B")
+      (setq cfw:fchar-junction ?╋
+            cfw:fchar-vertical-line ?┃
+            cfw:fchar-horizontal-line ?━
+            cfw:fchar-left-junction ?┣
+            cfw:fchar-right-junction ?┫
+            cfw:fchar-top-junction ?┯
+            cfw:fchar-top-left-corner ?┏
+            cfw:fchar-top-right-corner ?┓)
+
+      (setq org-todo-keywords
+            '((sequence "TODO" "RECURRING" "DONE")))
+      (setq org-todo-keyword-faces
+            '(("TODO" . (:foreground "#ff8080" :weight bold))
+              ("RECURRING" . (:foreground "#fffe80" :weight bold))
+              ("DONE" . (:foreground "#97d5nb" :weight bold))))
+
+      (setq org-priority-highest ?A)
+      (setq org-priority-lowest ?E)
+      (setq org-priority-faces '((?A . (:foreground "#ff8080" :weight bold))
+                                 (?B . (:foreground "fffe80" :weight bold))
+                                 (?C . (:foreground "#97d59b" :weight bold))
+                                 (?D . (:foreground "#ace1ff" :weight bold))
+                                 (?E . (:foreground "#c780ff" :weight bold))))
+
+      (org-super-agenda-mode)
+      (setq org-super-agenda-groups
+             '((:name "Critical"
+                      :priority "A")
+               (:name "Important"
+                      :priority "B")
+               (:name "Standard"
+                      :priority "C")
+               (:name "Low"
+                      :priority "D")
+               (:name "Trivial"
+                      :priority "E")
+               (:name "School"
+                      :tag ("cs" "epq" "maths" "physics" "sc-misc"))
+               (:name "RPGs"
+                      :tag "rpg")))
+
+      (require 'ox-publish)
+      (setq org-publish-project-alist
+            '(
+               ("vault:files"
+                :base-directory "~/Desktop/Folder/Vault/"
+                :base-extension "org"
+                :publishing-directory "~/public_html/"
+                :recursive t
+                :publishing-function org-html-publish-to-html
+                :headline-levels 4
+                :auto-preamble t
+                )
+               ("vault:assets"
+                :base-directory "~/Desktop/Folder/Vault/"
+                :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
+                :publishing-directory "~/public_html/"
+                :recursive t
+                :publishing-function org-publish-attachment
+                )
+               ("vault:images"
+                :base-directory "~/Desktop/Folder/Vault/img"
+                :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
+                :publishing-directory "~/public_html/img"
+                :recursive t
+                :publishing-function org-publish-attachment
+                )))
+
+      (setq org-id-extra-files (org-roam-list-files))
 
       	(setq org-roam-ui-sync-theme t
       	      org-roam-ui-follow t
@@ -166,6 +257,9 @@
   	  (setq evil-want-keybinding nil)
   	  (evil-mode 1)
 	    (evil-collection-init)
+
+      (evil-set-initial-state 'org-agenda-mode 'normal)
+      ;;(evil-define-key 'insert org-mode-map (kbd "TAB") 'org-table-align)
 	    
   	  (global-evil-leader-mode)
   	  (evil-leader/set-leader "<SPC>")
@@ -209,6 +303,11 @@
   	    "org" 'org-roam-ui-open
   	    "ori" 'org-roam-node-insert
   	    "ort" 'org-roam-tag-add
+        "ob" 'org-babel-execute-src-block
+        "oi" 'org-toggle-inline-images
+        "ol" 'org-latex-preview
+        "oaa" 'org-agenda
+        "oac" 'consult-org-agenda
   	    ;; Workspaces
   	    "ws" 'persp-switch
   	    "wd" 'persp-kill
@@ -292,7 +391,7 @@
 	          completion-category-overrides '((file (styles partial-completion))))
 	    
 	    (marginalia-mode)
-	    
+
 	    (dashboard-setup-startup-hook)
 	    
 	    (setq dashboard-center-content t
@@ -301,10 +400,11 @@
 	      dashboard-set-heading-icons t
 	      dashboard-set-file-icons t
 	      dashboard-set-navigator t
-	      dashboard-items 'nil
 	      dashboard-init-info (format "Startup took around %ss" (round (string-to-number (emacs-init-time))))
 	      dashboard-set-footer 'nil)
-	    
+      (setq dashboard-items '((agenda . 5)))
+
+
 	    (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
 	    (add-hook 'neo-after-create-hook (lambda (&optional dummy) (setq mode-line-format nil)))
 	    (add-hook 'dashboard-after-initialize-hook (lambda (&optional dummy) (setq mode-line-format nil)))
@@ -439,6 +539,13 @@
         (add-hook 'prog-mode-hook 'prog/prettify-set)
       (global-prettify-symbols-mode)
 
+     (setq org-agenda-category-icon-alist
+           `(("maths" ,(list (nerd-icons-mdicon "nf-md-square_root")) nil nil :ascent center)
+           ("physics" ,(list (nerd-icons-mdicon "nf-md-atom")) nil nil :ascent center)
+           ("cs" ,(list (nerd-icons-mdicon "nf-md-code_tags")) nil nil :ascent center)
+           ("sc-misc" ,(list (nerd-icons-mdicon "nf-md-brain")) nil nil :ascent center)
+           ("rpg" ,(list (nerd-icons-mdicon "nf-md-dice_d20")) nil nil :ascent center)))
+
       (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 
       (defun edit-file-root ()
@@ -464,6 +571,25 @@
              (find-file-noselect file)
            (org-html-export-to-html)))
              (file-expand-wildcards  "*.org"))))
+
+      (defun my-yank-calendar-date ()
+        "Yank selected date from calendar."
+        (interactive)
+        (let* ((date (calendar-cursor-to-date))
+               (day (car date))
+               (month (cadr date))
+               (year (caddr date))
+               (day-name (calendar-day-name date))
+               (formatted-date (format "<%04d-%02d-%02d %s>" year month day day-name))
+               (formatted-text (format "SCHEDULED: %s" formatted-date)))
+          (kill-new formatted-text)
+          (message "Text yanked: %s" formatted-text)))
+      
+      (define-key evil-normal-state-map (kbd "SPC c") 'calendar)
+      (add-hook 'calendar-mode-hook
+                (lambda ()
+                  (define-key calendar-mode-map (kbd "<return>") 'my-yank-calendar-date)))
+
       
       (provide 'init)
       ;; Local Variables:
@@ -508,7 +634,11 @@
       table, th, td {
         border: 1px solid;
         padding: 10px;
-    }
+      }
+
+      img {
+        max-width: 400px;
+      }
   '';
   home.file.".config/emacs/doom-quiet-dark-theme.el".text = ''
       ;;; doom-quiet-dark-theme.el -*- lexical-binding: t; no-byte-compile: t; -*-

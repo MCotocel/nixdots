@@ -46,6 +46,13 @@
 
     ########## ZLE ##########
 
+    autoload -U edit-command-line && zle -N edit-command-line # Load edit current command
+    
+    bindkey '^A' beginning-of-line  # Bind beginning of line
+    bindkey '^E' end-of-line        # Bind end of line
+    bindkey '^L' clear-screen       # Bind clear screen
+    bindkey '^U' backward-kill-line # Bind delete line
+
     export LESS_TERMCAP_mb=$'\e[1;32m'
     export LESS_TERMCAP_md=$'\e[1;32m'
     export LESS_TERMCAP_me=$'\e[0m'

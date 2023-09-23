@@ -11,11 +11,16 @@
     jack.enable = true;
   };
 
+  musnix.enable = true;
+
   environment.systemPackages = with pkgs; [
     alsa-utils # Utlities for alsa
+    ardour # DAW
     audacity # Ecsiditing audio
     easyeffects # Audio effects
     guitarix # Digital guitar amp stuff
+    gxplugins-lv2
+    ladspaPlugins
     lmms # Making music
     mediainfo # Are my FLACs FLACs
     mpc_cli # MPD cli client
@@ -24,7 +29,7 @@
     mpd-mpris # Control mpd with audio keys
     mpdevil # MPD GUI client
     mpv # Video player
-    ncmpcpp # Mopidy front end
+    #ncmpcpp # Mopidy front end
     pamixer # CLI mixer
     pavucontrol # GUI mixer
     picard # Music tagger
@@ -34,7 +39,7 @@
     python310Packages.deemix # I like offline MP3s
     scdl # For when I need to download from soundcloud
     spotify # I love music
-    vcv-rack # I'm not rich enough for modular synths
+    #vcv-rack # I'm not rich enough for modular synths
     vlc # GUI video player
     zyn-fusion # Synthesizer
   ];

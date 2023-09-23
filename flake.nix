@@ -35,10 +35,17 @@
         "github:nix-community/emacs-overlay/master"; # The bleeding edge of Emacs
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-alien = {
+      url = "github:thiagokokada/nix-alien";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    musnix = {
+      url = "github:musnix/musnix";
+    };
   };
 
-  outputs =
-    { self, nixpkgs, home-manager, kmonad, f2k, nixos-generators, emacs }: {
+  outputs = { self, nixpkgs, home-manager, kmonad, f2k, nixos-generators, emacs
+    , nix-alien, musnix }: {
 
       nixosConfigurations = {
 
@@ -49,9 +56,11 @@
               home-manager.nixosModules.home-manager
               { home-manager.users.matei = import ./hosts/lithium/home.nix; }
               kmonad.nixosModules.default # For remapping keyboard keys
+              musnix.nixosModules.musnix
               ./hosts/lithium/configuration.nix
               {
                 nixpkgs.overlays = [
+                  self.inputs.nix-alien.overlays.default
                   (import self.inputs.emacs)
                   (import ./overlays/emacs-unstable.nix)
                   (import ./overlays/ncmpcpp.nix)

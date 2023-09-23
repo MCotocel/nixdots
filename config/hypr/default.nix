@@ -62,7 +62,7 @@
           animation = windows, 1, 2, easeOutCubic, slide
           animation = windowsOut, 1, 2, easeOutCubic, slide
           animation = fade, 1, 2, easeOutCubic
-          animation = workspaces, 1, 1, easeOutCubic, slide
+          animation = workspaces, 0, 1, easeOutCubic, slide
       }
 
       dwindle {
@@ -89,7 +89,7 @@
       bind = $mainMod CONTROL, space, togglefloating, 
       bind = $mainMod SHIFT, F, fullscreen, 
 
-      bind = $mainMod, space, exec, rofi -show drun -display-drun 'App Launcher' -disable-history
+      bind = $mainMod, space, exec, rofi -show drun -display-drun 'App Launcher'
       bind = $mainMod SHIFT, E, exec, emacsclient -c
       bind = $mainMod SHIFT, S, exec, ~/.bin/rofi-screenshot
       bind = $mainMod, escape, exec, ~/.bin/rofi-power
@@ -101,8 +101,8 @@
       bind = , XF86AudioNext, exec, playerctl next
       bind = , XF86AudioPrev, exec, playerctl previous
       bind = , XF86AudioPlay, exec, playerctl play-pause
-      bind = , XF86MonBrightnessUp, exec, brightnessctl s 2%+
-      bind = , XF86MonBrightnessDown, exec, brightnessctl s 2%-
+      bind = , XF86MonBrightnessUp, exec, brightnessctl s 5%+
+      bind = , XF86MonBrightnessDown, exec, brightnessctl s 5%-
 
       bind = $mainMod, h, movefocus, l
       bind = $mainMod, l, movefocus, r

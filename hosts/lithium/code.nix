@@ -4,16 +4,16 @@
 
   programs.git = {
     enable = true;
-    package = pkgs.gitFull;
-    config = {
-      user = {
-        name = "Matei Cotocel";
-        email = "mcotocel@outlook.com";
-      };
-      credential.helper = "${
-          pkgs.git.override { withLibsecret = true; }
-        }/bin/git-credential-libsecret";
-    };
+    #package = pkgs.gitFull;
+    #config = {
+    #  user = {
+    #    name = "Matei Cotocel";
+    #    email = "mcotocel@outlook.com";
+    #  };
+    #  credential.helper = "${
+    #      pkgs.git.override { withLibsecret = true; }
+    #    }/bin/git-credential-libsecret";
+    #};
   };
 
   environment = {
@@ -31,16 +31,17 @@
       direnv # Need to implement this into my workflow sometime
       distrobox # Run another distro under NixOS
       emacs-all-the-icons-fonts # Fonts for Emacs
-      exa # ls but better
+      eza # ls but better
       fd # Find but better
       feh # Image viewer for the terminal
       ffmpeg # I deal with a lot of videos
       file # No more asking yourself what file it is, now you can just open a terminal, navigate to the directory, and run a command instead of looking at the file extension
       fzf # Fuzzy finder, pretty useful
       gcc # Necessary
-      godot # Game engine
+      godot_4 # Game engine
       gource # Nice for visualising repo history
       gnumake # Make.
+      gnuplot # Plotting graphs
       htop # Why is my laptop so hot? Oh yeah I'm compiling 20 programs while running two games
       ifuse # For connecting my phone
       imagemagick # Really useful for scripts
@@ -56,11 +57,13 @@
       mu # For mail
       ncdu # What the hell is taking up so much disk space? Oh.
       neofetch # Everyone loves neofetch
+      nix-alien # Run unpatched binaries
       nix-index # Locate nix packages
       nix-tree # Check dependencies
       nixfmt # Format Nix files
       nixos-generators # Generate NixOS outputs from configurations
       nmap # For network debugging
+      nodePackages.mermaid-cli # For diagrams
       nodejs # Some programs need it
       nvd # Package version diff tool for Nix
       onefetch # Neofetch but for git repos

@@ -190,7 +190,7 @@
       
       ;; Bar windows ;;
       (defwindow bar-internal
-      	:geometry (geometry :x "0":y "0" :anchor "center left" :height "100%" :width "50px")
+      	:geometry (geometry :x "0":y "0" :anchor "center left" :height "100%" :width "30px")
       	:monitor 0
           :exclusive true
           :stacking "fg"
@@ -255,7 +255,7 @@
   home.file.".config/eww/scripts/get-active-workspace".executable = true;
   home.file.".config/eww/scripts/get-workspaces".text = ''
       spaces (){
-      	WORKSPACE_WINDOWS=$(hyprctl workspaces -j | sed '1d' | jq 'map({key: .id | tostring, value: .windows}) | from_entries')
+      	WORKSPACE_WINDOWS=$(hyprctl workspaces -j | jq 'map({key: .id | tostring, value: .windows}) | from_entries')
       	seq 1 10 | jq --argjson windows "''${WORKSPACE_WINDOWS}" --slurp -Mc 'map(tostring) | map({id: ., windows: ($windows[.]//0)})'
       }
       

@@ -12,7 +12,7 @@
       22
       88
       1701
-      2342
+      2234
     ];
     firewall.allowedTCPPortRanges = [
       {

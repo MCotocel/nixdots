@@ -1,5 +1,10 @@
 { config, lib, pkgs, system, ... }:
 
+let
+  tex = (pkgs.texlive.combine {
+    inherit (pkgs.texlive) scheme-full tikz-feynman;
+  });
+in
 {
 
   # We're using caps lock for something else
@@ -34,7 +39,7 @@
 
   environment.systemPackages = with pkgs; [
     appimage-run # To run appimages when I need to
-    aseprite # Pixel art is cool
+    #aseprite # Pixel art is cool
     baobab # For checking what's taking up so much disk space
     bitwarden # Passwords and stuff
     bottles # Wine prefix manager
@@ -48,7 +53,7 @@
     firefox # Main web browser
     firejail # When you want some extra security
     ffmpegthumbnailer # Video thumbnails
-    fractal-next # Matrix client
+    #fractal-next # Matrix client
     gimp # Photo editor
     gnome.file-roller # Unarchiver
     gnome.gnome-calendar # A calendar because I am a very busy person with no time at all
@@ -96,8 +101,9 @@
     stockfish # Chess engine
     sway-contrib.grimshot # Screenshots
     swaybg # Set the background
+    teams # MicroSoft Teams
     tesseract # Images to text. Very cool
-    texlive.combined.scheme-full # LaTeX package
+    tex # LaTeX package
     unrar # Extract rar fils
     usbutils # For my USB sticks
     virt-manager # For managing my virtual machines
@@ -122,7 +128,12 @@
   # X11
   services.xserver = {
     displayManager.gdm.enable = true;
+    desktopManager.gnome = {
+      enable = false;
+    };
   };
+  services.power-profiles-daemon.enable = lib.mkForce false;
+  hardware.pulseaudio.enable = lib.mkForce false;
 
   fonts = {
     fontDir.enable = true;
@@ -143,25 +154,4 @@
 
   qt.platformTheme = "gtk2";
   qt.style = "gtk2";
-
-  environment.gnome.excludePackages = [ # Exclude all the stuff I don't need
-    pkgs.gnome.file-roller
-    pkgs.gnome.gedit
-    pkgs.gnome.gnome-calendar
-    pkgs.gnome.gnome-characters
-    pkgs.gnome.gnome-chess
-    pkgs.gnome.gnome-clocks
-    pkgs.gnome.gnome-color-manager
-    pkgs.gnome.gnome-contacts
-    pkgs.gnome.gnome-dictionary
-    pkgs.gnome.gnome-font-viewer
-    pkgs.gnome.gnome-logs
-    pkgs.gnome.gnome-maps
-    pkgs.gnome.gnome-music
-    pkgs.gnome.gnome-screenshot
-    pkgs.gnome.gnome-terminal
-    pkgs.gnome.gnome-weather
-    pkgs.gnome.simple-scan
-    pkgs.gnome.totem
-  ];
 }
