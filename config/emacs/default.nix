@@ -102,6 +102,7 @@
   	  (setq org-roam-directory (file-truename "~/Desktop/Folder/Vault/"))
   	  (org-roam-db-autosync-mode)
       (setq org-agenda-files '("~/Desktop/Folder/Vault/20230831103307-agenda.org"))
+      (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:30}" 'face 'org-tag)))
       (require 'calfw)
       (require 'calfw-org)
       (setq cfw:display-calendar-holidays nil)
@@ -126,7 +127,7 @@
       (setq org-priority-highest ?A)
       (setq org-priority-lowest ?E)
       (setq org-priority-faces '((?A . (:foreground "#ff8080" :weight bold))
-                                 (?B . (:foreground "fffe80" :weight bold))
+                                 (?B . (:foreground "#fffe80" :weight bold))
                                  (?C . (:foreground "#97d59b" :weight bold))
                                  (?D . (:foreground "#ace1ff" :weight bold))
                                  (?E . (:foreground "#c780ff" :weight bold))))
@@ -684,8 +685,8 @@
          ;; but can also be useful as a basis for subtle highlights (e.g. for hl-line
          ;; or region), especially when paired with the `doom-darken', `doom-lighten',
          ;; and `doom-blend' helper functions.
-         (bg-alt     '("#0f1719"))
-         (fg-alt     '("#cacaca"))
+         (bg-alt     '("#1f252a"))
+         (fg-alt     '("#D5D5D5"))
       
          ;; These should represent a spectrum from bg to fg, where base0 is a starker
          ;; bg and base8 is a starker fg. For example, if bg is light grey and fg is
@@ -694,11 +695,11 @@
          (base1      '("#0c1213"))
          (base2      '("#0c1213"))
          (base3      '("#0c1213"))
-         (base4      '("#384149"))
-         (base5      '("#384149"))
-         (base6      '("#384149"))
-         (base7      '("#384149"))
-         (base8      '("#384149"))
+         (base4      '("#1f252a"))
+         (base5      '("#1f252a"))
+         (base6      '("#1f252a"))
+         (base7      '("#1f252a"))
+         (base8      '("#1f252a"))
       
          (grey       base5)
          (red        '("#FF8080"))
@@ -718,7 +719,7 @@
          ;; error, as they are used in the base theme defined in doom-themes-base.
          (highlight      blue)
          (vertical-bar   (doom-darken base1 0.1))
-         (selection      base4)
+         (selection      base0)
          (builtin        magenta)
          (comments       (if doom-quiet-dark-brighter-comments dark-cyan base5))
          (doc-comments   (doom-lighten (if doom-quiet-dark-brighter-comments dark-cyan base5) 0.25))

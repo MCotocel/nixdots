@@ -13,7 +13,7 @@
       exec-once = solaar -w hide -b solaar
       exec-once = emacs --daemon
       exec-once = hyprctl setcursor "Breeze_Snow" 24
-      exec-once = swaybg -i ~/Pictures/Wallpaper/Rainy\ Street.jpg
+      exec-once = swaybg -i ~/Pictures/Wallpaper/Blob.jpg
       exec = pkill eww
       exec = eww --daemon
       exec = eww -c ~/.config/eww open bar-internal
@@ -35,7 +35,7 @@
 
       general {
           gaps_in = 5
-          gaps_out = 20
+          gaps_out = 10
           border_size = 0
           col.active_border = rgba(ace1ffff)
           col.inactive_border = rgba(0c1213ff)
@@ -44,13 +44,13 @@
       }
 
       decoration {
-          rounding = 5;
+          rounding = 10;
           multisample_edges = true
           drop_shadow = true
           shadow_ignore_window = true
           shadow_offset "0 8"
           shadow_range = 20
-          shadow_render_power = 3
+          shadow_render_power = 5
           col.shadow = rgba(000000cc)
       }
 

@@ -15,21 +15,19 @@
 
   environment.systemPackages = with pkgs; [
     alsa-utils # Utlities for alsa
-    ardour # DAW
-    audacity # Ecsiditing audio
+    ardour # DAW for music recording
+    audacity # Editing audio
     easyeffects # Audio effects
     guitarix # Digital guitar amp stuff
-    gxplugins-lv2
-    ladspaPlugins
-    lmms # Making music
-    mediainfo # Are my FLACs FLACs
+    gxplugins-lv2 # Plugins for guitarix
+    ladspaPlugins # We need more plugins
     mpc_cli # MPD cli client
     mpd # MPD
     mpd-discord-rpc # Discord rich presence
     mpd-mpris # Control mpd with audio keys
     mpdevil # MPD GUI client
     mpv # Video player
-    #ncmpcpp # Mopidy front end
+    ncmpcpp # Mopidy front end
     pamixer # CLI mixer
     pavucontrol # GUI mixer
     picard # Music tagger
@@ -41,6 +39,6 @@
     spotify # I love music
     vcv-rack # I'm not rich enough for modular synths
     vlc # GUI video player
-    zyn-fusion # Synthesizer
+    zyn-fusion # Synthesizer thingy
   ];
 }

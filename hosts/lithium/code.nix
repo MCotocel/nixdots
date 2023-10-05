@@ -94,11 +94,11 @@
     ];
 
     shellAliases = { # Loads of aliases
-      ls = "exa";
-      la = "exa -a";
-      ll = "exa -la";
-      lt = "exa -lT";
-      lat = "exa -laT";
+      ls = "eza";
+      la = "eza -a";
+      ll = "eza -la";
+      lt = "eza -lT";
+      lat = "eza -laT";
 
       cat = "bat";
 
