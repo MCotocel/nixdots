@@ -102,7 +102,7 @@
   	  (setq org-roam-directory (file-truename "~/Desktop/Folder/Vault/"))
   	  (org-roam-db-autosync-mode)
       (setq org-agenda-files '("~/Desktop/Folder/Vault/20230831103307-agenda.org"))
-      (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:30}" 'face 'org-tag)))
+      ;;(setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:30}" 'face 'org-tag)))
       (require 'calfw)
       (require 'calfw-org)
       (setq cfw:display-calendar-holidays nil)
@@ -402,6 +402,8 @@
 	      dashboard-set-file-icons t
 	      dashboard-set-navigator t
 	      dashboard-init-info (format "Startup took around %ss" (round (string-to-number (emacs-init-time))))
+        dashboard-display-icons-p t
+        dashboard-icon-types 'nerd-icons
 	      dashboard-set-footer 'nil)
       (setq dashboard-items '((agenda . 5)))
 
@@ -695,11 +697,11 @@
          (base1      '("#0c1213"))
          (base2      '("#0c1213"))
          (base3      '("#0c1213"))
-         (base4      '("#1f252a"))
-         (base5      '("#1f252a"))
-         (base6      '("#1f252a"))
+         (base4      '("#384149"))
+         (base5      '("#384149"))
+         (base6      '("#181e23"))
          (base7      '("#1f252a"))
-         (base8      '("#1f252a"))
+         (base8      '("#989899"))
       
          (grey       base5)
          (red        '("#FF8080"))
@@ -721,8 +723,8 @@
          (vertical-bar   (doom-darken base1 0.1))
          (selection      base0)
          (builtin        magenta)
-         (comments       (if doom-quiet-dark-brighter-comments dark-cyan base5))
-         (doc-comments   (doom-lighten (if doom-quiet-dark-brighter-comments dark-cyan base5) 0.25))
+         (comments       base8)
+         (doc-comments   base8)
          (constants      violet)
          (functions      magenta)
          (keywords       blue)
@@ -730,13 +732,13 @@
          (operators      blue)
          (type           yellow)
          (strings        green)
-         (variables      (doom-lighten magenta 0.4))
+         (variables      magenta)
          (numbers        orange)
-         (region         `(,(doom-lighten (car bg-alt) 0.15) ,@(doom-lighten (cdr base1) 0.35)))
+         (region         base7)
          (error          red)
          (warning        yellow)
          (success        green)
-         (vc-modified    orange)
+         (vc-modified    yellow)
          (vc-added       green)
          (vc-deleted     red)
       
