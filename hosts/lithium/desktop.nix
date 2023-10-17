@@ -101,7 +101,6 @@ in
     stockfish # Chess engine
     sway-contrib.grimshot # Screenshots
     swaybg # Set the background
-    teams # MicroSoft Teams
     tesseract # Images to text. Very cool
     tex # LaTeX package
     unrar # Extract rar fils

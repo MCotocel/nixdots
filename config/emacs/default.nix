@@ -5,8 +5,6 @@
     extraPackages = epkgs: with epkgs; [
       all-the-icons
       all-the-icons-dired
-      calfw
-      calfw-org
       consult
       consult-projectile
       corfu
@@ -102,20 +100,6 @@
   	  (setq org-roam-directory (file-truename "~/Desktop/Folder/Vault/"))
   	  (org-roam-db-autosync-mode)
       (setq org-agenda-files '("~/Desktop/Folder/Vault/20230831103307-agenda.org"))
-      ;;(setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:30}" 'face 'org-tag)))
-      (require 'calfw)
-      (require 'calfw-org)
-      (setq cfw:display-calendar-holidays nil)
-      (setq calendar-week-start-day 1)
-      (cfw:org-create-source "#97D59B")
-      (setq cfw:fchar-junction ?╋
-            cfw:fchar-vertical-line ?┃
-            cfw:fchar-horizontal-line ?━
-            cfw:fchar-left-junction ?┣
-            cfw:fchar-right-junction ?┫
-            cfw:fchar-top-junction ?┯
-            cfw:fchar-top-left-corner ?┏
-            cfw:fchar-top-right-corner ?┓)
 
       (setq org-todo-keywords
             '((sequence "TODO" "RECURRING" "DONE")))
@@ -593,7 +577,6 @@
                 (lambda ()
                   (define-key calendar-mode-map (kbd "<return>") 'my-yank-calendar-date)))
 
-      
       (provide 'init)
       ;; Local Variables:
       ;; byte-compile-warnings: (not free-vars unresolved)
