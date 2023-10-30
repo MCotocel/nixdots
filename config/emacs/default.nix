@@ -117,13 +117,6 @@
                                  (?D . (:foreground "#ace1ff" :weight bold))
                                  (?E . (:foreground "#c780ff" :weight bold))))
 
-     (setq org-agenda-category-icon-alist
-           `(("maths" ,(list (nerd-icons-mdicon "nf-md-square_root")) nil nil :ascent center)
-           ("physics" ,(list (nerd-icons-mdicon "nf-md-atom")) nil nil :ascent center)
-           ("cs" ,(list (nerd-icons-mdicon "nf-md-code_tags")) nil nil :ascent center)
-           ("sc-misc" ,(list (nerd-icons-mdicon "nf-md-brain")) nil nil :ascent center)
-           ("rpg" ,(list (nerd-icons-mdicon "nf-md-dice_d20")) nil nil :ascent center)))
-
       (org-super-agenda-mode)
       (setq org-super-agenda-groups
              '((:name "Critical"
@@ -534,6 +527,14 @@
                 ("lambda" . "λ"))))
         (add-hook 'prog-mode-hook 'prog/prettify-set)
       (global-prettify-symbols-mode)
+
+     (setq org-agenda-category-icon-alist
+           `(("maths" ,(list (nerd-icons-mdicon "nf-md-square_root")) nil nil :ascent center)
+           ("physics" ,(list (nerd-icons-mdicon "nf-md-atom")) nil nil :ascent center)
+           ("cs" ,(list (nerd-icons-mdicon "nf-md-code_tags")) nil nil :ascent center)
+           ("sc-misc" ,(list (nerd-icons-mdicon "nf-md-brain")) nil nil :ascent center)
+           ("rpg" ,(list (nerd-icons-mdicon "nf-md-dice_d20")) nil nil :ascent center)))
+
 
       (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 
