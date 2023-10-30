@@ -30,6 +30,7 @@
       deadnix # Check for unused nix code
       direnv # Need to implement this into my workflow sometime
       distrobox # Run another distro under NixOS
+      dotnet-sdk_7 # C# for assignments
       emacs-all-the-icons-fonts # Fonts for Emacs
       eza # ls but better
       fd # Find but better
@@ -54,6 +55,7 @@
       lua # Big fan of AwesomeWM
       lynis # Security audits. Although passwordless doas probably undermines all of it
       manix # Nix help
+      mono # .NET
       mu # For mail
       ncdu # What the hell is taking up so much disk space? Oh.
       neofetch # Everyone loves neofetch
@@ -87,6 +89,7 @@
       ueberzug # Images in terminal (again for some reason)
       unzip # For unzipping archives
       vim # The original (not quite)
+      vscodium # VSCode but no Microsoft
       wget # For downloading web pages and stuff
       xorg.xev # Good for scripts
       yt-dlp # For downloading videos

@@ -32,11 +32,12 @@
       neotree
       nix-mode
       ob-mermaid
+      omnisharp
       orderless
+      org-ql
       org-roam
       org-roam-ui
       org-super-agenda
-      org-ql
       perspective
       projectile
       rainbow-delimiters
@@ -106,7 +107,7 @@
       (setq org-todo-keyword-faces
             '(("TODO" . (:foreground "#ff8080" :weight bold))
               ("RECURRING" . (:foreground "#fffe80" :weight bold))
-              ("DONE" . (:foreground "#97d5nb" :weight bold))))
+              ("DONE" . (:foreground "#97d59b" :weight bold))))
 
       (setq org-priority-highest ?A)
       (setq org-priority-lowest ?E)
@@ -115,6 +116,13 @@
                                  (?C . (:foreground "#97d59b" :weight bold))
                                  (?D . (:foreground "#ace1ff" :weight bold))
                                  (?E . (:foreground "#c780ff" :weight bold))))
+
+     (setq org-agenda-category-icon-alist
+           `(("maths" ,(list (nerd-icons-mdicon "nf-md-square_root")) nil nil :ascent center)
+           ("physics" ,(list (nerd-icons-mdicon "nf-md-atom")) nil nil :ascent center)
+           ("cs" ,(list (nerd-icons-mdicon "nf-md-code_tags")) nil nil :ascent center)
+           ("sc-misc" ,(list (nerd-icons-mdicon "nf-md-brain")) nil nil :ascent center)
+           ("rpg" ,(list (nerd-icons-mdicon "nf-md-dice_d20")) nil nil :ascent center)))
 
       (org-super-agenda-mode)
       (setq org-super-agenda-groups
@@ -129,7 +137,7 @@
                (:name "Trivial"
                       :priority "E")
                (:name "School"
-                      :tag ("cs" "epq" "maths" "physics" "sc-misc"))
+                      :tag ("cs" "epq" "maths" "physics" "sc"))
                (:name "RPGs"
                       :tag "rpg")))
 
@@ -441,6 +449,7 @@
       (add-hook 'json-mode-hook #'lsp)
       (add-hook 'latex-mode-hook #'lsp)
       (add-hook 'nix-mode-hook #'lsp)
+      (add-hook 'csharp-mode-hook 'omnisharp-mode)
 
       (setq lsp-enable-symbol-highlighting nil
           lsp-ui-doc-enable t
@@ -526,13 +535,6 @@
         (add-hook 'prog-mode-hook 'prog/prettify-set)
       (global-prettify-symbols-mode)
 
-     (setq org-agenda-category-icon-alist
-           `(("maths" ,(list (nerd-icons-mdicon "nf-md-square_root")) nil nil :ascent center)
-           ("physics" ,(list (nerd-icons-mdicon "nf-md-atom")) nil nil :ascent center)
-           ("cs" ,(list (nerd-icons-mdicon "nf-md-code_tags")) nil nil :ascent center)
-           ("sc-misc" ,(list (nerd-icons-mdicon "nf-md-brain")) nil nil :ascent center)
-           ("rpg" ,(list (nerd-icons-mdicon "nf-md-dice_d20")) nil nil :ascent center)))
-
       (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 
       (defun edit-file-root ()
@@ -558,24 +560,6 @@
              (find-file-noselect file)
            (org-html-export-to-html)))
              (file-expand-wildcards  "*.org"))))
-
-      (defun my-yank-calendar-date ()
-        "Yank selected date from calendar."
-        (interactive)
-        (let* ((date (calendar-cursor-to-date))
-               (day (car date))
-               (month (cadr date))
-               (year (caddr date))
-               (day-name (calendar-day-name date))
-               (formatted-date (format "<%04d-%02d-%02d %s>" year month day day-name))
-               (formatted-text (format "SCHEDULED: %s" formatted-date)))
-          (kill-new formatted-text)
-          (message "Text yanked: %s" formatted-text)))
-      
-      (define-key evil-normal-state-map (kbd "SPC c") 'calendar)
-      (add-hook 'calendar-mode-hook
-                (lambda ()
-                  (define-key calendar-mode-map (kbd "<return>") 'my-yank-calendar-date)))
 
       (provide 'init)
       ;; Local Variables:
@@ -629,7 +613,7 @@
   home.file.".config/emacs/doom-quiet-dark-theme.el".text = ''
       ;;; doom-quiet-dark-theme.el -*- lexical-binding: t; no-byte-compile: t; -*-
       ;;
-      ;; Copyright (C) 2021 Matei Cotocel
+      ;; Copyright (C) 2023 Matei Cotocel
       ;;
       ;; Author: Matei Cotocel <https://github.com/mcotocel>
       ;; Created: June 9, 2021
@@ -729,17 +713,14 @@
          ;; mandatory for derived themes.
          (modeline-fg              fg)
          (modeline-fg-alt          base5)
-         (modeline-bg              (doom-lighten base3 0.05))
-         (modeline-bg-alt          (if doom-quiet-dark-brighter-modeline
-                                       (doom-darken blue 0.475)
-                                     `(,(doom-darken (car bg-alt) 0.15) ,@(cdr bg))))
-         (modeline-bg-inactive     `(,(car bg-alt) ,@(cdr base1)))
-         (modeline-bg-inactive-alt `(,(doom-darken (car bg-alt) 0.1) ,@(cdr bg)))
+         (modeline-bg              (doom-lighten base0 0.05))
+         (modeline-bg-alt          (doom-darken blue 0.475))
+         (modeline-bg-inactive     (doom-lighten base0 0.05))
+         (modeline-bg-inactive-alt     (doom-lighten base0 0.05))
       
          (-modeline-pad
           (when doom-quiet-dark-padded-modeline
             (if (integerp doom-quiet-dark-padded-modeline) doom-quiet-dark-padded-modeline 4))))
-      
       
         ;;;; Base theme face overrides
         (((line-number &override) :foreground base4)

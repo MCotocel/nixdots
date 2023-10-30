@@ -64,6 +64,7 @@ in
     gtklock-playerctl-module
     gtklock-powerbar-module
     gtklock-userinfo-module
+    handbrake # Converting media
     hexchat # IRC client
     hyperion-ng # Ambient lighting
     i3lock-color # For locking my device

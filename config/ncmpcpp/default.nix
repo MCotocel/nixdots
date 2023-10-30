@@ -28,7 +28,7 @@
       statusbar_visibility = "no";
       header_visibility = "no";
       titles_visibility = "no";
-      startup_slave_screen = "visualizer";
+      #startup_slave_screen = "visualizer";
 
       # Progress bar;
       progressbar_look = "▂▂▂";
