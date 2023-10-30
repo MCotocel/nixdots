@@ -11,6 +11,26 @@
     jack.enable = true;
   };
 
+  services.mpd = {
+    enable = true;
+    user = "matei";
+    musicDirectory = "/home/matei/Desktop/Folder/Media/Music";
+    network.listenAddress = "any";
+    extraConfig = ''
+      auto_update "yes"
+      playlist_directory "/home/matei/Desktop/Folder/Media/Music"
+
+      audio_output {
+        type "pipewire"
+        name "Pipewire"
+      }
+    '';
+  };
+
+  systemd.services.mpd.environment = {
+      XDG_RUNTIME_DIR = "/run/user/1000";
+  };
+
   musnix.enable = true;
 
   environment.systemPackages = with pkgs; [
