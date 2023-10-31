@@ -7,6 +7,8 @@
     networkmanager.enable = true; # Enable networkmanager
     nameservers = [ "1.1.1.1" ];
     networkmanager.dns = "none";
+    networkmanager.wifi.backend = "iwd";
+    wireless.iwd.enable = true;
     firewall.enable = true; # Stay out, hackers
     firewall.allowedTCPPorts = [
       22
