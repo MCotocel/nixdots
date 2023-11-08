@@ -34,17 +34,17 @@
       }
 
       general {
-          gaps_in = 5
-          gaps_out = 10
-          border_size = 0
-          col.active_border = rgba(ace1ffff)
-          col.inactive_border = rgba(0c1213ff)
+          gaps_in = 3
+          gaps_out = 5
+          border_size = 3
+          col.active_border = rgba(1f252aff)
+          col.inactive_border = rgba(1f252aff)
 
           layout = dwindle
       }
 
       decoration {
-          rounding = 10;
+          rounding = 0;
           multisample_edges = true
           drop_shadow = true
           shadow_ignore_window = true

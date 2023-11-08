@@ -32,6 +32,7 @@
       neotree
       nix-mode
       ob-mermaid
+      olivetti
       omnisharp
       orderless
       org-ql
@@ -86,8 +87,8 @@
 	            "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
 	            "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
 
-      (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
-	    
+      (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.3))
+
 	    (setq org-html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"./style.css\"/>"
 	      org-html-doctype "html5")
 
@@ -98,9 +99,27 @@
 	        org-startup-with-inline-images t)
 	    (set-face-attribute 'org-headline-done nil :strike-through t)
 
-  	  (setq org-roam-directory (file-truename "~/Desktop/Folder/Vault/"))
-  	  (org-roam-db-autosync-mode)
+      (setq olivetti-body-width 0.7)
+      (add-hook 'org-mode-hook 'olivetti-mode)
+
+      (setq org-roam-directory (file-truename "~/Desktop/Folder/Vault/"))
       (setq org-agenda-files '("~/Desktop/Folder/Vault/20230831103307-agenda.org"))
+      (org-roam-db-autosync-mode)
+      (cl-defmethod org-roam-node-directories ((node org-roam-node))
+        (if-let ((dirs (file-name-directory (file-relative-name (org-roam-node-file node) org-roam-directory))))
+            (format "(%s)" (car (split-string dirs "/")))
+          ""))
+      
+      (cl-defmethod org-roam-node-backlinkscount ((node org-roam-node))
+        (let* ((count (caar (org-roam-db-query
+                             [:select (funcall count source)
+                                      :from links
+                                      :where (= dest $s1)
+                                      :and (= type "id")]
+                             (org-roam-node-id node)))))
+          (format "[%d]" count)))
+      
+      (setq org-roam-node-display-template "''${directories:10} ''${tags:10} ''${title:100} ''${backlinkscount:6}")
 
       (setq org-todo-keywords
             '((sequence "TODO" "RECURRING" "DONE")))

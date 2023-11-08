@@ -26,6 +26,7 @@
     retroarchFull
     steam-rom-manager
     steamcmd
+    wineWowPackages.stable
     xorg.xf86inputjoystick
   ];
 
