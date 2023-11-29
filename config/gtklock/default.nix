@@ -3,7 +3,7 @@
 {
   home.file.".config/gtklock.css".text = ''
       window {
-         background-image: url("../Pictures/Wallpaper/Night Street.jpg");
+         background-image: url("../Pictures/Wallpaper/Stream.jpg");
          background-size: cover;
          background-repeat: no-repeat;
          background-position: center;

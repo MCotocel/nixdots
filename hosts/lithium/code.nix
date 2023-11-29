@@ -49,6 +49,7 @@
       ispell # Spell checking
       isync # For mail
       jq # For when you have to deal with json
+      libheif # For converting HEIC to JPG
       libimobiledevice # For connecting my phone
       libsecret # For passwords
       lshw # Diagnostic time!

@@ -38,22 +38,16 @@ in
   programs.evolution.enable = true;
 
   environment.systemPackages = with pkgs; [
-    appimage-run # To run appimages when I need to
-    #aseprite # Pixel art is cool
     baobab # For checking what's taking up so much disk space
     bitwarden # Passwords and stuff
-    bottles # Wine prefix manager
     calibre # Converting my books for my Kindle
     cbatticon # Systray battery
     cinnamon.nemo # File manager
     dunst # For notifications
     eiskaltdcpp # DCPP client
     eww-wayland # Widgets for Hyprland
-    filezilla # FTP program
     firefox # Main web browser
-    firejail # When you want some extra security
     ffmpegthumbnailer # Video thumbnails
-    #fractal-next # Matrix client
     gimp # Photo editor
     gnome.file-roller # Unarchiver
     gnome.gnome-calendar # A calendar because I am a very busy person with no time at all
@@ -112,6 +106,7 @@ in
     wl-clipboard
     wmctrl # Moving windows around in scripts
     wpa_supplicant # Connecting to networks
+    xterm # X terminal emulator
     yubikey-agent
     yubikey-manager
     yubikey-manager-qt

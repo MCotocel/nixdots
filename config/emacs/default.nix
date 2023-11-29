@@ -29,12 +29,15 @@
       magit
       marginalia
       minimap
+      multi-vterm
       neotree
       nix-mode
       ob-mermaid
       olivetti
       omnisharp
       orderless
+      org-hyperscheduler
+      org-modern
       org-ql
       org-roam
       org-roam-ui
@@ -48,6 +51,7 @@
       tree-sitter-langs
       undo-tree
       vertico
+      vterm
       which-key
       yasnippet
       yasnippet-snippets
@@ -84,8 +88,8 @@
 
 	    (setq org-latex-pdf-process
 	          '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-	            "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-	            "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+              "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+              "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
 
       (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.3))
 
@@ -96,14 +100,24 @@
 	        org-image-actual-width '(300)
 	        org-agenda-start-on-weekday 0
 	        org-src-tab-acts-natively t
+          org-agenda-tags-column 0
+          org-agenda-block-separator ?─
+          org-agenda-time-grid
+          '((daily today remove-match)
+            (530 600 630 700 730 800 830 900 930 1000 1030 1100 1130 1200 1230 1300 1330 1400 1430 1500 1530 1600 1630 1700 1730 1800 1830 1900 1930 2000 2030 2100 2130 2200 2230)
+            " ─ " "────────────────────────────────────────────────")
+          org-agenda-current-time-string
+          "◀── now ───────────────────────────────────────"
 	        org-startup-with-inline-images t)
+      (setq org-hyperscheduler-exclude-from-org-roam t)
+      (setq org-hyperscheduler-readonly-mode nil)
 	    (set-face-attribute 'org-headline-done nil :strike-through t)
 
       (setq olivetti-body-width 0.7)
       (add-hook 'org-mode-hook 'olivetti-mode)
 
       (setq org-roam-directory (file-truename "~/Desktop/Folder/Vault/"))
-      (setq org-agenda-files '("~/Desktop/Folder/Vault/20230831103307-agenda.org"))
+      (setq org-agenda-files '("~/Desktop/Folder/Vault/20230831103307-agenda.org" "~/Desktop/Folder/Vault/20231111112234-timetable.org"))
       (org-roam-db-autosync-mode)
       (cl-defmethod org-roam-node-directories ((node org-roam-node))
         (if-let ((dirs (file-name-directory (file-relative-name (org-roam-node-file node) org-roam-directory))))
@@ -119,15 +133,21 @@
                              (org-roam-node-id node)))))
           (format "[%d]" count)))
       
-      (setq org-roam-node-display-template "''${directories:10} ''${tags:10} ''${title:100} ''${backlinkscount:6}")
+      (setq org-roam-node-display-template "''${tags:30} ''${title:100} ''${backlinkscount:6}")
 
+      (setq org-capture-templates '(("j" "Journal Entry" entry (file+datetree "~/Desktop/Folder/Vault/20231129171720-journal.org") "* %?" :empty-lines 1)))
+
+      (setq org-agenda-window-setup 'only-window)
+      (setq org-agenda-window-frame-fractions '(0.7 . 0.7))
       (setq org-todo-keywords
-            '((sequence "TODO" "RECURRING" "DONE")))
+            '((sequence "TODO" "RECURRING" "WORKING" "DONE")))
       (setq org-todo-keyword-faces
             '(("TODO" . (:foreground "#ff8080" :weight bold))
               ("RECURRING" . (:foreground "#fffe80" :weight bold))
+              ("WORKING" . (:foreground "#ace1ff" :weight bold))
               ("DONE" . (:foreground "#97d59b" :weight bold))))
 
+      (setq org-agenda-hidden-separator "‌‌ ")
       (setq org-priority-highest ?A)
       (setq org-priority-lowest ?E)
       (setq org-priority-faces '((?A . (:foreground "#ff8080" :weight bold))
@@ -136,21 +156,32 @@
                                  (?D . (:foreground "#ace1ff" :weight bold))
                                  (?E . (:foreground "#c780ff" :weight bold))))
 
+
+      (add-hook 'org-mode-hook #'global-org-modern-mode)
+      (setq org-agenda-prefix-format
+            '((agenda . "%t %s")))
       (org-super-agenda-mode)
       (setq org-super-agenda-groups
              '((:name "Critical"
+                      :time-grid t
                       :priority "A")
                (:name "Important"
+                      :time-grid t
                       :priority "B")
                (:name "Standard"
+                      :time-grid t
                       :priority "C")
                (:name "Low"
+                      :time-grid t
                       :priority "D")
                (:name "Trivial"
+                      :time-grid t
                       :priority "E")
                (:name "School"
+                      :time-grid t
                       :tag ("cs" "epq" "maths" "physics" "sc"))
                (:name "RPGs"
+                      :time-grid t
                       :tag "rpg")))
 
       (require 'ox-publish)
@@ -194,6 +225,7 @@
 	      warning-minimum-level :emergency ;; Emacs, honestly, if there's an error in my configuration, I'll find out soon enough
 	      disabled-command-function nil ;; Yes I want to use that command
 	      vc-follow-symlinks) ;; Follow those symlinks!
+      (setq kill-buffer-query-functions (delq 'process-kill-buffer-query-function kill-buffer-query-functions)) ;; Don't ask for confirmation
 	    
 	    (defalias 'yes-or-no-p 'y-or-n-p) ;; Y or N instead of yes or no
 	    
@@ -223,6 +255,7 @@
 	    (setq display-line-numbers-type 'relative) ;; Set it to relative, it makes for easier maths
 	    (dolist (mode '(org-mode-hook
 	      term-mode-hook
+        vterm-mode-hook
 	      dashboard-mode-hook
 	      eshell-mode-hook
 	      neotree-mode-hook
@@ -264,7 +297,6 @@
 	    (evil-collection-init)
 
       (evil-set-initial-state 'org-agenda-mode 'normal)
-      ;;(evil-define-key 'insert org-mode-map (kbd "TAB") 'org-table-align)
 	    
   	  (global-evil-leader-mode)
   	  (evil-leader/set-leader "<SPC>")
@@ -311,7 +343,9 @@
         "ob" 'org-babel-execute-src-block
         "oi" 'org-toggle-inline-images
         "ol" 'org-latex-preview
+        "oc" 'org-capture
         "oaa" 'org-agenda
+        "oaw" 'org-hyperscheduler-open
         "oac" 'consult-org-agenda
   	    ;; Workspaces
   	    "ws" 'persp-switch
@@ -409,8 +443,8 @@
         dashboard-display-icons-p t
         dashboard-icon-types 'nerd-icons
 	      dashboard-set-footer 'nil)
-      (setq dashboard-items '((agenda . 5)))
 
+      (setq dashboard-items 'nil)
 
 	    (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
 	    (add-hook 'neo-after-create-hook (lambda (&optional dummy) (setq mode-line-format nil)))
@@ -451,7 +485,9 @@
       (doom-themes-neotree-config)
 
       (setq elfeed-feeds
-             '(("https://morss.it/https://kotaku.com/rss" gaming)))
+             '("https://mountainofink.com/?format=rss"
+               "https://karl-voit.at/feeds/lazyblorg-all.atom_1.0.links-and-content.xml"))
+      (add-hook 'emacs-startup-hook (lambda () (run-at-time 5 60 'elfeed-update)))
 
       (require 'lsp)
       (add-hook 'python-mode-hook #'lsp)
@@ -551,7 +587,7 @@
            `(("maths" ,(list (nerd-icons-mdicon "nf-md-square_root")) nil nil :ascent center)
            ("physics" ,(list (nerd-icons-mdicon "nf-md-atom")) nil nil :ascent center)
            ("cs" ,(list (nerd-icons-mdicon "nf-md-code_tags")) nil nil :ascent center)
-           ("sc-misc" ,(list (nerd-icons-mdicon "nf-md-brain")) nil nil :ascent center)
+           ("sc" ,(list (nerd-icons-mdicon "nf-md-brain")) nil nil :ascent center)
            ("rpg" ,(list (nerd-icons-mdicon "nf-md-dice_d20")) nil nil :ascent center)))
 
 
