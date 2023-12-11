@@ -29,6 +29,12 @@
     dataDir = "/home/matei";
   };
 
+  hardware.sane.enable = true;
+
+  services.saned = {
+    enable = true;
+  };
+
   services.logind.lidSwitch = "suspend"; # Power settings
   services.logind.lidSwitchDocked = "ignore"; # Quick access while plugged in
   services.logind.lidSwitchExternalPower =

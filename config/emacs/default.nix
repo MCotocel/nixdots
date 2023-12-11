@@ -484,11 +484,6 @@
       (load-theme 'doom-quiet-dark t)
       (doom-themes-neotree-config)
 
-      (setq elfeed-feeds
-             '("https://mountainofink.com/?format=rss"
-               "https://karl-voit.at/feeds/lazyblorg-all.atom_1.0.links-and-content.xml"))
-      (add-hook 'emacs-startup-hook (lambda () (run-at-time 5 60 'elfeed-update)))
-
       (require 'lsp)
       (add-hook 'python-mode-hook #'lsp)
       (add-hook 'sh-mode-hook #'lsp)

@@ -13,9 +13,9 @@
       exec-once = solaar -w hide -b solaar
       exec-once = emacs --daemon
       exec-once = hyprctl setcursor "Breeze_Snow" 24
-      exec-once = swaybg -i ~/Pictures/Wallpaper/Stream.jpg
+      exec-once = swaybg -i ~/Pictures/Wallpaper/Road.jpg
       exec = pkill eww
-      exec = eww --daemon
+      exec = eww daemon
       exec = eww -c ~/.config/eww open bar-internal
       exec = eww -c ~/.config/eww open bar-external
       exec-once = kmonad ~/.config/kmonad/internal.kbd
@@ -94,7 +94,6 @@
       bind = $mainMod, N, exec, emacsclient -c --eval "(progn (org-agenda-list) (split-window-right) (other-window 1) (find-file-other-window \"~/Desktop/Folder/Vault/20231002084007-refile.org\") (split-window-below) (other-window 1) (elfeed) (enlarge-window ( - 25 (window-body-height))))"
       bind = $mainMod SHIFT, S, exec, ~/.bin/rofi-screenshot
       bind = $mainMod, escape, exec, ~/.bin/rofi-power
-      bind = CONTROL SHIFT, escape, exec, lxtask
 
       bind = , XF86AudioRaiseVolume, exec, pactl -- set-sink-volume @DEFAULT_SINK@ +5%
       bind = , XF86AudioLowerVolume, exec, pactl -- set-sink-volume @DEFAULT_SINK@ -5%

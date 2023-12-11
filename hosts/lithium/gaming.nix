@@ -15,19 +15,11 @@
   };
 
   environment.systemPackages = with pkgs; [ # Some games
-    cataclysm-dda-git
     gzdoom
-    mangohud
     minecraft
-    minetest
     nethack
-    optifine
-    protonup
-    retroarchFull
-    steam-rom-manager
     steamcmd
     wineWowPackages.stable
-    xorg.xf86inputjoystick
   ];
 
   programs.gamemode = {

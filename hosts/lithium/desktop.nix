@@ -43,35 +43,26 @@ in
     calibre # Converting my books for my Kindle
     cbatticon # Systray battery
     cinnamon.nemo # File manager
+    darktable # Color correction
     dunst # For notifications
-    eiskaltdcpp # DCPP client
     eww-wayland # Widgets for Hyprland
     firefox # Main web browser
     ffmpegthumbnailer # Video thumbnails
     gimp # Photo editor
     gnome.file-roller # Unarchiver
-    gnome.gnome-calendar # A calendar because I am a very busy person with no time at all
-    gnome.gnome-disk-utility # Formatting disks. I think I use fdisk more though
-    google-chrome
+    gnome.gnome-disk-utility # Formatting disks
+    gnome.simple-scan # Scanner frontend
+    google-chrome # Another browser, to separate work and not work
     gthumb # Image manager
     gtklock # GTK lock screen for wayland
-    gtklock-playerctl-module
-    gtklock-powerbar-module
-    gtklock-userinfo-module
     handbrake # Converting media
-    hexchat # IRC client
-    hyperion-ng # Ambient lighting
-    i3lock-color # For locking my device
     inkscape # Occasionally used
-    kdenlive # Video editor
-    kid3 # I download lots of music
+    kdenlive # Video editor for the odd video task
     kmonad # For keyboard remapping
     krita # Sometimes used for posters and stuff
     libnotify # For sending notifications
     libreoffice # Office suite for Linux
-    lxtask # Lightweight task manager
     maim # Select stuff
-    microsoft-edge # Edge browser for video streaming
     networkmanagerapplet # When I want to quickly connect to a Wi-Fi network
     nicotine-plus # Soulseek client
     nyxt # Browser
@@ -79,20 +70,14 @@ in
     obs-studio-plugins.obs-pipewire-audio-capture # For recording audio
     openssl # For certs
     p7zip # Unzipping stuff
-    pan # Newsreader
     pandoc # Converting stuff
-    pasystray # Control audio
-    picom # A cool compositor
     poppler_utils # PDF stuff
-    qbittorrent # For downloading certain things
-    qemu # Woo VMs
+    qbittorrent # For downloading Linux ISOs
+    qemu # Running VMs
     qpwgraph # Pipewire graph manager
     scid # Chess GUI
-    screenkey # Shows keys pressed
-    shotwell # iPhone image importer
-    socat # Pipes and sturf
-    solaar # For my Logitech mouse
-    spicetify-cli # I used to rice spotify
+    socat # Pipes and stuff
+    solaar # For my MX Master 3 mouse
     stockfish # Chess engine
     sway-contrib.grimshot # Screenshots
     swaybg # Set the background
@@ -103,32 +88,18 @@ in
     virt-manager # For managing my virtual machines
     vorta # Backup GUI for BorgBackup
     wayland # The cooler X
-    wl-clipboard
-    wmctrl # Moving windows around in scripts
+    wl-clipboard # Clipboard tool for Wayland
     wpa_supplicant # Connecting to networks
-    xterm # X terminal emulator
-    yubikey-agent
-    yubikey-manager
-    yubikey-manager-qt
-    yubikey-personalization
-    yubikey-personalization-gui
-    yubikey-touch-detector
+    xterm # X terminal emulator, as a backup
+    yubikey-agent # For my Yubikey
+    yubikey-manager # For my Yubikey 
+    yubikey-manager-qt # For my Yubikey
+    yubikey-personalization # For my Yubikey
+    yubikey-personalization-gui # For my Yubikey
+    yubikey-touch-detector # For my Yubikey
     zathura # For reading my downloaded PDFs
     zotero # Citation and stuff
   ];
-
-  # Touchegg
-  services.touchegg.enable = true; # I use my trackpad when on the go
-
-  # X11
-  services.xserver = {
-    displayManager.gdm.enable = true;
-    desktopManager.gnome = {
-      enable = false;
-    };
-  };
-  services.power-profiles-daemon.enable = lib.mkForce false;
-  hardware.pulseaudio.enable = lib.mkForce false;
 
   fonts = {
     fontDir.enable = true;

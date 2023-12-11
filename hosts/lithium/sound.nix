@@ -43,7 +43,6 @@
     ladspaPlugins # We need more plugins
     mpc_cli # MPD cli client
     mpd # MPD
-    mpd-discord-rpc # Discord rich presence
     mpd-mpris # Control mpd with audio keys
     mpdevil # MPD GUI client
     mpv # Video player
@@ -54,7 +53,6 @@
     playerctl # Song control
     pulseaudio # For some apps
     pulsemixer # TUI mixer
-    python310Packages.deemix # I like offline MP3s
     scdl # For when I need to download from soundcloud
     spotify # I love music
     vcv-rack # I'm not rich enough for modular synths
