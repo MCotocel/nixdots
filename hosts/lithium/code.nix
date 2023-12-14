@@ -73,7 +73,6 @@
       tree-sitter # Better highlighting
       unzip # For unzipping archives
       vim # The original (not quite)
-      vscodium # VSCode but without Microsoft. Used only when needed
       wget # For downloading web pages and stuff
       yt-dlp # For downloading videos
     ];

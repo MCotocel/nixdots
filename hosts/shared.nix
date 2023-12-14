@@ -47,5 +47,8 @@
 
   nixpkgs.config = {
     allowUnfree = true; # Forgive me Stallman
+    permittedInsecurePackages = [
+      "electron-25.9.0"
+    ];
   };
 }
