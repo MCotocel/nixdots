@@ -56,6 +56,7 @@
       nodePackages.mermaid-cli # For diagrams
       nodejs # Some programs need it
       nvd # Package version diff tool for Nix
+      ollama # Local LLMs
       onefetch # Neofetch but for git repos
       openai-whisper # Speech to text
       openimagedenoise # Denoising images

@@ -41,6 +41,7 @@
     guitarix # Digital guitar amp stuff
     gxplugins-lv2 # Plugins for guitarix
     ladspaPlugins # We need more plugins
+    lmms # DAW
     mpc_cli # MPD cli client
     mpd # MPD
     mpd-mpris # Control mpd with audio keys

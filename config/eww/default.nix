@@ -77,22 +77,6 @@
           color: $blue;
       }
       
-      .wifi-icon {
-          font-family: Iosevka Nerd Font;
-          font-size: 1.2em;
-          margin-right: 10px;
-          color: $magenta;
-      }
-      
-      .volume {
-          font-family: Iosevka Nerd Font;
-          font-size: 1.5em;
-          margin-left: 2px;
-          margin-right: 7px;
-          margin-bottom: 5px;
-          color: $green;
-      }
-      
       .time {
           font-family: Iosevka Nerd Font;
           font-weight: bold;
@@ -139,24 +123,11 @@
       	   (label :class "bat" :text battery)))
       (defpoll battery :interval "1s" "scripts/battery")
       
-      ;; Wifi widget ;;
-      (defwidget wifi []
-        (box :orientation "v" :class "wifi-icon" wifi-icon))
-      (defpoll wifi-icon :interval "1s" "scripts/wifi")
-      
-      ;; Volume widget ;;
-      (defwidget volume []
-        (box :orientation "v"	
-      	   (label :class "volume" :text volume)))
-      (defpoll volume	:interval "0.2s" "scripts/volume")
-      
       ;; Control panel widgets ;;	
       (defwidget control []
         (box :orientation "v" :space-evenly false :class "control"
              (lay)
-             (bat)
-             (wifi)
-             (volume)))
+             (bat)))
       
       ;; Clock widget ;;
       (defwidget time []
@@ -210,15 +181,13 @@
       
       [ $(cat "$bat/status") = Charging ] && echo "󰂄" && exit
       
-      if [ "$per" -gt "90" ]; then
+      if [ "$per" -gt "80" ]; then
       	icon="󰁹"
-      elif [ "$per" -gt "70" ]; then
-      	icon="󰂀"
       elif [ "$per" -gt "50" ]; then
       	icon="󰁾"
       elif [ "$per" -gt "30" ]; then
       	icon="󰁼"
-      elif [ "$per" -gt "10" ]; then
+      elif [ "$per" -gt "0" ]; then
       	icon="󰁺"
       fi
       echo "$icon"
@@ -273,28 +242,10 @@
       	icon="󰌌"
       elif [ "$layer" == "fun" ]; then
           icon="󱊶"
+      elif [ "$layer" == "med" ]; then
+          icon="󰝚"
       fi
       echo "$icon"
   '';
   home.file.".config/eww/scripts/layer".executable = true;
-  home.file.".config/eww/scripts/volume".text = ''
-      volume="$(awk -F"[][]" '/Left:/ { print $2 }' <(amixer sget Master) | sed 's/%//g')"
-      
-      if [ "$volume" -gt "70" ]; then
-      	icon="󰕾"
-      elif [ "$volume" -gt "40" ]; then
-      	icon="󰖀"
-      elif [ "$volume" -gt "0" ]; then
-      	icon="󰕿"
-      else
-      	icon="󰖁"
-      fi
-      echo "$icon"
-  '';
-  home.file.".config/eww/scripts/volume".executable = true;
-  home.file.".config/eww/scripts/wifi".text = ''
-      [ "$(cat /sys/class/net/w*/operstate)" = down ] && echo "󰤭" && exit
-      echo "󰤨"
-  '';
-  home.file.".config/eww/scripts/wifi".executable = true;
 }

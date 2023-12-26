@@ -46,10 +46,10 @@
 
 ;; Function key layout
 (deflayer fun
-  XX   f1   f2   f3   XX   XX   XX   XX   ssrq slck pause XX   XX   XX
-  XX   f4   f5   f6   XX   XX   XX   XX   ins  home pgup  XX   XX   XX     
-  XX   f7   f8   f9   XX   XX   XX   XX   del  end  pgdn  XX   XX
-  @qwe f10  f11  f12  XX   XX   XX   XX   XX   XX   XX    XX
+  XX   f1   f2   f3   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  XX   f4   f5   f6   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX     
+  XX   f7   f8   f9   XX   XX   left down up right  XX   XX   XX
+  @qwe f10  f11  f12  XX   XX   XX   XX   XX   XX   XX   XX
   XX   XX   XX             XX             XX   @med XX            
 )
 

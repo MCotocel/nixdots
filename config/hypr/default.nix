@@ -13,7 +13,7 @@
       exec-once = solaar -w hide -b solaar
       exec-once = emacs --daemon
       exec-once = hyprctl setcursor "Breeze_Snow" 24
-      exec-once = swaybg -i ~/Pictures/Wallpaper/Road.jpg
+      exec-once = swaybg -i ~/Pictures/Wallpaper/Fuji.jpg
       exec = pkill eww
       exec = eww daemon
       exec = eww -c ~/.config/eww open bar-internal
