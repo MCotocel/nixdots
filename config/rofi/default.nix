@@ -5,7 +5,7 @@
     enable = true;
     package = pkgs.rofi-wayland;
     extraConfig = {
-      modi = "drun,run";
+      modi = "drun,run,window";
       icon-theme = "Papirus";
     };
     theme = let

@@ -123,6 +123,7 @@
 
       bind = $mainMod, Tab, cyclenext
       bind = $mainMod, Tab, bringactivetotop, 
+      bind = $mainMod SHIFT, Tab, exec, rofi -show window
 
       bind = $mainMod, 1, workspace, 1
       bind = $mainMod, 2, workspace, 2
