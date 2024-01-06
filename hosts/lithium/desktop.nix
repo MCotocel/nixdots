@@ -46,7 +46,6 @@ in
     darktable # Color correction
     dunst # For notifications
     eww-wayland # Widgets for Hyprland
-    firefox # Main web browser
     ffmpegthumbnailer # Video thumbnails
     gimp # Photo editor
     gnome.file-roller # Unarchiver
@@ -80,7 +79,7 @@ in
     solaar # For my MX Master 3 mouse
     stockfish # Chess engine
     sway-contrib.grimshot # Screenshots
-    swaybg # Set the background
+    swaybg # Wallpaper for hyprland
     tesseract # Images to text. Very cool
     tex # LaTeX package
     unrar # Extract rar fils
@@ -98,7 +97,6 @@ in
     yubikey-personalization-gui # For my Yubikey
     yubikey-touch-detector # For my Yubikey
     zathura # For reading my downloaded PDFs
-    zotero # Citation and stuff
   ];
 
   fonts = {

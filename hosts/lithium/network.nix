@@ -35,7 +35,7 @@
 
   services.avahi = { # For my NAS
     enable = true;
-    nssmdns = true;
+    nssmdns4 = true;
   };
 
   systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;

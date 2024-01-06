@@ -38,6 +38,7 @@
       htop # Check system status
       ifuse # For connecting my phone
       imagemagick # Really useful for scripts
+      ipfs # IPFS
       ispell # Spell checking
       jq # For when you have to deal with JSON
       libheif # For converting HEIC to JPG

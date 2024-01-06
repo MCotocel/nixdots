@@ -7,7 +7,6 @@
     extraConfig = {
       modi = "drun,run";
       icon-theme = "Papirus";
-      parse-system = false;
     };
     theme = let
       inherit (config.lib.formats.rasi) mkLiteral;

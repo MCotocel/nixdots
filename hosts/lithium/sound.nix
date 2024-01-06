@@ -35,7 +35,6 @@
 
   environment.systemPackages = with pkgs; [
     alsa-utils # Utlities for alsa
-    ardour # DAW for music recording
     audacity # Editing audio
     easyeffects # Audio effects
     guitarix # Digital guitar amp stuff

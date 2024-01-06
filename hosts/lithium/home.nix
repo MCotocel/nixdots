@@ -9,11 +9,13 @@
   home.stateVersion = "21.11"; # Version
 
   imports = [
+    (import ../../config/alacritty { inherit config; })
     (import ../../config/bin { inherit config; })
     (import ../../config/cava { inherit config; })
     (import ../../config/dunst { inherit config; })
     (import ../../config/eww { inherit config; })
     (import ../../config/emacs { inherit config; inherit pkgs; })
+    (import ../../config/firefox { inherit config; })
     (import ../../config/gtk { inherit config; inherit pkgs; })
     (import ../../config/gtklock { inherit config; })
     (import ../../config/gzdoom { inherit config; })
@@ -21,7 +23,6 @@
     (import ../../config/ncmpcpp { inherit config; })
     (import ../../config/nvim { inherit config; })
     (import ../../config/rofi { inherit config; inherit pkgs; })
-    (import ../../config/wezterm { inherit config; })
     (import ../../config/zathura { inherit config; })
     (import ../../config/zsh { inherit config; })
   ];
