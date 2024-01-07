@@ -1230,4 +1230,27 @@
       
       [Doom.GloryKill.DoubleBindings]
   '';
+  home.file.".config/Vectec Software/qZDL.ini".text = ''
+    [zdl.general]
+    autoclose=0
+    lastDir=/home/matei/Desktop/Folder/Games/Doom/Mods
+    rememberFilelist=1
+    showpaths=1
+    windowpos=0,0
+    windowsize=2472,1424
+    zdllaunch=0
+    [zdl.iwads]
+    i0n=Doom
+    i0f=/home/matei/Desktop/Folder/Games/Doom/WADs/Doom.wad
+    i1n=Doom 2
+    i1f=/home/matei/Desktop/Folder/Games/Doom/WADs/Doom 2.wad
+    i2n=Plutonia
+    i2f=/home/matei/Desktop/Folder/Games/Doom/WADs/Plutonia.wad
+    [zdl.ports]
+    p0n=GZDoom
+    p0f=/run/current-system/sw/bin/gzdoom
+    [zdl.save]
+    port=GZDoom
+    file0=/home/matei/Desktop/Folder/Games/Doom/Mods/Project Brutality.zip
+  '';
 }

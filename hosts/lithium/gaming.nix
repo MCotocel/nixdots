@@ -18,6 +18,7 @@
     gzdoom
     minecraft
     nethack
+    qzdl
     steamcmd
     wineWowPackages.stable
   ];
