@@ -14,11 +14,11 @@
   services.mpd = {
     enable = true;
     user = "matei";
-    musicDirectory = "/home/matei/Desktop/Folder/Media/Music";
+    musicDirectory = "/home/matei/State/Media/Music";
     network.listenAddress = "any";
     extraConfig = ''
       auto_update "yes"
-      playlist_directory "/home/matei/Desktop/Folder/Media/Music"
+      playlist_directory "/home/matei/State/Media/Music"
 
       audio_output {
         type "pipewire"

@@ -33,4 +33,15 @@
     ".config/kmonad/external.kbd".source = ../../config/kmonad/external.kbd;
     ".config/kmonad/internal.kbd".source = ../../config/kmonad/internal.kbd;
   };
+
+  # OBS
+  programs.obs-studio = {
+    enable = true;
+    plugins = with pkgs.obs-studio-plugins; [
+        wlrobs
+        obs-backgroundremoval
+        obs-pipewire-audio-capture
+        obs-tuna
+      ];
+  };
 }

@@ -91,7 +91,7 @@
       bind = $mainMod, space, exec, rofi -show drun -display-drun 'App Launcher'
       bind = $mainMod SHIFT, E, exec, emacsclient -c
       bind = $mainMod SHIFT, R, exec, emacsclient -c -e '(elfeed)'
-      bind = $mainMod, N, exec, emacsclient -c --eval "(progn (org-agenda-list) (split-window-right) (other-window 1) (find-file-other-window \"~/Desktop/Folder/Vault/20231002084007-refile.org\") (split-window-below) (other-window 1) (elfeed) (enlarge-window ( - 25 (window-body-height))))"
+      bind = $mainMod, N, exec, emacsclient -c --eval "(progn (org-agenda-list) (split-window-right) (other-window 1) (find-file-other-window \"~/State/Vault/20231002084007-refile.org\") (split-window-below) (other-window 1) (elfeed) (enlarge-window ( - 25 (window-body-height))))"
       bind = $mainMod SHIFT, S, exec, ~/.bin/rofi-screenshot
       bind = $mainMod, escape, exec, ~/.bin/rofi-power
 

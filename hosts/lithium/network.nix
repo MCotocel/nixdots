@@ -5,7 +5,7 @@
   networking = {
     hostName = "lithium"; # Hostname
     networkmanager.enable = true; # Enable networkmanager
-    nameservers = [ "1.1.1.1" ];
+    nameservers = [ "1.1.1.1" "9.9.9.9" ];
     networkmanager.dns = "none";
     networkmanager.wifi.backend = "iwd";
     wireless.iwd.enable = true;
@@ -30,7 +30,7 @@
   };
 
   # SSH
-  services.openssh.enable = true; # Secure shell
+  services.openssh.enable = false; # Secure shell
   services.openssh.settings.X11Forwarding = true; # Forwarding X11
 
   services.avahi = { # For my NAS

@@ -6,7 +6,6 @@ let
   });
 in
 {
-
   # We're using caps lock for something else
   services.xserver.xkbOptions = "caps:none";
 
@@ -65,8 +64,6 @@ in
     networkmanagerapplet # When I want to quickly connect to a Wi-Fi network
     nicotine-plus # Soulseek client
     nyxt # Browser
-    obs-studio # For recording my desktop
-    obs-studio-plugins.obs-pipewire-audio-capture # For recording audio
     openssl # For certs
     p7zip # Unzipping stuff
     pandoc # Converting stuff

@@ -37,7 +37,7 @@
         system = {};
         temp = {};
         filecount = {
-          directories = [ "/home/matei/Desktop/Folder/Vault" ];
+          directories = [ "/home/matei/State/Vault" ];
           name = "*.org";
           recursive = false;
         };

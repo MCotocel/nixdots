@@ -2,7 +2,7 @@
 
 {
   home.file.".bin/lock".text = ''
-      gtklock -s ~/.config/gtklock.css
+      gtklock -i -s ~/.config/gtklock.css
   '';
   home.file.".bin/lock".executable = true;
   home.file.".bin/rofi-power".text = ''

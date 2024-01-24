@@ -116,8 +116,8 @@
       (setq olivetti-body-width 0.7)
       (add-hook 'org-mode-hook 'olivetti-mode)
 
-      (setq org-roam-directory (file-truename "~/Desktop/Folder/Vault/"))
-      (setq org-agenda-files '("~/Desktop/Folder/Vault/20230831103307-agenda.org" "~/Desktop/Folder/Vault/20231111112234-timetable.org"))
+      (setq org-roam-directory (file-truename "~/State/Vault/"))
+      (setq org-agenda-files '("~/State/Vault/20230831103307-agenda.org" "~/State/Vault/20231111112234-timetable.org"))
       (org-roam-db-autosync-mode)
       (cl-defmethod org-roam-node-directories ((node org-roam-node))
         (if-let ((dirs (file-name-directory (file-relative-name (org-roam-node-file node) org-roam-directory))))
@@ -135,7 +135,7 @@
       
       (setq org-roam-node-display-template "''${tags:30} ''${title:100} ''${backlinkscount:6}")
 
-      (setq org-capture-templates '(("j" "Journal Entry" entry (file+datetree "~/Desktop/Folder/Vault/20231129171720-journal.org") "* %?" :empty-lines 1)))
+      (setq org-capture-templates '(("j" "Journal Entry" entry (file+datetree "~/State/Vault/20231129171720-journal.org") "* %?" :empty-lines 1)))
 
       (setq org-agenda-window-setup 'only-window)
       (setq org-agenda-window-frame-fractions '(0.7 . 0.7))
@@ -188,7 +188,7 @@
       (setq org-publish-project-alist
             '(
                ("vault:files"
-                :base-directory "~/Desktop/Folder/Vault/"
+                :base-directory "~/State/Vault/"
                 :base-extension "org"
                 :publishing-directory "~/public_html/"
                 :recursive t
@@ -197,16 +197,16 @@
                 :auto-preamble t
                 )
                ("vault:assets"
-                :base-directory "~/Desktop/Folder/Vault/"
+                :base-directory "~/State/Vault/"
                 :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
-                :publishing-directory "~/public_html/"
+                :publishing-directory "~/State/Hosted Vault/"
                 :recursive t
                 :publishing-function org-publish-attachment
                 )
                ("vault:images"
-                :base-directory "~/Desktop/Folder/Vault/img"
+                :base-directory "~/State/Vault/img"
                 :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
-                :publishing-directory "~/public_html/img"
+                :publishing-directory "~/State/Hosted Vault/img"
                 :recursive t
                 :publishing-function org-publish-attachment
                 )))
