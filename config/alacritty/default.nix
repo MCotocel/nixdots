@@ -17,10 +17,10 @@
       colors = {
         primary = {
           foreground = "#d5d5d5";
-          background = "#0c1213";
+          background = "#000000";
         };
         normal = {
-          black = "#0c1213";
+          black = "#000000";
           red = "#ff8080";
           green = "#97d59b";
           yellow = "#fffe80";

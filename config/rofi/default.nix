@@ -12,8 +12,8 @@
       inherit (config.lib.formats.rasi) mkLiteral;
     in {
       "*" = {
-        ac = mkLiteral "#0f1719";
-        bg = mkLiteral "#0c1213";
+        ac = mkLiteral "#cccccc";
+        bg = mkLiteral "#000000";
         fg = mkLiteral "#d5d5d5";
         background-color = mkLiteral "@bg";
       };
@@ -22,7 +22,7 @@
         padding = mkLiteral "20px";
         width = mkLiteral "30%";
         height = mkLiteral "40%";
-        border = mkLiteral "3px";
+        border = mkLiteral "1px";
         border-color = mkLiteral "@ac";
       };
 

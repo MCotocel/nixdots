@@ -30,7 +30,7 @@
       [color]
       gradient = 1
       gradient_count = 2
-      gradient_color_1 = '#ace1ff'
+      gradient_color_1 = '#cccccc'
       gradient_color_2 = '#ffffff'
       
       [eq]

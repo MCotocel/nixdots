@@ -13,13 +13,13 @@
       exec-once = solaar -w hide -b solaar
       exec-once = emacs --daemon
       exec-once = hyprctl setcursor "Breeze_Snow" 24
-      exec-once = swaybg -i ~/Pictures/Wallpaper/Plain.png
       exec = pkill eww
       exec = eww daemon
       exec = eww -c ~/.config/eww open bar-internal
       exec = eww -c ~/.config/eww open bar-external
       exec-once = kmonad ~/.config/kmonad/internal.kbd
       exec = kmonad ~/.config/kmonad/external.kbd
+      exec-once = swaybg -m fill -i ~/Pictures/Wallpaper/Plain.png
 
       input {
           kb_layout = us
@@ -36,9 +36,9 @@
       general {
           gaps_in = 3
           gaps_out = 5
-          border_size = 3
-          col.active_border = rgba(1f252aff)
-          col.inactive_border = rgba(1f252aff)
+          border_size = 1
+          col.active_border = rgba(ccccccff)
+          col.inactive_border = rgba(ccccccff)
 
           layout = dwindle
       }

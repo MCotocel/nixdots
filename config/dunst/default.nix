@@ -7,16 +7,16 @@
       global = {
         origin = "top-right";
         shrink = true;
-        frame_color = "#0f1719";
+        frame_color = "#000000";
         font = "Iosevka Nerd Font 11";
       };
       urgency_normal = {
-        background = "#0c1213";
+        background = "#000000";
         foreground = "#d5d5d5";
         timeout = 5;
       };
       urgency_critical = {
-        background = "#0c1213";
+        background = "#000000";
         foreground = "#d5d5d5";
         timeout = 15;
       };

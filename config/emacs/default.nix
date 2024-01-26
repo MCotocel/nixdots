@@ -190,7 +190,7 @@
                ("vault:files"
                 :base-directory "~/State/Vault/"
                 :base-extension "org"
-                :publishing-directory "~/public_html/"
+                :publishing-directory "~/State/Hosted Vault/"
                 :recursive t
                 :publishing-function org-html-publish-to-html
                 :headline-levels 4
@@ -577,6 +577,9 @@
                 ("lambda" . "λ"))))
         (add-hook 'prog-mode-hook 'prog/prettify-set)
       (global-prettify-symbols-mode)
+     (add-to-list 'org-emphasis-alist
+                  '("*" (bold :foreground "#ff8080")
+                    ))
 
      (setq org-agenda-category-icon-alist
            `(("maths" ,(list (nerd-icons-mdicon "nf-md-square_root")) nil nil :ascent center)
@@ -622,7 +625,7 @@
       body {
         padding: 50px;
         color: #d5d5d5;
-        background-color: #0c1213;
+        background-color: #000000;
         font-family: monospace;
         font-size: 16px;
       }
@@ -698,27 +701,27 @@
       (def-doom-theme doom-quiet-dark
         "A dark theme partially inspired by Atom One Dark"
       
-        ((bg         '("#0c1213"))
+        ((bg         '("#000000"))
          (fg         '("#D5D5D5"))
       
          ;; These are off-color variants of bg/fg, used primarily for `solaire-mode',
          ;; but can also be useful as a basis for subtle highlights (e.g. for hl-line
          ;; or region), especially when paired with the `doom-darken', `doom-lighten',
          ;; and `doom-blend' helper functions.
-         (bg-alt     '("#1f252a"))
+         (bg-alt     '("#CCCCCC"))
          (fg-alt     '("#D5D5D5"))
       
          ;; These should represent a spectrum from bg to fg, where base0 is a starker
          ;; bg and base8 is a starker fg. For example, if bg is light grey and fg is
          ;; dark grey, base0 should be white and base8 should be black.
-         (base0      '("#0c1213"))
-         (base1      '("#0c1213"))
-         (base2      '("#0c1213"))
-         (base3      '("#0c1213"))
+         (base0      '("#000000"))
+         (base1      '("#000000"))
+         (base2      '("#000000"))
+         (base3      '("#000000"))
          (base4      '("#384149"))
          (base5      '("#384149"))
          (base6      '("#181e23"))
-         (base7      '("#1f252a"))
+         (base7      '("#181e23"))
          (base8      '("#989899"))
       
          (grey       base5)
