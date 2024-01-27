@@ -22,7 +22,7 @@
         padding = mkLiteral "20px";
         width = mkLiteral "30%";
         height = mkLiteral "40%";
-        border = mkLiteral "1px";
+        border = mkLiteral "0px";
         border-color = mkLiteral "@ac";
       };
 
