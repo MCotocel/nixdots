@@ -36,12 +36,14 @@ in
   services.gnome.evolution-data-server.plugins = [ pkgs.evolution-ews ];
   programs.evolution.enable = true;
 
+  # Nautilus quick look
+  services.gnome.sushi.enable = true;
+
   environment.systemPackages = with pkgs; [
     baobab # For checking what's taking up so much disk space
     bitwarden # Passwords and stuff
     calibre # Converting my books for my Kindle
     cbatticon # Systray battery
-    cinnamon.nemo # File manager
     darktable # Color correction
     dunst # For notifications
     eww-wayland # Widgets for Hyprland
@@ -50,6 +52,7 @@ in
     gnome.file-roller # Unarchiver
     gnome.gnome-disk-utility # Formatting disks
     gnome.simple-scan # Scanner frontend
+    gnome.nautilus # File manager
     google-chrome # Another browser, to separate work and not work
     gthumb # Image manager
     gtklock # GTK lock screen for wayland

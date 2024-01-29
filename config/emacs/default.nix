@@ -117,7 +117,10 @@
       (add-hook 'org-mode-hook 'olivetti-mode)
 
       (setq org-roam-directory (file-truename "~/State/Vault/"))
-      (setq org-agenda-files '("~/State/Vault/20230831103307-agenda.org" "~/State/Vault/20231111112234-timetable.org"))
+      (setq org-agenda-files '(
+        "~/State/Vault/20230831103307-agenda.org"
+        "~/State/Vault/20230901140829-birthdays.org"
+        "~/State/Vault/20231111112234-timetable.org"))
       (org-roam-db-autosync-mode)
       (cl-defmethod org-roam-node-directories ((node org-roam-node))
         (if-let ((dirs (file-name-directory (file-relative-name (org-roam-node-file node) org-roam-directory))))
@@ -631,9 +634,8 @@
       }
       
       pre, blockquote, src {
-        background: #0f1719;
+        background: #000000;
         border: 3px solid #0f1719;
-        border-left: 3px solid #384149;
         font-family: monospace;
         padding-top: 15px;
         padding-bottom: 15px;
@@ -662,6 +664,10 @@
 
       img {
         max-width: 400px;
+      }
+
+      b {
+        color: #ff8080;
       }
   '';
   home.file.".config/emacs/doom-quiet-dark-theme.el".text = ''
@@ -708,7 +714,7 @@
          ;; but can also be useful as a basis for subtle highlights (e.g. for hl-line
          ;; or region), especially when paired with the `doom-darken', `doom-lighten',
          ;; and `doom-blend' helper functions.
-         (bg-alt     '("#CCCCCC"))
+         (bg-alt     '("#0c1213"))
          (fg-alt     '("#D5D5D5"))
       
          ;; These should represent a spectrum from bg to fg, where base0 is a starker
