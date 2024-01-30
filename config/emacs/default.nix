@@ -93,7 +93,10 @@
 
       (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.3))
 
-	    (setq org-html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"./style.css\"/>"
+	    (setq org-html-head "
+        <link rel=\"stylesheet\" type=\"text/css\" href=\"./style.css\"/>
+        <script defer src=\"https://eu.umami.is/script.js\" data-website-id=\"c7bd5e90-595f-42f1-b167-30cc61b5ecae\"></script>
+        "
 	      org-html-doctype "html5")
 
 	    (setq org-hide-emphasis-markers t
@@ -484,7 +487,8 @@
 
       (format-all-mode)
 
-      (load-theme 'doom-quiet-dark t)
+      (load-file "~/.config/emacs/doom-quiet-dark-theme.el")
+      (enable-theme 'doom-quiet-dark)
       (doom-themes-neotree-config)
 
       (require 'lsp)

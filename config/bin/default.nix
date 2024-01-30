@@ -139,7 +139,7 @@
       
       function update() {
         echo "Updating flake"
-        $priv nix flake update ~/nixdots
+        $priv nix flake update --flake ~/nixdots
       }
       
       function clean() {

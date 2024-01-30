@@ -42,10 +42,12 @@ in
   environment.systemPackages = with pkgs; [
     baobab # For checking what's taking up so much disk space
     bitwarden # Passwords and stuff
+    bottles # Running Windows software
     calibre # Converting my books for my Kindle
     cbatticon # Systray battery
     darktable # Color correction
     dunst # For notifications
+    element-desktop # Matrix client
     eww-wayland # Widgets for Hyprland
     ffmpegthumbnailer # Video thumbnails
     gimp # Photo editor

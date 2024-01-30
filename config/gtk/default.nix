@@ -12,6 +12,8 @@
     theme.package = pkgs.adw-gtk3;
     theme.name = "adw-gtk3";
     gtk3.extraCss = ''
+        @define-color sidebar_bg_color #000000;
+        @define-color sidebar_fg_color #ffffff;
         @define-color accent_color #ace1ff;
         @define-color accent_bg_color #ace1ff;
         @define-color accent_fg_color #000000;
@@ -35,15 +37,15 @@
         @define-color headerbar_fg_color #d5d5d5;
         @define-color headerbar_border_color #0f1719;
         @define-color headerbar_backdrop_color @window_bg_color;
-        @define-color headerbar_shade_color rgba(0, 0, 0, 0.07);
+        @define-color headerbar_shade_color #000000;
         @define-color card_bg_color #000000;
         @define-color card_fg_color #d5d5d5;
-        @define-color card_shade_color rgba(0, 0, 0, 0.07);
+        @define-color card_shade_color #000000;
         @define-color dialog_bg_color #000000;
         @define-color dialog_fg_color #d5d5d5;
         @define-color popover_bg_color #000000;
         @define-color popover_fg_color #d5d5d5;
-        @define-color shade_color rgba(0, 0, 0, 0.07);
+        @define-color shade_color #000000;
         @define-color scrollbar_outline_color #000000;
         @define-color blue_1 #99c1f1;
         @define-color blue_2 #62a0ea;
@@ -90,8 +92,19 @@
         @define-color dark_3 #3d3846;
         @define-color dark_4 #241f31;
         @define-color dark_5 #000000;
+        .placessidebar {
+             background-color: #000000;
+        }
+        .navigation-sidebar {
+             background-color: #000000;
+        }
+        .top-bar {
+             background: #000000;
+        }
     '';
     gtk4.extraCss = ''
+        @define-color sidebar_bg_color #000000;
+        @define-color sidebar_fg_color #ffffff;
         @define-color accent_color #ace1ff;
         @define-color accent_bg_color #ace1ff;
         @define-color accent_fg_color #000000;
@@ -115,15 +128,15 @@
         @define-color headerbar_fg_color #d5d5d5;
         @define-color headerbar_border_color #0f1719;
         @define-color headerbar_backdrop_color @window_bg_color;
-        @define-color headerbar_shade_color rgba(0, 0, 0, 0.07);
+        @define-color headerbar_shade_color #000000;
         @define-color card_bg_color #000000;
         @define-color card_fg_color #d5d5d5;
-        @define-color card_shade_color rgba(0, 0, 0, 0.07);
+        @define-color card_shade_color #000000;
         @define-color dialog_bg_color #000000;
         @define-color dialog_fg_color #d5d5d5;
         @define-color popover_bg_color #000000;
         @define-color popover_fg_color #d5d5d5;
-        @define-color shade_color rgba(0, 0, 0, 0.07);
+        @define-color shade_color #000000;
         @define-color scrollbar_outline_color #000000;
         @define-color blue_1 #99c1f1;
         @define-color blue_2 #62a0ea;
@@ -170,6 +183,15 @@
         @define-color dark_3 #3d3846;
         @define-color dark_4 #241f31;
         @define-color dark_5 #000000;
+        .placessidebar {
+             background-color: #000000;
+        }
+        .navigation-sidebar {
+             background-color: #000000;
+        }
+        .top-bar {
+             background: #000000;
+        }
     '';
   };
 }
