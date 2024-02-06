@@ -5,10 +5,15 @@
   networking = {
     hostName = "lithium"; # Hostname
     networkmanager.enable = true; # Enable networkmanager
-    nameservers = [ "1.1.1.1" "9.9.9.9" ];
-    networkmanager.dns = "none";
     networkmanager.wifi.backend = "iwd";
-    wireless.iwd.enable = true;
+    wireless.iwd = {
+      enable = true;
+      settings = {
+        Settings = {
+          AutoConnect = true;
+        };
+      };
+    };
     firewall.enable = true; # Stay out, hackers
     firewall.allowedTCPPorts = [
       22

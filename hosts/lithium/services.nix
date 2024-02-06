@@ -16,6 +16,7 @@
   };
 
   hardware.bluetooth.enable = true; # Bluetooth cause why not
+  hardware.bluetooth.powerOnBoot = true; # Bluetooth cause why not
   services.blueman.enable = true; # Bluetooth GUI
 
   services.usbmuxd = {
@@ -42,6 +43,23 @@
   services.logind.extraConfig = ''
     HandlePowerKey=suspend
   '';
+
+  # Isolation
+  programs.firejail = {
+    enable = true;
+      wrappedBinaries = {
+        google-chrome-stable = {
+          executable = "${pkgs.google-chrome}/bin/google-chrome-stable";
+          profile = "${pkgs.firejail}/etc/firejail/google-chrome.profile";
+          desktop = "${pkgs.google-chrome}/share/applications/google-chrome.desktop";
+        };
+        spotify = {
+          executable = "${pkgs.spotify}/bin/spotify";
+          profile = "${pkgs.firejail}/etc/firejail/spotify.profile";
+          desktop = "${pkgs.spotify}/share/applications/spotify.desktop";
+        };
+      };
+  };
 
   # For kmonad
   services.udev.extraRules = ''

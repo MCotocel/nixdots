@@ -1,0 +1,11 @@
+[Desktop Entry]
+Categories=Network;InstantMessaging;Chat
+Comment=A feature-rich client for Matrix.org
+Exec=element-desktop %u
+GenericName=Matrix Client
+Icon=element
+MimeType=x-scheme-handler/element
+Name=Element
+StartupWMClass=Element
+Type=Application
+Version=1.4

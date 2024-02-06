@@ -1,0 +1,8 @@
+[Desktop Entry]
+Categories=Game;ActionGame
+Comment=NetHack is a single player dungeon exploration game
+Exec=nethack
+Icon=nethack
+Name=NetHack
+Type=Application
+Version=1.4

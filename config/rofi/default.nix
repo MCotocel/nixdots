@@ -1,16 +1,22 @@
 { config, pkgs, ... }:
 
+let 
+      inherit (config.lib.formats.rasi) mkLiteral;
+in
 {
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
-    extraConfig = {
-      modi = "drun,run,window";
-      icon-theme = "Papirus";
-    };
-    theme = let
-      inherit (config.lib.formats.rasi) mkLiteral;
-    in {
+    extraConfig = mkLiteral '' {
+        configuration {
+            icon-theme: "Papirus";
+            modi: "drun,run,keys";
+            drun {
+                parse-system: false;
+            }
+        }
+    '';
+    theme = {
       "*" = {
         ac = mkLiteral "#cccccc";
         bg = mkLiteral "#000000";

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Categories=Game
+Comment=Official launcher for Minecraft, a sandbox-building game
+Exec=minecraft-launcher
+Icon=minecraft-launcher
+Name=Minecraft Launcher
+Type=Application
+Version=1.4

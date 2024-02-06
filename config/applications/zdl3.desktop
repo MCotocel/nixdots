@@ -1,0 +1,8 @@
+[Desktop Entry]
+Categories=Game
+Exec=zdl %U
+GenericName=A ZDoom WAD Launcher
+Icon=zdl3
+Name=ZDL
+Type=Application
+Version=1.4

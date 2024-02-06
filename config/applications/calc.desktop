@@ -1,0 +1,109 @@
+#
+# This file is part of the LibreOffice project.
+#
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+#
+# This file incorporates work covered by the following license notice:
+#
+#   Licensed to the Apache Software Foundation (ASF) under one or more
+#   contributor license agreements. See the NOTICE file distributed
+#   with this work for additional information regarding copyright
+#   ownership. The ASF licenses this file to you under the Apache
+#   License, Version 2.0 (the "License"); you may not use this file
+#   except in compliance with the License. You may obtain a copy of
+#   the License at http://www.apache.org/licenses/LICENSE-2.0 .
+#
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Icon=calc
+Type=Application
+Categories=Office;Spreadsheet;X-Red-Hat-Base;
+Exec=soffice --calc %U
+MimeType=application/vnd.oasis.opendocument.spreadsheet;application/vnd.oasis.opendocument.spreadsheet-template;application/vnd.sun.xml.calc;application/vnd.sun.xml.calc.template;application/msexcel;application/vnd.ms-excel;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;application/vnd.ms-excel.sheet.macroEnabled.12;application/vnd.openxmlformats-officedocument.spreadsheetml.template;application/vnd.ms-excel.template.macroEnabled.12;application/vnd.ms-excel.sheet.binary.macroEnabled.12;text/csv;application/x-dbf;text/spreadsheet;application/csv;application/excel;application/tab-separated-values;application/vnd.lotus-1-2-3;application/vnd.oasis.opendocument.chart;application/vnd.oasis.opendocument.chart-template;application/x-dbase;application/x-dos_ms_excel;application/x-excel;application/x-msexcel;application/x-ms-excel;application/x-quattropro;application/x-123;text/comma-separated-values;text/tab-separated-values;text/x-comma-separated-values;text/x-csv;application/vnd.oasis.opendocument.spreadsheet-flat-xml;application/vnd.ms-works;application/clarisworks;application/x-iwork-numbers-sffnumbers;application/vnd.apple.numbers;application/x-starcalc;
+Name=LibreOffice 7.5 Calc
+GenericName=Spreadsheet
+GenericName[ar]=جدول مُمتد
+GenericName[ca]=Full de càlcul
+GenericName[cs]=Sešit
+GenericName[da]=Regneark
+GenericName[de]=Tabellendokument
+GenericName[en]=Spreadsheet
+GenericName[en_GB]=Spreadsheet
+GenericName[eo]=Kalkultabelo
+GenericName[es]=Hoja de cálculo
+GenericName[fr]=Classeur
+GenericName[hu]=Munkafüzet
+GenericName[it]=Foglio elettronico
+GenericName[ja]=表計算ドキュメント
+GenericName[nl]=Werkblad
+GenericName[pl]=Arkusz kalkulacyjny
+GenericName[pt]=Folha de cálculo
+GenericName[pt_BR]=Planilha
+GenericName[ro]=Foaie de calcul
+GenericName[ru]=Электронная таблица
+GenericName[sl]=Preglednica
+GenericName[tr]=Hesap Tablosu
+GenericName[uk]=Електронна таблиця
+GenericName[zh_CN]=电子表格
+Comment=Perform calculations, analyze information and manage lists in spreadsheets.
+Comment[ar]=Perform calculations, analyze information and manage lists in spreadsheets.
+Comment[ca]=Feu càlculs, analitzeu informació i gestioneu llistes en fulls de càlcul.
+Comment[cs]=Umožňuje vytvářet a spravovat tabulkové seznamy a provádět na těchto datech výpočty a analýzu informací.
+Comment[da]=Perform calculations, analyze information and manage lists in spreadsheets.
+Comment[de]=Führen Sie Berechnungen durch, analysieren Sie Informationen und verwalten Sie Listen in Tabellendokumenten.
+Comment[en]=Perform calculations, analyze information and manage lists in spreadsheets.
+Comment[en_GB]=Perform calculations, analyze information and manage lists in spreadsheets.
+Comment[eo]=Kalkuladi, analizi informojn kaj administri listojn en kalkultabeloj.
+Comment[es]=Realice cálculos, analice información y gestione listas en hojas de cálculo.
+Comment[fr]=Effectuer des calculs, analyser des informations et gérer des listes dans des feuilles de calcul.
+Comment[hu]=Számítások végrehajtása, adatok elemzése és listák kezelése munkafüzetekben.
+Comment[it]=Esegui calcoli, analizza informazioni e gestisci elenchi nei fogli elettronici.
+Comment[ja]=Perform calculations, analyze information and manage lists in spreadsheets.
+Comment[nl]=Voer berekeningen uit, analyseer informatie en beheer lijsten in spreadsheets.
+Comment[pl]=Wykonuj obliczenia, analizuj informacje i zarządzaj listami w arkuszach kalkulacyjnych.
+Comment[pt]=Execute cálculos, analise informações ou dados em folhas de cálculo.
+Comment[pt_BR]=Efetue cálculos, analise informações e gerencie listas em planilhas.
+Comment[ro]=Perform calculations, analyze information and manage lists in spreadsheets.
+Comment[ru]=Выполнение вычислений, анализ информации и управление списками в электронных таблицах.
+Comment[sl]=Izvajajte računske operacije, analizirajte podatke in upravljajte sezname v preglednicah.
+Comment[tr]=Hesaplamalar yapın, bilgileri analiz edin ve hesap tablolarındaki listeleri yönetin.
+Comment[uk]=Виконання обчислень, аналіз інформації та управління списками в електронних таблицях.
+Comment[zh_CN]=在电子表格中进行计算、分析信息以及管理列表。
+StartupNotify=true
+X-GIO-NoFuse=true
+Keywords=Accounting;Stats;OpenDocument Spreadsheet;Chart;Microsoft Excel;Microsoft Works;OpenOffice Calc;ods;xls;xlsx;
+InitialPreference=5
+StartupWMClass=libreoffice-calc
+X-KDE-Protocols=file,http,ftp,webdav,webdavs
+
+Actions=NewDocument;
+[Desktop Action NewDocument]
+Name=New Spreadsheet
+Name[ar]=جدول مُمتد جديد
+Name[ca]=Full de càlcul nou
+Name[cs]=Nový sešit
+Name[da]=Nyt regneark
+Name[de]=Neues Tabellendokument
+Name[en]=New Spreadsheet
+Name[en_GB]=New Spreadsheet
+Name[eo]=Nova kalkultabelo
+Name[es]=Hoja de cálculo nueva
+Name[fr]=Nouveau classeur
+Name[hu]=Új munkafüzet
+Name[it]=Nuovo foglio elettronico
+Name[ja]=新規の表計算文書
+Name[nl]=Nieuw werkblad
+Name[pl]=Nowy arkusz kalkulacyjny
+Name[pt]=Nova folha de cálculo
+Name[pt_BR]=Nova planilha
+Name[ro]=Foaie de calcul nouă
+Name[ru]=Создать эл.таблицу
+Name[sl]=Nova preglednica
+Name[tr]=Yeni Hesap Tablosu
+Name[uk]=Електронна таблиця ODF
+Name[zh_CN]=新建电子表格
+Icon=document-new
+Exec=soffice --calc

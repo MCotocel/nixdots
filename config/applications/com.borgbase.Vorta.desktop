@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Vorta
+GenericName=Backup Software
+Exec=vorta
+Type=Application
+Icon=com.borgbase.Vorta-symbolic
+Categories=Utility;Archiving;Qt;
+Keywords=borg;
+StartupWMClass=vorta
