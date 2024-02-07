@@ -7,7 +7,6 @@
       isDefault = true;
       name = "Matei";
       settings = {
-        "browser.startup.homepage" = "https://mcotocel.is-a.dev/startpage";
         "browser.compactmode.show" = true;
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
         "browser.tabs.tabmanager.enabled" = false;
@@ -34,7 +33,6 @@
         steam-database
         terms-of-service-didnt-read
         ublock-origin
-        windscribe
       ];
       userChrome = ''
         /* Make the tab background transparent, remove rounding, make the tabs a certain height */

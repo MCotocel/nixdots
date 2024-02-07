@@ -1,61 +1,6 @@
-#
-# This file is part of the LibreOffice project.
-#
-# This Source Code Form is subject to the terms of the Mozilla Public
-# License, v. 2.0. If a copy of the MPL was not distributed with this
-# file, You can obtain one at http://mozilla.org/MPL/2.0/.
-#
-# This file incorporates work covered by the following license notice:
-#
-#   Licensed to the Apache Software Foundation (ASF) under one or more
-#   contributor license agreements. See the NOTICE file distributed
-#   with this work for additional information regarding copyright
-#   ownership. The ASF licenses this file to you under the Apache
-#   License, Version 2.0 (the "License"); you may not use this file
-#   except in compliance with the License. You may obtain a copy of
-#   the License at http://www.apache.org/licenses/LICENSE-2.0 .
-#
 [Desktop Entry]
-Version=1.0
-Terminal=false
-Icon=draw
 Type=Application
-Categories=Office;FlowChart;Graphics;2DGraphics;VectorGraphics;X-Red-Hat-Base;
-Exec=soffice --draw %U
-MimeType=application/vnd.oasis.opendocument.graphics;application/vnd.oasis.opendocument.graphics-flat-xml;application/vnd.oasis.opendocument.graphics-template;application/vnd.sun.xml.draw;application/vnd.sun.xml.draw.template;application/vnd.visio;application/x-wpg;application/vnd.corel-draw;application/vnd.ms-publisher;image/x-freehand;application/clarisworks;application/x-pagemaker;application/pdf;application/x-stardraw;image/x-emf;image/x-wmf;
-Name=LibreOffice 7.5 Draw
-StartupNotify=true
-X-GIO-NoFuse=true
-Keywords=Vector;Schema;Diagram;Layout;OpenDocument Graphics;Microsoft Publisher;Microsoft Visio;Corel Draw;cdr;odg;svg;pdf;vsd;
-InitialPreference=5
-StartupWMClass=libreoffice-draw
-X-KDE-Protocols=file,http,ftp,webdav,webdavs
-
-Actions=NewDocument;
-[Desktop Action NewDocument]
-Name=New Drawing
-Name[ar]=رسم جديد
-Name[ca]=Dibuix nou
-Name[cs]=Nová kresba
-Name[da]=Ny tegning
-Name[de]=Neue Zeichnung
-Name[en]=New Drawing
-Name[en_GB]=New Drawing
-Name[eo]=Nova desegnaĵo
-Name[es]=Dibujo nuevo
-Name[fr]=Nouveau dessin
-Name[hu]=Új rajz
-Name[it]=Nuovo disegno
-Name[ja]=新規の図形描画
-Name[nl]=Nieuwe tekening
-Name[pl]=Nowy rysunek
-Name[pt]=Novo desenho
-Name[pt_BR]=Novo desenho
-Name[ro]=Desen nou
-Name[ru]=Создать рисунок
-Name[sl]=Nova risba
-Name[tr]=Yeni Çizim
-Name[uk]=Наступний малюнок
-Name[zh_CN]=新建绘图
-Icon=document-new
+Name=LibreOffice Draw
 Exec=soffice --draw
+Icon=draw
+Keywords=

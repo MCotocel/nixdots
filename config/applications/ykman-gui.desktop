@@ -1,9 +1,6 @@
 [Desktop Entry]
-Name=YubiKey Manager
-Exec=/nix/store/ld2dnya9li2b4g8s7acvm62j32r50pcm-yubikey-manager-qt-1.2.5/bin/ykman-gui
-Icon=ykman
-StartupNotify=false
-Terminal=false
 Type=Application
-Categories=Utility;
-Keywords=YubiKey;Manager;
+Name=Yubikey manager
+Exec=ykman-gui
+Icon=ykman-gui
+Keywords=

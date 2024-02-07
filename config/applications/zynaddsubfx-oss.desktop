@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=ZynAddSubFX - OSS
-Keywords=audio;sound;alsa;midi;synth;synthesizer;
-Exec=zynaddsubfx -I OSS -O OSS
-Icon=zynaddsubfx
-Terminal=false
-Type=Application
-Categories=AudioVideo;Audio;

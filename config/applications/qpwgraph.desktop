@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=QPWGraph
+Exec=qpwgraph
+Icon=org.rncbc.qpwgraph
+Keywords=sound

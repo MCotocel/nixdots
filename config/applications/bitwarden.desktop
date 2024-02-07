@@ -1,7 +1,6 @@
 [Desktop Entry]
-Categories=Utility
-Exec=bitwarden %U
-Icon=bitwarden
-Name=Bitwarden
 Type=Application
-Version=1.4
+Name=Bitwarden
+Exec=bitwarden
+Icon=bitwarden
+Keywords=password

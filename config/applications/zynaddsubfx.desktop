@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Terminal=false
+Name=ZynAddSubFX
+Exec=zynaddsubfx
 Icon=zynaddsubfx
-Exec=zynaddsubfx -I pa -O pa
-Name=Zynaddsubfx
+Keywords=synthesizer

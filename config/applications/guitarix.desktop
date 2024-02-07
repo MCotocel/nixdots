@@ -1,12 +1,6 @@
-
 [Desktop Entry]
-Name=guitarix
-Name[fr]=guitarix
-Name[ru]=Guitarix
-Name[sk]=guitarix
-Exec=guitarix
-Icon=gx_head
-Categories=AudioVideo;Audio;X-Jack;Midi;X-MIDI;
-Terminal=false
 Type=Application
-Keywords=Audio;Sound;Guitar;Amplifier;Record;Midi;Jack;
+Name=Guitarix
+Exec=env WAYLAND_DISPLAY= guitarix
+Icon=guitarix
+Keywords=

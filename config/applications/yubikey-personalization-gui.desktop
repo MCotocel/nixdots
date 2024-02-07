@@ -1,9 +1,6 @@
 [Desktop Entry]
-Name=YubiKey Personalization Tool
+Type=Application
+Name=Yubikey personalization
 Exec=yubikey-personalization-gui
 Icon=yubikey-personalization-gui
-StartupNotify=true
-Terminal=false
-Type=Application
-Categories=Utility;
-Keywords=YubiKey;Personalization;
+Keywords=

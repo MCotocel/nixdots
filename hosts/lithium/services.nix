@@ -47,18 +47,6 @@
   # Isolation
   programs.firejail = {
     enable = true;
-      wrappedBinaries = {
-        google-chrome-stable = {
-          executable = "${pkgs.google-chrome}/bin/google-chrome-stable";
-          profile = "${pkgs.firejail}/etc/firejail/google-chrome.profile";
-          desktop = "${pkgs.google-chrome}/share/applications/google-chrome.desktop";
-        };
-        spotify = {
-          executable = "${pkgs.spotify}/bin/spotify";
-          profile = "${pkgs.firejail}/etc/firejail/spotify.profile";
-          desktop = "${pkgs.spotify}/share/applications/spotify.desktop";
-        };
-      };
   };
 
   # For kmonad

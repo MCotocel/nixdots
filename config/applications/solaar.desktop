@@ -1,11 +1,6 @@
 [Desktop Entry]
+Type=Application
 Name=Solaar
 Exec=solaar
 Icon=solaar
-StartupNotify=true
-Terminal=false
-Type=Application
-Keywords=logitech;unifying;receiver;mouse;keyboard;
-Categories=Utility;GTK;
-#Categories=Utility;GTK;Settings;HardwareSettings;
-X-GNOME-UsesNotifications=true
+Keywords=

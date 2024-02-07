@@ -1,7 +1,6 @@
 [Desktop Entry]
 Type=Application
 Name=Firefox
-Exec=firefox
+Exec=firejail firefox
 Icon=firefox
-Terminal=false
-Keywords=browser;
+Keywords=browser

@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Disk Utility
+Exec=gnome-disks
+Icon=disk-utility
+Keywords=

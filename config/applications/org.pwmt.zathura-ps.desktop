@@ -1,9 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Type=Application
-Name=Zathura
-Exec=zathura %U
-Terminal=false
-NoDisplay=true
-Categories=Office;Viewer;
-MimeType=application/postscript;application/eps;application/x-eps;image/eps;image/x-eps;

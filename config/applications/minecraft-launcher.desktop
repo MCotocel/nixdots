@@ -1,7 +1,6 @@
 [Desktop Entry]
-Categories=Game
-Exec=minecraft-launcher
-Icon=minecraft-launcher
-Name=Minecraft Launcher
 Type=Application
-Version=1.4
+Name=Minecraft
+Exec=minecraft-launcher
+Icon=minecraft
+Keywords=

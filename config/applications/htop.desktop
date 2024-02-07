@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Version=1.0
-Name=Htop
-Icon=htop
-Exec=htop
-Terminal=true
-Categories=System;Monitor;ConsoleOnly;
-Keywords=system;process;task

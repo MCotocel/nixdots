@@ -1,7 +1,0 @@
-[Desktop Entry]
-Categories=System
-Exec=nixos-help
-Icon=nix-snowflake
-Name=NixOS Manual
-Type=Application
-Version=1.4

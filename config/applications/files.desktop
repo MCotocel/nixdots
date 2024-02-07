@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Name=Audacity
-Exec=audacity
-Icon=audacity
+Name=Files
+Exec=nautilus
+Icon=nautilus
 Keywords=

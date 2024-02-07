@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=Vorta
-Exec=vorta
-Type=Application
-Icon=com.borgbase.Vorta-symbolic
-Categories=Utility;Archiving;Qt;
-Keywords=borg;
-StartupWMClass=vorta

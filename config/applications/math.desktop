@@ -1,62 +1,6 @@
-#
-# This file is part of the LibreOffice project.
-#
-# This Source Code Form is subject to the terms of the Mozilla Public
-# License, v. 2.0. If a copy of the MPL was not distributed with this
-# file, You can obtain one at http://mozilla.org/MPL/2.0/.
-#
-# This file incorporates work covered by the following license notice:
-#
-#   Licensed to the Apache Software Foundation (ASF) under one or more
-#   contributor license agreements. See the NOTICE file distributed
-#   with this work for additional information regarding copyright
-#   ownership. The ASF licenses this file to you under the Apache
-#   License, Version 2.0 (the "License"); you may not use this file
-#   except in compliance with the License. You may obtain a copy of
-#   the License at http://www.apache.org/licenses/LICENSE-2.0 .
-#
 [Desktop Entry]
-Version=1.0
-Terminal=false
-NoDisplay=false
-Icon=math
 Type=Application
-Categories=Office;Education;Science;Math;X-Red-Hat-Base;
-Exec=soffice --math %U
-MimeType=application/vnd.oasis.opendocument.formula;application/vnd.sun.xml.math;application/vnd.oasis.opendocument.formula-template;text/mathml;application/mathml+xml;
-Name=LibreOffice 7.5 Math
-StartupNotify=true
-X-GIO-NoFuse=true
-Keywords=Equation;OpenDocument Formula;Formula;odf;MathML;
-InitialPreference=5
-StartupWMClass=libreoffice-math
-X-KDE-Protocols=file,http,ftp,webdav,webdavs
-
-Actions=NewDocument;
-[Desktop Action NewDocument]
-Name=New Formula
-Name[ar]=معادلة جديدة
-Name[ca]=Fórmula nova
-Name[cs]=Nový vzorec
-Name[da]=Ny formel
-Name[de]=Neue Formel
-Name[en]=New Formula
-Name[en_GB]=New Formula
-Name[eo]=Nova formulo
-Name[es]=Fórmula nueva
-Name[fr]=Nouvelle formule
-Name[hu]=Új képlet
-Name[it]=Nuova formula
-Name[ja]=新規の数式
-Name[nl]=Nieuwe formule
-Name[pl]=Nowa formuła
-Name[pt]=Nova fórmula
-Name[pt_BR]=Nova fórmula
-Name[ro]=Formulă nouă
-Name[ru]=Создать формулу
-Name[sl]=Nova formula
-Name[tr]=Yeni Formül
-Name[uk]=Створити формулу
-Name[zh_CN]=新建公式
-Icon=document-new
+Name=LibreOffice Math
 Exec=soffice --math
+Icon=math
+Keywords=

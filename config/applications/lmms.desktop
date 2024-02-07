@@ -1,8 +1,6 @@
 [Desktop Entry]
-Name=LMMS
-Icon=lmms
-Exec=lmms %f
-Terminal=false
 Type=Application
-Categories=Qt;AudioVideo;Audio;Midi;
-MimeType=application/x-lmms-project;
+Name=LMMS
+Exec=lmms
+Icon=lmms
+Keywords=

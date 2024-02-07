@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Evolution Data Server OAuth2 Handler
-Exec=/nix/store/96gncixaczqmw2npsf8cxs7b3hzwsspy-evolution-data-server-3.50.3/libexec/evolution-data-server/evolution-oauth2-handler %u
-Terminal=false
-NoDisplay=true
-MimeType=x-scheme-handler/com.googleusercontent.apps.590402290962-2i0b7rqma8b9nmtfrcp7fa06g6cf7g74;x-scheme-handler/eds-oauth2;

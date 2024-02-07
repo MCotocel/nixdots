@@ -1,10 +1,6 @@
 [Desktop Entry]
-Version=1.0
 Type=Application
-Name=calibre
-TryExec=calibre
-Exec=calibre --detach %U
-Icon=calibre-gui
-Categories=Office;
-X-GNOME-UsesNotifications=true
-MimeType=application/xhtml+xml;text/html;image/vnd.djvu;application/x-mobipocket-subscription;application/x-cbc;application/vnd.ms-word.document.macroenabled.12;application/x-cb7;application/x-mobi8-ebook;text/fb2+xml;application/oebps-package+xml;text/rtf;text/plain;application/x-sony-bbeb;text/x-markdown;application/pdf;application/x-cbz;application/x-mobipocket-ebook;application/ereader;application/epub+zip;application/vnd.oasis.opendocument.text;application/vnd.openxmlformats-officedocument.wordprocessingml.document;application/x-cbr;x-scheme-handler/calibre;
+Name=Calibre
+Exec=calibre
+Icon=calibre
+Keywords=book

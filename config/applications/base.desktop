@@ -1,61 +1,6 @@
-#
-# This file is part of the LibreOffice project.
-#
-# This Source Code Form is subject to the terms of the Mozilla Public
-# License, v. 2.0. If a copy of the MPL was not distributed with this
-# file, You can obtain one at http://mozilla.org/MPL/2.0/.
-#
-# This file incorporates work covered by the following license notice:
-#
-#   Licensed to the Apache Software Foundation (ASF) under one or more
-#   contributor license agreements. See the NOTICE file distributed
-#   with this work for additional information regarding copyright
-#   ownership. The ASF licenses this file to you under the Apache
-#   License, Version 2.0 (the "License"); you may not use this file
-#   except in compliance with the License. You may obtain a copy of
-#   the License at http://www.apache.org/licenses/LICENSE-2.0 .
-#
 [Desktop Entry]
-Version=1.0
-Terminal=false
-Icon=base
 Type=Application
-Categories=Office;Database;X-Red-Hat-Base;
-Exec=soffice --base %U
-MimeType=application/vnd.oasis.opendocument.base;application/vnd.sun.xml.base;
-Name=LibreOffice 7.5 Base
-StartupNotify=true
-X-GIO-NoFuse=true
-Keywords=Data;SQL;
-InitialPreference=5
-StartupWMClass=libreoffice-base
-X-KDE-Protocols=file,http,ftp,webdav,webdavs
-
-Actions=NewDocument;
-[Desktop Action NewDocument]
-Name=New Database
-Name[ar]=قاعدة بيانات جديدة
-Name[ca]=Base de dades nova
-Name[cs]=Nová databáze
-Name[da]=Ny database
-Name[de]=Neue Datenbank
-Name[en]=New Database
-Name[en_GB]=New Database
-Name[eo]=Nova datumbazo
-Name[es]=Base de datos nueva
-Name[fr]=Nouvelle base de données
-Name[hu]=Új adatbázis
-Name[it]=Nuovo database
-Name[ja]=新規のデータベース
-Name[nl]=Nieuwe database
-Name[pl]=Nowa baza danych
-Name[pt]=Nova base de dados
-Name[pt_BR]=Novo banco de dados
-Name[ro]=Baze de date nouă
-Name[ru]=Создать базу данных
-Name[sl]=Nova zbirka podatkov
-Name[tr]=Yeni Veritabanı
-Name[uk]=Нова база даних
-Name[zh_CN]=新建数据库
-Icon=document-new
+Name=LibreOffice Base
 Exec=soffice --base
+Icon=base
+Keywords=

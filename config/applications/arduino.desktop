@@ -1,10 +1,6 @@
 [Desktop Entry]
 Type=Application
 Name=Arduino IDE
-Exec=/nix/store/1pncadr4m8w0naiwpnhmc64ycf6s1ljn-arduino/bin/arduino
-Icon=/nix/store/1pncadr4m8w0naiwpnhmc64ycf6s1ljn-arduino/share/arduino/icons/128x128/apps/arduino.png
-Terminal=false
-Categories=Development;IDE;Electronics;
-MimeType=text/x-arduino;
-Keywords=embedded electronics;electronics;avr;microcontroller;
-StartupWMClass=processing-app-Base
+Exec=arduino
+Icon=arduino
+Keywords=

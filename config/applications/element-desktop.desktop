@@ -1,9 +1,6 @@
 [Desktop Entry]
-Categories=Network;InstantMessaging;Chat
-Exec=element-desktop %u
-Icon=element
-MimeType=x-scheme-handler/element
-Name=Element
-StartupWMClass=Element
 Type=Application
-Version=1.4
+Name=Element
+Exec=element-desktop
+Icon=element-desktop
+Keywords=matrix

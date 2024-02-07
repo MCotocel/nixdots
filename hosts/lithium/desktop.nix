@@ -68,7 +68,6 @@ in
     maim # Select stuff
     networkmanagerapplet # When I want to quickly connect to a Wi-Fi network
     nicotine-plus # Soulseek client
-    nyxt # Browser
     openssl # For certs
     p7zip # Unzipping stuff
     pandoc # Converting stuff
