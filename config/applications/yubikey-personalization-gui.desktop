@@ -1,7 +1,5 @@
 [Desktop Entry]
 Name=YubiKey Personalization Tool
-GenericName=YubiKey Personalization Tool
-Comment=Graphical interface for programing a YubiKey
 Exec=yubikey-personalization-gui
 Icon=yubikey-personalization-gui
 StartupNotify=true

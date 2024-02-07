@@ -1,8 +1,6 @@
 [Desktop Entry]
 Type=Application
 Name=Arduino IDE
-GenericName=Arduino IDE
-Comment=Open-source electronics prototyping platform
 Exec=/nix/store/1pncadr4m8w0naiwpnhmc64ycf6s1ljn-arduino/bin/arduino
 Icon=/nix/store/1pncadr4m8w0naiwpnhmc64ycf6s1ljn-arduino/share/arduino/icons/128x128/apps/arduino.png
 Terminal=false

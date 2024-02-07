@@ -1,8 +1,6 @@
 [Desktop Entry]
 Categories=AudioVideo;AudioVideoEditing;Audio
-Comment=Create music by patching together virtual synthesizer modules
 Exec=Rack
-GenericName=Eurorack simulator
 Icon=Rack
 Keywords=music
 Name=VCV Rack

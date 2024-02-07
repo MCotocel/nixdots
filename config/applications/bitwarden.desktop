@@ -1,6 +1,5 @@
 [Desktop Entry]
 Categories=Utility
-Comment=A secure and free password manager for all of your devices
 Exec=bitwarden %U
 Icon=bitwarden
 Name=Bitwarden

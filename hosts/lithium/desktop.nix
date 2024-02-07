@@ -76,6 +76,7 @@ in
     qbittorrent # For downloading Linux ISOs
     qemu # Running VMs
     qpwgraph # Pipewire graph manager
+    rofi-wayland # Rofi for app launching
     scid # Chess GUI
     socat # Pipes and stuff
     solaar # For my MX Master 3 mouse

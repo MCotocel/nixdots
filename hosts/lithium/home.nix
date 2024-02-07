@@ -15,7 +15,7 @@
     (import ../../config/dunst { inherit config; })
     (import ../../config/eww { inherit config; })
     (import ../../config/emacs { inherit config; inherit pkgs; })
-    (import ../../config/firefox { inherit config; })
+    (import ../../config/firefox { inherit config; inherit pkgs; })
     (import ../../config/gtk { inherit config; inherit pkgs; })
     (import ../../config/gtklock { inherit config; })
     (import ../../config/gzdoom { inherit config; })

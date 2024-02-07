@@ -1,7 +1,6 @@
 [Desktop Entry]
 Type=Application
 Name=Spotify
-GenericName=Music Player
 Icon=spotify-client
 TryExec=spotify
 Exec=spotify %U

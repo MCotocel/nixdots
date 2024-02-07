@@ -1,43 +1,5 @@
 [Desktop Entry]
 Name=Darktable
-GenericName=Virtual Lighttable and Darkroom
-GenericName[cs]=Virtuální katalog a editor
-GenericName[de]=Virtueller Leuchttisch und Dunkelkammer
-GenericName[en@truecase]=Virtual Lighttable and Darkroom
-GenericName[es]=Mesa de Luz y Cuarto Oscuro Virtuales
-GenericName[fi]=Virtuaalinen valopöytä ja pimiö.
-GenericName[fr]=Table lumineuse et Chambre noire virtuelles
-GenericName[hu]=Virtuális átvilágító és sötétkamra
-GenericName[it]=Tavolo Luminoso e Camera Oscura virtuali
-GenericName[ja]=バーチャルのライトテーブルとダークルーム
-GenericName[nl]=Virtuele lichtbak en donkere kamer
-GenericName[pl]=Wirtualny Stół Podświetlany i Ciemnia
-GenericName[pt_BR]=Mesa de Luz e Sala Escura Virtuais
-GenericName[ru]=Виртуальный световой стол и фоторедактор
-GenericName[sl]=Virtualna osvetljena podlaga in temnica
-GenericName[sq]=Fototeka dhe Dhoma e errët virtuale
-GenericName[uk]=Віртуальний світлий стіл і темна кімната
-GenericName[zh_CN]=虚拟的光台和暗房
-GenericName[zh_TW]=虛擬燈箱與暗房
-Comment=Organize and develop images from digital cameras
-Comment[cs]=Uspořádejte a vytvářejte snímky z digitálních fotoaparátů
-Comment[de]=Organisiere und entwickle Bilder von Digitalkameras
-Comment[en@truecase]=Organize and develop images from digital cameras
-Comment[es]=Organice y revele fotografías de cámaras digitales
-Comment[fi]=Hallinnoi ja kehitä digitaalikameroilla otettuja valokuvia.
-Comment[fr]=Organiser et développer les images d’un boîtier numérique
-Comment[hu]=Digitális fényképező képeinek rendezése, kidolgozása
-Comment[it]=Organizza e sviluppa le immagini della tua fotocamera digitale
-Comment[ja]=デジタルカメラで撮影した画像を整理し現像します
-Comment[nl]=Organiseer en ontwikkel afbeeldingen van digitale camera's
-Comment[pl]=Organizuj i obrabiaj zdjęcia z aparatów cyfrowych
-Comment[pt_BR]=Organize e trate imagens de câmeras digitais
-Comment[ru]=Организация и обработка цифровых фотографий
-Comment[sl]=Organizira in razvija slike digitalnih kamer
-Comment[sq]=Organizoni dhe zhvilloni imazhet nga fotoaparatet
-Comment[uk]=Організація і обробка цифрових фотографій
-Comment[zh_CN]=组织并冲印来自数码相机的图片
-Comment[zh_TW]=整理和顯影來自數位相機的影像
 
 X-GNOME-FullName=Darktable Photo Workflow Software
 

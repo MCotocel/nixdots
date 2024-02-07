@@ -42,10 +42,11 @@
     musnix = {
       url = "github:musnix/musnix";
     };
+    nur.url = "github:nix-community/NUR";
   };
 
   outputs = { self, nixpkgs, home-manager, kmonad, f2k, nixos-generators, emacs
-    , nix-alien, musnix }: {
+    , nix-alien, musnix, nur}: {
 
       nixosConfigurations = {
 
@@ -53,13 +54,20 @@
           nixpkgs.lib.nixosSystem { # This is my main system, an X1 Carbon Gen 8. I've switched to this from my older Lenovo Legion 5
             system = "x86_64-linux"; # What did you expect?
             modules = [
+              nur.nixosModules.nur
               home-manager.nixosModules.home-manager
-              { home-manager.users.matei = import ./hosts/lithium/home.nix; }
               kmonad.nixosModules.default # For remapping keyboard keys
               musnix.nixosModules.musnix
               ./hosts/lithium/configuration.nix
               {
+                home-manager.users.matei.imports = [
+                  nur.hmModules.nur
+                  ./hosts/lithium/home.nix
+                ];
+              }
+              {
                 nixpkgs.overlays = [
+                  nur.overlay
                   self.inputs.nix-alien.overlays.default
                   (import self.inputs.emacs)
                   (import ./overlays/emacs-unstable.nix)

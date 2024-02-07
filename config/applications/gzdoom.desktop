@@ -1,6 +1,5 @@
 [Desktop Entry]
 Categories=Game
-Comment=Modder-friendly OpenGL and Vulkan source port based on the DOOM engine
 Exec=gzdoom
 Icon=gzdoom
 Name=GZDoom

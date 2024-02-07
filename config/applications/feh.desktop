@@ -1,9 +1,6 @@
 [Desktop Entry]
 Name=Feh
 Name[en_US]=feh
-GenericName=Image viewer
-GenericName[en_US]=Image viewer
-Comment=Image viewer and cataloguer
 Exec=feh --start-at %u
 Terminal=false
 Type=Application

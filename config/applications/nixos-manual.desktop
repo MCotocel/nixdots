@@ -1,8 +1,6 @@
 [Desktop Entry]
 Categories=System
-Comment=View NixOS documentation in a web browser
 Exec=nixos-help
-GenericName=System Manual
 Icon=nix-snowflake
 Name=NixOS Manual
 Type=Application

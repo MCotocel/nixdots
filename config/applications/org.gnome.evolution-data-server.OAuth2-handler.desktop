@@ -1,7 +1,6 @@
 [Desktop Entry]
 Type=Application
 Name=Evolution Data Server OAuth2 Handler
-Comment=Handles OAuth2 responses and passes them to the OAuth2 prompter implementation
 Exec=/nix/store/96gncixaczqmw2npsf8cxs7b3hzwsspy-evolution-data-server-3.50.3/libexec/evolution-data-server/evolution-oauth2-handler %u
 Terminal=false
 NoDisplay=true

@@ -1,7 +1,5 @@
 [Desktop Entry]
 Name=Nyxt
-Comment=Be Productive
-GenericName=Web Browser
 Keywords=Internet;WWW;Browser;Web;Explorer
 Exec=nyxt %u
 Terminal=false

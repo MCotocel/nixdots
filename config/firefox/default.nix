@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
   programs.firefox = {
@@ -7,11 +7,36 @@
       isDefault = true;
       name = "Matei";
       settings = {
+        "browser.startup.homepage" = "https://mcotocel.is-a.dev/startpage";
+        "browser.compactmode.show" = true;
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
         "browser.tabs.tabmanager.enabled" = false;
+        "browser.tabs.tabMinWidth" = 10;
+        "browser.toolbars.bookmarks.visibility" = "never";
+        "browser.newtabpage.activity-stream.feeds.topsites" = false;
       };
+      extensions = with config.nur.repos.rycee.firefox-addons; [
+        augmented-steam
+        auto-tab-discard
+        bitwarden
+        brotab
+        darkreader
+        fediact
+        i-dont-care-about-cookies
+        ipfs-companion
+        libredirect
+        linkhints
+        old-reddit-redirect
+        privacy-badger
+        qr-code-address-bar
+        reddit-enhancement-suite
+        refined-github
+        steam-database
+        terms-of-service-didnt-read
+        ublock-origin
+        windscribe
+      ];
       userChrome = ''
-
         /* Make the tab background transparent, remove rounding, make the tabs a certain height */
         .tab-background {
           height = 30px;
