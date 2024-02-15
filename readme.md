@@ -33,5 +33,5 @@ This isn't a fancy configuration intended to be easily modified by other people.
 
 ## Screenshots
 
-![Emacs](./assets/emacs.png)
-![Desktop](./assets/desktop.png)
+![Desktop image 1](./assets/1.png)
+![Desktop image 2](./assets/2.png)
