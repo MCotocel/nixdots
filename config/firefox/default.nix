@@ -21,6 +21,7 @@
         brotab
         darkreader
         fediact
+        greasemonkey
         i-dont-care-about-cookies
         ipfs-companion
         libredirect

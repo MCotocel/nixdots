@@ -94,6 +94,7 @@
       bind = $mainMod, N, exec, emacsclient -c --eval "(progn (org-agenda-list) (split-window-right) (other-window 1) (find-file-other-window \"~/State/Vault/20231002084007-refile.org\") (split-window-below) (other-window 1) (elfeed) (enlarge-window ( - 25 (window-body-height))))"
       bind = $mainMod SHIFT, S, exec, ~/.bin/rofi-screenshot
       bind = $mainMod, escape, exec, ~/.bin/rofi-power
+      bind = $mainMod, D, exec, ~/.bin/dashboard
 
       bind = , XF86AudioRaiseVolume, exec, pactl -- set-sink-volume @DEFAULT_SINK@ +5%
       bind = , XF86AudioLowerVolume, exec, pactl -- set-sink-volume @DEFAULT_SINK@ -5%

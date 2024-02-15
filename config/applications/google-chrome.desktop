@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
 Name=Google Chrome
-Exec=firejail google-chrome-stable
+Exec=google-chrome-stable
 Icon=google-chrome
 Keywords=browser

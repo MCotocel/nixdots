@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
 Name=Bluetooth Manager
-Exec=bluetooth
+Exec=blueman-manager
 Icon=bluetooth-active
 Keywords=

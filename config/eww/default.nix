@@ -32,7 +32,7 @@
           font-size: 2.5em;
           margin-right: 3px;
       }
-      
+
       .workspace-entry.occupied {
       	color: #97D59B
       }

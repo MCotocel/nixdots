@@ -43,7 +43,6 @@
     lmms # DAW
     mpc_cli # MPD cli client
     mpd # MPD
-    mpd-mpris # Control mpd with audio keys
     mpdevil # MPD GUI client
     mpv # Video player
     ncmpcpp # Mopidy front end

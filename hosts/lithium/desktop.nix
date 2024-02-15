@@ -7,7 +7,7 @@ let
 in
 {
   # We're using caps lock for something else
-  services.xserver.xkbOptions = "caps:none";
+  services.xserver.xkb.options = "caps:none";
 
   # Lockscreen
   security.pam.services.gtklock = {
@@ -50,12 +50,15 @@ in
     element-desktop # Matrix client
     eww-wayland # Widgets for Hyprland
     ffmpegthumbnailer # Video thumbnails
+    freetube # Youtube client
     gimp # Photo editor
+    gnome-feeds # RSS reader
     gnome.file-roller # Unarchiver
     gnome.gnome-disk-utility # Formatting disks
-    gnome.simple-scan # Scanner frontend
     gnome.nautilus # File manager
+    gnome.simple-scan # Scanner frontend
     google-chrome # Another browser, to separate work and not work
+    graphviz # Graph visualization
     gthumb # Image manager
     gtklock # GTK lock screen for wayland
     handbrake # Converting media

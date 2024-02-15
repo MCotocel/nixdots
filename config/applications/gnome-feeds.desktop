@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Gnome Feeds
+Exec=gfeeds
+Icon=rss
+Keywords=rss
