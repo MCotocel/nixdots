@@ -18,6 +18,7 @@
         evil-collection
         evil-leader
         format-all
+        git-gutter-fringe
         gnuplot
         highlight-indent-guides
         htmlize
@@ -362,7 +363,7 @@
         ".f" 'consult-line
         ".q" 'delete-frame
         ".e" 'eval-region
-        ".s" 'straight-use-package
+        ".;" 'eval-expression
         "SPC" 'execute-extended-command
         ;; Undo
         "uv" 'undo-tree-visualize
@@ -370,9 +371,7 @@
         "ur" 'undo-tree-redo
         "uc" 'consult-yank-pop
         ;; Dictionaries
-        "dt" 'mw-thesaurus-lookup-dwim
         "dd" 'dictionary-lookup-definition
-        "dr" 'gts-do-translate
         ;; Files
         "fr" 'consult-recent-file
         "fb" 'consult-bookmark
@@ -384,9 +383,9 @@
         "bw" 'quit-window
         "bb" 'consult-buffer
         "bx" 'switch-to-scratch
-        "be" 'emacs-everywhere-finish
         ;; Projectile
         "pa" 'projectile-add-known-project
+        "pr" 'projectile-recentf
         "pf" 'consult-projectile
         "pp" 'projectile-switch-project
         "pg" 'projectile-grep
@@ -404,10 +403,21 @@
         "oe" 'excalidraw-launch
         "oaa" 'org-agenda
         "oac" 'consult-org-agenda
+        ;; LSP
+        "lfd" 'lsp-ui-peek-find-definitions
+        "lfr" 'lsp-ui-peek-find-references
+        "lg" 'lsp-ui-doc-glance
+        "le" 'lsp-ui-flycheck-list
+        "lh" 'lsp-toggle-symbol-highlight
+        "lr" 'lsp-rename
         ;; Workspaces
-        "ws" 'persp-switch
+        "wf" 'persp-switch
+        "ws" 'persp-state-save
+        "wl" 'persp-state-load
         "wd" 'persp-kill
         "wr" 'persp-rename
+        "w]" 'persp-next
+        "w[" 'persp-prev
         ;; Help
         "hh" 'help
         "hk" 'describe-key
@@ -416,7 +426,6 @@
         "hs" 'describe-symbol
         "hm" 'describe-mode
         ;; Emojis
-        "ei" 'emoji-insert
         "es" 'emoji-search
         ;; Magit
         "gi" 'magit-init
@@ -487,6 +496,13 @@
             server-client-instructions nil
             inhibit-startup-message t)
       (setq ring-bell-function 'ignore)
+
+      ;; Git Gutter
+      (add-hook 'prog-mode-hook 'git-gutter-mode)
+      (setq git-gutter:update-interval 0.02)
+      (setq git-gutter:added-sign "█")
+      (setq git-gutter:deleted-sign "█")
+      (setq git-gutter:modified-sign "█")
 
       ;; Dashboard
       (dashboard-setup-startup-hook)
