@@ -47,14 +47,10 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    inputs = {
-      jovian.url = "github:Jovian-Experiments/Jovian-NixOS";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = { self, nixpkgs, home-manager, kmonad, f2k, nixos-generators, emacs
-    , nix-alien, musnix, nur, jovian }: {
+    , nix-alien, musnix, nur }: {
 
       nixosConfigurations = {
 
@@ -104,19 +100,6 @@
               { nixpkgs.overlays = [ (import ./overlays/rpi.nix) ]; }
             ];
           };
-
-        beryllium = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            home-manager.nixosModules.home-manager
-            kmonad.nixosModules.default
-            ./hosts/beryllium/configuration.nix
-            {
-              home-manager.users.matei.imports = [ ./hosts/beryllium/home.nix ];
-            }
-            { }
-          ];
-        };
 
       };
     };
