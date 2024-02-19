@@ -19,3 +19,11 @@
 - Raspberry Pi 3
 - Runs NixOS
 - Used for some more tinkering
+
+# Other
+
+## Beryllium
+
+- Steam Deck
+- Runs NixOS
+- Gaming!

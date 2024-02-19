@@ -41,12 +41,20 @@
     };
     musnix = {
       url = "github:musnix/musnix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
-    nur.url = "github:nix-community/NUR";
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    inputs = {
+      jovian.url = "github:Jovian-Experiments/Jovian-NixOS";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, kmonad, f2k, nixos-generators, emacs
-    , nix-alien, musnix, nur}: {
+    , nix-alien, musnix, nur, jovian }: {
 
       nixosConfigurations = {
 
@@ -60,10 +68,8 @@
               musnix.nixosModules.musnix
               ./hosts/lithium/configuration.nix
               {
-                home-manager.users.matei.imports = [
-                  nur.hmModules.nur
-                  ./hosts/lithium/home.nix
-                ];
+                home-manager.users.matei.imports =
+                  [ nur.hmModules.nur ./hosts/lithium/home.nix ];
               }
               {
                 nixpkgs.overlays = [
@@ -89,7 +95,7 @@
           };
 
         chlorine =
-          nixpkgs.lib.nixosSystem { # Also a low-power server, a Raspberry pi 3. I haven't found a usecase for it yet
+          nixpkgs.lib.nixosSystem { # Also a low-power server, a Raspberry Pi 3. I haven't found a usecase for it yet
             system = "aarch64-linux";
             modules = [
               home-manager.nixosModules.home-manager
@@ -98,6 +104,19 @@
               { nixpkgs.overlays = [ (import ./overlays/rpi.nix) ]; }
             ];
           };
+
+        beryllium = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            home-manager.nixosModules.home-manager
+            kmonad.nixosModules.default
+            ./hosts/beryllium/configuration.nix
+            {
+              home-manager.users.matei.imports = [ ./hosts/beryllium/home.nix ];
+            }
+            { }
+          ];
+        };
 
       };
     };
