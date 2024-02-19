@@ -4,8 +4,9 @@
   wayland.windowManager.hyprland = {
     enable = true;
     extraConfig = ''
-      monitor = ,preferred,0x0,1
-      monitor = eDP-1,preferred,2560x0,1
+      monitor = eDP-1,preferred,0x0,1
+      monitor = HDMI-A-1,2560x1440,1920x0,1
+      monitor = DP-3,1920x1080,4480x0,1,transform,1
       env = XCURSOR_SIZE,24
       env = WLR_NO_HARDWARE_CURSORS,1
       exec-once = gnome-keyring-daemon -r
@@ -17,6 +18,7 @@
       exec = eww daemon
       exec = eww -c ~/.config/eww open bar-internal
       exec = eww -c ~/.config/eww open bar-external
+      exec = eww -c ~/.config/eww open bar-secondary
       exec-once = kmonad ~/.config/kmonad/internal.kbd
       exec = kmonad ~/.config/kmonad/external.kbd
       exec-once = swaybg -m fill -i ~/Pictures/Wallpaper/Street.jpg

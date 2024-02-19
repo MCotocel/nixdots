@@ -174,6 +174,13 @@
           :exclusive true
           :stacking "fg"
           (bar))
+
+      (defwindow bar-secondary
+      	:geometry (geometry :x "0" :y "0" :anchor "center left" :height "100%" :width "30px")
+      	:monitor 2
+          :exclusive true
+          :stacking "fg"
+          (bar))
   '';
   home.file.".config/eww/scripts/battery".text = ''
       bat=/sys/class/power_supply/BAT0/
