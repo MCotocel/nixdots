@@ -60,6 +60,13 @@
     ACTION=="add", PROGRAM+="/run/current-system/sw/bin/chmod g+rw /sys/class/backlight/nvidia_wmi_ec_backlight/brightness"
   '';
 
+  # macOS VM
+  services.macos-ventura = {
+    enable = false;
+    openFirewall = true;
+    vncListenAddr = "0.0.0.0";
+  };
+
   services.gvfs.enable = true; # For the Gnome apps
   services.tumbler.enable = true;
   services.locate.enable = true; # Locating files quickly

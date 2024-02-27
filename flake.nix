@@ -1,42 +1,29 @@
-# You probably shouldn't be using my configuration as a guideline.
-# Sure, it works (mostly), but the code is horrible.
-# I'll also have unnecessary information in comments.
-# Why? I'll pretty much journal why I added something, instead of just saying what it is.
+# Welcome to NixOS. Have fun...
 
 {
   description =
-    "I have no idea what the hell I'm doing"; # It's true! I have a better feel for Nix and NixOS than before though.
-
+    "I have no idea what the hell I'm doing";
   inputs = {
     nixpkgs.url =
-      "github:NixOS/nixpkgs/nixos-unstable"; # Living on the edge. Sometimes things break, but it's worth it for newer packages most of the time
-    f2k = {
-      url =
-        "github:fortuneteller2k/nixpkgs-f2k"; # F2K's packages. I used to use this for AwesomeWM Git, but I've since moved on to Hyprland
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+      "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
       url =
-        "github:nix-community/home-manager"; # Managing my dotfiles, mostly. I'm the only user, so I don't use it to install packages, instead using the default, system-wide method
+        "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-generators = {
       url =
-        "github:nix-community/nixos-generators"; # For creating ISOs when I need to reinstall NixOS on a machine
+        "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     kmonad = {
       url =
-        "github:kmonad/kmonad?dir=nix"; # I have a 60% now (technically a 61%), so I need to bind some keys with layers
+        "github:kmonad/kmonad?dir=nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     emacs = {
       url =
-        "github:nix-community/emacs-overlay/master"; # The bleeding edge of Emacs
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nix-alien = {
-      url = "github:thiagokokada/nix-alien";
+        "github:nix-community/emacs-overlay/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     musnix = {
@@ -47,10 +34,13 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixtheplanet = {
+      url = "github:matthewcroughan/nixtheplanet";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, kmonad, f2k, nixos-generators, emacs
-    , nix-alien, musnix, nur }: {
+  outputs = { self, nixpkgs, home-manager, kmonad, nixos-generators, emacs
+    , musnix, nur, nixtheplanet }: {
 
       nixosConfigurations = {
 
@@ -62,6 +52,7 @@
               home-manager.nixosModules.home-manager
               kmonad.nixosModules.default # For remapping keyboard keys
               musnix.nixosModules.musnix
+              nixtheplanet.nixosModules.macos-ventura
               ./hosts/lithium/configuration.nix
               {
                 home-manager.users.matei.imports =
@@ -70,7 +61,6 @@
               {
                 nixpkgs.overlays = [
                   nur.overlay
-                  self.inputs.nix-alien.overlays.default
                   (import self.inputs.emacs)
                   (import ./overlays/emacs-unstable.nix)
                   (import ./overlays/ncmpcpp.nix)

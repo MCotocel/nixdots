@@ -52,7 +52,6 @@ in
     ffmpegthumbnailer # Video thumbnails
     freetube # Youtube client
     gimp # Photo editor
-    gnome-feeds # RSS reader
     gnome.file-roller # Unarchiver
     gnome.gnome-disk-utility # Formatting disks
     gnome.nautilus # File manager
@@ -112,11 +111,12 @@ in
       monospace = [ "Iosevka Nerd Font" ]; # Best monospace font
     };
     packages = with pkgs; [
+      fg-virgil # For Excalidraw drawings
+      montserrat # A very nice sans serif font
       noto-fonts # Fonts
       noto-fonts-cjk-sans # For CJK languages
       noto-fonts-extra # Fonts for languages
       twitter-color-emoji # Emoji
-      montserrat # A very nice sans serif font
       (nerdfonts.override { fonts = [ "Iosevka" ]; }) # Nerdfonts for those cool ligatures and icons
     ];
   };

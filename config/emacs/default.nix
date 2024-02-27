@@ -36,7 +36,6 @@
         nix-mode
         ob-mermaid
         olivetti
-        omnisharp
         orderless
         org-download
         org-modern
@@ -85,7 +84,6 @@
 
       (setq org-html-head "
                     <link rel=\"stylesheet\" type=\"text/css\" href=\"./style.css\"/>
-                    <script defer src=\"https://eu.umami.is/script.js\" data-website-id=\"c7bd5e90-595f-42f1-b167-30cc61b5ecae\"></script>
                     "
             org-html-doctype "html5")
 
@@ -121,7 +119,7 @@
                )
               ("vault:images"
                :base-directory "~/State/Vault/img"
-               :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
+               :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|svg"
                :publishing-directory "~/State/Hosted Vault/img"
                :recursive t
                :publishing-function org-publish-attachment
@@ -340,6 +338,14 @@
 
       (setq persp-state-default-file "~/.config/emacs/pesrp-save.el")
       (add-hook 'kill-emacs-hook #'persp-state-save)
+
+      ;; RSS feeds
+      (setq elfeed-feeds
+          '(("https://feeds.bbci.co.uk/news/world/rss.xml" news)
+            ("https://www.theverge.com/rss/index.xml" news)
+            ("https://old.reddit.com/r/battlestations/.rss" reddit)
+            ("https://old.reddit.com/r/unixporn/.rss" reddit)
+            ("https://old.reddit.com/r/nixos/.rss" reddit)))
 
                   ;;; Keybinds and Evil
 
@@ -611,7 +617,6 @@
       (add-hook 'json-mode-hook #'lsp)
       (add-hook 'latex-mode-hook #'lsp)
       (add-hook 'nix-mode-hook #'lsp)
-      (add-hook 'csharp-mode-hook 'omnisharp-mode)
 
       (setq lsp-enable-symbol-highlighting nil
             lsp-ui-doc-enable t

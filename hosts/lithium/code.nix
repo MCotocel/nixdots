@@ -48,7 +48,6 @@
       lynis # Security audits. Every little bit helps
       mono # .NET
       neofetch # Everyone loves neofetch
-      nix-alien # Run unpatched binaries
       nix-index # Locate nix packages
       nix-tree # Check dependencies
       nixfmt # Format Nix files

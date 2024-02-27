@@ -22,14 +22,14 @@ Disclamer: You **should not** blindly copy these dotfiles.
 
 ## Some notes
 
-This isn't a fancy configuration intended to be easily modified by other people. I've got some hardcoded user paths that you need to change if you want to change the username, some configurations that make sense for me, and settings that change all the time. You'll probably need to modify this manually to suit your needs, but it works for me. If you're merely using this as a starting point for Nix/NixOS, it _should_ in theory be fine.
+This isn't a fancy configuration intended to be easily modified by other people. I've got some hardcoded user paths that you need to change if you want to change the username, some configurations that make sense for me, and settings that change all the time. You'll probably need to modify this manually to suit your needs, but it works for me. If you're merely using this as a starting point for Nix/NixOS, it _should_ in theory be fine, although I might not be following best practices.
 
 ## Details
 
-- Compositor: Hyprland
-- Terminal: Wezterm
-- Text editor: Emacs
-- Widgets: Eww
+| Compositor  | Hyprland  |
+| Terminal    | Alacritty |
+| Text editor | Emacs     |
+| Widgets     | Eww       |
 
 ## Screenshots
 
