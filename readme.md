@@ -26,12 +26,11 @@ This isn't a fancy configuration intended to be easily modified by other people.
 
 ## Details
 
+|             |           |
+|-------------|-----------|
 | Compositor  | Hyprland  |
-|-------------|-----------|
 | Terminal    | Alacritty |
-|-------------|-----------|
 | Text editor | Emacs     |
-|-------------|-----------|
 | Widgets     | Eww       |
 
 ## Screenshots
