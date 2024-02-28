@@ -34,28 +34,28 @@
   musnix.enable = true;
 
   environment.systemPackages = with pkgs; [
-    alsa-utils # Utlities for alsa
-    audacity # Editing audio
-    easyeffects # Audio effects
-    guitarix # Digital guitar amp stuff
-    gxplugins-lv2 # Plugins for guitarix
-    ladspaPlugins # We need more plugins
-    lmms # DAW
-    mpc_cli # MPD cli client
-    mpd # MPD
-    mpdevil # MPD GUI client
-    mpv # Video player
-    ncmpcpp # Mopidy front end
-    pamixer # CLI mixer
-    pavucontrol # GUI mixer
-    picard # Music tagger
-    playerctl # Song control
-    pulseaudio # For some apps
-    pulsemixer # TUI mixer
-    scdl # For when I need to download from soundcloud
-    spotify # I love music
-    vcv-rack # I'm not rich enough for modular synths
-    vlc # GUI video player
-    zyn-fusion # Synthesizer thingy
+    alsa-util
+    audacity
+    easyeffects
+    guitarix
+    gxplugins-lv2
+    ladspaPlugins
+    lmms
+    mpc_cli
+    mpd
+    mpdevil
+    mpv
+    ncmpcpp
+    pamixer
+    pavucontrol
+    picard
+    playerctl
+    pulseaudio
+    pulsemixer
+    scdl
+    spotify
+    vcv-rack
+    vlc
+    zyn-fusion
   ];
 }
