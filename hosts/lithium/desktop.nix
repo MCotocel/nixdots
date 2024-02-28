@@ -1,10 +1,5 @@
 { config, lib, pkgs, system, ... }:
 
-let
-  tex = (pkgs.texlive.combine {
-    inherit (pkgs.texlive) scheme-full tikz-feynman;
-  });
-in
 {
   # We're using caps lock for something else
   services.xserver.xkb.options = "caps:none";
