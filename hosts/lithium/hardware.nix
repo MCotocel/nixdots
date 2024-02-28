@@ -73,12 +73,12 @@
     };
 
   environment.systemPackages = with pkgs; [
-    acpi # Battery and stuff
-    brightnessctl # Brightness
-    libinput # I think this is for my trackpad
-    lm_sensors # Time to clean my fans out
-    pmutils # Power management utils I guess
-    powertop # View battery usage
+    acpi
+    brightnessctl
+    libinput
+    lm_sensors
+    pmutils
+    powertop
   ];
 
   services.fwupd.enable = true;
