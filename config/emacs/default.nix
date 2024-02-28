@@ -34,7 +34,6 @@
         multi-vterm
         neotree
         nix-mode
-        ob-mermaid
         olivetti
         orderless
         org-download
@@ -246,8 +245,7 @@
                                               ; Literate programming
       (org-babel-do-load-languages
        'org-babel-load-languages
-       '((mermaid . t)
-         (latex . t)
+       '((latex . t)
          (python . t)
          (gnuplot . t)))
 

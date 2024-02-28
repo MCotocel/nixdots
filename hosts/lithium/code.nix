@@ -17,65 +17,64 @@
 
   environment = {
     systemPackages = with pkgs; [
-      arduino # I mess around with it occasionally
-      bash # Gotta have bash
-      bat # Cat but better
-      btop # Like htop but so much better looking
-      cava # I like the pretty visualisations
-      cmake # Necessary
-      coreutils # Necessary
-      distrobox # Run another distro under NixOS. Useful for the odd tool not available in Nix yet
-      dotnet-sdk_7 # C# for assignments (not a fan)
-      emacs-all-the-icons-fonts # Fonts for Emacs
-      eza # ls but better
-      fd # Find but better
-      feh # Image viewer
-      ffmpeg # I deal with a lot of videos
-      gcc # Necessary
-      gource # Nice for visualising repo history
-      gnumake # Make.
-      gnuplot # Plotting graphs
-      htop # Check system status
-      ifuse # For connecting my phone
-      imagemagick # Really useful for scripts
-      ipfs # IPFS
-      ispell # Spell checking
-      jq # For when you have to deal with JSON
-      libheif # For converting HEIC to JPG
-      libimobiledevice # For connecting my phone
-      libsecret # For passwords
-      lshw # Diagnostic time!
-      lynis # Security audits. Every little bit helps
-      mono # .NET
-      neofetch # Everyone loves neofetch
-      nix-index # Locate nix packages
-      nix-tree # Check dependencies
-      nixfmt # Format Nix files
-      nixos-generators # Generate NixOS outputs from configurations
-      nmap # For network debugging
-      nodePackages.mermaid-cli # For diagrams
-      nodejs # Some programs need it
-      nvd # Package version diff tool for Nix
-      ollama # Local LLMs
-      onefetch # Neofetch but for git repos
-      openai-whisper # Speech to text
-      openimagedenoise # Denoising images
-      openjdk # Java
-      pciutils # I love diagnosing my system
-      ps_mem # (Why is Emacs using so much RAM?)
-      python311Full # I know Python best
-      rnix-lsp # LSP server for Nix
-      speedtest-cli # Testing my internet speed from the terminal
-      smartmontools # Monitor the health of hard drives
-      sqlite # Databases and stuff
-      tmux # A terminal multiplexer
-      tokei # Counting lines of code
-      trash-cli # Trash instead of delete
-      tree-sitter # Better highlighting
-      unzip # For unzipping archives
-      vim # The original (not quite)
-      wget # For downloading web pages and stuff
-      yt-dlp # For downloading videos
+      arduino
+      bash
+      bat
+      btop
+      cava
+      cmake
+      coreutils
+      distrobox
+      dotnet-sdk_7
+      emacs-all-the-icons-fonts
+      eza
+      fd
+      feh
+      ffmpeg
+      gcc
+      gource
+      gnumake
+      gnuplot
+      htop
+      ifuse
+      imagemagick
+      ipfs
+      ispell
+      jq
+      libheif
+      libimobiledevice
+      libsecret
+      lshw
+      lynis
+      mono
+      neofetch
+      nix-index
+      nix-tree
+      nixfmt
+      nixos-generators
+      nmap
+      nodejs
+      nvd
+      ollama
+      onefetch
+      openai-whisper
+      openimagedenoise
+      openjdk
+      pciutils
+      ps_mem
+      python311Full
+      rnix-lsp
+      speedtest-cli
+      smartmontools
+      sqlite
+      tmux
+      tokei
+      trash-cli
+      tree-sitter
+      unzip
+      vim
+      wget
+      yt-dlp
     ];
 
     shellAliases = { # Loads of aliases
