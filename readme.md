@@ -1,36 +1,31 @@
-# NixOS Dotfiles
-
----
-
-Disclamer: You **should not** blindly copy these dotfiles.
-
----
+# nixdots - It somehow works!
 
 ## Setup
 
-- Get the latest minimal NixOS ISO. I get it from [here](https://channels.nixos.org/). You may want a slightly more stable ISO, not that it matters, since we're using the unstable channel.
+- Get a minimal NixOS ISO. I get the latest from [here](https://channels.nixos.org/), not that it matters, since you'll be using it for 5 minutes
 - Depending on which host you want to set up, you'll have to follow different instructions, each in `./hosts/<host>/readme.md`.
-- Once setup is done, use the `nas` tool to rebuild your configuration easily
+- Once setup is done, use the included `nas` tool to rebuild your configuration with a single command
 
 ## Why NixOS?
 
 - Declarative package installation and configuration management
-- Lots of packages (80k+)
-- Rollbacks of configurations
+- Lots of packages (~~80k+~~ 90k+ in nixpkgs unstable)
+- Rollback of configurations
 - Reliablity
 - Reproducible environments
 
 ## Some notes
 
-This isn't a fancy configuration intended to be easily modified by other people. I've got some hardcoded user paths that you need to change if you want to change the username, some configurations that make sense for me, and settings that change all the time. You'll probably need to modify this manually to suit your needs, but it works for me. If you're merely using this as a starting point for Nix/NixOS, it _should_ in theory be fine, although I might not be following best practices.
+This is not a clean configuration. It has hardcoded user paths and arguably odd defaults. However, I don't _think_ there's any harm in using snippets from this configuration.
 
 ## Details
 
 |             |           |
 |-------------|-----------|
 | Compositor  | Hyprland  |
-| Terminal    | Alacritty |
+| Browser     | Firefox   |
 | Text editor | Emacs     |
+| Terminal    | Alacritty |
 | Widgets     | Eww       |
 
 ## Screenshots
