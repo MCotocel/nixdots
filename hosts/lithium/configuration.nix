@@ -9,6 +9,7 @@
     ./grafana.nix
     ./hardware.nix
     ./network.nix
+    ./pkgs.nix
     ./services.nix
     ./sound.nix
     ../shared.nix

@@ -16,67 +16,6 @@
   };
 
   environment = {
-    systemPackages = with pkgs; [
-      arduino
-      bash
-      bat
-      btop
-      cava
-      cmake
-      coreutils
-      distrobox
-      dotnet-sdk_7
-      emacs-all-the-icons-fonts
-      eza
-      fd
-      feh
-      ffmpeg
-      gcc
-      gource
-      gnumake
-      gnuplot
-      htop
-      ifuse
-      imagemagick
-      ipfs
-      ispell
-      jq
-      libheif
-      libimobiledevice
-      libsecret
-      lshw
-      lynis
-      mono
-      neofetch
-      nix-index
-      nix-tree
-      nixfmt
-      nixos-generators
-      nmap
-      nodejs
-      nvd
-      ollama
-      onefetch
-      openai-whisper
-      openimagedenoise
-      openjdk
-      pciutils
-      ps_mem
-      python311Full
-      rnix-lsp
-      speedtest-cli
-      smartmontools
-      sqlite
-      tmux
-      tokei
-      trash-cli
-      tree-sitter
-      unzip
-      vim
-      wget
-      yt-dlp
-    ];
-
     shellAliases = { # Loads of aliases
       ls = "eza";
       la = "eza -a";
