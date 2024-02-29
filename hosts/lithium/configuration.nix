@@ -15,17 +15,39 @@
     ../shared.nix
   ];
 
-  users.groups = { uinput = {}; plugdev = {}; fuse = {}; realtime = {}; }; # Create some groups
-
-  users.users.matei = { # That's me
-    isNormalUser = true;
-    extraGroups = [ "wheel" "video" "audio" "realtime" "libvirtd" "input" "uinput" "plugdev" "fuse" "dialout" "networkmanager" "wireshark" "docker" "scanner" ];
-    shell = pkgs.zsh; # ZSH > Bash
-    initialPassword = "1234"; # I always change this don't worry
+  users = {
+    groups = {
+      uinput = { };
+      plugdev = { };
+      fuse = { };
+      realtime = { };
+    }; # Create some groups
+    users.matei = { # That's me
+      isNormalUser = true;
+      extraGroups = [
+        "wheel"
+        "video"
+        "audio"
+        "realtime"
+        "libvirtd"
+        "input"
+        "uinput"
+        "plugdev"
+        "fuse"
+        "dialout"
+        "networkmanager"
+        "wireshark"
+        "docker"
+        "scanner"
+      ];
+      shell = pkgs.zsh; # ZSH > Bash
+      initialPassword = "1234"; # I always change this don't worry
+    };
   };
 
   boot = {
-    binfmt.emulatedSystems = [ "aarch64-linux" ]; # For building Raspberry Pi images
+    binfmt.emulatedSystems =
+      [ "aarch64-linux" ]; # For building Raspberry Pi images
   };
 
   nix.settings = {
