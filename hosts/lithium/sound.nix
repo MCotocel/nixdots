@@ -35,7 +35,7 @@
   musnix.enable = true;
 
   environment.systemPackages = with pkgs; [
-    alsa-util
+    alsa-utils
     audacity
     easyeffects
     guitarix
