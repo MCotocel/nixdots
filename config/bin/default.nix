@@ -5,7 +5,6 @@
       gtklock -i -s ~/.config/gtklock.css
   '';
   home.file.".bin/lock".executable = true;
-  home.file.".bin/dashboard".executable = true;
   home.file.".bin/rofi-power".text = ''
       res=$(echo -en "Reload|Lock|Suspend|Logout|Shutdown|Reboot" | rofi -sep "|" -dmenu -i -p 'Power Options' -theme-str 'window { height: 25%; width: 15%;}') # Make selection prompt
       
