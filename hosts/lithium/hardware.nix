@@ -7,39 +7,34 @@
         [ "xhci_pci" "ahci" "nvme" "usb_storage" "uas" "sd_mod" "sdhci_pci" ];
       kernelModules = [ "i915" "btintel" ];
     };
-    kernelModules = [ "kvm-intel" "fuse" ]; # Some modules
-    kernelParams = [
-      "intel_iommu=on"
-      "splash"
-      "boot.shell_on_fail"
-      "i915.fastboot=1"
-    ];
-    tmp.useTmpfs = true; # Keep tmp files where they belong
-    tmp.cleanOnBoot = true;
+    kernelModules = [ "kvm-intel" "fuse" ];
+    kernelParams =
+      [ "intel_iommu=on" "splash" "boot.shell_on_fail" "i915.fastboot=1" ];
+    tmp = {
+      useTmpfs = true;
+      cleanOnBoot = true;
+    };
     supportedFilesystems = [ "ntfs" ];
     initrd.verbose = false;
     extraModprobeConfig = ''
       options snd-intel-dspcfg dsp_driver=1
     '';
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
   };
 
-  # Bootloader
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
-  };
-
-  # Usbmuxd tends to hang on shutdown, so let's lower the timeout
   systemd.extraConfig = ''
     DefaultTimeoutStopSec=5s
   '';
 
-  time.hardwareClockInLocalTime = true; # For Windows
+  time.hardwareClockInLocalTime = true;
 
   hardware = {
-    enableAllFirmware = true; # Firmware stuff
-    enableRedistributableFirmware = true; # More firmware stuff
-    opengl.enable = true; # OpenGL stuff
+    enableAllFirmware = true;
+    enableRedistributableFirmware = true;
+    opengl.enable = true;
     opengl.extraPackages = with pkgs; [
       vaapiIntel
       libvdpau-va-gl
@@ -48,29 +43,37 @@
     cpu.intel.updateMicrocode = true;
   };
 
-  services.thermald.enable = true; # Keep temps in check
-  services.fstrim.enable = true; # I have an SSD
-  powerManagement.powertop.enable = true; # Battery and stuff
-  services.tlp = {
-    enable = true;
-    settings = {
-      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-      CPU_SCALING_GOVERNOR_ON_AC = "performance";
-      STOP_CHARGE_THRESH_BAT0 = "80";
+  services = {
+    thermald.enable = true;
+    fstrim.enable = true;
+    tlp = {
+      enable = true;
+      settings = {
+        CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+        CPU_SCALING_GOVERNOR_ON_AC = "performance";
+        STOP_CHARGE_THRESH_BAT0 = "80";
+      };
+    };
+    fwupd.enable = true;
+    fprintd = {
+      enable = true;
+      tod.enable = true;
+      tod.driver = pkgs.libfprint-2-tod1-vfs0090;
     };
   };
 
-  fileSystems."/" = # Main disk
-    {
+  powerManagement.powertop.enable = true;
+
+  fileSystems = {
+    "/" = {
       device = "/dev/disk/by-label/nixos";
       fsType = "ext4";
     };
-
-  fileSystems."/boot" = # Boot drive
-    {
+    "/boot" = {
       device = "/dev/disk/by-label/boot";
       fsType = "vfat";
     };
+  };
 
   environment.systemPackages = with pkgs; [
     acpi
@@ -80,14 +83,4 @@
     pmutils
     powertop
   ];
-
-  services.fwupd.enable = true;
-
-  # Fingerprint
-  services.fprintd = {
-    enable = true;
-    tod.enable = true;
-    tod.driver = pkgs.libfprint-2-tod1-vfs0090;
-  };
-
 }

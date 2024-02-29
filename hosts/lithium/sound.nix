@@ -1,9 +1,9 @@
 { config, pkgs, lib, ... }:
 
 {
-  # Sound
+  # Enabling sound
   security.rtkit.enable = true;
-  services.pipewire = { # Why? Because pipewire is hip and trendy
+  services.pipewire = {
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
@@ -11,6 +11,7 @@
     jack.enable = true;
   };
 
+  # Playing local music files
   services.mpd = {
     enable = true;
     user = "matei";
@@ -26,11 +27,11 @@
       }
     '';
   };
-
   systemd.services.mpd.environment = {
       XDG_RUNTIME_DIR = "/run/user/1000";
   };
 
+  # Real-time audio
   musnix.enable = true;
 
   environment.systemPackages = with pkgs; [
