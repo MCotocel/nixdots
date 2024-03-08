@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
 Name=Handbrake
-Exec=handbrake
+Exec=ghb
 Icon=handbrake
 Keywords=

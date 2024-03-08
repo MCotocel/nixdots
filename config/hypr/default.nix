@@ -7,6 +7,8 @@
       monitor = eDP-1,preferred,0x0,1
       monitor = HDMI-A-1,2560x1440,1920x0,1
       monitor = DP-3,1920x1080,4480x0,1,transform,1
+      monitor = DP-4,1920x1080,4480x0,1,transform,1
+      monitor = DP-5,1920x1080,4480x0,1,transform,1 # I do not have this many monitors, my monitor just likes to change names
       env = XCURSOR_SIZE,24
       env = WLR_NO_HARDWARE_CURSORS,1
       exec-once = gnome-keyring-daemon -r

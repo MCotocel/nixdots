@@ -342,7 +342,6 @@
           '(("https://feeds.bbci.co.uk/news/world/rss.xml" news)
             ("https://www.theverge.com/rss/index.xml" news)
             ("https://old.reddit.com/r/battlestations/.rss" reddit)
-            ("https://old.reddit.com/r/unixporn/.rss" reddit)
             ("https://old.reddit.com/r/nixos/.rss" reddit)))
 
                   ;;; Keybinds and Evil

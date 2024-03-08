@@ -26,7 +26,6 @@
         ipfs-companion
         libredirect
         linkhints
-        noscript
         old-reddit-redirect
         privacy-badger
         qr-code-address-bar

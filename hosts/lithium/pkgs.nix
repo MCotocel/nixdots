@@ -26,7 +26,7 @@ in
       dunst
       element-desktop
       emacs-all-the-icons-fonts
-      eww-wayland
+      eww
       eza
       fd
       feh
