@@ -228,7 +228,6 @@
                      :time-grid t
                      :tag "rpg")))
 
-                                              ; Category icons
 ;      (setq org-agenda-category-icon-alist
 ;            `(("maths" ,(list (nerd-icons-mdicon "nf-md-square_root")) nil nil :ascent center)
 ;              ("physics" ,(list (nerd-icons-mdicon "nf-md-atom")) nil nil :ascent center)

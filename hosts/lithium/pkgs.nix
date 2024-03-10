@@ -90,6 +90,7 @@ in
       qbittorrent
       qemu
       qpwgraph
+      remmina
       rnix-lsp
       rofi-wayland
       scid
