@@ -29,13 +29,14 @@
           kb_layout = us
           repeat_rate = 50
           repeat_delay = 300
-          follow_mouse = 0
-          mouse_refocus = 0
+          follow_mouse = 1
+          mouse_refocus = false
           touchpad {
               natural_scroll = 1
           }
           sensitivity = 0
       }
+      windowrulev2 = stayfocused,class:(steam),title:(^$)
 
       general {
           gaps_in = 3

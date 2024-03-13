@@ -13,6 +13,7 @@
         doom-modeline
         doom-themes
         elfeed
+        elfeed-web
         emacs-everywhere
         evil
         evil-collection
@@ -178,12 +179,12 @@
 
       ;; Agenda and capture
       (setq org-todo-keywords
-            '((sequence "TODO" "RECURRING" "WORKING" "DONE")))
+            '((sequence "TODO" "PROG" "|" "DONE" "DEAD")))
       (setq org-todo-keyword-faces
             '(("TODO" . (:foreground "#ff8080" :weight bold))
-              ("RECURRING" . (:foreground "#fffe80" :weight bold))
-              ("WORKING" . (:foreground "#ace1ff" :weight bold))
-              ("DONE" . (:foreground "#97d59b" :weight bold))))
+              ("PROG" . (:foreground "#ace1ff" :weight bold))
+              ("DEAD" . (:foreground "#cccccc" :weight bold))
+              ("DONE" . (:foreground "#cccccc" :weight bold))))
 
       (setq org-agenda-prefix-format
             '((agenda . "%t %s")))
@@ -206,27 +207,13 @@
                                               ; Super agenda to add some niceties
       (org-super-agenda-mode)
       (setq org-super-agenda-groups
-            '((:name "Critical"
-                     :time-grid t
-                     :priority "A")
-              (:name "Important"
-                     :time-grid t
-                     :priority "B")
-              (:name "Standard"
-                     :time-grid t
-                     :priority "C")
-              (:name "Low"
-                     :time-grid t
-                     :priority "D")
-              (:name "Trivial"
-                     :time-grid t
-                     :priority "E")
-              (:name "School"
-                     :time-grid t
-                     :tag ("cs" "epq" "maths" "physics" "sc"))
-              (:name "RPGs"
-                     :time-grid t
-                     :tag "rpg")))
+            '((:name "Timetable" :time-grid t :deadline today :scheduled today)
+              (:name "Today" :scheduled today)
+              (:name "Today" :deadline today)
+              (:name "Due" :deadline future)
+              (:name "Overdue" :deadline past)))
+      (setq org-super-agenda-header-separator "────────────────────────────────────────────────\n")
+      (setq org-super-agenda-final-group-separator "\n────────────────────────────────────────────────")
 
 ;      (setq org-agenda-category-icon-alist
 ;            `(("maths" ,(list (nerd-icons-mdicon "nf-md-square_root")) nil nil :ascent center)
@@ -339,9 +326,7 @@
       ;; RSS feeds
       (setq elfeed-feeds
           '(("https://feeds.bbci.co.uk/news/world/rss.xml" news)
-            ("https://www.theverge.com/rss/index.xml" news)
-            ("https://old.reddit.com/r/battlestations/.rss" reddit)
-            ("https://old.reddit.com/r/nixos/.rss" reddit)))
+            ("https://www.theverge.com/rss/index.xml" news)))
 
                   ;;; Keybinds and Evil
 
@@ -412,6 +397,9 @@
         "le" 'lsp-ui-flycheck-list
         "lh" 'lsp-toggle-symbol-highlight
         "lr" 'lsp-rename
+        ;; Snippets
+        "si" 'yas-insert-snippet
+        "sw" 'yas-new-snippet
         ;; Workspaces
         "wf" 'persp-switch
         "ws" 'persp-state-save
@@ -738,11 +726,15 @@
     }
 
     img {
-      max-width: 400px;
+      max-width: 800px;
     }
 
     b {
       color: #ff8080;
+    }
+
+    code {
+      color: #97d59b;
     }
   '';
   home.file.".config/emacs/doom-quiet-dark-theme.el".text = ''
