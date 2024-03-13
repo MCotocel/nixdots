@@ -83,7 +83,19 @@
             org-src-fontify-natively t)
 
       (setq org-html-head "
-                    <link rel=\"stylesheet\" type=\"text/css\" href=\"./style.css\"/>
+                    <link rel=\"stylesheet\" type=\"text/css\" href=\"./dark.css\"/>
+                    <script> 
+                       function toggleTheme() { 
+                            var theme = document.getElementsByTagName('link')[0]; 
+  
+                            if (theme.getAttribute('href') == 'light.css') { 
+                                theme.setAttribute('href', 'dark.css'); 
+                            } else { 
+                                theme.setAttribute('href', 'light.css'); 
+                            } 
+                        } 
+                    </script> 
+                    <header> <div align=\"left\"> <a href=\"/\">Back home</a> </div> <div align=\"right\"> <button onclick=\"toggleTheme()\">Switch</button> </div> </header>
                     "
             org-html-doctype "html5")
 
@@ -735,6 +747,15 @@
 
     code {
       color: #97d59b;
+    }
+
+    button {
+      background-color: #000000;
+      border: none;
+      color: #80d1ff;
+      display: inline-block;
+      font-size: 16px;
+      font-family: monospace;
     }
   '';
   home.file.".config/emacs/doom-quiet-dark-theme.el".text = ''
