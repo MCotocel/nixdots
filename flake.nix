@@ -27,7 +27,9 @@
     nur = {
       url = "github:nix-community/NUR";
     };
-    nixtheplanet = { url = "github:matthewcroughan/nixtheplanet"; };
+    nixtheplanet = {
+      url = "github:matthewcroughan/nixtheplanet";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, kmonad, nixos-generators, emacs

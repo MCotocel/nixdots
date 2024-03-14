@@ -41,18 +41,17 @@
       general {
           gaps_in = 3
           gaps_out = 5
-          border_size = 0
-          col.active_border = rgba(ccccccff)
-          col.inactive_border = rgba(ccccccff)
+          border_size = 4
+          col.active_border = rgba(182528ff)
+          col.inactive_border = rgba(182528ff)
 
           layout = dwindle
       }
 
       decoration {
-          rounding = 0;
+          rounding = 0
           drop_shadow = true
           shadow_ignore_window = true
-          shadow_offset "0 8"
           shadow_range = 20
           shadow_render_power = 5
           col.shadow = rgba(000000cc)

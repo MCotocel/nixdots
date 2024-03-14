@@ -68,6 +68,7 @@ in
       neofetch
       networkmanagerapplet
       nicotine-plus
+      nil
       nix-index
       nix-tree
       nixfmt
@@ -91,7 +92,6 @@ in
       qemu
       qpwgraph
       remmina
-      rnix-lsp
       rofi-wayland
       scid
       smartmontools

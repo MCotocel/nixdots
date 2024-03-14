@@ -16,6 +16,7 @@
         ac: #cccccc;
         bg: #000000;
         fg: #d5d5d5;
+        bd: #182528;
         background-color: @bg;
       }
 
@@ -23,8 +24,8 @@
         padding: 20px;
         width: 30%;
         height: 40%;
-        border: 0px;
-        border-color: @ac;
+        border: 0.2em;
+        border-color: @bd;
       }
 
       prompt { text-color: @fg; }

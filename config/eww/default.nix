@@ -24,7 +24,7 @@
       .eww_bar {
           background-color: $background;
           padding: 1em;
-          border-right: 0.3em solid #000000;
+          border-right: 0.3em solid #182528;
       }
       
       .power_icon {
