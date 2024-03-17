@@ -7,10 +7,10 @@
   # Lockscreen
   security.pam.services.gtklock = {
     text = ''
-        auth sufficient pam_unix.so try_first_pass likeauth nullok
-        auth sufficient	pam_fprintd.so
-        auth include login
-      '';
+      auth sufficient pam_unix.so try_first_pass likeauth nullok
+      auth sufficient	pam_fprintd.so
+      auth include login
+    '';
   };
 
   # For saving passwords and stuff
@@ -26,13 +26,27 @@
   programs.kdeconnect.enable = true;
 
   # Mail
-  services.gnome.evolution-data-server.enable = true;
-  services.gnome.gnome-settings-daemon.enable = true;
-  services.gnome.evolution-data-server.plugins = [ pkgs.evolution-ews ];
+  services.gnome = {
+    evolution-data-server.enable = true;
+    gnome-settings-daemon.enable = true;
+    evolution-data-server.plugins = [ pkgs.evolution-ews ];
+  };
   programs.evolution.enable = true;
 
   # Nautilus quick look
   services.gnome.sushi.enable = true;
+
+  # Gnome
+  services.xserver = {
+    enable = true;
+    displayManager = {
+      sessionPackages = [ pkgs.hyprland ];
+      gdm.enable = true;
+      gdm.wayland = true;
+    };
+  };
+
+  boot.plymouth.enable = true;
 
   fonts = {
     fontDir.enable = true;
@@ -48,7 +62,9 @@
       noto-fonts-cjk-sans # For CJK languages
       noto-fonts-extra # Fonts for languages
       twitter-color-emoji # Emoji
-      (nerdfonts.override { fonts = [ "Iosevka" ]; }) # Nerdfonts for those cool ligatures and icons
+      (nerdfonts.override {
+        fonts = [ "Iosevka" ];
+      }) # Nerdfonts for those cool ligatures and icons
     ];
   };
 

@@ -14,10 +14,13 @@
 )
 
 (defalias
-    lay (layer-toggle lay)
+    laym1 (layer-toggle laym1)
+    lay0 (layer-toggle lay0)
+    lay1 (layer-toggle lay1)
     med (layer-toggle med)
     fun (around (layer-switch fun) (cmd-button "echo fun >> ~/.config/kmonad/log"))
     qwe (around (layer-switch qwe) (cmd-button "echo qwe >> ~/.config/kmonad/log"))
+    mrk (around (layer-switch mrk) (cmd-button "echo mrk >> ~/.config/kmonad/log"))
 )
 
 (defalias
@@ -26,25 +29,49 @@
     rsc (tap-hold 70 \) rsft)
 )
 
-;; QWERTY layout
+;; QWERTY layout - rel 0
 (deflayer qwe
-  esc  1    2    3    4    5    6    7    8    9    0    -    =    bspc   
-  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \      
-  @lay a    s    d    f    g    h    j    k    l    ;    '    ret         
-  @lsc z    x    c    v    b    n    m    ,    .    /    @rsc
-  lctl lmet lalt           spc            ralt @med rctl             
+  esc   1    2    3    4    5    6    7    8    9    0    -    =    bspc   
+  tab   q    w    e    r    t    y    u    i    o    p    [    ]    \      
+  @lay0 a    s    d    f    g    h    j    k    l    ;    '    ret         
+  @lsc  z    x    c    v    b    n    m    ,    .    /    @rsc
+  lctl  lmet lalt           spc            ralt @med rctl             
 )
 
-;; Vim layout with keys to shift to other layouts
-(deflayer lay
-  grv  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
-  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX     
-  @lay XX   XX   XX   XX   XX   left down up right  XX   XX   XX
-  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   @fun
-  XX   XX   XX             XX             XX   @med XX            
+(deflayer lay0
+  grv   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  XX    XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX     
+  @lay0 XX   XX   XX   XX   XX   left down up right  XX   XX   XX
+  @mrk  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   @fun
+  XX    XX   XX             XX             XX   @med XX            
 )
 
-;; Function key layout
+(deflayer laym1
+  grv    XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  XX     XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX     
+  @laym1 XX   XX   XX   XX   XX   left down up right  XX   XX   XX
+  XX     XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   @qwe
+  XX     XX   XX             XX             XX   @med XX            
+)
+
+(deflayer lay1
+  grv   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  XX    XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX     
+  @lay1 XX   XX   XX   XX   XX   left down up right  XX   XX   XX
+  @qwe  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  XX    XX   XX             XX             XX   @med XX            
+)
+
+;; Markup layout - rel m1
+(deflayer mrk
+  esc    1    2    3    4    5    6    7    kp*  9    0    -    =    bspc   
+  tab    q    w    e    r    t    y    u    i    o    p    [    ]    \      
+  @laym1 a    s    d    f    g    h    j    k    l    ;    '    ret         
+  lsft   z    x    c    v    b    n    m    ,    .    /    @qwe
+  lctl   lmet lalt           spc            ralt @med rctl             
+)
+
+;; Function key layout - rel 1
 (deflayer fun
   XX   f1   f2   f3   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
   XX   f4   f5   f6   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX     

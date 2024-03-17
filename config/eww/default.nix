@@ -249,8 +249,8 @@
       	icon="󰌌"
       elif [ "$layer" == "fun" ]; then
           icon="󱊶"
-      elif [ "$layer" == "med" ]; then
-          icon="󰝚"
+      elif [ "$layer" == "mrk" ]; then
+          icon=""
       fi
       echo "$icon"
   '';

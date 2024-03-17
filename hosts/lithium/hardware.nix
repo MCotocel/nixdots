@@ -46,6 +46,7 @@
   services = {
     thermald.enable = true;
     fstrim.enable = true;
+    power-profiles-daemon.enable = lib.mkForce false;
     tlp = {
       enable = true;
       settings = {

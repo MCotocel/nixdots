@@ -10,6 +10,7 @@
     pulse.enable = true;
     jack.enable = true;
   };
+  hardware.pulseaudio.enable = false;
 
   # Playing local music files
   services.mpd = {
