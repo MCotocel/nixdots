@@ -1,4 +1,4 @@
-{ config, pkgs, kmonad, ... }:
+{ pkgs, ... }:
 
 {
   virtualisation.libvirtd = { # VMs are cool (and useful)

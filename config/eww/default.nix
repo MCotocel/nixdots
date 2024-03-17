@@ -1,5 +1,3 @@
-{ config, ... }:
-
 {
   home.file.".config/eww/eww.scss".text = ''
       // Colours

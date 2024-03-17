@@ -1,5 +1,3 @@
-{ config, ... }:
-
 {
   home.file.".bin/lock".text = ''
       gtklock -i -s ~/.config/gtklock.css

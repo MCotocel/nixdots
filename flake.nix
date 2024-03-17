@@ -30,10 +30,13 @@
     nixtheplanet = {
       url = "github:matthewcroughan/nixtheplanet";
     };
+    hy3 = {
+      url = "github:outfoxxed/hy3";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, kmonad, nixos-generators, emacs
-    , musnix, nur, nixtheplanet }: {
+    , musnix, nur, nixtheplanet, hy3 }: {
 
       nixosConfigurations = {
 

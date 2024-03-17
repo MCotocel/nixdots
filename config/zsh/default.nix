@@ -1,5 +1,3 @@
-{ config, ... }:
-
 {
   home.file.".zshrc".text = ''
     ######### Completion ##########

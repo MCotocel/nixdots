@@ -1,4 +1,4 @@
-{ config, lib, pkgs, system, ... }:
+{ pkgs, ... }:
 
 {
   # We're using caps lock for something else

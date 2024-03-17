@@ -1,5 +1,3 @@
-{ config, ... }:
-
 {
   home.file.".config/cava/config".text = ''
       [general]

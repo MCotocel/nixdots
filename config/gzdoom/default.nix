@@ -1,5 +1,3 @@
-{ config, ... }:
-
 {
   home.file.".config/gzdoom/gzdoom.ini".text = ''
       # These are the directories to automatically search for IWADs.

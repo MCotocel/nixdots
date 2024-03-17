@@ -1,5 +1,3 @@
-{ config, pkgs, ... }:
-
 {
   home.file.".config/rofi/config.rasi".text = ''
     @theme "./Quiet.rasi"

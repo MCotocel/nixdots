@@ -1,5 +1,3 @@
-{ config, ... }:
-
 {
   home.file.".config/gtklock.css".text = ''
       window {
