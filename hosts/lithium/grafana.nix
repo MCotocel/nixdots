@@ -9,7 +9,7 @@
           database = "telegraf";
           username = "telegraf";
           password = "telegraf";
-          urls = ["http://127.0.0.1:8086"];
+          urls = [ "http://127.0.0.1:8086" ];
         };
       };
       inputs = {
@@ -18,7 +18,7 @@
           totalcpu = true;
         };
         disk = {
-          mount_points = ["/"];
+          mount_points = [ "/" ];
           ignore_fs = [
             "tmpfs"
             "devtmpfs"
@@ -29,11 +29,11 @@
             "squashfs"
           ];
         };
-        mem = {};
-        net = {};
-        processes = {};
-        system = {};
-        temp = {};
+        mem = { };
+        net = { };
+        processes = { };
+        system = { };
+        temp = { };
         filecount = {
           directories = [ "/home/matei/State/Vault" ];
           name = "*.org";

@@ -38,6 +38,6 @@
     remotePlay.openFirewall = true; # Steam Remote Play
     dedicatedServer.openFirewall = true; # Source Dedicated Server
   };
-  
+
   services.upower.enable = true; # UPower
 }

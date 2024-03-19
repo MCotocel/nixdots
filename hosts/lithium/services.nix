@@ -32,9 +32,7 @@
 
   hardware.sane.enable = true;
 
-  services.saned = {
-    enable = true;
-  };
+  services.saned = { enable = true; };
 
   services.logind.lidSwitch = "suspend"; # Power settings
   services.logind.lidSwitchDocked = "ignore"; # Quick access while plugged in
@@ -45,9 +43,7 @@
   '';
 
   # Isolation
-  programs.firejail = {
-    enable = true;
-  };
+  programs.firejail = { enable = true; };
 
   # For kmonad
   services.udev.extraRules = ''
