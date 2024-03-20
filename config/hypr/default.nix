@@ -79,6 +79,18 @@
           workspace_swipe_cancel_ratio = 0.3
       }
 
+      group {
+          col.border_active = rgba(182528ff)
+          col.border_inactive = rgba(182528ff)
+          groupbar {
+              font_family = Monospace
+              font_size = 11
+              height = 20
+              col.active = rgba(182528ff)
+              col.inactive = rgba(000000ff)
+          }
+      }
+
       misc {
           disable_hyprland_logo = 1
       }
@@ -90,10 +102,13 @@
       bind = $mainMod CONTROL, space, togglefloating, 
       bind = $mainMod SHIFT, F, fullscreen, 
 
+      bind = $mainMod, T, togglegroup
+      bind = $mainMod ALT, J, changegroupactive, f
+      bind = $mainMod ALT, K, changegroupactive, b
+
       bind = $mainMod, space, exec, rofi -show drun -display-drun 'App Launcher'
       bind = $mainMod SHIFT, E, exec, emacsclient -c
       bind = $mainMod SHIFT, R, exec, emacsclient -c -e '(elfeed)'
-      bind = $mainMod, N, exec, emacsclient -c --eval "(progn (org-agenda-list) (split-window-right) (other-window 1) (find-file-other-window \"~/State/Vault/20231002084007-refile.org\") (split-window-below) (other-window 1) (elfeed) (enlarge-window ( - 25 (window-body-height))))"
       bind = $mainMod SHIFT, S, exec, ~/.bin/rofi-screenshot
       bind = $mainMod, escape, exec, ~/.bin/rofi-power
       bind = $mainMod, D, exec, ~/.bin/dashboard

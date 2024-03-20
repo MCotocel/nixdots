@@ -30,7 +30,7 @@
       settings.X11Forwarding = true; # Forwarding X11
     };
     avahi = {
-      enable = true;
+      enable = false;
       nssmdns4 = true;
     };
   };
