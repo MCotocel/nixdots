@@ -103,6 +103,7 @@
       bind = $mainMod SHIFT, F, fullscreen, 
 
       bind = $mainMod, T, togglegroup
+      bind = $mainMod SHIFT, T, moveoutofgroup, active
       bind = $mainMod ALT, J, changegroupactive, f
       bind = $mainMod ALT, K, changegroupactive, b
 
