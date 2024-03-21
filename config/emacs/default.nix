@@ -86,18 +86,7 @@
 
             (setq org-html-head "
                           <link rel=\"stylesheet\" type=\"text/css\" href=\"./dark.css\"/>
-                          <script> 
-                             function toggleTheme() { 
-                                  var theme = document.getElementsByTagName('link')[0]; 
-        
-                                  if (theme.getAttribute('href') == 'light.css') { 
-                                      theme.setAttribute('href', 'dark.css'); 
-                                  } else { 
-                                      theme.setAttribute('href', 'light.css'); 
-                                  } 
-                              } 
-                          </script> 
-                          <header> <div align=\"left\"> <a href=\"/\">Back home</a> </div> <div align=\"right\"> <button onclick=\"toggleTheme()\">Switch</button> </div> </header>
+                          <header> <div align=\"left\"> <a href=\"/\">Back home</a> </div> <hr class=\"solid\"></hr> </header>
                           "
                   org-html-doctype "html5")
 
@@ -708,56 +697,55 @@
       background-color: #000000;
       font-family: monospace;
       font-size: 16px;
+      text-align: left;
     }
-
+    
     pre, blockquote, src {
       background: #000000;
-      border: 3px solid #0f1719;
+      border: 1px solid #d5d5d5;
+      border-radius: 0px;
       font-family: monospace;
       padding-top: 15px;
       padding-bottom: 15px;
       padding-right: 15px;
       padding-left: 30px;
     }
-
+    
     blockquote {
       font-size: 14px;
     }
-
+    
     a {
-      color: #80d1ff;
+      color: #ffffff;
       text-decoration: none;
     }
-
+    
     a:hover {
-      font-weight: bold;
+      color: #000000;
+      background-color: #ffffff;
+      padding: 5px;
       text-decoration: none;
     }
-
+    
     table, th, td {
       border: 1px solid;
       padding: 10px;
     }
-
+    
     img {
       max-width: 800px;
     }
-
+    
     b {
-      color: #ff8080;
+      color: #ffffff;
     }
-
+    
     code {
       color: #97d59b;
     }
-
-    button {
-      background-color: #000000;
-      border: none;
-      color: #80d1ff;
-      display: inline-block;
-      font-size: 16px;
-      font-family: monospace;
+    
+    hr {
+      color: #ffffff;
     }
   '';
   home.file.".config/emacs/doom-quiet-dark-theme.el".text = ''

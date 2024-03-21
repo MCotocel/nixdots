@@ -21,7 +21,7 @@
       exec = eww -c ~/.config/eww open bar-secondary
       exec-once = kmonad ~/.config/kmonad/internal.kbd
       exec = kmonad ~/.config/kmonad/external.kbd
-      exec-once = swaybg -m fill -i ~/Pictures/Wallpaper/Street.jpg
+      exec-once = swaybg -m fill -i ~/Pictures/Wallpaper/Alley.jpg
 
       input {
           kb_layout = us
