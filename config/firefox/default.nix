@@ -43,12 +43,12 @@
           border-radius: 0px 0px 0px 0px !important;
           margin-block: 1px 0 !important;
         }
-
+       
         /* Underline the active tab */
         .tabbrowser-tab[selected="true"] .tab-background {
-          border-bottom: 1px solid #80d1ff;
+          border-top: 2px solid #97d59b;
         }
-
+       
        /* Make the tab length adjust to try and fill */
        .tabbrowser-tab[selected][fadein]:not([pinned]) {
          max-width: 10000px !important;
@@ -60,6 +60,16 @@
        /* Hide the close button */
        .tabbrowser-tab .tab-close-button {
          visibility: collapse !important;
+       }
+
+       /* Hide the window close button */
+       .titlebar-buttonbox, hbox.titlebar-spacer {
+         visibility: collapse;
+       }
+
+       /* Make toolbar consistent with theme */
+       .customization-target, #PanelUI-button {
+         background-color: #000000;
        }
       '';
     };

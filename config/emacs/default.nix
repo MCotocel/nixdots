@@ -328,8 +328,9 @@
 
             ;; RSS feeds
             (setq elfeed-feeds
-                '(("https://feeds.bbci.co.uk/news/world/rss.xml" news)
-                  ("https://www.theverge.com/rss/index.xml" news)))
+                '("https://feeds.bbci.co.uk/news/world/rss.xml"
+                   "https://hnrss.org/newest?comments=25"
+                   "https://www.theverge.com/rss/index.xml"))
 
                         ;;; Keybinds and Evil
 
@@ -366,6 +367,7 @@
               "fr" 'consult-recent-file
               "fb" 'consult-bookmark
               "ff" 'find-file
+              "fg" 'consult-ripgrep
               ;; Bufffers and windows
               "bv" 'split-window-right
               "bh" 'split-window-below
@@ -378,7 +380,7 @@
               "pr" 'projectile-recentf
               "pf" 'consult-projectile
               "pp" 'projectile-switch-project
-              "pg" 'projectile-grep
+              "pg" 'projectile-ripgrep
               "pm" 'projectile-commander
               "pc" 'projectile-compile-project
               ;; Org
@@ -701,6 +703,7 @@
     }
     
     pre, blockquote, src {
+      color: #97d59b;
       background: #000000;
       border: 1px solid #d5d5d5;
       border-radius: 0px;

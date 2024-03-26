@@ -32,6 +32,7 @@ in {
       ffmpegthumbnailer
       freetube
       gcc
+      ghostscript
       gimp
       gnome.file-roller
       gnome.gnome-disk-utility
@@ -45,6 +46,7 @@ in {
       gthumb
       gtklock
       handbrake
+      hplip
       htop
       ifuse
       imagemagick
@@ -90,6 +92,7 @@ in {
       qemu
       qpwgraph
       remmina
+      ripgrep
       rofi-wayland
       scid
       smartmontools
