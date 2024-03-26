@@ -72,6 +72,13 @@
          background-color: #000000;
        }
       '';
+    userContent = ''
+      @-moz-document url("about:newtab"), url("about:blank") {  
+          * {
+              background-color: #000000 !important;
+          }
+      }
+    '';
     };
   };
 }
